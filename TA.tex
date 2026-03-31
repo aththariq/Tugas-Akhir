@@ -90,6 +90,8 @@
 \usepackage[skip=12pt]{parskip} % for spacing between paragraphs
 \usepackage{longtable} % for long tables
 \usepackage{booktabs} % for better table rules
+\usepackage{makecell} % for line breaks in table cells
+\usepackage{multirow} % for multi-row cells in tables
 \usepackage[bahasai]{datetime2} % for date formatting in Indonesian
 \usepackage{geometry} % for page margins
 \usepackage{algorithm} % for algorithms
@@ -104,6 +106,7 @@
 \usepackage[title,titletoc]{appendix} % for appendix management
 \usepackage{csquotes} % for context-sensitive quotation facilities
 \usepackage[hidelinks]{hyperref} % for hyperlinks
+\usepackage{placeins} % for float barriers
 
 
 \setmainfont{Times New Roman} % set main font to Times New Roman
@@ -308,15 +311,8 @@
   capposition=top
 }
 % --- Algoritma ---
-\captionsetup[algorithm]{
-  labelsep=space, 
-  format=hang, 
-  justification=raggedright, 
-  singlelinecheck=false
-}
-\floatsetup[algorithm]{
-  capposition=top
-}
+% Konfigurasi caption khusus algoritma dinonaktifkan sementara karena
+% lingkungan algoritma tidak digunakan pada draft saat ini.
 
 % --- Atur indentasi paragraf ---
 \setlength{\parindent}{0pt}
@@ -369,8 +365,8 @@
 %\input{7a Daftar Lampiran.tex} % Optional. Daftar lampiran sudah ada di dalam daftar isi.
 \input{8 Daftar Gambar.tex}
 \input{9 Daftar Tabel.tex}
-\input{10 Daftar Persamaan.tex}
-\input{11 Daftar Algoritma.tex}
+%\input{10 Daftar Persamaan.tex} % Dinonaktifkan karena tidak ada persamaan bernomor pada naskah saat ini.
+%\input{11 Daftar Algoritma.tex} % Dinonaktifkan karena tidak ada algoritma pada naskah saat ini.
 \input{12 Daftar Listing.tex}
 \input{13 Daftar Simbol.tex}
 \input{14 Daftar Singkatan.tex}

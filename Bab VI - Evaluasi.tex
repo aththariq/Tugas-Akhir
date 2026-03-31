@@ -4,77 +4,245 @@
 \cleardoublepage
 \chapter{EVALUASI}
 \label{chap:evaluasi}
-asdfasdf
+
+\section{Tujuan Evaluasi}
+\label{sec:tujuan-evaluasi}
+
+Evaluasi pada penelitian ini bertujuan untuk menilai apakah rancangan
+arsitektur sistem inspeksi kargo digital terintegrasi yang telah direalisasikan
+benar-benar mendukung kebutuhan utama yang telah diidentifikasi pada tahap
+analisis dan perancangan. Berbeda dengan evaluasi yang berfokus pada akurasi
+model secara mendalam, evaluasi pada penelitian ini menitikberatkan pada
+kesesuaian realisasi arsitektur, integrasi antarkomponen, konsistensi alur data,
+dan kemampuan sistem dalam mendukung proses inspeksi secara terpadu.
+
+Secara khusus, evaluasi diarahkan untuk menjawab empat pertanyaan utama.
+Pertama, apakah komponen \textit{edge}, layanan API, aplikasi web, dan lapisan
+penyimpanan dapat berkomunikasi sesuai dengan rancangan arsitektur. Kedua,
+apakah alur data utama dari identifikasi kontainer sampai penyajian hasil dapat
+berjalan secara konsisten. Ketiga, apakah struktur data yang direalisasikan
+mendukung ketertelusuran proses inspeksi. Keempat, apakah pemisahan jalur data
+terstruktur dan jalur video langsung memberikan dukungan yang memadai terhadap
+kebutuhan operasional sistem.
+
 \section{Metode Evaluasi}
-asdfasdf
-\section{Hasil Evaluasi}
-asdfasdf
-\section{Pembahasan Hasil Evaluasi}
-\section{Evaluasi Kesalahan Penulisan yang Sering Terjadi}
-\subsection{Penggunaan Kata "di mana" atau "dimana"}
-Banyak yang menuliskan kata "di mana" atau "dimana" sebagai pengganti kata "which" dalam bahasa Inggris. 
-Padahal, penggunaan kata "di mana" atau "dimana" tidak tepat dalam konteks tersebut. Demikian juga untuk kata serupa, misalnya "yang mana".
-Kata "di mana" atau "dimana" ini harus diganti dengan kata lain, seperti "dengan", "tempat", "yang", dan sebagainya tergantung kalimatnya.
-Penjelasan lengkap dapat dilihat pada \autocite{BPBI}.
+\label{sec:metode-evaluasi}
 
-\subsection{Penggunaan Kata "sedangkan" dan "sehingga"}
+\subsection{Pendekatan Evaluasi}
+\label{subsec:pendekatan-evaluasi}
 
-\begin{table}[t]
-  \begin{tabular}{|c|l|l|}
-  \hline
-  Kata & Salah & Benar \\ \hline
-  sedangkan & \begin{tabular}[c]{@{}c@{}}Sedangkan sistem lama masih\\ digunakan oleh banyak pengguna.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Sistem lama masih digunakan\\ oleh banyak pengguna,\\ sedangkan sistem baru belum siap.\end{tabular} \\ \hline
-  sehingga & \begin{tabular}[c]{@{}c@{}}Sehingga sistem lama masih\\ digunakan oleh banyak pengguna.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Sistem lama masih digunakan\\ oleh banyak pengguna sehingga\\ sistem baru belum siap.\end{tabular} \\ \hline
-  \end{tabular}
-  \caption{Contoh penggunaan kata "sedangkan" dan "sehingga"}
-  \label{tbl:sedangkan_sehingga}
+Metode evaluasi yang digunakan adalah evaluasi berbasis skenario integrasi dan
+validasi fungsional sistem. Pendekatan ini dipilih karena sesuai dengan tujuan
+penelitian, yaitu menilai implementabilitas rancangan arsitektur dan kesesuaian
+realisasinya terhadap kebutuhan sistem. Artefak utama yang digunakan sebagai
+dasar evaluasi adalah dokumentasi pengujian integrasi, struktur layanan
+yang telah dibangun, serta perilaku sistem yang telah diimplementasikan pada
+proyek capstone.
+
+Evaluasi dilakukan terhadap tiga komponen utama sistem, yaitu:
+\begin{enumerate}
+    \item komponen \textit{edge} yang bertugas menarik aliran video, menjalankan
+    inferensi, dan menyiarkan hasil secara waktu nyata;
+    \item layanan API yang menerima data hasil inspeksi, mengelola persistensi,
+    dan menyediakan antarmuka data terstruktur;
+    \item aplikasi web yang berfungsi sebagai antarmuka pemantauan,
+    pengelolaan aliran, dan pembacaan hasil inspeksi.
+\end{enumerate}
+
+Selain itu, evaluasi juga mencakup komponen penyimpanan, yaitu MongoDB sebagai
+basis data utama dan Cloudflare R2 sebagai penyimpanan artefak visual.
+
+\subsection{Skenario Evaluasi}
+\label{subsec:skenario-evaluasi}
+
+Berdasarkan artefak pengujian integrasi yang tersedia, evaluasi dilakukan
+melalui beberapa skenario utama.
+
+\textbf{1. Verifikasi konektivitas \textit{edge} ke layanan API}
+
+Skenario ini bertujuan memastikan bahwa komponen \textit{edge} mampu
+mengirimkan hasil identifikasi dan hasil pemindaian ke layanan API dengan
+mekanisme autentikasi yang sesuai. Keberhasilan skenario ini menunjukkan bahwa
+jalur data terstruktur dari lapisan \textit{edge} ke lapisan aplikasi berjalan
+dengan benar.
+
+\textbf{2. Verifikasi aliran OCR}
+
+Skenario ini memeriksa apakah aliran OCR dapat dijalankan, mendeteksi nomor
+kontainer, dan menghasilkan entitas kontainer pada sistem \textit{backend}.
+Keberhasilan skenario ini menunjukkan bahwa identitas utama objek inspeksi dapat
+dibentuk secara otomatis dan tersedia untuk proses lanjutan.
+
+\textbf{3. Verifikasi propagasi nomor kontainer}
+
+Skenario ini digunakan untuk menilai apakah hasil deteksi nomor kontainer dari
+aliran OCR dapat dipropagasikan ke aliran lain, seperti aliran pemindaian
+kerusakan. Keberhasilan skenario ini penting karena menunjukkan bahwa integrasi
+lintas modul tidak bergantung pada pengisian manual yang berulang.
+
+\textbf{4. Verifikasi penyimpanan hasil pemindaian}
+
+Skenario ini memeriksa apakah hasil pemindaian kerusakan, barang berisiko, dan
+kategori muatan dapat tersimpan pada entitas kontainer yang sesuai. Skenario ini
+menjadi indikator bahwa model data yang dirancang benar-benar digunakan sebagai
+wadah integrasi informasi inspeksi.
+
+\textbf{5. Verifikasi siaran video langsung}
+
+Skenario ini menilai apakah aplikasi web dapat menerima aliran video
+beranotasi langsung dari komponen \textit{edge} melalui \textit{WebSocket}.
+Keberhasilan skenario ini menunjukkan bahwa jalur video langsung yang dirancang
+dapat direalisasikan tanpa membebani layanan API.
+
+\textbf{6. Verifikasi perilaku antarmuka web}
+
+Skenario ini memeriksa apakah aplikasi web dapat menampilkan aliran aktif,
+memperbarui status tab, menampilkan kontainer aktif hasil OCR, dan memperbarui
+halaman inspeksi setelah proses \textit{scan} diselesaikan. Evaluasi ini
+menunjukkan bahwa hasil integrasi antarkomponen dapat diterjemahkan menjadi
+interaksi pengguna yang utuh.
+
+\subsection{Aspek yang Dievaluasi}
+\label{subsec:aspek-dievaluasi}
+
+Berdasarkan skenario di atas, aspek evaluasi pada penelitian ini dirangkum
+dalam Tabel~\ref{tbl:aspek-evaluasi}.
+
+\begin{table}[ht]
+    \centering
+    \small
+    \caption{Aspek Evaluasi Realisasi Arsitektur}
+    \label{tbl:aspek-evaluasi}
+    \begin{tabular}{p{0.24\textwidth} p{0.25\textwidth} p{0.37\textwidth}}
+        \toprule
+        \textbf{Aspek} & \textbf{Fokus Pengujian} & \textbf{Indikator Keberhasilan} \\
+        \midrule
+        Integrasi layanan & Komunikasi \textit{edge}, API, dan web & Data dapat dikirim, diterima, dan dibaca antarkomponen \\
+        Konsistensi alur data & Perpindahan data dari identifikasi hingga hasil inspeksi & Data hasil inspeksi terhubung ke entitas kontainer yang benar \\
+        Ketertelusuran proses & Pencatatan status, waktu, dan artefak visual & Tersedia jejak proses dan bukti inspeksi yang dapat ditelusuri \\
+        Pemisahan jalur komunikasi & Pemisahan jalur data terstruktur dan video & Data transaksional dan video menggunakan jalur yang berbeda sesuai fungsi \\
+        Kesiapan operasional antarmuka & Perilaku aplikasi web dalam menampilkan hasil & Operator dapat memantau aliran dan membaca hasil inspeksi secara utuh \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
-Kata "sedangkan" dan "sehingga" adalah kata hubung atau konjungsi. 
-Konjungsi adalah kata atau ungkapan yang menghubungkan satuan bahasa 
-(kata, frasa, klausa, dan kalimat). 
-Konjungsi dapat dibagi menjadi konjungsi intrakalimat dan antarkalimat.  
-Kata "sedangkan" menghubungkan dua klausa yang bersifat kontrasif, 
-sedangkan "sehingga" menghubungkan dua klausa yang bersifat kausal. 
-Dalam ragam formal, kata hubung “sedangkan” dan “sehingga” hanya dapat digunakan 
-sebagai konjungsi intrakalimat sehingga kedua konjungsi itu \textbf{tidak dapat diletakkan pada awal kalimat}.
-Selain itu, penggunaan kata "sedangkan" harus didahului oleh koma (,), sedangkan kata "sehingga" tidak perlu didahului oleh koma (,).
-Contoh penggunaan yang benar dan salah dapat dilihat pada Tabel \ref{tbl:sedangkan_sehingga}.
+\section{Hasil Evaluasi}
+\label{sec:hasil-evaluasi}
 
+\subsection{Hasil pada Integrasi Antarlayanan}
+\label{subsec:hasil-integrasi-antarlayanan}
 
-\subsection{Penggunaan Istilah yang Tidak Baku}
-Ada beberapa istilah yang sering digunakan dalam pembicaraan sehari-hari, tetapi tidak baku dalam penulisan ilmiah.
-Beberapa istilah tersebut antara lain:
+Hasil evaluasi menunjukkan bahwa integrasi antara komponen \textit{edge},
+layanan API, dan aplikasi web telah direalisasikan sesuai dengan pembagian
+tanggung jawab yang dirancang. Komponen \textit{edge} dapat mengirimkan hasil
+identifikasi dan hasil pemindaian ke layanan API melalui HTTP, sedangkan
+aplikasi web dapat membaca kembali data yang telah disimpan melalui antarmuka
+REST.
+
+Pengujian juga menunjukkan bahwa autentikasi antarkomponen telah dipisahkan
+sesuai konteks penggunaannya. Komponen \textit{edge} menggunakan mekanisme
+\textit{API key} untuk mengirimkan data mesin-ke-mesin, sedangkan aplikasi web
+menggunakan autentikasi berbasis pengguna. Pemisahan ini menunjukkan bahwa
+arsitektur tidak hanya memisahkan jalur data, tetapi juga memisahkan konteks
+akses sesuai dengan peran masing-masing komponen.
+
+\subsection{Hasil pada Alur Identifikasi dan Pemindaian}
+\label{subsec:hasil-identifikasi-pemindaian}
+
+Pada alur identifikasi, sistem mampu membuat atau memperbarui entitas kontainer
+berdasarkan nomor kontainer yang dihasilkan oleh proses OCR. Setelah identitas
+kontainer terbentuk, aliran pemindaian lain dapat menggunakan identitas tersebut
+sebagai konteks bersama untuk menyimpan hasil inspeksi. Hal ini memperlihatkan
+bahwa kontainer benar-benar menjadi entitas agregasi utama pada arsitektur data
+yang dibangun.
+
+Pengujian propagasi nomor kontainer menunjukkan bahwa aliran OCR dapat
+menyebarkan nomor kontainer yang berhasil dideteksi ke aliran lain yang sedang
+aktif. Dengan mekanisme ini, hasil pemindaian kerusakan, barang berisiko, dan
+kategori muatan dapat langsung dikaitkan ke kontainer yang sama. Hasil tersebut
+menunjukkan bahwa integrasi lintas aliran tidak lagi mengandalkan entri manual
+berulang dari operator.
+
+\subsection{Hasil pada Jalur Video Langsung}
+\label{subsec:hasil-jalur-video}
+
+Hasil evaluasi memperlihatkan bahwa aplikasi web dapat menerima aliran video
+beranotasi langsung dari komponen \textit{edge} melalui \textit{WebSocket}. Hal
+ini menunjukkan bahwa keputusan arsitektural untuk memisahkan jalur video dari
+jalur data terstruktur dapat direalisasikan dengan baik.
+
+Pemisahan ini memberikan dua keuntungan utama. Pertama, aplikasi web tetap dapat
+menampilkan kondisi lapangan secara waktu nyata. Kedua, layanan API tidak perlu
+bertindak sebagai perantara untuk data video berukuran besar. Dengan demikian,
+jalur video langsung terbukti mendukung kebutuhan operasional tanpa mengganggu
+jalur penyimpanan data transaksional.
+
+\subsection{Hasil pada Arsitektur Data}
+\label{subsec:hasil-arsitektur-data}
+
+Evaluasi terhadap struktur data menunjukkan bahwa model data yang direalisasikan
+telah mendukung kebutuhan integrasi dan ketertelusuran. Entitas \textit{Container}
+mampu menyimpan hasil OCR, ringkasan manifest, hasil pemindaian kerusakan,
+barang berisiko, klasifikasi muatan, dan bukti inspeksi dalam satu entitas
+terpadu. Sementara itu, entitas \textit{TrackingEvent} dan \textit{StreamStatus}
+menyediakan jejak aktivitas operasional yang dapat digunakan untuk pemantauan
+dan penelusuran.
+
+Pemisahan penyimpanan antara MongoDB dan Cloudflare R2 juga menunjukkan bahwa
+implementasi mengikuti kebutuhan data yang berbeda. Data terstruktur disimpan
+untuk mendukung kueri dan pembaruan status, sedangkan artefak visual disimpan
+di media penyimpanan objek yang lebih sesuai. Hasil ini menguatkan bahwa
+rancangan arsitektur data yang diusulkan bersifat operasional, bukan sekadar
+konseptual.
+
+\section{Pembahasan Hasil Evaluasi}
+\label{sec:pembahasan-hasil-evaluasi}
+
+Secara umum, hasil evaluasi menunjukkan bahwa rancangan arsitektur berhasil
+direalisasikan menjadi sistem yang terintegrasi. Dari perspektif arsitektur,
+keberhasilan utama tidak hanya terletak pada tersedianya komponen-komponen
+sistem, tetapi pada kemampuannya untuk bekerja dalam alur yang konsisten.
+Komponen \textit{edge} bertanggung jawab terhadap pengambilan data dan inferensi
+awal, layanan API bertanggung jawab terhadap persistensi dan integrasi data,
+sedangkan aplikasi web bertanggung jawab terhadap penyajian hasil dan interaksi
+pengguna.
+
+Hasil evaluasi juga memperlihatkan bahwa keputusan pemisahan jalur komunikasi
+merupakan keputusan yang tepat. Jalur data terstruktur melalui layanan API
+menjaga konsistensi dan kontrol akses, sedangkan jalur video langsung melalui
+\textit{WebSocket} memenuhi kebutuhan pemantauan waktu nyata. Dengan kata lain,
+arsitektur yang diimplementasikan telah membedakan dengan jelas antara data yang
+bersifat persisten dan data yang bersifat temporer.
+
+Dari sisi kontribusi penelitian, hasil evaluasi mendukung argumentasi bahwa
+fokus pada arsitektur sistem dan data memang relevan. Struktur data yang
+dibangun memungkinkan hasil inspeksi dari beberapa sumber untuk digabungkan
+dalam satu entitas kontainer. Mekanisme ini penting dalam konteks pelabuhan
+karena proses inspeksi jarang terjadi dalam satu titik tunggal. Sistem harus
+mampu menyatukan hasil dari beberapa tahapan inspeksi tanpa kehilangan konteks
+dan tanpa mengorbankan ketertelusuran.
+
+\section{Keterbatasan Evaluasi}
+\label{sec:keterbatasan-evaluasi}
+
+Walaupun hasil evaluasi menunjukkan bahwa sistem dapat berjalan sesuai dengan
+rancangan arsitektur, terdapat beberapa keterbatasan yang perlu dicatat.
+
 \begin{enumerate}
-  \item analisa $\rightarrow$ analisis
-  \item eksisting atau existing $\rightarrow$ yang ada atau saat ini
-  \item bisnis proses $\rightarrow$ proses bisnis
-  \item user $\rightarrow$ pengguna
-  \item system $\rightarrow$ sistem
-  \item database $\rightarrow$ basis data
-  \item aktifitas $\rightarrow$ aktivitas
-  \item efektifitas $\rightarrow$ efektivitas
-  \item sosial media $\rightarrow$ media sosial
+    \item Evaluasi pada penelitian ini berfokus pada integrasi sistem dan
+    validasi alur data, sehingga belum menilai performa kuantitatif seperti
+    latensi menyeluruh, kapasitas pemrosesan, dan konsumsi sumber daya secara rinci.
+    \item Evaluasi akurasi model deteksi dan OCR tidak dibahas secara mendalam
+    pada penelitian ini karena berada di luar fokus utama kontribusi
+    arsitektural.
+    \item Pengujian dilakukan berdasarkan artefak implementasi dan skenario
+    integrasi yang tersedia pada lingkungan pengembangan, sehingga evaluasi
+    pada skala operasional penuh di lingkungan pelabuhan nyata masih menjadi
+    pekerjaan lanjutan.
 \end{enumerate}
 
-\subsection{Pemisah Desimal dan Ribuan}
-Tanda pemisah desimal dalam bahasa Indonesia adalah tanda koma, contoh:
-\begin{enumerate}
-  \item (Salah) Akurasi naik menjadi 50.6\% 
-  \item (Benar) Akurasi naik menjadi 50,6\% 
-\end{enumerate}
-
-\subsection{Daftar atau \textit{List}}
-Ada beberapa aturan penulisan daftar atau \textit{list} yang perlu diperhatikan, antara lain:
-\begin{enumerate}[a)]
-\item Jika memungkinkan, hindari penggunaan “bullet points” atau sejenisnya. Sebaiknya, gunakan angka (1, 2, 3, ...) atau huruf (a, b, c, …). Dengan demikian, pembaca dapat dengan mudah melihat jumlah \textit{item} atau \textit{list}. 
-\item Jika dalam daftar hanya ada satu item, tidak perlu menggunakan nomor urut.
-\item Penjelasan atau deskripsi suatu item sebaiknya menyatu dengan judul item tersebut, tidak berbeda halaman. Contoh yang salah: judul item ada di halaman 10, namun deskripsinya di halaman 11. Sebaiknya pindahkan judul tersebut ke halaman 11.
-\item Jika penjelasan atau deskripsi suatu item cukup panjang, misalnya lebih dari 1 halaman atau terdiri atas beberapa paragraf, sebaiknya setiap item tersebut dijadikan judul subbab, kecuali jika level subbab sudah mencapai level 4. 
-\end{enumerate}
-
-\subsection{Penggunaan Kata "masing-masing" dan "setiap"}
-Kata “masing-masing” digunakan di belakang kata yang diterangkan, misalnya 
-"Setiap proses menggunakan algoritma masing-masing". Kata “tiap-tiap” atau “setiap”
-ditempatkan di depan kata yang diterangkan, misalnya
-"Setiap proses menggunakan algoritma tertentu".
+Keterbatasan tersebut tidak mengurangi nilai hasil evaluasi terhadap kontribusi
+penelitian ini, tetapi menunjukkan ruang pengembangan untuk penelitian
+berikutnya. Evaluasi lanjutan dapat diarahkan pada pengukuran performa sistem,
+uji beban, pengujian ketahanan operasional, dan validasi pada lingkungan
+lapangan yang lebih representatif.

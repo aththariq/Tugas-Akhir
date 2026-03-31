@@ -1,0 +1,1087 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global/global}
+    \entry{crifasia2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=915114b00363a3d1083e3dbc4e1f3531}{%
+           family={Asia},
+           familyi={A\bibinitperiod},
+           given={CRIF},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{fullhash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{fullhashraw}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{bibnamehash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{authorbibnamehash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{authornamehash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{authorfullhash}{915114b00363a3d1083e3dbc4e1f3531}
+      \strng{authorfullhashraw}{915114b00363a3d1083e3dbc4e1f3531}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.crif.com}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Improving Cargo Auditability in Maritime Logistics}
+      \field{year}{2023}
+    \endentry
+    \entry{axelos2019}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b863bf08a9c40d5530e05833a90f1762}{%
+           family={AXELOS},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{fullhash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{fullhashraw}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{bibnamehash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{authorbibnamehash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{authornamehash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{authorfullhash}{b863bf08a9c40d5530e05833a90f1762}
+      \strng{authorfullhashraw}{b863bf08a9c40d5530e05833a90f1762}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.axelos.com}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{ITIL 4 Foundation}
+      \field{year}{2019}
+    \endentry
+    \entry{worldbank2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=eb963c1731cf870b94450df5798926ce}{%
+           family={Bank},
+           familyi={B\bibinitperiod},
+           given={World},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eb963c1731cf870b94450df5798926ce}
+      \strng{fullhash}{eb963c1731cf870b94450df5798926ce}
+      \strng{fullhashraw}{eb963c1731cf870b94450df5798926ce}
+      \strng{bibnamehash}{eb963c1731cf870b94450df5798926ce}
+      \strng{authorbibnamehash}{eb963c1731cf870b94450df5798926ce}
+      \strng{authornamehash}{eb963c1731cf870b94450df5798926ce}
+      \strng{authorfullhash}{eb963c1731cf870b94450df5798926ce}
+      \strng{authorfullhashraw}{eb963c1731cf870b94450df5798926ce}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://lpi.worldbank.org}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Logistics Performance Index 2023}
+      \field{year}{2023}
+    \endentry
+    \entry{bappenas2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67f32da9bdb354986a52602d8a661518}{%
+           family={Bappenas},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{67f32da9bdb354986a52602d8a661518}
+      \strng{fullhash}{67f32da9bdb354986a52602d8a661518}
+      \strng{fullhashraw}{67f32da9bdb354986a52602d8a661518}
+      \strng{bibnamehash}{67f32da9bdb354986a52602d8a661518}
+      \strng{authorbibnamehash}{67f32da9bdb354986a52602d8a661518}
+      \strng{authornamehash}{67f32da9bdb354986a52602d8a661518}
+      \strng{authorfullhash}{67f32da9bdb354986a52602d8a661518}
+      \strng{authorfullhashraw}{67f32da9bdb354986a52602d8a661518}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.bappenas.go.id/}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Rencana Pembangunan Jangka Menengah Nasional 2020-2024: Update 2023}
+      \field{year}{2023}
+    \endentry
+    \entry{bass2022}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=97196c0aaced1368c3042b9299a9b34b}{%
+           family={Bass},
+           familyi={B\bibinitperiod},
+           given={Len},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=806866eee4e5b55ba7360bfe43f4f397}{%
+           family={Clements},
+           familyi={C\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a2e06c3fa40bc2221536e74ab90b7ec}{%
+           family={Kazman},
+           familyi={K\bibinitperiod},
+           given={Rick},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Professional}%
+      }
+      \strng{namehash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{fullhash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{fullhashraw}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{bibnamehash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{authorbibnamehash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{authornamehash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{authorfullhash}{f3c472223052fa8f8a1c396381e08cd3}
+      \strng{authorfullhashraw}{f3c472223052fa8f8a1c396381e08cd3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4th}
+      \field{title}{Software Architecture in Practice}
+      \field{year}{2022}
+    \endentry
+    \entry{bc2020}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7bde48edda71fd9f592d07abb5b628e6}{%
+           family={Cukai},
+           familyi={C\bibinitperiod},
+           given={Direktorat\bibnamedelimb Jenderal\bibnamedelima Bea},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0,
+           prefix={dan},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \strng{namehash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{fullhash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{fullhashraw}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{bibnamehash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{authorbibnamehash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{authornamehash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{authorfullhash}{7bde48edda71fd9f592d07abb5b628e6}
+      \strng{authorfullhashraw}{7bde48edda71fd9f592d07abb5b628e6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://jdih.beacukai.go.id}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Peraturan Direktur Jenderal Bea dan Cukai Nomor PER-11/BC/2020 tentang Pemeriksaan Sarana Pengangkut}
+      \field{year}{2020}
+    \endentry
+    \entry{cbp2022}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0ed3ceddfc15cb0c539098f597bc86cc}{%
+           family={Customs},
+           familyi={C\bibinitperiod},
+           given={U.S.},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ecf1c0a7b5f6b2d29c558246887cd2ed}{%
+           family={Protection},
+           familyi={P\bibinitperiod},
+           given={Border},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{839c2d3a51251a6457c538011bef3417}
+      \strng{fullhash}{839c2d3a51251a6457c538011bef3417}
+      \strng{fullhashraw}{839c2d3a51251a6457c538011bef3417}
+      \strng{bibnamehash}{839c2d3a51251a6457c538011bef3417}
+      \strng{authorbibnamehash}{839c2d3a51251a6457c538011bef3417}
+      \strng{authornamehash}{839c2d3a51251a6457c538011bef3417}
+      \strng{authorfullhash}{839c2d3a51251a6457c538011bef3417}
+      \strng{authorfullhashraw}{839c2d3a51251a6457c538011bef3417}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.cbp.gov/}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{7-Point Container Inspection Checklist}
+      \field{year}{2022}
+    \endentry
+    \entry{goodfellow2016}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=97448a3cf6f5cb771679d00efeb7782c}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=419350ebbeb4eba5351469f378dee007}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0162d284c680646fe3354338106399ce}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{fullhash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{fullhashraw}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{bibnamehash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{authorbibnamehash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{authornamehash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{authorfullhash}{046a68a306553a04a7fa3dbd33c044bb}
+      \strng{authorfullhashraw}{046a68a306553a04a7fa3dbd33c044bb}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://www.deeplearningbook.org
+      \endverb
+      \verb{url}
+      \verb https://www.deeplearningbook.org
+      \endverb
+    \endentry
+    \entry{uscg2019}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d40ddc1a7c860c46d422fbf50ceb0f87}{%
+           family={Guard},
+           familyi={G\bibinitperiod},
+           given={U.S.\bibnamedelimi Coast},
+           giveni={U\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{fullhash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{fullhashraw}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{bibnamehash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{authorbibnamehash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{authornamehash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{authorfullhash}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \strng{authorfullhashraw}{d40ddc1a7c860c46d422fbf50ceb0f87}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.uscg.mil}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{National Container Inspection Program Overview}
+      \field{year}{2019}
+    \endentry
+    \entry{hohpe2003}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2ed2f5feceafdf9a03a27134da39d3d0}{%
+           family={Hohpe},
+           familyi={H\bibinitperiod},
+           given={Gregor},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ea1767d5a1edce116c79b82a83c54da}{%
+           family={Woolf},
+           familyi={W\bibinitperiod},
+           given={Bobby},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Professional}%
+      }
+      \strng{namehash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{fullhash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{fullhashraw}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{bibnamehash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{authorbibnamehash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{authornamehash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{authorfullhash}{ddf3be6dfde807c1811cbd3352154f04}
+      \strng{authorfullhashraw}{ddf3be6dfde807c1811cbd3352154f04}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-32-120068-6}
+      \field{title}{Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions}
+      \field{year}{2003}
+    \endentry
+    \entry{pwc2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c201a44fb5dca5fe8f1262812828f1ba}{%
+           family={Indonesia},
+           familyi={I\bibinitperiod},
+           given={PwC},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{fullhash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{fullhashraw}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{bibnamehash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{authorbibnamehash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{authornamehash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{authorfullhash}{c201a44fb5dca5fe8f1262812828f1ba}
+      \strng{authorfullhashraw}{c201a44fb5dca5fe8f1262812828f1ba}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.pwc.com/id/en/publications/logistics-sector.html}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Logistics Sector Update}
+      \field{year}{2023}
+    \endentry
+    \entry{iicl2016}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3cae2781f48e90c603fd72466484a95b}{%
+           family={International\bibnamedelimb Container\bibnamedelima Lessors},
+           familyi={I\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Institute},
+           giveni={I\bibinitperiod},
+           givenun=0,
+           prefix={of},
+           prefixi={o\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{location}{1}{%
+        {Washington, D.C.}%
+      }
+      \list{publisher}{1}{%
+        {IICL}%
+      }
+      \strng{namehash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{fullhash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{fullhashraw}{3cae2781f48e90c603fd72466484a95b}
+      \strng{bibnamehash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{authorbibnamehash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{authornamehash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{authorfullhash}{3cae2781f48e90c603fd72466484a95b}
+      \strng{authorfullhashraw}{3cae2781f48e90c603fd72466484a95b}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Guide for Container Equipment Inspection, 6th Edition (IICL-6)}
+      \field{year}{2016}
+    \endentry
+    \entry{isaca2019}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cc2032cdfad6e690ac5a9b0982ef0dae}{%
+           family={ISACA},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{fullhash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{fullhashraw}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{bibnamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{authorbibnamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{authornamehash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{authorfullhash}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \strng{authorfullhashraw}{cc2032cdfad6e690ac5a9b0982ef0dae}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.isaca.org}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{COBIT 2019 Framework: Governance and Management Objectives}
+      \field{year}{2019}
+    \endentry
+    \entry{iso25010}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0828a8408614177181026ea908d5594a}{%
+           family={{ISO/IEC}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{0828a8408614177181026ea908d5594a}
+      \strng{fullhash}{0828a8408614177181026ea908d5594a}
+      \strng{fullhashraw}{0828a8408614177181026ea908d5594a}
+      \strng{bibnamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authorbibnamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authornamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authorfullhash}{0828a8408614177181026ea908d5594a}
+      \strng{authorfullhashraw}{0828a8408614177181026ea908d5594a}
+      \field{extraname}{1}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.iso.org/standard/35733.html}}
+      \field{note}{International Standard}
+      \field{title}{ISO/IEC 25010:2011 - Systems and software Quality Requirements and Evaluation (SQuaRE) -- System and software quality models}
+      \field{year}{2011}
+    \endentry
+    \entry{iso27037}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0828a8408614177181026ea908d5594a}{%
+           family={{ISO/IEC}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {International Organization for Standardization}%
+      }
+      \strng{namehash}{0828a8408614177181026ea908d5594a}
+      \strng{fullhash}{0828a8408614177181026ea908d5594a}
+      \strng{fullhashraw}{0828a8408614177181026ea908d5594a}
+      \strng{bibnamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authorbibnamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authornamehash}{0828a8408614177181026ea908d5594a}
+      \strng{authorfullhash}{0828a8408614177181026ea908d5594a}
+      \strng{authorfullhashraw}{0828a8408614177181026ea908d5594a}
+      \field{extraname}{2}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.iso.org/standard/70017.html}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{ISO/IEC 27037:2020 Information Security Management -- Digital Evidence}
+      \field{year}{2020}
+    \endentry
+    \entry{kim2022}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=b182a2eec4e96a403f4b109145401e77}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={H.\bibnamedelimi J.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b868c2515744f90f3aa5644c1506ad9}{%
+           family={Shrestha},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f3d6c5e0629f0a55bb03dbce2e5f2bd5}{%
+           family={Sapkota},
+           familyi={S\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f81ae7389a5eeae3ba87c018d63de68}{%
+           family={Pokharel},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3cbae24a4140e9142fa4525d4de3d2a8}{%
+           family={Pandey},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=67750168505852d6860e77970e05d9a9}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={C.\bibnamedelimi S.},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=302074757028ee19ea8a32d6be32e499}{%
+           family={Shrestha},
+           familyi={S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{08c34390cfcbc72fe4a943e1faee3314}
+      \strng{fullhash}{265f8b189e31639e1bb841f7e13a621a}
+      \strng{fullhashraw}{265f8b189e31639e1bb841f7e13a621a}
+      \strng{bibnamehash}{265f8b189e31639e1bb841f7e13a621a}
+      \strng{authorbibnamehash}{265f8b189e31639e1bb841f7e13a621a}
+      \strng{authornamehash}{08c34390cfcbc72fe4a943e1faee3314}
+      \strng{authorfullhash}{265f8b189e31639e1bb841f7e13a621a}
+      \strng{authorfullhashraw}{265f8b189e31639e1bb841f7e13a621a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Sensors}
+      \field{number}{22}
+      \field{title}{A Study on the Effectiveness of Spatial Filters on Thermal Image Pre-Processing and Correlation Technique for Quantifying Defect Size}
+      \field{volume}{22}
+      \field{year}{2022}
+      \field{pages}{8965}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/s22228965
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3390/s22228965
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3390/s22228965
+      \endverb
+    \endentry
+    \entry{kleppmann2017}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=34b8d5b1d29d175527a6642f3ec8a76d}{%
+           family={Kleppmann},
+           familyi={K\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{fullhash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{fullhashraw}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{bibnamehash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{authorbibnamehash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{authornamehash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{authorfullhash}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \strng{authorfullhashraw}{34b8d5b1d29d175527a6642f3ec8a76d}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems}
+      \field{year}{2017}
+    \endentry
+    \entry{lim2021}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=bb33abc46e9c59e16f4639e0945ce0c7}{%
+           family={Lim},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a38fe2282e0ae708270c02346a36d08f}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3fd249fd02f7f6262671248939c617d8}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f762f8a1c5e849b73c95f0f3d05d62a}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={J.\bibnamedelimi W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2652a2079280de344081c0788264e6c3}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={H.\bibnamedelimi K.},
+           giveni={H\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a59b8e211915e7270b5ff8610a16b04f}
+      \strng{fullhash}{d39ea16d0ac0c506836c730b39b1b521}
+      \strng{fullhashraw}{d39ea16d0ac0c506836c730b39b1b521}
+      \strng{bibnamehash}{d39ea16d0ac0c506836c730b39b1b521}
+      \strng{authorbibnamehash}{d39ea16d0ac0c506836c730b39b1b521}
+      \strng{authornamehash}{a59b8e211915e7270b5ff8610a16b04f}
+      \strng{authorfullhash}{d39ea16d0ac0c506836c730b39b1b521}
+      \strng{authorfullhashraw}{d39ea16d0ac0c506836c730b39b1b521}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of Instrumentation}
+      \field{number}{8}
+      \field{title}{Advanced container inspection system based on dual-angle X-ray imaging method}
+      \field{volume}{16}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1088/1748-0221/16/08/p08037
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/1748-0221/16/08/p08037
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/1748-0221/16/08/p08037
+      \endverb
+    \endentry
+    \entry{lukmandono2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=02d28e97d0a25a63564740bf947c34ae}{%
+           family={Lukmandono},
+           familyi={L\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=826f2eb224dc5bcfbfdae4fd39ac1a9e}{%
+           family={Dwicahyani},
+           familyi={D\bibinitperiod},
+           given={A.\bibnamedelimi R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1ae3ad4df1bdc76800f8d26256ffac5d}{%
+           family={Tarigan},
+           familyi={T\bibinitperiod},
+           given={Z.\bibnamedelimi J.\bibnamedelimi H.},
+           giveni={Z\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{fullhash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{fullhashraw}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{bibnamehash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{authorbibnamehash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{authornamehash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{authorfullhash}{bdc541cd723b811f3a7148eb9d85c35e}
+      \strng{authorfullhashraw}{bdc541cd723b811f3a7148eb9d85c35e}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Decision Science Letters}
+      \field{number}{3}
+      \field{title}{Inventory model for empty container reposition problem considering quality dependent returns and port capacity constraint}
+      \field{volume}{13}
+      \field{year}{2024}
+      \field{pages}{663}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.5267/j.dsl.2024.4.006
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5267/j.dsl.2024.4.006
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5267/j.dsl.2024.4.006
+      \endverb
+    \endentry
+    \entry{maldague2002}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1eefbb72fa0614a81fcf7bec7c3e6615}{%
+           family={Maldague},
+           familyi={M\bibinitperiod},
+           given={Xavier\bibnamedelimb P.\bibnamedelimi V.},
+           giveni={X\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Interscience}%
+      }
+      \strng{namehash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{fullhash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{fullhashraw}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{bibnamehash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{authorbibnamehash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{authornamehash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{authorfullhash}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \strng{authorfullhashraw}{1eefbb72fa0614a81fcf7bec7c3e6615}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Theory and Practice of Infrared Technology for Nondestructive Testing}
+      \field{year}{2002}
+    \endentry
+    \entry{meola2004}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b8792aa8b469df3d25944bd88a03499d}{%
+           family={Meola},
+           familyi={M\bibinitperiod},
+           given={Carlo},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=af7da524a26d55515f1de9354975399a}{%
+           family={Carlomagno},
+           familyi={C\bibinitperiod},
+           given={Giovanni\bibnamedelima M.},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{fullhash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{fullhashraw}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{bibnamehash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{authorbibnamehash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{authornamehash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{authorfullhash}{0289dad5add073e0e703c7ac2febe90a}
+      \strng{authorfullhashraw}{0289dad5add073e0e703c7ac2febe90a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Measurement Science and Technology}
+      \field{number}{9}
+      \field{title}{Recent Advances in the Use of Infrared Thermography}
+      \field{volume}{15}
+      \field{year}{2004}
+      \field{pages}{R27\bibrangedash R58}
+      \range{pages}{-1}
+    \endentry
+    \entry{newman2015}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b6be43602c2787d279f8522a7d9713db}{%
+           family={Newman},
+           familyi={N\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{fullhash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{fullhashraw}{b6be43602c2787d279f8522a7d9713db}
+      \strng{bibnamehash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{authorbibnamehash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{authornamehash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{authorfullhash}{b6be43602c2787d279f8522a7d9713db}
+      \strng{authorfullhashraw}{b6be43602c2787d279f8522a7d9713db}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Building Microservices: Designing Fine-Grained Systems}
+      \field{year}{2015}
+    \endentry
+    \entry{wco2020}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4cc395c09bdb1fcffd72677db02a31e1}{%
+           family={Organization},
+           familyi={O\bibinitperiod},
+           given={World\bibnamedelima Customs},
+           giveni={W\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{fullhash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{fullhashraw}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{bibnamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorbibnamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authornamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorfullhash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorfullhashraw}{4cc395c09bdb1fcffd72677db02a31e1}
+      \field{extraname}{1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/safe-package/nii-handbook.aspx}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Guidelines for the Procurement and Deployment of Scanning and Non-Intrusive Inspection Equipment (NII)}
+      \field{year}{2020}
+    \endentry
+    \entry{wco2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4cc395c09bdb1fcffd72677db02a31e1}{%
+           family={Organization},
+           familyi={O\bibinitperiod},
+           given={World\bibnamedelima Customs},
+           giveni={W\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{fullhash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{fullhashraw}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{bibnamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorbibnamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authornamehash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorfullhash}{4cc395c09bdb1fcffd72677db02a31e1}
+      \strng{authorfullhashraw}{4cc395c09bdb1fcffd72677db02a31e1}
+      \field{extraname}{2}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/safe-package/safe-framework-of-standards.aspx}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{SAFE Framework of Standards 2025 Edition}
+      \field{year}{2025}
+    \endentry
+    \entry{kemenhub2022}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=88778b728f160afe9dac8d1a85ef4bdb}{%
+           family={RI},
+           familyi={R\bibinitperiod},
+           given={Kementerian\bibnamedelima Perhubungan},
+           giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{fullhash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{fullhashraw}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{bibnamehash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{authorbibnamehash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{authornamehash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{authorfullhash}{88778b728f160afe9dac8d1a85ef4bdb}
+      \strng{authorfullhashraw}{88778b728f160afe9dac8d1a85ef4bdb}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://hubla.dephub.go.id}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Peraturan Menteri Perhubungan No. 8 Tahun 2022 tentang Digitalisasi Layanan Kapal dan Barang}
+      \field{year}{2022}
+    \endentry
+    \entry{shi2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f41bbc46c4cca943fa2a0c3bf70c8a04}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Weisong},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=748d3aa7019baff9dd392f0f9e793368}{%
+           family={Dustdar},
+           familyi={D\bibinitperiod},
+           given={Schahram},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{295a74386159e55be0827c9c40050c9a}
+      \strng{fullhash}{295a74386159e55be0827c9c40050c9a}
+      \strng{fullhashraw}{295a74386159e55be0827c9c40050c9a}
+      \strng{bibnamehash}{295a74386159e55be0827c9c40050c9a}
+      \strng{authorbibnamehash}{295a74386159e55be0827c9c40050c9a}
+      \strng{authornamehash}{295a74386159e55be0827c9c40050c9a}
+      \strng{authorfullhash}{295a74386159e55be0827c9c40050c9a}
+      \strng{authorfullhashraw}{295a74386159e55be0827c9c40050c9a}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Computer}
+      \field{number}{5}
+      \field{title}{The Promise of Edge Computing}
+      \field{volume}{49}
+      \field{year}{2016}
+      \field{pages}{78\bibrangedash 81}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/MC.2016.145
+      \endverb
+    \endentry
+    \entry{icswsc2023}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=72eaaed1a60846d9a31774b09e5985a2}{%
+           family={Shipping},
+           familyi={S\bibinitperiod},
+           given={International\bibnamedelima Chamber},
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0,
+           prefix={of},
+           prefixi={o\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=0c9c152e912d0f8b58a4d2a6370588ae}{%
+           family={Council},
+           familyi={C\bibinitperiod},
+           given={World\bibnamedelima Shipping},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{fullhash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{fullhashraw}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{bibnamehash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{authorbibnamehash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{authornamehash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{authorfullhash}{8c6818918ebf0d929896d94afc82b57d}
+      \strng{authorfullhashraw}{8c6818918ebf0d929896d94afc82b57d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ics-shipping.org}}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Unified Container Inspection and Repair Criteria (UCIRC)}
+      \field{year}{2023}
+    \endentry
+    \entry{szeliski2022}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d19846bb0d3c0031f9f746e0a1188ab8}{%
+           family={Szeliski},
+           familyi={S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{fullhash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{fullhashraw}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{bibnamehash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{authorbibnamehash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{authornamehash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{authorfullhash}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \strng{authorfullhashraw}{d19846bb0d3c0031f9f746e0a1188ab8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Computer Vision: Algorithms and Applications}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://szeliski.org/Book/
+      \endverb
+      \verb{url}
+      \verb https://szeliski.org/Book/
+      \endverb
+    \endentry
+    \entry{varghese2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f91598d5d3e88514d4dfc89dc4266d41}{%
+           family={Varghese},
+           familyi={V\bibinitperiod},
+           given={Blesson},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=029e03ba4e08a5605b31a31f86375741}{%
+           family={Buyya},
+           familyi={B\bibinitperiod},
+           given={Rajkumar},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{fullhash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{fullhashraw}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{bibnamehash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{authorbibnamehash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{authornamehash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{authorfullhash}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \strng{authorfullhashraw}{d4dfcc361a4ed55d5c7a9e4f67111b4a}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Future Generation Computer Systems}
+      \field{title}{Next Generation Cloud Computing: New Trends and Research Directions}
+      \field{volume}{79}
+      \field{year}{2018}
+      \field{pages}{849\bibrangedash 861}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.future.2017.09.020
+      \endverb
+    \endentry
+    \entry{wulansari2022}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6f2040c88a4038bb19e1b2e705f05933}{%
+           family={Wulansari},
+           familyi={W\bibinitperiod},
+           given={Ferial\bibnamedelima Sarah},
+           giveni={F\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{fullhash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{fullhashraw}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{bibnamehash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{authorbibnamehash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{authornamehash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{authorfullhash}{6f2040c88a4038bb19e1b2e705f05933}
+      \strng{authorfullhashraw}{6f2040c88a4038bb19e1b2e705f05933}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Skripsi D.IV Program Studi Tata Laksana Angkutan Laut dan Kepelabuhan, Politeknik Ilmu Pelayaran Semarang}
+      \field{note}{Diakses 22 Oktober 2025}
+      \field{title}{Strategi Peningkatan Kinerja Bongkar Muat Menggunakan Sistem Indonesia National Single Window (INSW) Untuk Meminimalisir Dwelling Time di Pelabuhan Tanjung Emas Semarang}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://repository.pip-semarang.ac.id/4394/2/551811336981K_SKRIPSI_OPEN_ACCESS.pdf
+      \endverb
+      \verb{url}
+      \verb https://repository.pip-semarang.ac.id/4394/2/551811336981K_SKRIPSI_OPEN_ACCESS.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

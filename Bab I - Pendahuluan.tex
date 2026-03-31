@@ -1,112 +1,82 @@
-\cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
+% ==========================================
+% BAB I PENDAHULUAN
+% ==========================================
+\cleardoublepage
 \chapter{PENDAHULUAN}
 \label{chap:pendahuluan}
-% --- Latar Belakang ---
+
 \section{Latar Belakang}
-Subbab ini menjelaskan dasar pemikiran, motivasi, kebutuhan, alasan, atau urgensi pemilihan masalah tugas akhir. Subbab ini berisi penjelasan ringkas tentang kondisi atau situasi yang ada saat ini terkait dengan topik yang dibahas. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Dalam subbab ini, jelaskan hal-hal berikut ini:
-\begin{enumerate}
-\item	Kondisi atau situasi topik yang dibahas beserta permasalahannya, misalnya tentang pengelolaan informasi di fasilitas kesehatan daerah pedesaan saat ini dan masalah yang dihadapi, berdasarkan hasil survei atau wawancara dengan pihak terkait.
-\item	Urgensi atau pentingnya penyelesaian masalah tersebut, misalnya dampak negatif yang ditimbulkan jika masalah tersebut tidak diselesaikan.
-\item	Berbagai solusi yang telah diterapkan maupun solusi yang memungkinkan untuk diterapkan untuk menyelesaikan masalah tersebut, berdasarkan hasil studi literatur, wawancara dengan pihak terkait, atau kunjungan lapangan.
-\item   Kelemahan atau kekurangan dari solusi yang telah diterapkan atau yang memungkinkan untuk diterapkan tersebut, yang menjadi dasar pemikiran dalam merumuskan masalah tugas akhir.
-\end{enumerate}
-Latar belakang dapat ditulis dalam 2-3 halaman. Penulisan latar belakang masalah yang baik akan mengantarkan pembaca kepada pemahaman yang jelas tentang topik yang akan dibahas, 
-sehingga pembaca dapat mengikuti pembahasan pada subbab-subbab berikutnya dengan baik. Oleh karena itu, 
-penulis diharapkan melakukan investigasi yang mendalam untuk mengumpulkan fakta-fakta yang relevan dengan topik yang dibahas, 
-baik melalui studi literatur, wawancara dengan pihak terkait, maupun kunjungan lapangan. Hasil studi ini dijelaskan secara \emph{ringkas} di dalam subbab ini.
-Penjelasan hasil studi literatur yang komprehensif dapat dijabarkan di Bab II Studi Literatur secara sistematis.
 
-Dalam menulis latar belakang, hindari penulisan yang bersifat terlalu umum atau terlalu luas cakupannya sehingga sulit untuk dihubungkan dengan topik yang dibahas dalam tugas akhir,
-seperti:
-\begin{enumerate}
-    \item "Pentingnya teknologi informasi dalam kehidupan manusia."
-    \item "Perkembangan pesat teknologi \emph{artificial intelligence} di era digital."
-    \item "Tantangan dalam pengelolaan data besar (\emph{big data}) di berbagai sektor industri."
-    \item "Peran teknologi informasi dalam meningkatkan kualitas layanan kesehatan."
-\end{enumerate}
-Penulisan yang terlalu umum atau luas cakupannya akan menyulitkan penulis dalam merumuskan masalah, tujuan, metodologi, dan evaluasi tugas akhir.
+Sektor logistik memegang peranan penting dalam mendukung perdagangan nasional dan internasional. Sebagai negara kepulauan, Indonesia merupakan jalur transportasi laut strategis yang sering dilewati dalam perdagangan global. Saat ini, 90\% perdagangan internasional diangkut melalui jalur laut dan 40\% dari perdagangan dunia tersebut melalui perairan Indonesia. Meski pemerintah terus berupaya meningkatkan efisiensi, biaya logistik nasional masih tergolong tinggi. Berdasarkan data terbaru, proporsi biaya logistik terhadap Produk Domestik Bruto (PDB) di Indonesia sempat mencapai 24\% pada tahun 2020 dan baru menurun menjadi sekitar 14,29\% pada tahun 2023. Angka ini masih lebih tinggi dibanding rata-rata negara maju yang berada di bawah 10\%, seperti Jepang dan Singapura yang berada di angka 8\% \autocite{bappenas2023,pwc2023}.
 
-Jika ada referensi yang digunakan dalam penulisan latar belakang, cantumkan referensi tersebut dengan benar menggunakan \texttt{biblatex} sesuai dengan contoh penulisan kutipan dan daftar pustaka yang telah disediakan dalam template ini.
-Sebagai contoh, pada paragraf berikut ini terdapat kutipan dari dua referensi yang berbeda \autocite{laudon2020, pressman2019}. 
-Ada dua format penulisan sitasi yang dapat digunakan, yaitu format naratif dan format parentetik.
-Contoh penulisan kutipan dengan format naratif adalah sebagai berikut:
-\begin{displayquote}
-Menurut \textcite{laudon2020}, sistem informasi adalah kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi.
-\end{displayquote}
-Contoh penulisan kutipan dengan format parentetik adalah sebagai berikut:
-\begin{displayquote}
-    Sistem informasi merupakan kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi \autocite{laudon2020}.
-\end{displayquote}
-% --- Rumusan Masalah ---
+Untuk memastikan agar seluruh proses berjalan lancar dan meminimalkan biaya operasional, salah satu aspek krusial yang perlu diperhatikan adalah pemeriksaan peti kemas. Proses ini menjadi salah satu tahapan paling menantang dalam keseluruhan rantai logistik karena berperan langsung terhadap keamanan, efisiensi, dan kelancaran distribusi barang. Sebuah survei yang dilakukan oleh Kementerian Perhubungan Indonesia pada tahun 2018 menunjukkan bahwa hanya 20\% peti kemas di Indonesia yang layak pakai, sementara 80\% di antaranya berada dalam kondisi buruk, baik rusak atau tidak memenuhi standar kualitas \autocite{lukmandono2024}. Hal ini membuktikan diperlukannya pemeriksaan peti kemas yang optimal untuk memastikan tidak hanya kondisi peti kemas yang baik, tetapi juga isi muatan dari peti kemas tersebut.
+
+Beberapa pendekatan teknologi sebenarnya sudah mulai diterapkan di industri global. Salah satunya adalah penggunaan kamera termal atau \textit{infrared thermography} yang dapat mendeteksi perbedaan suhu pada permukaan kontainer untuk mengidentifikasi adanya anomali seperti lubang, retakan, atau kebocoran. Metode ini tergolong cepat, tidak merusak objek yang diperiksa, dan cocok untuk \textit{screening} awal. Meski demikian, efektivitas metode ini sangat bergantung pada kondisi lingkungan dan jenis kerusakan. Penyok, korosi awal, atau kerusakan struktural ringan yang tidak memengaruhi suhu sering kali tidak terdeteksi, sehingga hasil inspeksi kurang dapat diandalkan. Selain itu, hasil dari inspeksi termal biasanya belum terintegrasi dengan sistem pelaporan digital yang dapat dilacak secara menyeluruh \autocite{kim2022}.
+
+Di sisi lain, sejumlah operator pelabuhan internasional telah mengembangkan sistem pemindaian otomatis berbasis 3D yang ditempatkan di pintu masuk pelabuhan. Teknologi ini memungkinkan pemetaan bentuk kontainer secara \textit{real-time} untuk mendeteksi penyok atau kerusakan struktural lain tanpa perlu pemeriksaan manual. Sistem seperti TMEIC DMG 3D, Camco Argus ADI, dan Visy ADDS merupakan beberapa contoh teknologi yang digunakan untuk keperluan ini. Untuk bagian dalam kontainer, teknologi X-ray seperti Leidos VACIS dimanfaatkan untuk memindai isi tanpa perlu membuka kontainer, sehingga anomali isi atau barang ilegal dapat lebih cepat dikenali \autocite{lim2021}.
+
+Terlebih dari itu, mulai tahun 2024, Direktorat Jenderal Bea dan Cukai telah merencanakan penggunaan alat pengecekan isi muatan peti kemas dengan teknologi X-ray, sinar gamma, atau pemindai sejenis sebagaimana diatur dalam Peraturan Direktur Jenderal Bea dan Cukai PER-1/BC/2023. Teknologi pemindai lainnya, seperti Hi-Co Scan, juga mulai diperkenalkan karena mampu menampilkan isi kontainer tanpa perlu membuka segelnya. Meskipun teknologi-teknologi ini meningkatkan efisiensi dan keamanan arus barang, fungsinya masih berfokus pada pemeriksaan isi muatan, bukan pada kondisi fisik peti kemas itu sendiri. Oleh karena itu, masih terdapat ruang yang signifikan untuk pengembangan sistem inspeksi kondisi kontainer, misalnya melalui pemanfaatan teknologi visual atau sensor otomatis yang dapat menilai kerusakan struktural, kebocoran, dan deformasi secara \textit{real-time}. Pengembangan di bidang ini menjadi kunci bagi peningkatan efisiensi, keselamatan logistik, serta keandalan rantai pasok secara menyeluruh.
+
+Walaupun teknologi-teknologi tersebut telah banyak digunakan secara global, sebagian besar pelabuhan di Indonesia masih bergantung pada metode manual. Petugas biasanya melakukan pemeriksaan berdasarkan \textit{checklist} standar seperti CTPAT 7-Point Container Inspection atau panduan inspeksi dari IICL dan UCIRC. Di tingkat internasional, program inspeksi kontainer yang komprehensif seperti \textit{National Container Inspection Program} (NCIP) milik U.S. Coast Guard mengharuskan inspektur memiliki pengetahuan tentang berbagai kriteria inspeksi dan perbaikan yang banyak digunakan, termasuk panduan dari \textit{Institute of International Container Lessors} (IICL) dan \textit{Unified Container Inspection and Repair Criteria} (UCIRC), untuk memastikan kontainer memenuhi standar keselamatan struktural dan regulasi pengangkutan bahan berbahaya \autocite{uscg2019}.
+
+Permasalahan utama di Indonesia bukan hanya pada keterbatasan teknologinya, melainkan juga pada belum adanya sistem inspeksi yang benar-benar terintegrasi dengan alur kerja pelabuhan dan sistem kepabeanan. Ketiadaan integrasi ini berkontribusi terhadap lamanya proses pemeriksaan dan pengeluaran barang di pelabuhan, sehingga berdampak pada terhambatnya kelancaran arus barang yang pada akhirnya menyebabkan mahalnya harga barang konsumen \autocite{wulansari2022}. Data hasil pemeriksaan, baik manual maupun berbasis sensor, belum secara otomatis tercatat dalam sistem yang dapat digunakan untuk audit, pelaporan, maupun koordinasi antarinstansi. Tanpa sistem yang mendukung pencatatan digital, pelacakan inspeksi, serta standar operasional yang konsisten, maka potensi kesalahan tetap tinggi dan efisiensi sulit dicapai.
+
+Dalam konteks ini, tantangan utama tidak lagi hanya terletak pada tersedianya perangkat inspeksi, tetapi pada bagaimana berbagai komponen digital dapat dihubungkan ke dalam satu arsitektur sistem yang konsisten. Sistem inspeksi yang efektif perlu mampu mengintegrasikan pengambilan data di lapangan, analisis visual, penyimpanan hasil inspeksi, serta penyajian informasi kepada operator dan sistem lain di lingkungan pelabuhan. Selain itu, regulasi seperti Peraturan Menteri Perhubungan Nomor 8 Tahun 2022 juga menekankan pentingnya digitalisasi layanan kapal dan barang di pelabuhan, termasuk integrasi data antarinstansi dan keamanan sistem informasi \autocite{kemenhub2022}.
+
+Berdasarkan kondisi tersebut, terlihat adanya kebutuhan mendesak untuk merancang arsitektur sistem inspeksi kontainer yang tidak hanya mendukung otomasi pemeriksaan, tetapi juga mendukung integrasi data, ketertelusuran proses, dan keterhubungan dengan ekosistem digital pelabuhan Indonesia.
+
 \section{Rumusan Masalah}
-Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan masalah yang baik memiliki struktur sebagai berikut:
-\begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
-\end{enumerate}
-Hindari penulisan rumusan masalah yang terlalu umum atau terlalu luas cakupannya sehingga sulit untuk diselesaikan dalam jangka waktu pelaksanaan tugas akhir, 
-seperti:
-\begin{enumerate}
-    \item "Bagaimana cara meningkatkan kualitas layanan kesehatan di Indonesia?"
-    \item "Bagaimana cara mengoptimalkan penggunaan energi di perkotaan?"
-    \item "Bagaimana cara mengurangi kemacetan lalu lintas di kota besar?"
-    \item "Bagaimana cara membangun sistem irigasi sawah menggunakan \emph{AI}?"
-\end{enumerate}
-Rumusan masalah yang baik dan spesifik akan memudahkan penulis dalam menentukan tujuan, metodologi, dan evaluasi tugas akhir.
 
-Selain itu, hindari menuliskan pertanyaan yang merupakan sebuah keniscayaan yang harus dijawab atau dikerjakan 
-dalam pelaksanaan tugas akhir, seperti:
+Berdasarkan latar belakang yang telah diuraikan, permasalahan utama yang menjadi fokus penelitian ini dirumuskan sebagai berikut:
 \begin{enumerate}
-    \item "Bagaimana cara melakukan analisis kebutuhan sistem informasi rumah sakit?"
-    \item "Bagaimana cara merancang basis data untuk aplikasi X?"
-    \item "Bagaimana cara mengimplementasikan \textit{large language model} untuk deteksi penyakit Y?"
-    \item "Bagaimana cara menguji sistem penyiraman tanaman berbasis IoT yang akan dibuat?"
+  \item Bagaimana mengidentifikasi kebutuhan fungsional dan nonfungsional sistem inspeksi kontainer digital yang mendukung proses pemeriksaan di pelabuhan?
+  \item Bagaimana merancang arsitektur sistem yang mampu mengintegrasikan komponen \textit{edge}, layanan aplikasi, penyimpanan data, dan antarmuka pengguna dalam satu alur kerja yang konsisten?
+  \item Bagaimana memodelkan struktur data dan alur informasi pemeriksaan kontainer agar pencatatan hasil inspeksi, pelacakan riwayat, dan penyediaan bukti inspeksi dapat dilakukan secara terstruktur?
+  \item Bagaimana merancang mekanisme pertukaran data yang memungkinkan hasil identifikasi dan hasil pemindaian dari beberapa komponen dapat dikaitkan pada entitas kontainer yang sama?
+  \item Bagaimana mengevaluasi kesesuaian rancangan arsitektur terhadap sistem capstone yang telah direalisasikan?
 \end{enumerate}
-Kegiatan analisis, perancangan, implementasi, dan pengujian merupakan tahapan yang harus dilakukan dalam pelaksanaan tugas akhir,
-sehingga pertanyaan-pertanyaan tersebut tidak perlu dimasukkan ke dalam rumusan masalah.
 
-% --- Tujuan ---
 \section{Tujuan}
-Tuliskan \textbf{tujuan utama} dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. 
-Fokuskan isi subbab ini pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan 
-terkait dengan penyelesaian persoalan pada rumusan masalah. 
-Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan 
-di akhir pelaksanaan tugas akhir. Oleh karena itu, tuliskan juga \emph{kriteria keberhasilan} tugas akhir ini.
 
-% --- Batasan Masalah ---
+Penelitian ini bertujuan untuk menghasilkan rancangan arsitektur sistem inspeksi kontainer digital terintegrasi yang dapat menjadi dasar realisasi sistem pada proyek capstone dan menjadi acuan pengembangan lebih lanjut di lingkungan pelabuhan.
+
+Secara khusus, penelitian ini memiliki tujuan sebagai berikut:
+\begin{enumerate}
+  \item Mengidentifikasi kebutuhan sistem inspeksi kontainer digital berdasarkan kondisi lapangan, regulasi yang berlaku, dan kebutuhan integrasi data di lingkungan pelabuhan.
+  \item Merancang arsitektur sistem yang mendefinisikan komponen utama, hubungan antarkomponen, dan alur informasi inspeksi kontainer secara menyeluruh.
+  \item Merancang arsitektur data yang mendukung pencatatan hasil inspeksi, penyimpanan bukti visual, dan pelacakan riwayat pemeriksaan kontainer.
+  \item Menyusun model alur informasi yang memungkinkan integrasi hasil identifikasi, hasil pemindaian, dan penyajian informasi kepada pengguna dalam satu sistem yang konsisten.
+  \item Mengevaluasi kesesuaian rancangan arsitektur terhadap sistem yang direalisasikan pada proyek capstone.
+\end{enumerate}
+
 \section{Batasan Masalah}
-Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
 
-% --- Metodologi Pengerjaan TA ---
+Agar penelitian tetap fokus pada kontribusi perancangan arsitektur sistem, batasan masalah ditetapkan sebagai berikut:
+\begin{itemize}
+  \item Penelitian berfokus pada perancangan arsitektur sistem dan arsitektur data, bukan pada implementasi detail algoritma deteksi, strategi \textit{deployment}, atau tata kelola organisasi secara penuh.
+  \item Rancangan arsitektur dibatasi pada definisi komponen utama, relasi antarkomponen, struktur data, dan alur informasi yang mendukung proses inspeksi kontainer digital.
+  \item Penelitian tidak membahas rancangan infrastruktur fisik pelabuhan, pengembangan perangkat keras sensor secara rinci, maupun operasi bisnis pelabuhan secara menyeluruh.
+  \item Evaluasi penelitian difokuskan pada kesesuaian rancangan arsitektur terhadap sistem yang direalisasikan dan pada validasi integrasi antarkomponen, bukan pada uji performa kuantitatif menyeluruh atau uji lapangan skala penuh.
+  \item Penelitian tidak membahas aspek keamanan siber, tata kelola layanan, dan pengelolaan operasional secara mendalam, tetapi hanya meninjau implikasinya pada rancangan arsitektur secara umum.
+  \item Ruang lingkup terbatas pada sistem inspeksi kontainer digital terintegrasi dan tidak mencakup perancangan ulang seluruh ekosistem sistem informasi pelabuhan.
+\end{itemize}
+
+Dengan batasan tersebut, penelitian ini menghasilkan rancangan arsitektur sistem yang menekankan integrasi komponen, alur data, dan ketertelusuran informasi sebagai landasan bagi pengembangan sistem inspeksi kontainer terintegrasi.
+
 \section{Metodologi}
-Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. 
-Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. 
-Berikut adalah contoh metodologi pengerjaan tugas akhir yang dapat diikuti, yaitu meliputi tahapan, langkah-langkah, 
-atau tata cara melakukan:
+
+Penelitian ini mengadopsi pendekatan \textit{Design Science Research} yang menekankan proses iteratif antara identifikasi masalah, perancangan solusi arsitektural, realisasi artefak, dan evaluasi hasil terhadap kriteria yang ditetapkan. Tahapan penelitian yang dilakukan adalah sebagai berikut:
 \begin{enumerate}
-\item	Investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara sistematis di Bab II Studi Literatur.
-\item   Analisis kebutuhan pengguna dan sistem berdasarkan hasil investigasi dan studi literatur. Jelaskan metode yang digunakan untuk melakukan analisis kebutuhan, misalnya wawancara, survei, observasi, atau studi kasus. Hasil analisis kebutuhan ini akan dijelaskan secara rinci di Bab III Analisis.
-\item   Perancangan solusi berdasarkan hasil analisis kebutuhan. Jelaskan metode yang digunakan untuk melakukan perancangan, misalnya menggunakan diagram UML, ERD, atau prototyping. Hasil perancangan ini akan dijelaskan secara rinci di Bab IV Perancangan.
-\item   Implementasi solusi berdasarkan hasil perancangan. Jelaskan teknologi, bahasa pemrograman, atau alat yang digunakan untuk mengimplementasikan solusi. Hasil implementasi ini akan dijelaskan secara rinci di Bab V Implementasi.
-\item   Evaluasi terhadap solusi yang telah diimplementasikan. Jelaskan metode pengujian, metrik evaluasi, atau studi kasus yang digunakan untuk menilai keberhasilan solusi. Hasil evaluasi ini akan dijelaskan secara rinci di Bab VI Evaluasi.
-\item   Penarikan kesimpulan dan saran berdasarkan hasil pelaksanaan tugas akhir. Hasil kesimpulan dan saran ini akan dijelaskan secara rinci di Bab VII Kesimpulan dan Saran. 
-\vfill % memaksa konten di atas untuk berada di bagian atas halaman dan menyisakan ruang kosong di bawah konten ini akibat berakhirnya section ini
+  \item \textbf{Identifikasi Masalah (\textit{Problem Identification}).} Mengidentifikasi permasalahan yang terjadi dalam proses inspeksi kontainer di Indonesia, termasuk keterbatasan sistem yang ada, kebutuhan integrasi digital, dan urgensi standardisasi hasil inspeksi.
+  \item \textbf{Penetapan Tujuan (\textit{Objective Definition}).} Menetapkan tujuan penelitian berdasarkan permasalahan yang telah diidentifikasi, yaitu menghasilkan rancangan arsitektur sistem inspeksi kontainer digital terintegrasi dengan penekanan pada data dan integrasi.
+  \item \textbf{Studi Literatur.} Mengumpulkan dan menganalisis literatur terkait prinsip perancangan arsitektur sistem, metode inspeksi kontainer, teknologi pendukung, serta standar dan regulasi yang berlaku.
+  \item \textbf{Analisis Kebutuhan.} Menganalisis kebutuhan fungsional dan nonfungsional sistem berdasarkan kondisi lapangan, regulasi, dan integrasi dengan ekosistem pelabuhan yang ada.
+  \item \textbf{Perancangan Arsitektur (\textit{Design}).} Menyusun rancangan arsitektur yang mencakup komponen utama sistem, hubungan antarkomponen, struktur data, alur informasi, dan prinsip-prinsip desain arsitektur.
+  \item \textbf{Realisasi Artefak (\textit{Implementation Context}).} Menggunakan hasil implementasi sistem pada proyek capstone sebagai konteks realisasi untuk menilai apakah rancangan arsitektur yang disusun dapat diwujudkan dalam bentuk sistem yang berjalan.
+  \item \textbf{Evaluasi (\textit{Evaluation}).} Mengevaluasi kesesuaian rancangan arsitektur terhadap artefak implementasi dan perilaku integrasi sistem yang telah direalisasikan.
+  \item \textbf{Komunikasi (\textit{Communication}).} Menyusun dokumentasi penelitian yang komprehensif untuk mengomunikasikan hasil penelitian, termasuk rancangan arsitektur, realisasi implementasinya, serta hasil evaluasi.
 \end{enumerate}
 
-% --- Sistematika Penulisan ---
-\section{Sistematika Penulisan}
-Tuliskan gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir. Sistematika penulisan ini memberikan panduan bagi pembaca tentang struktur dan alur pembahasan dalam laporan tugas akhir. Berikut adalah contoh sistematika penulisan yang dapat diikuti:
-\begin{enumerate}
-\item	Bab I Pendahuluan: Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika penulisan laporan tugas akhir       .
-\item	Bab II Studi Literatur: Berisi kajian pustaka yang relevan dengan topik tugas akhir, termasuk teori-teori, konsep-konsep, dan hasil-hasil penelitian sebelumnya yang                mendukung pelaksanaan tugas akhir.
-\item	Bab III Analisis: Berisi penjelasan tentang analisis masalah dan kebutuhan pengguna serta berbagai alternatif solusinya.
-\item   Bab IV Perancangan: Berisi penjelasan tentang perancangan solusi yang diusulkan, misalnya arsitektur sistem, desain basis data, antarmuka pengguna, dan sebagainya.
-\item	Bab V Implementasi: Berisi penjelasan tentang proses implementasi solusi yang diusulkan, termasuk langkah-langkah yang diambil, teknologi yang digunakan, dan hasil yang diperoleh.
-\item	Bab VI Evaluasi: Berisi analisis dan evaluasi terhadap solusi yang diimplementasikan, termasuk metode pengujian, hal-hal yang disiapkan sebelum pengujian, hasil pengujian, dan penilaian kinerja.                  
-\item   Bab VII Kesimpulan dan Saran: Berisi kesimpulan dari hasil pelaksanaan tugas akhir dan saran untuk pengembangan lebih lanjut.
-\item   Daftar Pustaka: Berisi daftar referensi yang digunakan dalam penyusunan laporan tugas akhir.
-\item   Lampiran: Berisi dokumen-dokumen pendukung seperti kode program, data lengkap hasil pengujian, rekaman wawancara, dan lain-lain. 
-\end{enumerate}
+Pendekatan ini memastikan bahwa rancangan arsitektur yang dihasilkan memiliki landasan yang kuat, dapat ditelusuri keterkaitannya dengan artefak implementasi, dan dapat dievaluasi berdasarkan realisasi sistem yang telah dibangun.
+
+Hasil identifikasi masalah dan penetapan tujuan yang telah diuraikan di atas menjadi dasar untuk melakukan studi literatur yang komprehensif. Bab II akan membahas landasan teori dan studi literatur yang relevan dengan perancangan arsitektur sistem inspeksi kontainer digital.

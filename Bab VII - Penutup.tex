@@ -4,7 +4,69 @@
 \cleardoublepage
 \chapter{PENUTUP}
 \label{chap:penutup}
+
 \section{Kesimpulan}
-Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:
+
+Berdasarkan hasil analisis, perancangan, implementasi, dan evaluasi yang telah
+dilakukan, dapat diambil beberapa kesimpulan sebagai berikut.
+
+\begin{enumerate}
+    \item Penelitian ini berhasil merumuskan rancangan arsitektur sistem
+    inspeksi kargo digital terintegrasi yang memisahkan tanggung jawab sistem ke
+    dalam komponen \textit{edge}, layanan API, aplikasi web, dan lapisan
+    penyimpanan. Struktur tersebut selaras dengan kebutuhan modularitas,
+    integrasi, dan ketertelusuran proses inspeksi di lingkungan pelabuhan.
+
+    \item Rancangan arsitektur yang disusun berhasil menempatkan data inspeksi
+    sebagai inti integrasi sistem. Hal ini direalisasikan melalui model data yang
+    memusatkan informasi pada entitas kontainer serta mendukung pengaitan dengan
+    data manifes, hasil pemindaian, status aliran, peristiwa pelacakan, dan
+    artefak visual pendukung.
+
+    \item Implementasi pada proyek capstone menunjukkan bahwa rancangan
+    arsitektur yang diusulkan bersifat implementatif. Komponen \textit{edge},
+    layanan API, aplikasi web, dan media penyimpanan dapat direalisasikan dan
+    diintegrasikan sehingga membentuk alur data yang utuh, mulai dari
+    identifikasi kontainer, pengumpulan hasil pemindaian, penyimpanan bukti
+    inspeksi, hingga penyajian hasil kepada pengguna.
+
+    \item Hasil evaluasi menunjukkan bahwa sistem yang direalisasikan telah
+    mendukung kebutuhan utama yang menjadi fokus penelitian, yaitu integrasi
+    antarkomponen, konsistensi alur data, pemisahan jalur komunikasi sesuai
+    fungsi, dan ketertelusuran proses inspeksi. Dengan demikian, rancangan
+    arsitektur yang dihasilkan dapat menjadi landasan yang layak bagi
+    pengembangan sistem inspeksi kargo digital terintegrasi pada lingkungan
+    operasional pelabuhan.
+\end{enumerate}
+
 \section{Saran}
-asdfas
+
+Berdasarkan hasil penelitian dan keterbatasan yang telah diidentifikasi,
+beberapa saran pengembangan yang dapat dilakukan pada tahap selanjutnya adalah
+sebagai berikut.
+
+\begin{enumerate}
+    \item Melakukan evaluasi kuantitatif terhadap performa sistem, seperti
+    latensi menyeluruh, kapasitas pemrosesan, dan ketahanan sistem ketika
+    dioperasikan pada beban yang lebih tinggi.
+
+    \item Melakukan pengujian lapangan pada lingkungan pelabuhan yang lebih
+    representatif agar rancangan arsitektur dapat divalidasi terhadap kondisi
+    operasional nyata, termasuk variasi jaringan, variasi kualitas aliran video,
+    dan integrasi dengan proses kerja harian petugas.
+
+    \item Mengembangkan integrasi yang lebih luas dengan sistem eksternal di
+    ekosistem pelabuhan, seperti sistem operasional terminal, sistem komunitas
+    pelabuhan, dan sistem kepabeanan, sehingga hasil inspeksi dapat menjadi
+    bagian dari alur informasi logistik yang lebih menyeluruh.
+
+    \item Menyempurnakan mekanisme tata kelola data dan audit, termasuk
+    pengelolaan riwayat perubahan, retensi artefak inspeksi, dan penguatan
+    kontrol akses agar sistem lebih siap digunakan pada lingkungan yang memiliki
+    tuntutan kepatuhan tinggi.
+
+    \item Mengembangkan evaluasi yang lebih mendalam terhadap kualitas model
+    deteksi dan OCR, terutama pada variasi kondisi kontainer, pencahayaan, dan
+    kualitas citra, agar performa keseluruhan sistem semakin andal pada
+    implementasi skala operasional.
+\end{enumerate}

@@ -1,232 +1,317 @@
-\cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
+% ==========================================
+% BAB II STUDI LITERATUR
+% ==========================================
+\cleardoublepage
 \chapter{STUDI LITERATUR}
 \label{chap:studi-literatur}
-\section{Tentang Studi Literatur}
-Studi literatur biasanya berisi tentang tinjauan pustaka, landasan teori, dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir yang dikerjakan.
-Dalam subbab ini, penulis diharapkan dapat menjelaskan:
+
+Literatur yang dikaji dalam bab ini memberikan landasan konseptual yang diperlukan untuk memahami domain inspeksi kargo serta prinsip arsitektur sistem yang relevan, sekaligus menempatkan penelitian ini dalam konteks regulasi dan standar industri yang berlaku.
+
+\section{Sistem Inspeksi Kargo: Konteks dan Tantangan}
+
+Inspeksi kargo merupakan elemen krusial dalam rantai logistik global yang menjamin keamanan, kepatuhan regulasi, dan integritas barang dalam perdagangan internasional. Menurut World Customs Organization (WCO), inspeksi kargo yang efektif mencegah penyalahgunaan perdagangan, melindungi keamanan publik, dan mendukung kelancaran alur barang di perbatasan \autocite{worldbank2023}. Dalam konteks Indonesia, proses inspeksi kontainer di pelabuhan masih menghadapi tantangan signifikan terkait efisiensi, akurasi, dan integrasi sistem \autocite{pwc2023, crifasia2023}.
+
+Secara tradisional, inspeksi kontainer dilakukan melalui pemeriksaan manual oleh petugas, menggunakan panduan standar seperti CTPAT 7-Point Container Inspection Checklist dari U.S. Customs and Border Protection \autocite{cbp2022} dan Guide for Container Equipment Inspection 6th Edition dari Institute of International Container Lessors \autocite{iicl2016}. Meskipun metode ini efektif dalam mendeteksi kerusakan visual dan anomali tertentu, pendekatan manual memiliki keterbatasan inherent: konsistensi rendah, tingginya tingkat \textit{human error}, durasi waktu inspeksi yang lama, dan sulit untuk menghasilkan dokumentasi yang terstandarisasi dan dapat dilacak sepenuhnya \autocite{meola2004, crifasia2023}.
+
+Transformasi menuju pendekatan digital menuntut pemahaman yang mendalam terhadap teori inspeksi kargo, prinsip-prinsip arsitektur sistem, dan kerangka tata kelola yang dapat mendukung operasi yang konsisten, terukur, dan berkelanjutan. Literatur yang ada menyediakan fondasi teoretis yang kuat untuk merancang sistem yang tidak hanya efisien secara teknis tetapi juga sesuai dengan kebutuhan operasional dan regulasi pelabuhan.
+
+\subsection{Klasifikasi Metode Inspeksi Kargo}
+
+World Customs Organization (WCO) mengklasifikasikan metode inspeksi kargo ke dalam beberapa kategori berdasarkan tingkat intrusivitas dan prinsip dasar teknologi yang digunakan \autocite{wco2020}. Klasifikasi ini penting untuk memahami dampak operasional, biaya, dan kelayakan pendekatan inspeksi dalam konteks pelabuhan.
+
+\begin{table}[ht]
+  \centering
+  \caption{Klasifikasi Metode Inspeksi Kargo Menurut WCO}
+  \label{tbl:inspeksi_klasifikasi}
+  \begin{tabular}{p{0.25\textwidth} p{0.40\textwidth} p{0.25\textwidth}}
+    \toprule
+    \textbf{Kategori} & \textbf{Deskripsi} & \textbf{Karakteristik} \\
+    \midrule
+    \textbf{\textit{Intrusive Inspection}} & Pemeriksaan manual langsung pada isi kontainer dengan membuka segel dan memeriksa dokumen & Akurasi tinggi untuk validasi barang, tetapi memerlukan waktu signifikan dan tenaga kerja intensif \\
+    \textbf{\textit{Non-Intrusive Inspection} (NII)} & Penggunaan teknologi pencitraan tanpa membuka kontainer untuk memeriksa isi dan struktur & Efisien waktu, dapat diotomatisasi, tetapi memerlukan investasi infrastruktur besar \\
+    \textbf{\textit{Visual-Mechanical Inspection}} & Pemeriksaan struktur kontainer menggunakan panduan standar industri & Relatif cepat dan murah, tetapi bergantung pada subjektivitas dan pengalaman petugas \\
+    \textbf{\textit{Sensor-Based Inspection}} & Penggunaan sensor untuk deteksi anomali berbasis parameter fisik & Dapat memberikan monitoring \textit{real-time}, tetapi sensitif terhadap kondisi lingkungan \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Tabel \ref{tbl:inspeksi_klasifikasi} menggambarkan empat pendekatan utama inspeksi kargo yang umum digunakan dalam industri logistik. Setiap pendekatan memiliki karakteristik dan aplikasi yang berbeda, dan pemilihan pendekatan yang tepat bergantung pada kebutuhan operasional, regulasi, dan konteks pelabuhan.
+
+\subsection{Model Workflow Inspeksi Berbasis Risiko}
+
+World Customs Organization SAFE Framework 2025 menganjurkan pendekatan inspeksi yang berbasis risiko dan \textit{data-driven} \autocite{wco2025}. Model workflow berbasis risiko menggantikan pemeriksaan acak dengan model yang terstruktur dan dapat diaudit. Prinsip-prinsip dasar model ini mencakup:
+
 \begin{enumerate}
-  \item Landasan teori yang diperoleh dari literatur yang akan digunakan untuk menyelesaikan persoalan TA;
-  \item Pengetahuan tentang kasus yang akan dikaji; dan
-  \item Penelitian atau solusi terkait untuk mengetahui posisi persoalan dan berbagai solusi yang memungkinkan untuk diterapkan berdasarkan hasil studi literatur ini.
+  \item \textbf{\textit{Targeting}} -- Seleksi risiko berdasarkan profil data historis, karakteristik pengirim, jenis barang, dan rute perdagangan untuk mengidentifikasi kontainer yang memerlukan pemeriksaan lebih lanjut.
+  \item \textbf{\textit{Screening}} -- Pemeriksaan awal menggunakan metode non-intrusif untuk kontainer berisiko sedang guna mempercepat proses tanpa pembongkaran fisik.
+  \item \textbf{\textit{Analysis}} -- Interpretasi hasil pemeriksaan untuk identifikasi anomali yang memerlukan tindakan lebih lanjut.
+  \item \textbf{\textit{Physical Inspection}} -- Pemeriksaan manual komprehensif untuk kontainer berisiko tinggi yang memerlukan validasi langsung.
+  \item \textbf{\textit{Compliance Decision}} -- Keputusan kepabeanan berdasarkan bukti digital dan dokumentasi yang dapat diaudit.
 \end{enumerate}
-Jadi, studi literatur ini bukan sekadar rangkuman dari berbagai sumber referensi, tetapi harus diolah dan disajikan secara sistematis sehingga dapat memberikan gambaran yang jelas tentang landasan teori dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir.
 
-Penulisan studi literatur yang baik dimulai dari penjelasan tentang kasus yang akan dikaji, kemudian diikuti dengan penjelasan tentang teori-teori yang relevan, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang berkaitan dengan topik tugas akhir.
-Misalnya, jika topik tugas akhir adalah tentang masalah klasifikasi biji kopi berdasarkan citra kopi, 
-penulis dapat memulai dengan menjelaskan terlebih dahulu tentang karakteristik biji kopi, masalah dalam melakukan klasifikasi biji kopi, 
-kemudian menjelaskan tentang berbagai metode berbasis komputer yang dapat digunakan untuk mengklasifikasikan biji kopi berdasarkan citranya, 
-metode terbaik yang memungkinkan untuk diterapkan, teori-teori dasar tentang metode tersebut, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang menggunakan metode untuk klasifikasi citra.
+Pola ini menekankan pendekatan berbasis risiko yang memerlukan sistem dengan kemampuan untuk mengelola informasi secara terstruktur, menyediakan jejak audit yang jelas, dan mendukung pengambilan keputusan yang konsisten. Setiap tahapan dalam workflow menghasilkan informasi yang harus dikelola secara sistematis untuk memastikan \textit{traceability} dan kepatuhan terhadap regulasi.
 
-Dalam studi literatur, biasanya banyak penjelasan tentang teori-teori yang disertai dengan rumus atau persamaan matematika, gambar, tabel, algoritma, pseudocode, atau kode program.
-Oleh karena itu, pada subbab berikut akan dijelaskan beberapa hal teknis terkait format penulisan dokumen tugas akhir.
+\section{Teknologi Inspeksi Kargo Modern}
 
-\section{Format Penulisan Gambar, Tabel, Rumus, dan Kode Program}
-Berikut adalah beberapa contoh penulisan gambar, tabel, rumus, dan kode program yang sesuai dengan format penulisan tugas akhir.
-\subsection{Penulisan Gambar}
-Contoh gambar dapat dilihat pada Gambar \ref{fig:jaringan} dan Gambar \ref{fig:jaringan2}.
-Secara vertikal, gambar biasanya diletakkan di bagian atas halaman (\textit{top}) atau di bagian bawah halaman (\textit{bottom}).
-Gambar tidak harus diletakkan tepat di tempat gambar tersebut disebutkan pertama kali dalam teks,
-tetapi dapat diletakkan di halaman berikutnya jika tidak muat di halaman yang sama. Pada contoh ini, kedua gambar diletakkan di bagian atas halaman 
-menggunakan opsi \texttt{[t]} pada lingkungan \texttt{figure}, namun pada halaman yang berbeda, meskipun disebutkan di halaman yang sama akibat ruang yang terbatas. 
+\subsection{Konsep Non-Intrusive Inspection (NII) dan Pencitraan}
 
-Penyebutan judul gambar dalam teks menggunakan perintah \texttt{ref}, misalnya Gambar \texttt{\\ref\{fig:jaringan\}}.
-Gunakan huruf kapital pada kata "Gambar" saat menyebutkan gambar dalam teks.
+Non-Intrusive Inspection (NII) merupakan konsep pemeriksaan kargo yang memungkinkan pemeriksaan tanpa perlu membuka kontainer. Teknologi NII mencakup pendekatan pencitraan yang dapat memetakan struktur dan isi kontainer secara non-destruktif. Konsep dasar NII didasarkan pada prinsip fisika yang memungkinkan penetrasi material untuk menghasilkan representasi visual dari interior objek tanpa intervensi fisik langsung \autocite{wco2020}.
 
-\begin{figure}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \caption{Contoh peletakan gambar di bagian atas halaman} 
-	\label{fig:jaringan}
-    	\includegraphics[width=0.7\textwidth]{images/gambar1.png}
+Pendekatan representasi visual digunakan untuk mengidentifikasi deformasi struktural pada permukaan kontainer melalui analisis pola. Literatur memaparkan konsep ini sebagai proses representasi visual yang digunakan untuk memahami pola dan karakteristik objek secara konsisten.
+
+\subsection{Termografi Inframerah sebagai Metode Nondestruktif}
+
+\textit{Infrared Thermography} (IRT) merupakan metode deteksi nondestruktif yang memanfaatkan perbedaan distribusi suhu pada permukaan objek untuk mengidentifikasi anomali. Prinsip dasar IRT didasarkan pada hukum Stefan-Boltzmann yang menyatakan bahwa semua objek dengan temperatur di atas nol absolut memancarkan radiasi elektromagnetik \autocite{maldague2002}. Dalam konteks inspeksi kontainer, IRT dapat digunakan untuk mendeteksi anomali termal yang mengindikasikan kebocoran, deformasi struktural yang menyebabkan perubahan konduktivitas panas, atau gangguan internal yang mengakibatkan akumulasi panas \autocite{meola2004}.
+
+Meskipun efektif sebagai \textit{screening} awal ketika terdapat perbedaan temperatur signifikan, IRT memiliki keterbatasan teoretis: kerusakan non-termal sering kali tidak terdeteksi karena tidak menghasilkan kontras temperatur yang memadai. Emisivitas permukaan, jarak pemindaian, dan kondisi lingkungan dapat memengaruhi akurasi hasil secara signifikan, sehingga metode ini umumnya digunakan sebagai pelengkap metode inspeksi lainnya.
+
+\section{Teori Arsitektur Sistem Terintegrasi}
+
+\subsection{Prinsip Arsitektur Sistem Terdistribusi}
+
+Arsitektur sistem terdistribusi untuk sistem inspeksi kargo digital harus mempertimbangkan prinsip-prinsip dasar dari \textit{software architecture} yang telah dipaparkan oleh Bass, Clements, dan Kazman \autocite{bass2022}. Dalam \textit{Software Architecture in Practice}, mereka menekankan bahwa arsitektur bukan sekadar struktur komponen, tetapi juga mencakup prinsip-prinsip desain yang mendasari:
+
+\begin{itemize}
+  \item \textbf{\textit{Separation of Concerns}} -- Pembagian tanggung jawab yang jelas antara komponen berbeda untuk memudahkan pemeliharaan dan evolusi sistem.
+  \item \textbf{\textit{Modularity}} -- Pengorganisasian sistem ke dalam unit-unit independen yang dapat dikelola, dikembangkan, dan dipelihara secara terpisah.
+  \item \textbf{\textit{Loose Coupling}} -- Minimalisasi dependensi antar komponen melalui \textit{interface} yang terdefinisi dengan baik untuk memungkinkan perubahan tanpa dampak sistemik.
+  \item \textbf{\textit{High Cohesion}} -- Pengelompokan fungsionalitas yang terkait erat dalam komponen yang sama untuk meningkatkan pemahaman dan pemeliharaan.
+\end{itemize}
+
+Prinsip-prinsip ini membentuk fondasi untuk merancang sistem yang tidak hanya efektif secara fungsional tetapi juga dapat dipelihara, dikembangkan, dan diadaptasi sesuai dengan perubahan kebutuhan operasional.
+
+\subsection{Quality Attributes dalam Arsitektur Sistem}
+
+ISO/IEC 25010 mendefinisikan model kualitas untuk perangkat lunak yang sangat relevan untuk sistem inspeksi kargo digital \autocite{iso25010}. \textit{Quality attributes} utama yang harus dipertimbangkan dalam perancangan arsitektur meliputi:
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption{Quality Attributes untuk Arsitektur Sistem Inspeksi Kargo}
+  \label{tbl:quality_attributes}
+  \begin{tabular}{p{0.20\textwidth} p{0.35\textwidth} p{0.35\textwidth}}
+    \toprule
+    \textbf{Attribute} & \textbf{Definisi} & \textbf{Prinsip Desain} \\
+    \midrule
+    \textbf{\textit{Maintainability}} & Kemampuan untuk memodifikasi sistem dengan upaya minimal & Desain modular dengan batasan komponen yang jelas \\
+    \textbf{\textit{Reliability}} & Kemampuan untuk beroperasi secara konsisten tanpa kegagalan & Mekanisme deteksi dan penanganan kesalahan yang komprehensif \\
+    \textbf{\textit{Availability}} & Kemampuan untuk dapat diakses saat dibutuhkan & Redundansi dan kemampuan pemulihan dari kegagalan \\
+    \textbf{\textit{Interoperability}} & Kemampuan untuk berinteraksi dengan sistem lain & \textit{Interface} terstandarisasi dan format data yang konsisten \\
+    \textbf{\textit{Performance}} & Kemampuan untuk memenuhi persyaratan waktu respons & Optimalisasi alur pemrosesan dan efisiensi sumber daya \\
+    \textbf{\textit{Security}} & Kemampuan untuk melindungi data dan fungsi & Enkripsi, otentikasi, otorisasi, dan \textit{audit logging} \\
+    \textbf{\textit{Modifiability}} & Kemampuan untuk beradaptasi dengan perubahan & \textit{Coupling} yang rendah dan konfigurasi yang fleksibel \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{images/ISO 25010 quality attributes diagram.png}
+  \caption{Model Kualitas ISO/IEC 25010 yang digunakan sebagai landasan untuk mendefinisikan kebutuhan nonfungsional sistem inspeksi kargo}
+  \label{fig:iso25010_quality_model}
 \end{figure}
 
-Gambar, grafik, atau ilustrasi harus memiliki keterangan atau judul (\textit{caption}) yang menjelaskan isi gambar tersebut. 
-Secara horisontal, gambar dan judulnya diposisikan di tengah. Nomor gambar tidak diakhiri tanda baca.
-Judul gambar diletakkan di bawah gambar dan ditulis dengan huruf kecil kecuali huruf pertama pada kalimat judul. 
-Kalimat judul yang panjang dapat ditulis dalam beberapa baris seperti pada Gambar \ref{fig:jaringan2}.
+\textit{Quality attributes} ini membentuk kriteria evaluasi untuk desain arsitektur dan menjadi dasar untuk pengambilan keputusan desain sepanjang proses perancangan sistem.
 
-Ukuran gambar yang ditampilkan dapat diatur dengan mengubah nilai \textit{width} dalam sintaks \textit{includegraphics}. 
-Gambar \ref{fig:jaringan} memiliki lebar 70\% dari lebar teks, sedangkan Gambar \ref{fig:jaringan2} memiliki lebar 90\% dari lebar teks.
+\subsection{Paradigma Edge-Cloud Computing}
+
+Konsep edge-cloud computing mengacu pada model arsitektur komputasi yang membagi beban pemrosesan antara komponen di lokasi sumber data dan pusat pemrosesan terpusat \autocite{shi2016}. Shi dkk. mendefinisikan edge computing sebagai paradigma yang menempatkan komputasi dan penyimpanan data di dekat sumber data untuk mengoptimalkan respons dan efisiensi sistem.
+
+Prinsip-prinsip utama dalam paradigma edge-cloud mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Locality}} -- Pemrosesan data di dekat sumber mengoptimalkan penggunaan \textit{bandwidth} dan mengurangi latensi.
+  \item \textbf{\textit{Autonomy}} -- Komponen tepi harus dapat beroperasi secara independen ketika koneksi dengan pusat terputus.
+  \item \textbf{\textit{Scalability}} -- Pusat pemrosesan menyediakan kapabilitas elastis untuk analisis komprehensif dan penyimpanan jangka panjang.
+  \item \textbf{\textit{Efficiency}} -- Pembagian beban pemrosesan mengoptimalkan penggunaan sumber daya komputasi secara keseluruhan.
+\end{itemize}
+
+Varghese dkk. memperluas konsep ini dengan mengidentifikasi pola-pola distribusi beban kerja yang optimal untuk aplikasi dengan kebutuhan respons cepat pada pengolahan data terdistribusi \autocite{varghese2016}. Secara teoretis, konsep ini menekankan pentingnya pembagian fungsional yang efektif antara komponen lokal dan terpusat.
+
+\subsection{Prinsip Arsitektur Layanan}
+
+Newman mendefinisikan arsitektur layanan sebagai pendekatan pengembangan yang mengorganisir aplikasi menjadi koleksi layanan yang secara fungsional terdekomposisi, \textit{loosely coupled}, dan dapat dikelola secara independen \autocite{newman2015}. Prinsip-prinsip dasar arsitektur layanan mencakup:
+
+\begin{enumerate}
+  \item \textbf{\textit{Service Autonomy}} -- Setiap layanan memiliki kendali penuh terhadap logika dan data yang dikelolanya.
+  \item \textbf{\textit{Service Boundaries}} -- Batasan layanan yang jelas berdasarkan domain fungsional atau bisnis.
+  \item \textbf{\textit{Contract-Based Communication}} -- Komunikasi antar layanan melalui \textit{interface} yang terdefinisi secara formal.
+  \item \textbf{\textit{Decentralized Governance}} -- Setiap layanan dapat menggunakan pendekatan yang dianggap paling relevan dengan kebutuhan domain.
+\end{enumerate}
+
+Pendekatan ini memungkinkan sistem untuk berkembang secara evolusioner, di mana komponen dapat dimodifikasi atau diganti tanpa memerlukan perubahan menyeluruh pada sistem. Prinsip ini digunakan dalam literatur untuk menjelaskan pola adaptasi arsitektur terhadap perubahan regulasi dan kebutuhan operasional.
+
+\section{Kecerdasan Buatan dalam Inspeksi Visual}
+
+\subsection{Konsep Pemodelan Visual Otomatis}
+
+\textit{Computer vision} merupakan bidang yang mempelajari bagaimana sistem komputasi dapat memperoleh pemahaman tingkat tinggi dari citra atau video digital \autocite{szeliski2022}. Prinsip dasar melibatkan transformasi informasi visual mentah menjadi representasi semantik yang dapat digunakan untuk pengambilan keputusan. Konsep ini dipaparkan dalam literatur sebagai pendekatan untuk memahami karakteristik interpretasi visual yang konsisten. Dalam konteks inspeksi kontainer, pendekatan ini relevan karena kerusakan struktural memiliki pola tepi, bentuk, dan tekstur yang dapat dipelajari model secara sistematis.
+
+\subsection{Pembelajaran dari Pola Data Visual}
+
+Pendekatan pembelajaran mesin untuk deteksi objek didasarkan pada prinsip bahwa model dapat membangun representasi konseptual dari pola visual sehingga mampu membedakan karakteristik objek dalam berbagai kondisi \autocite{goodfellow2016}. Representasi ini memungkinkan sistem untuk mengenali kesamaan dan perbedaan dalam informasi visual tanpa memerlukan spesifikasi eksplisit untuk setiap kemungkinan variasi.
+
+Literatur membedakan pendekatan deteksi berdasarkan organisasi proses analisis visual, yang dapat dilakukan secara bertahap dengan pemisahan tahap analisis awal dari tahap identifikasi objek, atau secara terintegrasi dengan penggabungan kedua proses. Literatur menyoroti adanya pertimbangan antara kedalaman analisis dan efisiensi proses dalam pemilihan pendekatan deteksi visual.
+
+\subsection{Prinsip Keandalan Model Prediktif}
+
+Validasi model pembelajaran mesin merupakan proses memastikan bahwa model dapat melakukan generalisasi dengan baik terhadap data yang belum pernah dilihat sebelumnya. Keandalan model diukur melalui kemampuannya untuk memberikan prediksi yang konsisten dan akurat dalam kondisi operasional yang bervariasi. Proses validasi melibatkan evaluasi sistematis terhadap kinerja model menggunakan data yang tidak identik dengan data pembentuk representasi model, serta analisis terhadap pola kesalahan untuk mengidentifikasi area perbaikan.
+
+Literatur menekankan bahwa keandalan model merupakan aspek penting dalam kajian pembelajaran mesin, terutama pada domain yang memerlukan konsistensi interpretasi visual.
+
+\section{Komunikasi Data dan Integrasi Sistem}
+
+\subsection{Konsep Komunikasi Berbasis Kejadian}
+
+Arsitektur berbasis kejadian merupakan pola desain di mana komponen sistem berinteraksi melalui notifikasi perubahan state, memungkinkan independensi temporal dan fungsional antara komponen \autocite{hohpe2003}. Dalam pendekatan ini, komponen yang menghasilkan informasi tidak perlu mengetahui komponen mana yang akan merespons informasi tersebut, dan sebaliknya. Konsep ini menciptakan sistem yang lebih fleksibel karena komponen baru dapat ditambahkan untuk merespons kejadian yang sudah ada tanpa mengubah komponen penghasil kejadian. Pendekatan berbasis kejadian ini selaras dengan kebutuhan inspeksi kargo yang memerlukan penelusuran perubahan status kontainer sepanjang alur pemeriksaan secara transparan.
+
+Pendekatan berbasis kejadian memungkinkan sistem untuk berkembang secara evolusioner dengan menambahkan respons baru terhadap kejadian yang ada, mendukung adaptasi sistem terhadap kebutuhan yang berubah.
+
+\subsection{Mekanisme Penyampaian Informasi Terdistribusi}
+
+Sistem terdistribusi memerlukan mekanisme untuk menyampaikan informasi antar komponen yang mungkin beroperasi pada waktu yang berbeda atau mengalami gangguan komunikasi \autocite{kleppmann2017}. Konsep penyampaian informasi yang toleran terhadap gangguan melibatkan penggunaan perantara yang mengatur pengaliran informasi antar komponen. Pendekatan ini meningkatkan ketahanan sistem terhadap kegagalan sementara pada komponen individual.
+
+Mekanisme ini memungkinkan komponen untuk beroperasi secara independen tanpa bergantung pada ketersediaan simultan semua komponen yang terlibat, mendukung operasi yang berkelanjutan meskipun terjadi gangguan pada bagian tertentu dari sistem.
+
+\subsection{Prinsip Interoperabilitas dan Standarisasi}
+
+Interoperabilitas sistem terdistribusi memerlukan kontrak formal yang memungkinkan komponen heterogen untuk berkomunikasi secara efektif \autocite{bass2022}. Bass dkk. menekankan bahwa standarisasi antarmuka merupakan kunci untuk mencapai interoperabilitas yang berkelanjutan.
+
+Prinsip-prinsip standarisasi mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Interface Contracts}} -- Definisi formal tentang operasi, parameter, dan semantik komunikasi antar komponen.
+  \item \textbf{\textit{Data Format Standards}} -- Standarisasi representasi data untuk memastikan interpretasi yang konsisten.
+  \item \textbf{\textit{Protocol Standards}} -- Standarisasi mekanisme komunikasi untuk memastikan keselarasan pertukaran informasi antar komponen.
+  \item \textbf{\textit{Versioning Strategy}} -- Pendekatan untuk mengelola evolusi \textit{interface} tanpa merusak keselarasan dengan komponen yang ada.
+\end{itemize}
+
+Pendekatan kontrak terstandarisasi memungkinkan komponen untuk berkembang secara independen selama mematuhi interface yang telah disepakati, mendukung evolusi sistem jangka panjang.
+
+\section{Tata Kelola Teknologi Informasi untuk Sistem Inspeksi}
+
+\subsection{Kerangka COBIT untuk Governance TI}
+
+COBIT (Control Objectives for Information and Related Technologies) merupakan kerangka kerja tata kelola dan manajemen teknologi informasi yang dikembangkan oleh ISACA \autocite{isaca2019}. COBIT 2019 menyediakan prinsip-prinsip untuk menyelaraskan TI dengan tujuan bisnis organisasi dan memastikan penggunaan teknologi yang efektif dan bertanggung jawab.
+
+Prinsip-prinsip dasar COBIT mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Meeting Stakeholder Needs}} -- Sistem harus dirancang untuk memenuhi kebutuhan pemangku kepentingan yang beragam.
+  \item \textbf{\textit{Covering the Enterprise End-to-End}} -- \textit{Governance} harus mencakup seluruh organisasi dan ekosistem yang terkait.
+  \item \textbf{\textit{Applying a Single Integrated Framework}} -- Integrasi \textit{governance} TI dengan \textit{governance} organisasi secara keseluruhan.
+  \item \textbf{\textit{Enabling a Holistic Approach}} -- Pertimbangan holistik terhadap berbagai faktor yang memengaruhi \textit{governance}.
+  \item \textbf{\textit{Separating Governance from Management}} -- Pemisahan yang jelas antara fungsi \textit{governance} dan fungsi manajemen operasional.
+\end{itemize}
+
+Dalam konteks sistem inspeksi kargo, COBIT menyediakan kerangka untuk memastikan bahwa sistem tidak hanya efektif secara teknis tetapi juga selaras dengan tujuan operasional pelabuhan dan memenuhi persyaratan regulasi.
+
+\subsection{ITIL untuk Service Management}
+
+ITIL (Information Technology Infrastructure Library) merupakan kerangka kerja praktik terbaik untuk manajemen layanan TI yang dikembangkan oleh AXELOS \autocite{axelos2019}. ITIL 4 memperkenalkan konsep \textit{Service Value System} yang menekankan penciptaan nilai melalui layanan TI.
+
+Komponen-komponen utama ITIL 4 mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Service Value Chain}} -- Model operasi yang mendefinisikan aktivitas kunci untuk merespons permintaan dan menciptakan nilai.
+  \item \textbf{\textit{Guiding Principles}} -- Prinsip-prinsip yang memberikan panduan dalam semua aspek manajemen layanan.
+  \item \textbf{\textit{Practices}} -- Set kemampuan organisasi untuk melakukan pekerjaan atau mencapai tujuan.
+  \item \textbf{\textit{Continual Improvement}} -- Pendekatan iteratif untuk meningkatkan layanan, komponen, dan aktivitas secara berkelanjutan.
+\end{itemize}
+
+ITIL menyediakan kerangka untuk mengelola siklus hidup layanan sistem inspeksi kargo, dari perencanaan hingga operasi dan peningkatan berkelanjutan.
+
+\subsection{Prinsip Audit Trail dan Digital Evidence}
+
+ISO/IEC 27037:2020 menetapkan pedoman untuk identifikasi, pengumpulan, akuisisi, dan preservasi bukti digital \autocite{iso27037}. Dalam konteks sistem inspeksi kargo, prinsip-prinsip audit trail yang kuat sangat penting untuk memastikan integritas dan keabsahan data inspeksi.
+
+Prinsip-prinsip dasar audit trail mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Chain of Custody}} -- Dokumentasi kronologis yang mencatat urutan kendali, transfer, dan disposisi bukti digital.
+  \item \textbf{\textit{Integrity Verification}} -- Mekanisme untuk memverifikasi bahwa data tidak mengalami modifikasi yang tidak sah.
+  \item \textbf{\textit{Non-Repudiation}} -- Kemampuan untuk membuktikan asal dan integritas data sehingga tidak dapat disangkal.
+  \item \textbf{\textit{Immutability}} -- Penyimpanan data audit yang tidak dapat dimodifikasi setelah dicatat.
+  \item \textbf{\textit{Accessibility}} -- Kemampuan untuk mengakses dan meretrieve \textit{audit trail} untuk keperluan investigasi atau kepatuhan.
+\end{itemize}
+
+Prinsip-prinsip ini membentuk dasar teoretis untuk mekanisme logging dan dokumentasi yang dapat dipertanggungjawabkan secara hukum dan operasional.
+
+\section{Standar Industri dan Regulasi}
+
+\subsection{Standar Inspeksi Kontainer Internasional}
+
+Institute of International Container Lessors (IICL) dan \textit{Unified Container Inspection and Repair Criteria} (UCIRC) menetapkan pedoman klasifikasi kerusakan dan dokumentasi yang menjadi dasar konsistensi penilaian kontainer \autocite{iicl2016, icswsc2023}. Standar ini mendefinisikan pola penilaian kerusakan yang konsisten, kategori kerusakan berdasarkan jenis dan tingkat keparahan, serta pentingnya dokumentasi yang terstandarisasi untuk keperluan audit dan klaim.
+
+\subsection{WCO SAFE Framework}
+
+World Customs Organization SAFE Framework of Standards merupakan kerangka kerja internasional untuk mengamankan dan memfasilitasi perdagangan global \autocite{wco2025}. Framework ini menyediakan prinsip-prinsip untuk inspeksi kargo berbasis risiko dan pertukaran informasi elektronik antara otoritas kepabeanan.
+
+Pilar-pilar utama WCO SAFE Framework mencakup:
+
+\begin{itemize}
+  \item \textbf{\textit{Customs-to-Customs Network}} -- Pertukaran informasi intelijen dan risiko antara otoritas kepabeanan.
+  \item \textbf{\textit{Customs-to-Business Partnership}} -- Kolaborasi dengan sektor swasta untuk meningkatkan keamanan rantai pasok.
+  \item \textbf{\textit{Risk Management}} -- Pendekatan sistematis untuk mengidentifikasi dan mengelola risiko dalam perdagangan internasional.
+  \item \textbf{\textit{Technology and Equipment}} -- Penggunaan teknologi modern untuk inspeksi dan verifikasi kargo.
+\end{itemize}
+
+Framework ini menyediakan konteks regulasi yang harus dipertimbangkan dalam merancang sistem inspeksi kargo yang sesuai dengan standar internasional.
+
+\subsection{Regulasi Nasional Indonesia}
+
+Peraturan Menteri Perhubungan Nomor 8 Tahun 2022 tentang Digitalisasi Layanan Kapal dan Barang mewajibkan integrasi sistem informasi pelabuhan secara elektronik \autocite{kemenhub2022}. Regulasi ini menekankan:
+
+\begin{itemize}
+  \item \textbf{Sistem Informasi Elektronik} -- Penerapan sistem informasi untuk pelaporan dan pemrosesan kapal dan barang secara digital.
+  \item \textbf{Integrasi Data} -- Pertukaran data elektronik antara pemangku kepentingan pelabuhan melalui platform terintegrasi.
+  \item \textbf{Keamanan Informasi} -- Persyaratan keamanan siber untuk melindungi integritas dan kerahasiaan data.
+  \item \textbf{Audit dan Compliance} -- Kemampuan untuk melakukan audit dan memastikan kepatuhan terhadap prosedur operasional.
+\end{itemize}
+
+Peraturan Direktur Jenderal Bea dan Cukai terkait pemeriksaan kontainer juga mewajibkan dokumentasi digital dan integrasi dengan sistem kepabeanan \autocite{bc2020}. Regulasi-regulasi ini membentuk kerangka hukum yang harus dipenuhi oleh sistem inspeksi kargo digital di Indonesia.
+
+\section{Prinsip Pengelolaan Data dalam Sistem Inspeksi}
+
+Pengelolaan data merupakan aspek fundamental dalam sistem inspeksi kargo digital yang menjamin keandalan informasi sepanjang siklus operasional. Literatur menunjukkan bahwa kualitas data menjadi faktor kritis dalam mendukung pengambilan keputusan yang akurat dan dapat dipertanggungjawabkan dalam konteks inspeksi kargo.
+
+Konsep kualitas data mencakup beberapa dimensi utama yang relevan dengan sistem inspeksi. \textit{Accuracy} mengacu pada tingkat kesesuaian antara data yang tercatat dengan kondisi aktual yang direpresentasikan. \textit{Completeness} merujuk pada kelengkapan atribut data yang diperlukan untuk mendukung proses inspeksi dan audit. \textit{Consistency} menekankan keseragaman representasi data di seluruh komponen sistem yang berbeda. Dimensi kualitas data ini penting dalam literatur arsitektur karena menentukan efektivitas alur informasi yang menjadi dasar bagi operasi inspeksi.
+
+Prinsip metadata menjadi penting dalam konteks sistem terdistribusi di mana informasi tentang data itu sendiri diperlukan untuk memastikan interpretasi yang tepat. Metadata mencakup informasi tentang sumber data, waktu akuisisi, metode pengumpulan, dan transformasi yang telah dilakukan. Dalam workflow inspeksi, metadata memungkinkan pelacakan asal-usul informasi dan memfasilitasi audit terhadap proses pengambilan keputusan.
+
+Konsep \textit{traceability} menekankan kemampuan untuk melacak riwayat data dari titik akuisisi hingga penggunaan akhir. Dalam konteks inspeksi kargo, traceability memungkinkan verifikasi terhadap validitas hasil inspeksi dan mendukung akuntabilitas dalam proses kepabeanan. Prinsip ini menjadi relevan khususnya dalam sistem yang melibatkan multiple stakeholder dengan kebutuhan audit yang berbeda.
+
+\section{Celah Literatur dan Kontribusi Penelitian}
+
+\subsection{Identifikasi Celah Penelitian}
+
+Review sistematis terhadap literatur yang ada mengidentifikasi beberapa celah penelitian yang signifikan:
+
+\textbf{Celah 1: Kerangka Arsitektur Konseptual yang Komprehensif.} Meskipun literatur tentang teknologi inspeksi individual (NII, IRT, computer vision) telah berkembang, belum ada kerangka arsitektur konseptual yang mengintegrasikan seluruh komponen dalam alur informasi yang holistik. Penelitian yang ada cenderung fokus pada aspek teknis spesifik tanpa memberikan blueprint arsitektur yang dapat dijadikan acuan untuk implementasi sistem terintegrasi.
+
+\textbf{Celah 2: Prinsip Pembagian Fungsional Edge-Cloud untuk Domain Inspeksi.} Literatur tentang edge-cloud computing telah mapan secara teoritis, tetapi aplikasi spesifik untuk domain inspeksi kargo belum dieksplorasi secara mendalam. Belum ada kerangka konseptual yang mendefinisikan prinsip pembagian fungsional optimal antara pemrosesan lokal dan terpusat untuk workload inspeksi kontainer dengan pertimbangan \textit{trade-off} antara responsivitas, efisiensi, dan akurasi.
+
+\textbf{Celah 3: Model Atribut Kualitas untuk Sistem Inspeksi Kargo.} Meskipun ISO 25010 menyediakan kerangka umum untuk quality attributes, belum ada adaptasi spesifik untuk domain inspeksi kargo yang mempertimbangkan karakteristik unik operasi pelabuhan. Tidak ada model yang mendefinisikan prioritas dan \textit{trade-off} antara atribut kualitas dalam konteks sistem inspeksi kargo digital.
+
+\textbf{Celah 4: Prinsip Audit Trail Multi-Stakeholder.} ISO 27037 menyediakan pedoman untuk penanganan bukti digital secara umum, tetapi belum diadaptasi untuk alur kerja inspeksi kargo yang melibatkan multiple stakeholder dengan kepentingan dan kewenangan yang berbeda. Belum ada kerangka konseptual untuk merancang audit trail yang dapat memenuhi kebutuhan pelabuhan, bea cukai, pemilik barang, dan regulator secara simultan.
+
+\textbf{Celah 5: Framework Interoperabilitas untuk Ekosistem Pelabuhan Indonesia.} Meskipun prinsip interoperabilitas telah mapan secara teoritis, belum ada kerangka spesifik yang mendefinisikan standar interface dan protokol komunikasi untuk integrasi sistem inspeksi dengan ekosistem digital pelabuhan Indonesia, termasuk Inaportnet, TOS, dan PCS.
+
+\subsection{Kontribusi Penelitian}
+
+Penelitian ini bertujuan untuk mengisi celah-celah tersebut dengan kontribusi berikut:
+
+\begin{enumerate}
+  \item \textbf{Blueprint Arsitektur Konseptual Terintegrasi} -- Merancang kerangka arsitektur konseptual yang komprehensif yang menggambarkan struktur komponen, alur informasi, dan prinsip integrasi secara holistik untuk sistem inspeksi kargo digital.
+
+  \item \textbf{Prinsip Pembagian Fungsional Edge-Cloud} -- Mengembangkan prinsip-prinsip desain untuk pembagian fungsional optimal antara komponen lokal dan terpusat dalam konteks inspeksi kargo, dengan evaluasi konseptual terhadap \textit{trade-off} responsivitas, efisiensi, dan akurasi.
+
+  \item \textbf{Model Quality Attributes Terapan} -- Mengadaptasi ISO 25010 untuk domain inspeksi kargo dengan mendefinisikan prioritas dan \textit{trade-off} antar atribut kualitas yang sesuai dengan karakteristik operasi pelabuhan.
+
+  \item \textbf{Kerangka Audit Trail Multi-Stakeholder} -- Merancang prinsip-prinsip audit trail dan chain of custody digital yang memenuhi kebutuhan berbagai pemangku kepentingan dalam ekosistem inspeksi kargo.
+
+  \item \textbf{Framework Interoperabilitas Kontekstual} -- Mengembangkan kerangka standarisasi interface dan protokol komunikasi yang sesuai dengan regulasi nasional dan karakteristik ekosistem pelabuhan Indonesia.
+\end{enumerate}
  
-
-\begin{figure}[t] 
-  \caption{Contoh peletakan gambar dengan judul yang panjang sehingga ditulis dalam beberapa baris} 
-	\label{fig:jaringan2}
-    	\includegraphics[width=0.9\textwidth]{images/gambar1.png}
-\end{figure}
-
-Pastikan gambar yang digunakan memiliki resolusi yang cukup tinggi agar tidak pecah atau buram saat dicetak. 
-Gambar umumnya tidak tajam dan tulisan tidak jelas atau kabur jika gambar tersebut:
-\begin{enumerate}[a.]
-  \item diperoleh dari hasil cropping pada suatu halaman buku atau situs web;
-  \item hasil pembesaran gambar yang gambar aslinya sebenarnya berukuran kecil; atau
-  \item disimpan dalam resolusi kecil
-\end{enumerate}
-Ketidakjelasan gambar ini dapat dilihat pada garis-garis diagram yang tidak tegas dan tulisan-tulisan dalam gambar yang tampak kabur dan kurang jelas terbaca.
-
-Untuk mendapatkan gambar yang tidak kabur (\textit{blur}), langkah-langkah berikut dapat digunakan:
-\begin{enumerate}[(a)]
-\item Hindari \textit{screenshot}. Gambar yang didapat di suatu pustaka atau referensi sebaiknya digambar ulang (tidak perlu sama persis), misalnya menggunakan PowerPoint, Canva, Figma, draw.io, atau yang lainnya.
-\item Jika diagram atau ilustrasi digambar menggunakan draw.io, saat gambar disimpan ke format PNG atau JPG (\textit{export as}), lakukan \textit{zoom} ke minimal 300\% (\textit{the default value is} 100\%). 
-\item Jika diagram digambar dengan menggunakan \texttt{PowerPoint} atau aplikasi yang mengolah gambar vektor lainnya, gambar dapat langsung disimpan asalkan resolusinya tinggi.
-\end{enumerate}
-
-\subsection{Penulisan Tabel}
-Format penulisan tabel hampir sama dengan format penulisan gambar. Bedanya adalah judul tabel diletakkan di atas tabel, bukan di bawah tabel seperti pada gambar.
-Ada tabel yang bisa dimuat dalam satu halaman (tabel pendek) dan ada tabel panjang yang yang tidak muat dalam satu halaman. Kedua jenis tabel tersebut disusun dengan cara yang berbeda.
-Jika tabel sangat panjang, gunakan paket \textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya.
-Namun, jika tabel dapat dimuat dalam satu halaman, gunakan lingkungan \textit{table} biasa, tidak menggunakan \textit{longtable}.
-Usahakan tabel dapat ditulis dalam satu halaman, tidak terpotong ke halaman berikutnya, jika memungkinkan.
-
-\subsubsection{Penulisan Tabel Pendek}
-Contoh tabel pendek dapat dilihat pada Tabel \ref{tab:tabel1}, \ref{tab:tabel2}, dan \ref{tab:tabel3}. 
-Pada kedua table ini, tabel dan judulnya diposisikan di tengah secara horisontal dan 
-judul tabel diletakkan di atas tabel. Secara vertikal, tabel sebaiknya diletakkan di bagian atas atau bawah halaman.
-
-Penyebutan judul tabel dalam teks menggunakan perintah \texttt{ref}, misalnya Tabel \ref{tab:tabel1}.
-Gunakan huruf kapital pada kata "Tabel" saat menyebutkan tabel dalam teks.
-
-Tabel \ref{tab:tabel1} menggunakan paket \textit{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-Selain itu, tabel ini juga menggunakan \textit{threeparttable} untuk menambahkan catatan kaki pada tabel 
-dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{tablenotes} yang disediakan oleh paket \textit{threeparttable}.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{\textbackslash footnotemark} dan \texttt{\textbackslash footnotetext} untuk menambahkan catatan kaki pada tabel.
-
-Tabel \ref{tab:tabel2} menggunakan format standar \texttt{| l | c | r |}. 
-Tabel \ref{tab:tabel3} menggunakan lebar kolom tetap (\textit{fixed width}) menggunakan \texttt{p\{width\}}.
-
-\begin{table} 
-  \centering
-    \begin{threeparttable}[t] % threeparttable agar bisa menambahkan catatan kaki pada tabel
-    \caption{Contoh tabel yang menggunakan \texttt{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-    Selain itu, tabel ini juga menggunakan \texttt{threeparttable} untuk menambahkan catatan kaki pada tabel 
-    dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.}
-    \label{tab:tabel1}
-    \begin{tabularx}{0.6\textwidth}{| c | X| l | r @{}|} % @{} removes extra space at edges, X makes the column flexible width
-	    \hline
-	    No & Nama 	& Satuan 		& Harga \\
-	    \hline
-	    1 & Buku 	& Exemplar	& 25000 \\
-	    2 & Komputer	& Unit		& 2500000 \\
-	    3 & Pensil	& Buah		& 118900 \\
-	    \hline
-	  \end{tabularx} 
-    \begin{tablenotes}
-      \footnotesize
-      \item \footnotemark[1]Tabel harga berdasarkan data tahun 2023.
-      \item \footnotemark[2]Sumber: \url{https://www.example.com}
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-
-
-
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \caption{Tabel yang menggunakan format standar \texttt{| l | c | r |}}
-  \label{tab:tabel2}
-	\begin{tabular}{ | l | c | r | }
-	\hline
-	Nama 	& Satuan 		& Harga \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	Komputer	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
-
-
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \centering
-  \caption{Tabel yang lebar kolomnya dibuat tetap}
-  \label{tbl:tabel3}
-	\begin{tabular}{  p{0.2\textwidth} | p{0.2\textwidth} | p{0.2\textwidth}  }
-	\hline
-	\textbf{Nama} 	& \textbf{Satuan} 		& \textbf{Harga} \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	\emph{Komputer}	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
-
-% -- Example of importing table from external file --
-\subsubsection{Mengimpor Tabel dari Berkas Eksternal}
-
-Untuk kerapian penulisan, tabel tidak harus ditulis di dokumen utama. Sebagai contoh, Tabel \ref{tab:tabel4} diimpor dari berkas eksternal \texttt{table/tabel1.tex} menggunakan perintah \texttt{input}. 
-Dengan demikian, jika tabel tersebut perlu diubah, cukup mengubah pada berkas eksternal tersebut tanpa perlu mengubah pada berkas dokumen utama ini.
-
-\input tables/tabel1.tex
-
-
-% -- Example of long table --
-\subsubsection{Tabel yang Sangat Panjang}
-Jika tabel terlalu panjang sehingga tidak muat dalam satu halaman, gunakan paket 
-\textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya, 
-seperti pada Tabel \ref{tab:long}. 
-
-\input tables/longtable1.tex
-
-\subsection{Penulisan Rumus atau Persamaan Matematika Menggunakan {\LaTeX} dan Penomorannya}
-Contoh rumus matematika dapat ditulis seperti pada Persamaan \ref{eq:contoh1} di bawah ini. 
-Penomoran persamaan diletakkan di sebelah kanan, dan rumus ditulis dalam mode \textit{display math}.
-\begin{equation}
-E = mc^2
-\label{eq:contoh1}
-\end{equation}
-\eqcaption{Persamaan Pertama}
-
-Contoh lain penulisan rumus matematika yang lebih kompleks dapat ditulis seperti pada Persamaan \ref{eq:rumus2}.
-Perlu diperhatikan bahwa jika rumus terdiri dari beberapa baris, nomor persamaan hanya diletakkan pada baris terakhir, bukan pada setiap baris.
-\begin{align}
-f(x) &= ax^2 + bx + c \notag \\ % tidak menampilkan nomor pada baris ini
-f'(x) &= \frac{d}{dx}(ax^2 + bx + c) \notag \\ % tidak menampilkan nomor pada baris ini
-      &= 2ax + b 
-      \label{eq:rumus2} % nomor hanya muncul pada baris terakhir
-\end{align}
-\eqcaption{Persamaan Kedua}
-
-Jika rumus terlalu panjang untuk ditulis dalam satu baris, gunakan lingkungan \textit{multline} seperti pada Persamaan \ref{eq:rumus3} di bawah ini.
-\begin{multline} 
-y = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4 + a_5x^5 + a_6x^6 + a_7x^7 \\
-    + a_8x^8 + a_9x^9 + a_{10}x^{10} \label{eq:rumus3}
-\end{multline}
-\eqcaption{Persamaan Ketiga}
-
-Jika ada penurunan rumus yang terdiri dari beberapa baris, namun tidak memerlukan penomoran pada setiap baris dan tidak masuk di daftar persamaan, gunakan lingkungan \textit{align*}, misalnya:
-
-\begin{align*} 
-S &= \sum_{i=1}^{n} i^2 \\
-  &= 1^2 + 2^2 + 3^2 + \cdots + n^2 \\
-  &= \frac{n(n + 1)(2n + 1)}{6}
-\intertext{Contoh lainnya adalah rumus untuk mencari nilai rata-rata fungsi $f(x)$ pada interval $[p, q]$:}
-\bar{f} &= \frac{1}{q - p} \int_{p}^{q} f(x) \, dx \\
-        &= \frac{1}{q - p} \int_{p}^{q} (ax^2 + bx + c) \, dx \\
-        &= \frac{1}{q - p} \left[ \frac{a}{3}x^3 + \frac{b}{2}x^2 + cx \right]_p^q \\
-        &= \frac{a(q^3 - p^3)}{3(q - p)} + \frac{b(q^2 - p^2)}{2(q - p)} + c \label{eq:rumus4}
-\end{align*}
-
-
-
-
-\subsection{Penulisan Kode Program, \textit{Script} atau \textit{Pseudocode}}
-Contoh penulisan kode program, \textit{script}, atau \textit{pseudocode} dapat dilihat seperti pada \textit{listing} \ref{lst:binary_iter}. 
-Gunakan paket \textit{listings} untuk menulis \textit{source code} dalam bahasa pemrograman tertentu. 
-Kode seperti ini disebut dengan istilah \textit{listing}. 
-Kode program, \textit{script}, atau \textit{pseudocode} yang relatif pendek dapat ditulis di dalam
-dokumen utama. Namun, jika kode programnya sangat panjang, sebaiknya ditulis di berkas terpisah dan diletakkan di lampiran.
-
-\subsection{Penulisan Algoritma}
-Contoh penulisan algoritma dapat dilihat pada Algoritma \ref{alg:binary-search}. Ada beberapa paket yang dapat digunakan untuk menulis algoritma,
-misalnya \textit{algorithm2e}, \textit{algorithmic}, dan \textit{algpseudocode}. 
-Pada contoh ini digunakan paket \textit{algorithmic} untuk menulis algoritma. Setiap paket memiliki sintaks yang berbeda-beda.
-Oleh karena itu, pelajari dokumentasi paket yang digunakan untuk menulis algoritma.
-
-
-\input{listings/binary-search-python.tex}
-
-
-\input{algorithms/binary-search-alg.tex}
-
-
-
+\bigskip
+Identifikasi celah literatur dan kontribusi penelitian yang diuraikan di atas memperkuat perlunya analisis kebutuhan sistem yang komprehensif untuk merancang arsitektur yang sesuai dengan konteks pelabuhan Indonesia. Bab III akan menguraikan analisis masalah mendalam, kebutuhan fungsional dan nonfungsional, serta spesifikasi konseptual yang menjadi dasar perancangan arsitektur sistem inspeksi kargo digital terintegrasi.

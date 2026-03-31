@@ -4,4 +4,272 @@
 \cleardoublepage
 \chapter{IMPLEMENTASI}
 \label{chap:implementasi}
-asdfasdf
+
+\section{Gambaran Umum Implementasi}
+\label{sec:gambaran-umum-implementasi}
+
+Bab ini menjelaskan realisasi rancangan arsitektur sistem inspeksi kargo digital
+terintegrasi yang telah dibahas pada Bab IV. Fokus pembahasan tidak diarahkan
+pada rincian implementasi kode program secara umum, melainkan pada bagaimana
+keputusan arsitektural direalisasikan menjadi sistem yang dapat beroperasi.
+Dengan demikian, bab ini menempatkan implementasi sebagai bukti bahwa
+rancangan arsitektur yang diusulkan dapat diwujudkan menjadi solusi yang
+terintegrasi.
+
+Implementasi sistem direalisasikan dalam bentuk beberapa komponen utama yang
+dipisahkan berdasarkan tanggung jawabnya. Pemisahan tersebut selaras dengan
+prinsip modularitas, pemrosesan tersebar, dan integrasi data yang telah
+ditetapkan pada tahap perancangan. Secara umum, sistem terdiri atas komponen
+\textit{edge} untuk pengolahan aliran video dan inferensi awal, komponen
+\textit{backend} untuk orkestrasi proses bisnis serta persistensi data, komponen
+aplikasi web untuk pemantauan dan inspeksi, serta komponen penyimpanan data
+untuk informasi terstruktur dan artefak visual hasil inspeksi.
+
+Realisasi ini menghasilkan dua jalur utama pertukaran data. Jalur pertama adalah
+jalur data terstruktur yang mengalir dari komponen \textit{edge} ke layanan API,
+kemudian disimpan pada basis data dan diakses oleh aplikasi web. Jalur kedua
+adalah jalur video langsung yang mengalir dari komponen \textit{edge} ke aplikasi
+web melalui \textit{WebSocket}. Pemisahan dua jalur ini merupakan keputusan
+arsitektural penting karena data transaksional dan aliran video memiliki
+karakteristik kebutuhan yang berbeda dari sisi latensi, beban jaringan, dan pola
+akses.
+
+\section{Realisasi Arsitektur Sistem}
+\label{sec:realisasi-arsitektur-sistem}
+
+\subsection{Struktur Komponen Implementasi}
+\label{subsec:struktur-komponen-implementasi}
+
+Implementasi sistem dibangun dengan empat kelompok komponen utama yang saling
+terhubung.
+
+\textbf{1. Komponen \textit{edge}}
+
+Komponen \textit{edge} direalisasikan sebagai layanan berbasis Python dan
+\textit{FastAPI}. Komponen ini bertugas menarik aliran video dari kamera
+\textit{RTSP}, menjalankan model deteksi dan \textit{optical character
+recognition} (OCR), mengelola status aliran, serta mengirimkan hasil pengolahan
+ke komponen lain. Pada tahap implementasi, komponen \textit{edge} juga
+menyediakan layanan \textit{WebSocket} untuk menyiarkan \textit{frame} yang
+sudah dianotasi kepada aplikasi web.
+
+\textbf{2. Komponen layanan API}
+
+Komponen layanan API direalisasikan sebagai layanan \textit{backend} berbasis
+Node.js dan Express. Komponen ini berperan sebagai pusat orkestrasi data
+terstruktur, autentikasi, pengelolaan status inspeksi, serta antarmuka layanan
+bagi aplikasi web dan komponen \textit{edge}. Seluruh hasil identifikasi,
+pemindaian, dan pelacakan yang berasal dari \textit{edge} diterima oleh layanan
+ini melalui antarmuka HTTP.
+
+\textbf{3. Komponen aplikasi web}
+
+Komponen aplikasi web direalisasikan menggunakan Next.js, React, dan TypeScript.
+Komponen ini menyediakan antarmuka bagi operator untuk memantau aliran video,
+meninjau hasil inspeksi, mengelola aliran kamera, dan membaca hasil identifikasi
+serta analisis yang sudah tersimpan. Aplikasi web mengakses data terstruktur
+melalui layanan API dan menerima video langsung dari komponen \textit{edge}
+melalui \textit{WebSocket}.
+
+\textbf{4. Komponen penyimpanan}
+
+Komponen penyimpanan direalisasikan dalam dua bentuk. Pertama, MongoDB digunakan
+sebagai basis data utama untuk data terstruktur. Kedua, Cloudflare R2 digunakan
+sebagai media penyimpanan untuk artefak visual seperti citra hasil identifikasi,
+citra hasil pemindaian, dan visualisasi anotasi. Pemisahan ini sesuai dengan
+prinsip bahwa data terstruktur dan data media memiliki pola penyimpanan yang
+berbeda.
+
+\subsection{Pemetaan Implementasi terhadap Lapisan Arsitektur}
+\label{subsec:pemetaan-implementasi-lapisan}
+
+Hasil implementasi menunjukkan bahwa struktur sistem yang dibangun selaras
+dengan arsitektur berlapis yang telah dirancang sebelumnya.
+
+\begin{enumerate}
+    \item \textbf{\textit{Presentation Layer}} direalisasikan oleh aplikasi web
+    yang menyediakan fitur pemantauan, inspeksi, pelaporan, dan pengelolaan
+    aliran kamera.
+    \item \textbf{\textit{Application Layer}} direalisasikan oleh layanan API
+    yang mengelola logika proses inspeksi, validasi data, autentikasi, dan
+    orkestrasi layanan.
+    \item \textbf{\textit{Data Layer}} direalisasikan oleh MongoDB sebagai
+    penyimpanan data terstruktur dan Cloudflare R2 sebagai penyimpanan artefak
+    inspeksi berbasis berkas.
+    \item \textbf{\textit{Edge Layer}} direalisasikan oleh layanan \textit{edge}
+    yang berinteraksi langsung dengan kamera, menjalankan inferensi, dan
+    mengirimkan hasil pengolahan ke komponen lain.
+\end{enumerate}
+
+Pemetaan tersebut menunjukkan bahwa implementasi yang dihasilkan tidak
+meninggalkan struktur rancangan konseptual, melainkan menerjemahkannya menjadi
+komponen nyata yang dapat diuji. Dengan demikian, hasil implementasi mendukung
+argumen bahwa rancangan arsitektur yang disusun pada penelitian ini bersifat
+\textit{implementable}.
+
+\section{Realisasi Alur Data dan Integrasi}
+\label{sec:realisasi-alur-data}
+
+\subsection{Jalur Data Terstruktur}
+\label{subsec:jalur-data-terstruktur}
+
+Jalur data terstruktur merupakan jalur utama untuk menyimpan hasil inspeksi dan
+menyediakan data operasional kepada pengguna. Pada implementasinya, komponen
+\textit{edge} mengirimkan hasil identifikasi kontainer, hasil pemindaian
+kerusakan, hasil pemindaian barang berisiko, hasil klasifikasi muatan, data
+pelacakan objek, dan peristiwa status aliran ke layanan API melalui antarmuka
+HTTP.
+
+Alur tersebut berjalan sebagai berikut:
+\begin{enumerate}
+    \item kamera mengirimkan aliran video ke komponen \textit{edge};
+    \item komponen \textit{edge} memproses \textit{frame} menggunakan model yang
+    sesuai;
+    \item hasil inferensi dikonversi ke dalam bentuk data terstruktur;
+    \item data dikirim ke layanan API;
+    \item layanan API memvalidasi, menyimpan, dan memperbarui data pada basis
+    data;
+    \item aplikasi web membaca data tersebut melalui antarmuka HTTP yang sama.
+\end{enumerate}
+
+Dengan pola tersebut, aplikasi web tidak berinteraksi langsung dengan logika
+inferensi pada komponen \textit{edge} untuk memperoleh hasil inspeksi. Seluruh
+data operasional yang bersifat persisten tetap melalui layanan API sehingga
+konsistensi data dan kontrol akses dapat dijaga secara terpusat.
+
+\subsection{Jalur Video Langsung}
+\label{subsec:jalur-video-langsung}
+
+Selain jalur data terstruktur, sistem juga merealisasikan jalur video langsung
+antara komponen \textit{edge} dan aplikasi web. Jalur ini digunakan untuk
+menyajikan \textit{frame} yang telah dianotasi secara waktu nyata. Pemisahan
+jalur ini dilakukan agar layanan API tidak dibebani oleh arus video berukuran
+besar yang tidak memerlukan penyimpanan transaksional.
+
+Pada implementasinya, aplikasi web membuka koneksi \textit{WebSocket} langsung ke
+komponen \textit{edge}. Melalui koneksi tersebut, aplikasi web menerima
+\textit{frame} yang sudah diberi anotasi beserta metadata pelacakan. Dengan
+pendekatan ini, operator dapat memantau kondisi lapangan secara langsung, tetapi
+penyimpanan hasil inspeksi formal tetap dilakukan melalui layanan API. Keputusan
+ini memperlihatkan pemisahan yang jelas antara kebutuhan \textit{real-time
+monitoring} dan kebutuhan persistensi data.
+
+\subsection{Propagasi Nomor Kontainer}
+\label{subsec:propagasi-nomor-kontainer}
+
+Salah satu kebutuhan integrasi utama dalam sistem ini adalah kemampuan
+menyelaraskan hasil identifikasi kontainer dengan aliran pemeriksaan lainnya.
+Pada implementasinya, ketika aliran OCR berhasil mendeteksi nomor kontainer,
+nomor tersebut secara otomatis dipropagasikan ke aliran lain yang sedang aktif.
+
+Mekanisme ini memiliki implikasi arsitektural yang penting. Pertama, hasil OCR
+tidak berhenti sebagai keluaran lokal pada satu model, melainkan menjadi konteks
+bersama bagi proses inspeksi lanjutan. Kedua, hasil pemindaian kerusakan,
+barang berisiko, dan kategori muatan dapat dikaitkan ke entitas kontainer yang
+sama tanpa entri manual berulang dari operator. Dengan demikian, implementasi
+berhasil merealisasikan kebutuhan integrasi data lintas modul yang sebelumnya
+didefinisikan sebagai salah satu kapabilitas arsitektur inti.
+
+\section{Realisasi Arsitektur Data}
+\label{sec:realisasi-arsitektur-data}
+
+\subsection{Struktur Data Inti}
+\label{subsec:struktur-data-inti}
+
+Fokus utama kontribusi pada penelitian ini berada pada bagaimana data inspeksi
+dimodelkan, disimpan, dan dipertukarkan secara konsisten. Implementasi sistem
+menunjukkan bahwa data inti direalisasikan ke dalam beberapa entitas utama,
+yaitu \textit{Container}, \textit{Manifest}, \textit{TrackingEvent},
+\textit{StreamStatus}, dan \textit{Vehicle}.
+
+\textbf{Entitas \textit{Container}}
+
+Entitas \textit{Container} menjadi pusat agregasi data inspeksi. Entitas ini
+menyimpan identitas kontainer, hasil OCR, ringkasan manifest, hasil pemindaian
+kerusakan, hasil pemindaian barang berisiko, hasil klasifikasi muatan, keputusan
+sistem, hasil tinjauan manual, serta lampiran bukti inspeksi. Dengan struktur
+ini, seluruh hasil inspeksi terhadap satu kontainer dapat ditelusuri dalam satu
+entitas logis yang konsisten.
+
+\textbf{Entitas \textit{Manifest}}
+
+Entitas \textit{Manifest} menyimpan data manifes secara lebih lengkap, meliputi
+informasi kapal, asal dan tujuan, pihak pengirim dan penerima, deskripsi muatan,
+berat, volume, data kepabeanan, serta dokumen pendukung. Keberadaan entitas ini
+memungkinkan sistem membandingkan hasil deteksi muatan aktual dengan deklarasi
+muatan yang tercatat.
+
+\textbf{Entitas \textit{TrackingEvent}}
+
+Entitas \textit{TrackingEvent} digunakan untuk mencatat data pelacakan per
+\textit{frame} dari komponen \textit{edge}. Data ini memuat identitas kamera,
+identitas perangkat, nomor \textit{frame}, stempel waktu, jenis objek, tingkat
+kepercayaan, posisi \textit{bounding box}, dan metadata tambahan. Entitas ini
+berfungsi sebagai jejak aktivitas operasional yang mendukung analisis lebih
+lanjut dan ketertelusuran proses.
+
+\textbf{Entitas \textit{StreamStatus}}
+
+Entitas \textit{StreamStatus} merekam kondisi operasional setiap aliran video,
+termasuk status aktif, model yang digunakan, jumlah \textit{frame}, waktu
+\textit{frame} terakhir, serta informasi kesalahan. Entitas ini mendukung
+pemantauan sistem dan menjadi bagian penting dalam pengelolaan keandalan
+operasional.
+
+\textbf{Entitas \textit{Vehicle}}
+
+Entitas \textit{Vehicle} digunakan untuk menyimpan hasil pemindaian kategori
+kendaraan, termasuk jenis kendaraan yang terdeteksi, ringkasan hasil deteksi,
+dan artefak visual terkait. Walaupun bukan pusat utama sistem inspeksi
+kontainer, entitas ini menunjukkan bahwa arsitektur data yang dibangun bersifat
+ekstensibel untuk mendukung jenis objek inspeksi lain.
+
+\subsection{Pemisahan Penyimpanan Terstruktur dan Artefak Visual}
+\label{subsec:pemisahan-penyimpanan}
+
+Realisasi implementasi juga menunjukkan bahwa penyimpanan data dilakukan dengan
+memisahkan data terstruktur dari artefak visual. Data yang bersifat operasional
+dan transaksional disimpan di MongoDB, sedangkan citra hasil OCR, visualisasi
+hasil deteksi, dan bukti pendukung lainnya disimpan di Cloudflare R2.
+
+Keputusan ini relevan dengan kebutuhan arsitektural yang telah dirumuskan pada
+Bab IV. Data terstruktur membutuhkan dukungan kueri, pembaruan status, dan
+pengelolaan konsistensi. Sebaliknya, artefak visual membutuhkan media
+penyimpanan objek yang lebih sesuai untuk berkas berukuran besar. Pemisahan ini
+meningkatkan efisiensi pengelolaan data sekaligus menjaga struktur informasi
+tetap ringkas pada basis data utama.
+
+\subsection{Dukungan terhadap Ketertelusuran dan Audit}
+\label{subsec:dukungan-ketertelusuran}
+
+Salah satu tujuan penting dari rancangan arsitektur adalah menyediakan
+ketertelusuran proses inspeksi. Pada implementasinya, tujuan tersebut
+direalisasikan melalui penyimpanan stempel waktu, identitas perangkat,
+identitas kamera, hasil deteksi, ringkasan keputusan, serta artefak visual pada
+setiap tahapan penting.
+
+Pendekatan ini memungkinkan sistem menjawab pertanyaan operasional seperti
+kontainer apa yang diperiksa, kapan pemeriksaan dilakukan, kamera mana yang
+digunakan, hasil apa yang ditemukan, dan bukti visual apa yang mendukung
+temuan tersebut. Dengan demikian, struktur implementasi yang terbentuk tidak
+hanya mendukung kebutuhan operasional harian, tetapi juga mendukung audit,
+verifikasi ulang, dan evaluasi proses secara historis.
+
+\section{Implikasi Implementasi terhadap Kontribusi Arsitektural}
+\label{sec:implikasi-implementasi}
+
+Hasil implementasi menunjukkan bahwa rancangan arsitektur yang diusulkan dapat
+diterjemahkan ke dalam sistem yang berjalan dengan pemisahan tanggung jawab yang
+jelas. Komponen \textit{edge} menangani pengumpulan data dan inferensi awal,
+layanan API menangani integrasi dan persistensi, aplikasi web menangani
+interaksi pengguna, dan lapisan data menangani penyimpanan serta penyediaan
+informasi. Pola implementasi ini memperkuat validitas keputusan arsitektural
+yang menekankan modularitas dan integrasi berlapis.
+
+Dari sudut pandang kontribusi penelitian, implementasi ini menunjukkan bahwa
+perancangan arsitektur tidak berhenti pada level konseptual. Struktur data,
+jalur integrasi, dan pembagian komponen yang dirancang benar-benar menjadi dasar
+bagi sistem yang dibangun pada proyek capstone. Hal tersebut penting karena
+menunjukkan bahwa kontribusi penelitian ini terletak pada kemampuan merancang
+arsitektur yang implementatif, terintegrasi, dan mendukung kebutuhan
+ketertelusuran proses inspeksi di lingkungan pelabuhan.

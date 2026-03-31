@@ -3,42 +3,44 @@
 
 \begin{center}
 
-    \textbf{Implementasi Sistem Smart Scale Berbasis IoT dengan Arsitektur Desentralisasi untuk Optimalisasi Rantai Pasok Jeruk di Tingkat Lapak} \\
+    \textbf{Perancangan Arsitektur Sistem Inspeksi Kargo Digital Terintegrasi untuk Optimalisasi Proses Pemeriksaan di Pelabuhan} \\
     \vspace{0.4cm}
     oleh \\
     \vspace{0.4cm}
-    John Doe\\
-    123456789\\
+    Aththariq Lisan Quran Daulah Sentono\\
+    18222013\\
 \end{center}
 
 
 \begin{spacing}{1.0}
-Proses manual dalam rantai pasok jeruk di tingkat lapak, yang mencakup sortir,
-timbang, dan catat, terbukti tidak efisien, memakan waktu, dan rentan terhadap
-kesalahan. Meskipun solusi berbasis Internet of Things (IoT) dapat mengatasi
-masalah ini, arsitektur terpusat konvensional berbasis cloud justru menimbulkan
-masalah baru berupa latensi tinggi yang menghambat alur kerja real-time.
-Penelitian ini bertujuan untuk merancang dan mengimplementasikan sebuah
-purwarupa sistem smart scale berbasis IoT dengan pendekatan desentralisasi (edge
-computing) untuk meminimalkan latensi dan meningkatkan efisiensi operasional.
-Metode yang digunakan adalah Model Purwarupa, yang diwujudkan dalam bentuk
-perangkat keras dengan arsitektur prosesor ganda (Raspberry Pi 5 dan ESP32) yang
-mampu mengintegrasikan fungsi timbang dan analisis kualitas citra secara
-simultan. Hasil evaluasi menunjukkan bahwa purwarupa dengan arsitektur edge
-computing yang diimplementasikan mampu memberikan respons 43,5\% lebih cepat
-(latensi rata-rata 18,05 detik) dibandingkan dengan simulasi arsitektur terpusat.
-Selain itu, sistem ini berhasil meningkatkan efisiensi waktu kerja secara
-keseluruhan sebesar 58,32\% jika dibandingkan dengan metode manual
-konvensional. Pengujian Penerimaan Pengguna (UAT) yang melibatkan 30
-partisipan juga menunjukkan penerimaan yang sangat positif, dengan skor rata-rata
-untuk kemudahan penggunaan (5,0/5,0), kejelasan antarmuka (4,87/5,0) dan
-persepsi kinerja (4,95/5,0). Kesimpulannya, implementasi sistem smart scale
-dengan arsitektur desentralisasi terbukti merupakan solusi yang valid dan efektif
-untuk menjawab permasalahan latensi dan inefisiensi di lapak. Sistem ini tidak
-hanya unggul secara teknis dalam hal performa, tetapi juga fungsional dan dapat
-diterima dengan baik oleh pengguna akhir, serta berpotensi besar untuk modernisasi
-rantai pasok agribisnis.
+Proses pemeriksaan kargo di pelabuhan masih menghadapi berbagai kendala,
+di antaranya fragmentasi informasi antar pemangku kepentingan, pencatatan hasil
+inspeksi yang belum terintegrasi, keterbatasan ketertelusuran bukti inspeksi, serta
+rendahnya visibilitas status pemeriksaan secara waktu nyata. Kondisi tersebut
+menyebabkan proses verifikasi kontainer, validasi manifest, dan pengambilan
+keputusan inspeksi menjadi kurang efisien. Penelitian ini bertujuan merancang
+arsitektur sistem inspeksi kargo digital terintegrasi yang mampu mendukung proses
+identifikasi kontainer, analisis citra inspeksi, integrasi data hasil pemeriksaan, dan
+penyajian informasi bagi petugas pelabuhan secara terpadu.
 
-Kata kunci: Smart Scale, Internet of Things, Edge Computing, Rantai Pasok Jeruk.
+Perancangan dilakukan dengan pendekatan berlapis yang mencakup lapisan
+presentasi, aplikasi, data, dan \textit{edge}. Rancangan arsitektur
+menempatkan layanan kecerdasan buatan pada \textit{edge} untuk memproses aliran video
+dan melakukan deteksi awal, layanan API untuk orkestrasi proses bisnis dan
+persistensi data, serta aplikasi web untuk pemantauan, inspeksi, dan pelaporan. Pada aspek data,
+rancangan difokuskan pada struktur data kontainer, manifest, hasil pemindaian,
+status aliran video, dan jejak peristiwa agar sistem mampu menyediakan
+ketertelusuran, konsistensi data, dan dukungan integrasi dengan sistem eksternal.
+
+Hasil implementasi pada proyek capstone menunjukkan bahwa rancangan
+arsitektur yang diusulkan dapat direalisasikan menjadi sistem yang terintegrasi
+antara layanan edge, layanan API backend, penyimpanan data, dan antarmuka web.
+Validasi dilakukan melalui pengujian integrasi terhadap alur utama, mulai dari
+identifikasi kontainer, penyebaran data hasil pemindaian, penyimpanan artefak
+inspeksi, hingga penyajian hasil pada antarmuka pengguna. Penelitian ini
+menunjukkan bahwa pendekatan arsitektur terintegrasi mampu menjadi dasar yang
+kuat untuk mendukung proses pemeriksaan kargo yang lebih terstruktur, terdokumentasi,
+dan siap dikembangkan lebih lanjut dalam lingkungan operasional pelabuhan.
+
+Kata kunci: arsitektur sistem, inspeksi kargo digital, integrasi data, pelabuhan, ketertelusuran.
 \end{spacing}
-

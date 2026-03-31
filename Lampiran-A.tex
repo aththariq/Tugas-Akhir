@@ -1,10 +1,46 @@
 \cleardoublepage
-\chapter{KODE PROGRAM}
-Pada umumnya, kode program tidak perlu disertakan di dalam laporan tugas akhir karena kode program biasanya sangat panjang
-dan sudah disimpan dalam bentuk berkas-berkas elektronik terpisah di repositori daring. 
-Namun, jika ada bagian kode program singkat yang penting untuk ditulis dalam laporan tugas akhir, 
-bagian tersebut dapat disertakan di dalam laporan.
-\section{Perangkat Lunak untuk Akuisisi Data dari Sensor Ultrasonik}
-\lstinputlisting[language=Python, caption=Binary search code]{listings/binary-search-python.tex}  
-\section{Perangkat Lunak untuk Pengolahan Data Akuisisi dan Visualisasi Hasil Pengukuran Jarak} 
-asdjfkjashdkjfas
+\chapter{CONTOH ARTEFAK PERTUKARAN DATA}
+
+Lampiran ini menyajikan contoh artefak pertukaran data yang relevan dengan
+implementasi arsitektur sistem inspeksi kargo digital. Artefak yang ditampilkan
+bukan dimaksudkan sebagai dokumentasi seluruh kode program, melainkan sebagai
+contoh representasi data terstruktur yang dikirim dari komponen \textit{edge}
+ke layanan API.
+
+\section{Contoh Payload Hasil Pelacakan dari \textit{Edge} ke Layanan API}
+
+\begin{lstlisting}[caption={Contoh payload data pelacakan dari komponen \textit{edge} ke layanan API}, label={lst:tracking-payload}]
+{
+  "camera_id": "gate-camera-1",
+  "device_id": "edge-device-001",
+  "timestamp": "2025-12-06T10:30:00Z",
+  "frame_number": 145,
+  "model_key": "yolo",
+  "trackings": [
+    {
+      "tracking_id": 1,
+      "class_name": "truck",
+      "confidence": 0.95,
+      "box": {
+        "x1": 100,
+        "y1": 200,
+        "x2": 500,
+        "y2": 600
+      },
+      "metadata": {
+        "direction": "entering",
+        "speed": 5.2,
+        "ocr_text": "MSCU1234567",
+        "ocr_confidence": 0.92
+      }
+    }
+  ]
+}
+\end{lstlisting}
+
+Listing~\ref{lst:tracking-payload} menunjukkan bahwa hasil pengamatan di
+lapangan tidak dikirim sebagai data video mentah ke layanan API, melainkan
+dalam bentuk data terstruktur yang memuat identitas kamera, identitas perangkat,
+nomor \textit{frame}, metadata model, serta kumpulan objek yang terlacak.
+Contoh ini mendukung pembahasan pada Bab V mengenai pemisahan jalur data
+terstruktur dan jalur video langsung.
