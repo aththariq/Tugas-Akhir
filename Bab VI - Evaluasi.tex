@@ -36,8 +36,9 @@ validasi fungsional sistem. Pendekatan ini dipilih karena sesuai dengan tujuan
 penelitian, yaitu menilai implementabilitas rancangan arsitektur dan kesesuaian
 realisasinya terhadap kebutuhan sistem. Artefak utama yang digunakan sebagai
 dasar evaluasi adalah dokumentasi pengujian integrasi, struktur layanan
-yang telah dibangun, serta perilaku sistem yang telah diimplementasikan pada
-proyek capstone.
+yang telah dibangun, perilaku sistem yang telah diimplementasikan pada
+proyek pengembangan sistem, serta dokumen lapangan yang menunjukkan konteks
+operasional screening di lingkungan pelabuhan.
 
 Evaluasi dilakukan terhadap tiga komponen utama sistem, yaitu:
 \begin{enumerate}
@@ -69,7 +70,7 @@ dengan benar.
 \textbf{2. Verifikasi aliran OCR}
 
 Skenario ini memeriksa apakah aliran OCR dapat dijalankan, mendeteksi nomor
-kontainer, dan menghasilkan entitas kontainer pada sistem \textit{backend}.
+kontainer, dan menghasilkan entitas kontainer pada layanan aplikasi.
 Keberhasilan skenario ini menunjukkan bahwa identitas utama objek inspeksi dapat
 dibentuk secara otomatis dan tersedia untuk proses lanjutan.
 
@@ -195,6 +196,40 @@ di media penyimpanan objek yang lebih sesuai. Hasil ini menguatkan bahwa
 rancangan arsitektur data yang diusulkan bersifat operasional, bukan sekadar
 konseptual.
 
+\subsection{Temuan Evaluasi Utama}
+\label{subsec:temuan-evaluasi-utama}
+
+Dari seluruh skenario dan artefak evaluasi, terdapat tiga temuan utama yang
+paling kuat dalam mendukung kontribusi penelitian ini.
+
+\textbf{1. Integrasi antarlayanan berhasil direalisasikan pada jalur yang
+memang kritis bagi operasi sistem.}
+Dokumentasi pengujian integrasi menunjukkan bahwa komponen \textit{edge},
+layanan API, dan aplikasi web telah terhubung melalui pembagian jalur yang
+jelas: data terstruktur dikirim ke layanan API, sedangkan video langsung
+dikirim ke aplikasi web melalui \textit{WebSocket}. Temuan ini penting karena
+menunjukkan bahwa keputusan arsitektural inti tidak berhenti pada tingkat
+diagram, tetapi benar-benar diwujudkan dalam perilaku sistem.
+
+\textbf{2. Nomor kontainer berfungsi sebagai jangkar integrasi data lintas
+proses inspeksi.}
+Hasil evaluasi pada alur OCR dan propagasi nomor kontainer memperlihatkan bahwa
+identitas kontainer tidak hanya dikenali, tetapi juga digunakan sebagai konteks
+bersama untuk mengaitkan hasil pemindaian lain. Dengan demikian, struktur data
+yang dirancang berhasil mendukung agregasi hasil inspeksi dari beberapa aliran
+ke satu entitas yang sama. Temuan ini menjadi bukti paling langsung bahwa fokus
+arsitektur data pada penelitian ini memang relevan.
+
+\textbf{3. Kebutuhan ketertelusuran dan keandalan operasional didukung oleh
+konteks lapangan yang nyata.}
+Dokumen lapangan terkait assessment alat pemindai, pengaturan lalu lintas alat
+pemindai, keberlangsungan layanan, dan prosedur pengelolaan insiden menunjukkan
+bahwa layanan screening berada dalam lingkungan operasional yang menuntut
+koordinasi lintas pihak, kejelasan alur, dan kesiapan penanganan gangguan.
+Karena itu, keputusan arsitektural seperti pencatatan status layanan, jejak
+audit, dan pemisahan jalur komunikasi memiliki dasar kebutuhan operasional yang
+nyata, bukan sekadar preferensi desain.
+
 \section{Pembahasan Hasil Evaluasi}
 \label{sec:pembahasan-hasil-evaluasi}
 
@@ -213,6 +248,13 @@ menjaga konsistensi dan kontrol akses, sedangkan jalur video langsung melalui
 \textit{WebSocket} memenuhi kebutuhan pemantauan waktu nyata. Dengan kata lain,
 arsitektur yang diimplementasikan telah membedakan dengan jelas antara data yang
 bersifat persisten dan data yang bersifat temporer.
+
+Jika dikaitkan dengan konteks lapangan, pemisahan ini juga relevan secara
+operasional. Layanan screening dan inspeksi di pelabuhan melibatkan alur kerja
+yang harus tetap bergerak, sementara bukti inspeksi dan status layanan perlu
+tetap dapat ditelusuri. Karena itu, arsitektur tidak cukup hanya menyediakan
+deteksi otomatis, tetapi juga harus menjaga agar data operasional, bukti
+visual, dan status layanan dapat dikelola sesuai fungsi masing-masing.
 
 Dari sisi kontribusi penelitian, hasil evaluasi mendukung argumentasi bahwa
 fokus pada arsitektur sistem dan data memang relevan. Struktur data yang

@@ -1,16 +1,16 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'TA.blg'
-[27] biber-darwin:340> INFO - === Tue Mar 31, 2026, 23:56:00
-[36] Biber.pm:420> INFO - Reading 'TA.bcf'
-[93] Biber.pm:994> INFO - Found 30 citekeys in bib section 0
+[28] biber-darwin:340> INFO - === Thu Apr  2, 2026, 14:20:54
+[37] Biber.pm:420> INFO - Reading 'TA.bcf'
+[92] Biber.pm:994> INFO - Found 30 citekeys in bib section 0
 [98] Biber.pm:4463> INFO - Processing section 0
 [103] Biber.pm:4654> INFO - Looking for bibtex file 'daftar-pustaka.bib' for section 0
 [104] bibtex.pm:1713> INFO - LaTeX decoding ...
 [120] bibtex.pm:1519> INFO - Found BibTeX data source 'daftar-pustaka.bib'
-[213] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'variable = shifted' with 'variable = non-ignorable'
-[213] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'level = 4' with 'level = 2'
-[213] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[213] Biber.pm:4283> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'indonesian'
-[213] Biber.pm:4289> INFO - No sort tailoring available for locale 'indonesian'
-[228] bbl.pm:676> INFO - Writing 'TA.bbl' with encoding 'UTF-8'
-[234] bbl.pm:779> INFO - Output to TA.bbl
+[210] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[210] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'variable = shifted' with 'variable = non-ignorable'
+[210] UCollate.pm:68> INFO - Overriding locale 'indonesian' defaults 'level = 4' with 'level = 2'
+[210] Biber.pm:4283> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'indonesian'
+[210] Biber.pm:4289> INFO - No sort tailoring available for locale 'indonesian'
+[225] bbl.pm:676> INFO - Writing 'TA.bbl' with encoding 'UTF-8'
+[230] bbl.pm:779> INFO - Output to TA.bbl

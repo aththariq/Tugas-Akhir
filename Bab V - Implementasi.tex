@@ -21,7 +21,7 @@ dipisahkan berdasarkan tanggung jawabnya. Pemisahan tersebut selaras dengan
 prinsip modularitas, pemrosesan tersebar, dan integrasi data yang telah
 ditetapkan pada tahap perancangan. Secara umum, sistem terdiri atas komponen
 \textit{edge} untuk pengolahan aliran video dan inferensi awal, komponen
-\textit{backend} untuk orkestrasi proses bisnis serta persistensi data, komponen
+layanan aplikasi untuk orkestrasi proses bisnis serta persistensi data, komponen
 aplikasi web untuk pemantauan dan inspeksi, serta komponen penyimpanan data
 untuk informasi terstruktur dan artefak visual hasil inspeksi.
 
@@ -55,7 +55,7 @@ sudah dianotasi kepada aplikasi web.
 
 \textbf{2. Komponen layanan API}
 
-Komponen layanan API direalisasikan sebagai layanan \textit{backend} berbasis
+Komponen layanan API direalisasikan sebagai layanan aplikasi berbasis
 Node.js dan Express. Komponen ini berperan sebagai pusat orkestrasi data
 terstruktur, autentikasi, pengelolaan status inspeksi, serta antarmuka layanan
 bagi aplikasi web dan komponen \textit{edge}. Seluruh hasil identifikasi,
@@ -105,7 +105,7 @@ Pemetaan tersebut menunjukkan bahwa implementasi yang dihasilkan tidak
 meninggalkan struktur rancangan konseptual, melainkan menerjemahkannya menjadi
 komponen nyata yang dapat diuji. Dengan demikian, hasil implementasi mendukung
 argumen bahwa rancangan arsitektur yang disusun pada penelitian ini bersifat
-\textit{implementable}.
+dapat diimplementasikan.
 
 \section{Realisasi Alur Data dan Integrasi}
 \label{sec:realisasi-alur-data}
@@ -271,5 +271,5 @@ perancangan arsitektur tidak berhenti pada level konseptual. Struktur data,
 jalur integrasi, dan pembagian komponen yang dirancang benar-benar menjadi dasar
 bagi sistem yang dibangun pada proyek capstone. Hal tersebut penting karena
 menunjukkan bahwa kontribusi penelitian ini terletak pada kemampuan merancang
-arsitektur yang implementatif, terintegrasi, dan mendukung kebutuhan
+arsitektur yang dapat diimplementasikan, terintegrasi, dan mendukung kebutuhan
 ketertelusuran proses inspeksi di lingkungan pelabuhan.

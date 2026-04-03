@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  31 MAR 2026 23:56
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  2 APR 2026 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1256,16 +1256,6 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
-[]|\TU/TimesNewRoman(0)/m/n/10 Grammarly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
-\TU/TimesNewRoman(0)/m/n/10 dan editor
- []
-
-
 Underfull \hbox (badness 4229) in paragraph at lines 20--20
 []|\TU/TimesNewRoman(0)/m/n/10 Pencarian informasi atau
  []
@@ -1446,22 +1436,12 @@ Overfull \hbox (5.26996pt too wide) detected at line 217
  []
 
 
-Overfull \hbox (5.26996pt too wide) detected at line 218
-\TU/TimesNewRoman(0)/m/n/12 IV.11.2.3 
- []
-
-
-Overfull \hbox (5.26996pt too wide) detected at line 219
-\TU/TimesNewRoman(0)/m/n/12 IV.11.2.4 
- []
-
-
-Overfull \hbox (1.06989pt too wide) detected at line 220
+Overfull \hbox (1.06989pt too wide) detected at line 218
 \TU/TimesNewRoman(0)/m/n/12 IV.11.3 
  []
 
 
-Overfull \hbox (1.06989pt too wide) detected at line 221
+Overfull \hbox (1.06989pt too wide) detected at line 219
 \TU/TimesNewRoman(0)/m/n/12 IV.11.4 
  []
 
@@ -1534,7 +1514,13 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 [2]
 
 [3]
-Overfull \hbox (1.57147pt too wide) in paragraph at lines 45--46
+Overfull \hbox (7.51297pt too wide) in paragraph at lines 85--86
+[]\TU/TimesNewRoman(0)/m/n/12 Bagaimana mengevaluasi kesesuaian rancangan arsit
+ektur terhadap sistem yang
+ []
+
+
+Overfull \hbox (1.57147pt too wide) in paragraph at lines 96--97
 []\TU/TimesNewRoman(0)/m/n/12 Mengidentifikasi kebutuhan sistem inspeksi kontai
 ner digital berdasarkan kon-
  []
@@ -1544,7 +1530,7 @@ ner digital berdasarkan kon-
 [4]
 
 [5]
-Overfull \hbox (10.98814pt too wide) in paragraph at lines 77--78
+Overfull \hbox (10.98814pt too wide) in paragraph at lines 128--129
 []\TU/TimesNewRoman(0)/b/n/12 Komunikasi (\TU/TimesNewRoman(0)/b/it/12 Communic
 ation\TU/TimesNewRoman(0)/b/n/12 ). \TU/TimesNewRoman(0)/m/n/12 Menyusun dokume
 ntasi penelitian yang komp-
@@ -1891,11 +1877,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--142
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-\TU/TimesNewRoman(0)/m/n/10.95 ka layanan, sinkronisasi
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 142--143
 []|\TU/TimesNewRoman(0)/m/n/10.95 Efisiensi
  []
@@ -2015,41 +1996,45 @@ File: images/ER Diagram Conceptual.png Graphic file (type bmp)
 [51]
 
 [52]
-
-[53]
 File: images/Integration Architecture Diagram.png Graphic file (type bmp)
 <images/Integration Architecture Diagram.png>
 
-Underfull \vbox (badness 1052) has occurred while \output is active []
 
-
+[53]
 
 [54]
 
 [55]
 
 [56]
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Maintainability -
+Underfull \hbox (badness 10000) in paragraph at lines 581--581
+[]|\TU/TimesNewRoman(0)/m/it/10.95 Maintainability \TU/TimesNewRoman(0)/m/n/10.
+95 -
  []
 
 
-Underfull \hbox (badness 5133) in paragraph at lines 600--600
+Underfull \hbox (badness 5133) in paragraph at lines 582--582
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pemisahan Jalur Ko-
  []
 
 
-Underfull \hbox (badness 2781) in paragraph at lines 602--603
+Underfull \hbox (badness 2781) in paragraph at lines 584--585
 []|\TU/TimesNewRoman(0)/m/n/10.95 Abstraksi sistem eksternal memu-
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 603--603
+Underfull \hbox (badness 3514) in paragraph at lines 585--585
 []|\TU/TimesNewRoman(0)/m/n/10.95 Jejak Audit Kompre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--607
+Underfull \hbox (badness 1122) in paragraph at lines 588--588
+[]|\TU/TimesNewRoman(0)/m/it/10.95 Portability \TU/TimesNewRoman(0)/m/n/10.95 -
+ \TU/TimesNewRoman(0)/m/it/10.95 Adap-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 589--589
 []|\TU/TimesNewRoman(0)/m/n/10.95 Antarmuka Layanan
  []
 
@@ -2058,59 +2043,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 607--607
 [57]
 
 [58]
+Overfull \hbox (17.54813pt too wide) in paragraph at lines 641--642
+[]\TU/TimesNewRoman(0)/m/n/12 Konektivitas jaringan di lingkungan pelabuhan dap
+at berubah-ubah—pemrosesan
+ []
+
+
 
 [59]
-Underfull \hbox (badness 10000) in paragraph at lines 704--704
+Underfull \hbox (badness 10000) in paragraph at lines 688--688
 []|\TU/TimesNewRoman(0)/m/n/10.95 Administrator Sis-
  []
 
 
-Underfull \hbox (badness 4859) in paragraph at lines 704--704
+Underfull \hbox (badness 4859) in paragraph at lines 688--688
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pengelolaan infrastruktur, pe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--705
+Underfull \hbox (badness 10000) in paragraph at lines 689--689
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pengoperasian perangkat ins-
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 705--706
+Underfull \hbox (badness 1675) in paragraph at lines 689--690
 []|\TU/TimesNewRoman(0)/m/n/10.95 Prosedur inspeksi, pengo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--707
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pengetahuan kerusakan
  []
 
 
-Underfull \hbox (badness 3000) in paragraph at lines 706--707
+Underfull \hbox (badness 3000) in paragraph at lines 690--691
 \TU/TimesNewRoman(0)/m/n/10.95 kontainer, prosedur pena-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 707--707
+Underfull \hbox (badness 10000) in paragraph at lines 691--691
 []|\TU/TimesNewRoman(0)/m/n/10.95 Manajer Operasio-
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 707--708
+Underfull \hbox (badness 1024) in paragraph at lines 691--692
 []|\TU/TimesNewRoman(0)/m/n/10.95 Analisis data, manajemen
  []
 
 
 
-[60]
+[60]) (./Bab V - Implementasi.tex
 
-[61]) (./Bab V - Implementasi.tex
+[61]
 
-[62]
+[62
+
+]
 Bab V.
 
 
 [63
-
 
 ]
 Overfull \hbox (0.34814pt too wide) in paragraph at lines 67--73
@@ -2144,33 +2136,33 @@ Bab VI.
 ]
 
 [70]
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
 []|\TU/TimesNewRoman(0)/m/n/10.95 Komunikasi \TU/TimesNewRoman(0)/m/it/10.95 ed
 ge\TU/TimesNewRoman(0)/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 122--123
+Underfull \hbox (badness 1028) in paragraph at lines 123--124
 []|\TU/TimesNewRoman(0)/m/n/10.95 Tersedia jejak proses dan bukti
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 123--123
+Underfull \hbox (badness 4660) in paragraph at lines 124--124
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pemisahan jalur ko-
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 123--123
+Underfull \hbox (badness 2846) in paragraph at lines 124--124
 []|\TU/TimesNewRoman(0)/m/n/10.95 Pemisahan jalur data
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 []|\TU/TimesNewRoman(0)/m/n/10.95 Data transaksional dan video
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
 \TU/TimesNewRoman(0)/m/n/10.95 dalam menampilkan
  []
 
@@ -2179,22 +2171,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--124
 [71]
 
 [72]
+Underfull \vbox (badness 3635) has occurred while \output is active []
 
-[73]) (./Bab VII - Penutup.tex
 
-[74]
+
+[73]
+
+[74]) (./Bab VII - Penutup.tex
+
+[75]
+
+[76
+
+]
 Bab VII.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[75
-
+[77
 
 ])
 
-[76]
+[78]
 Overfull \hbox (11.06693pt too wide) in paragraph at lines 406--406
 \TU/TimesNewRoman(0)/m/it/12 ing, Building, and Deploying Messaging Solutions. 
 \TU/TimesNewRoman(0)/m/n/12 Boston, MA: Addison-Wesley
@@ -2202,12 +2199,12 @@ Overfull \hbox (11.06693pt too wide) in paragraph at lines 406--406
 
 
 
-[77
+[79
 
 
 ]
 
-[78]
+[80]
 Overfull \hbox (2.69678pt too wide) in paragraph at lines 406--406
 [][]\TU/TimesNewRoman(0)/m/n/12 Szeliski, R. 2022. \TU/TimesNewRoman(0)/m/it/12
  Computer Vision: Algorithms and Applications. \TU/TimesNewRoman(0)/m/n/12 2nd 
@@ -2216,9 +2213,9 @@ edisi. Springer.
 
 (./Lampiran-A.tex
 
-[79]
+[81]
 
-[80
+[82
 
 ]
 Lampiran A.
@@ -2230,30 +2227,68 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 ) (./Lampiran-B.tex
 
-[81
-
-]
-
-[82]
-Lampiran B.
-File: images/survei-tanjung-priok-tpk-pelindo.jpg Graphic file (type bmp)
-<images/survei-tanjung-priok-tpk-pelindo.jpg>
-File: images/survei-pt-spil.jpg Graphic file (type bmp)
-<images/survei-pt-spil.jpg>
-)
-
 [83
-
 
 ]
 
 [84]
+Lampiran B.
+File: images/survei-tanjung-priok-tpk-pelindo.jpg Graphic file (type bmp)
+<images/survei-tanjung-priok-tpk-pelindo.jpg>
+File: images/survei-pelindo-2.jpg Graphic file (type bmp)
+<images/survei-pelindo-2.jpg>
+File: images/survei-pelindo-3.jpg Graphic file (type bmp)
+<images/survei-pelindo-3.jpg>
 
-[85]
+Overfull \hbox (7.91042pt too wide) in paragraph at lines 49--49
+|[]\TU/TimesNewRoman(0)/b/n/12 Depo Peti Kemas Tanjung Priok PT Salam Pacific I
+ndonesia Lines (SPIL)| 
+ []
 
-[86
+File: images/survei-pt-spil.jpg Graphic file (type bmp)
+<images/survei-pt-spil.jpg>
+File: images/survei-pt-spil-2.jpg Graphic file (type bmp)
+<images/survei-pt-spil-2.jpg>
 
-] (./TA.aux)
+
+[85
+
+
+]
+
+[86]
+
+[87]
+
+[88]
+Overfull \hbox (6.32448pt too wide) in paragraph at lines 83--86
+[]\TU/TimesNewRoman(0)/m/n/12 Temuan-temuan ini memperkuat kebutuhan akan arsit
+ektur sistem yang mampu meng-
+ []
+
+
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+
+
+[89]
+
+[90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[91] [92]
+Overfull \hbox (0.20233pt too wide) in paragraph at lines 227--230
+[]\TU/TimesNewRoman(0)/m/n/12 Dokumen-dokumen tersebut juga memberikan beberapa
+ temuan eksplisit yang mem-
+ []
+
+
+
+[93])
+
+[94] (./TA.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -2263,7 +2298,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: B4C3573227BCFD982D383BDC55216836;32695.
+(rerunfilecheck)             Checksum: 2EC69890BD1BCFAD254F2E8A384617D0;35443.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -2272,12 +2307,12 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35149 strings out of 473832
- 690242 string characters out of 5729480
- 2197033 words of memory out of 5000000
- 57722 multiletter control sequences out of 15000+600000
+ 35197 strings out of 473832
+ 691546 string characters out of 5729480
+ 2200531 words of memory out of 5000000
+ 57767 multiletter control sequences out of 15000+600000
  567369 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,18n,95p,1195b,6805s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.pdf (111 pages).
+Output written on TA.xdv (119 pages, 2044632 bytes).
