@@ -16,11 +16,11 @@ Sistem inspeksi kargo digital terintegrasi dirancang berdasarkan prinsip arsitek
 Prinsip utama desain meliputi:
 \begin{itemize}
   \item \textbf{Modularitas} -- Setiap komponen memiliki tanggung jawab tunggal dan dapat berevolusi secara independen tanpa mengganggu komponen lain.
-  \item \textbf{Standarisasi Antarmuka} -- Semua interaksi antarkomponen dilakukan melalui kontrak layanan terstandarisasi, memungkinkan integrasi yang konsisten dengan sistem eksternal.
+  \item \textbf{Standarisasi Antarmuka} -- Semua interaksi antarkomponen dilakukan melalui kontrak layanan terstandarisasi, sehingga integrasi internal tetap konsisten dan perluasan ke sistem eksternal dapat dilakukan secara bertahap.
   \item \textbf{Pemisahan Jalur Komunikasi} -- Komponen menggunakan jalur komunikasi yang berbeda sesuai kebutuhan, yaitu antarmuka HTTP untuk data terstruktur dan \textit{WebSocket} untuk penyajian video langsung.
   \item \textbf{Pemrosesan Tersebar} -- Memanfaatkan pemrosesan lokal untuk responsivitas tinggi dan pemrosesan terpusat untuk skalabilitas serta analitik mendalam.
   \item \textbf{Keamanan Berlapis} -- Mengimplementasikan prinsip pertahanan berlapis di setiap tingkat arsitektur.
-  \item \textbf{Ketertelusuran} -- Menyediakan pencatatan hasil inspeksi, status aliran, dan artefak visual agar proses dapat ditelusuri kembali.
+  \item \textbf{Ketertelusuran} -- Menyediakan pencatatan hasil inspeksi, status inspeksi, dan artefak visual agar proses dapat ditelusuri kembali.
 \end{itemize}
 
 \subsection{Kapabilitas Arsitektur yang Diperlukan}
@@ -51,7 +51,7 @@ Arsitektur sistem memerlukan sejumlah kapabilitas untuk memenuhi kebutuhan fungs
 
 \FloatBarrier
 
-Kapabilitas di atas diturunkan dari analisis kebutuhan untuk mendukung \textbf{kemudahan pemeliharaan} melalui modularitas, \textbf{interoperabilitas} dengan sistem eksternal, \textbf{auditabilitas} melalui ketertelusuran aktivitas, dan \textbf{keandalan operasi}. Pada realisasinya, kapabilitas tersebut diwujudkan melalui pemisahan komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan data.
+Kapabilitas di atas diturunkan dari analisis kebutuhan untuk mendukung \textbf{kemudahan pemeliharaan} melalui modularitas, \textbf{interoperabilitas} melalui kontrak layanan yang jelas, \textbf{auditabilitas} melalui ketertelusuran aktivitas, dan \textbf{keandalan operasi}. Pada realisasinya, kapabilitas tersebut diwujudkan melalui pemisahan komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan data, sedangkan interoperabilitas dengan sistem eksternal diposisikan sebagai kesiapan perluasan.
 
 \section{Perbandingan Sistem Saat Ini dan Sistem Usulan}
 \label{sec:perbandingan-sistem}
@@ -99,10 +99,10 @@ Perubahan status inspeksi, hasil deteksi, dan aktivitas penting dipertukarkan me
 Hasil inspeksi tersedia secara otomatis dalam waktu singkat setelah proses inspeksi dimulai. Laporan digital terstandarisasi dihasilkan dan dapat diakses oleh pemangku kepentingan yang berwenang. Notifikasi dikirimkan ketika inspeksi selesai atau kondisi kritis ditemukan.
 
 \textbf{Integrasi dengan Ekosistem Pelabuhan:}
-Sistem terintegrasi dengan sistem operasional eksternal yang sudah ada di ekosistem pelabuhan melalui antarmuka layanan terstandarisasi. Data inspeksi otomatis disinkronkan ke sistem eksternal tanpa entri ulang manual. Status inspeksi menjadi bagian dari informasi kontainer yang dapat dilacak sepanjang rantai pasokan. Lapisan integrasi dengan pola adaptor memastikan kompatibilitas dengan berbagai sistem eksternal.
+Sistem dirancang agar siap diintegrasikan dengan sistem operasional eksternal yang sudah ada di ekosistem pelabuhan melalui antarmuka layanan terstandarisasi. Pada ruang lingkup implementasi penelitian ini, realisasi integrasi masih berfokus pada alur internal proyek, sedangkan sinkronisasi ke sistem eksternal diposisikan sebagai arah pengembangan lanjutan. Dengan pendekatan tersebut, status inspeksi diharapkan nantinya dapat menjadi bagian dari informasi kontainer yang dapat dilacak sepanjang rantai pasok tanpa entri ulang manual.
 
 \textbf{Jejak Audit dan Kepatuhan:}
-Setiap transaksi, perubahan data, akses informasi, dan tindakan pengguna tercatat dalam jejak audit dengan informasi lengkap mengenai waktu, identitas pengguna, dan detail tindakan. Jejak audit dapat dikueri dan diekspor untuk pelaporan kepatuhan. Sistem mendukung persyaratan regulasi dan standar industri untuk pengelolaan keamanan informasi.
+Sistem dirancang untuk menjaga ketertelusuran transaksi, perubahan data, akses informasi, dan tindakan pengguna melalui pencatatan stempel waktu, identitas pengguna, serta artefak inspeksi yang relevan. Pada implementasi penelitian ini, dukungan tersebut terutama direalisasikan melalui struktur data inspeksi, metadata perangkat, dan penyimpanan bukti visual, sehingga kebutuhan audit dasar dapat dipenuhi dan dikembangkan lebih lanjut pada tahap berikutnya.
 
 \textbf{Ketahanan Operasional Lokal:}
 Komponen lokal tetap menjalankan akuisisi video, inferensi, dan pemantauan aliran secara dekat dengan sumber data. Pemisahan ini mengurangi ketergantungan terhadap layanan terpusat untuk fungsi yang membutuhkan respons cepat, sekaligus menjaga bahwa penyimpanan hasil inspeksi tetap mengikuti alur terstruktur melalui layanan API saat konektivitas tersedia.
@@ -167,13 +167,20 @@ Sistem diorganisasikan dalam empat lapisan utama: (1) \textbf{\textit{Presentati
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{images/System Context Diagram.drawio.png}
-  \caption{Diagram Konteks Sistem Inspeksi Kargo Digital Terintegrasi}
+  \caption{Diagram Konteks Sasaran Sistem Inspeksi Kargo Digital Terintegrasi}
   \label{fig:system_context}
 \end{figure}
 
 \FloatBarrier
 
-Diagram konteks sistem pada Gambar \ref{fig:system_context} menunjukkan sistem inspeksi kargo digital sebagai entitas inti yang terintegrasi dengan berbagai aktor eksternal dan sistem pendukung di lingkungan pelabuhan.
+Diagram konteks sistem pada Gambar \ref{fig:system_context} menunjukkan
+arsitektur sasaran sistem inspeksi kargo digital dalam ekosistem pelabuhan yang
+lebih luas. Pada implementasi yang direalisasikan pada penelitian ini, batas
+integrasi aktual masih berfokus pada interaksi internal antara komponen
+\textit{edge}, layanan API, aplikasi web, autentikasi pengguna, dan
+penyimpanan artefak visual. Dengan demikian, aktor dan sistem eksternal pada
+diagram ini perlu dipahami sebagai konteks sasaran pengembangan, bukan batas
+implementasi yang seluruhnya telah direalisasikan.
 
 \textbf{Aktor Manusia:}
 \begin{enumerate}
@@ -190,13 +197,13 @@ Diagram konteks sistem pada Gambar \ref{fig:system_context} menunjukkan sistem i
   \item \textbf{Shipper/Consignee} - Memperoleh notifikasi hasil inspeksi untuk perencanaan pengiriman.
 \end{enumerate}
 
-\textbf{Sistem Eksternal:}
+\textbf{Sistem Eksternal Sasaran:}
 \begin{itemize}
-  \item \textbf{Sistem Operasional Pelabuhan} - Menyediakan informasi pergerakan kontainer dan menerima status inspeksi sebagai bagian dari alur operasional.
+  \item \textbf{Sistem Operasional Pelabuhan} - Diposisikan sebagai target integrasi untuk menyediakan informasi pergerakan kontainer dan menerima status inspeksi sebagai bagian dari alur operasional.
 
-  \item \textbf{Platform Layanan Pelabuhan} - Mengirimkan data permohonan layanan yang membutuhkan verifikasi inspeksi dan menerima kembali status inspeksi.
+  \item \textbf{Platform Layanan Pelabuhan} - Diposisikan sebagai target integrasi untuk mengirimkan data permohonan layanan yang membutuhkan verifikasi inspeksi dan menerima kembali status inspeksi.
 
-  \item \textbf{Sistem Pemerintah} - Mendukung sinkronisasi data dan menerima data resmi pergerakan untuk validasi dan pelaporan.
+  \item \textbf{Sistem Pemerintah} - Diposisikan sebagai target integrasi untuk mendukung sinkronisasi data resmi bagi keperluan validasi dan pelaporan.
 \end{itemize}
 
 \textbf{Batasan Sistem:}
@@ -219,7 +226,7 @@ Lapisan ini bertanggung jawab untuk interaksi dengan pengguna akhir dan pihak ek
 Lapisan ini mengimplementasikan logika bisnis dan orkestrasi:
 \begin{itemize}
   \item \textbf{Layanan API} -- Mengelola penerimaan hasil identifikasi dan hasil pemindaian dari komponen \textit{edge}, menyimpan data inspeksi, menyediakan antarmuka data untuk aplikasi web, dan menangani autentikasi.
-  \item \textbf{Layanan Integrasi Aplikasi} -- Menjaga konsistensi hubungan antarentitas, seperti kontainer, manifes, hasil pemindaian, status aliran, dan jejak pelacakan.
+  \item \textbf{Layanan Integrasi Aplikasi} -- Menjaga konsistensi hubungan antarentitas utama, seperti kontainer, manifes, dan hasil pemindaian.
 \end{itemize}
 
 \textbf{3. Data Layer}
@@ -234,20 +241,31 @@ Lapisan ini menyediakan mekanisme penyimpanan data:
 
 Lapisan ini beroperasi di lokasi lapangan untuk akuisisi data dan pemrosesan lokal:
 \begin{itemize}
-  \item \textbf{Layanan \textit{Edge}} -- Menghubungkan kamera \textit{RTSP}, menjalankan inferensi OCR dan deteksi, mengelola status aliran, dan mengirimkan hasil inspeksi ke layanan API.
+  \item \textbf{Layanan \textit{Edge}} -- Menghubungkan kamera \textit{RTSP}, menjalankan inferensi OCR dan deteksi, mengelola aliran video, dan mengirimkan hasil inspeksi ke layanan API.
   \item \textbf{Layanan Video Langsung} -- Menyiarkan \textit{frame} beranotasi ke aplikasi web melalui \textit{WebSocket} untuk mendukung pemantauan waktu nyata.
 \end{itemize}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{images/Layered Architecture.png}
-  \caption{Arsitektur Berlapis Sistem Inspeksi Kargo Digital}
+  \caption{Arsitektur Berlapis Konseptual Sistem Inspeksi Kargo Digital}
   \label{fig:layered_architecture}
 \end{figure}
 
 \FloatBarrier
 
-Gambar~\ref{fig:layered_architecture} menunjukkan empat lapisan arsitektur sistem yang diorganisasikan berdasarkan prinsip pemisahan tanggung jawab. \textbf{Presentation Layer} menyediakan antarmuka kepada pengguna melalui aplikasi web. \textbf{Application Layer} mengimplementasikan logika bisnis utama sistem melalui layanan API yang menerima dan menyajikan data inspeksi. \textbf{Data Layer} menyediakan mekanisme penyimpanan terstruktur dan penyimpanan media. \textbf{Edge Layer} menangani pengumpulan data, inferensi awal, dan penyiaran video langsung. Organisasi berlapis ini memungkinkan setiap lapisan berevolusi secara independen dan memfasilitasi pengujian serta pemeliharaan yang terstruktur.
+Gambar~\ref{fig:layered_architecture} menunjukkan empat lapisan arsitektur
+sistem yang diorganisasikan berdasarkan prinsip pemisahan tanggung jawab.
+\textbf{Presentation Layer} menyediakan antarmuka kepada pengguna melalui
+aplikasi web. \textbf{Application Layer} mengimplementasikan logika bisnis
+utama sistem melalui layanan API yang menerima dan menyajikan data inspeksi.
+\textbf{Data Layer} menyediakan mekanisme penyimpanan terstruktur dan
+penyimpanan media. \textbf{Edge Layer} menangani pengumpulan data, inferensi
+awal, dan penyiaran video langsung. Diagram ini menggambarkan struktur
+konseptual berlapis; pada realisasi aktual, komunikasi utama antarlayanan
+dilakukan secara sinkron melalui HTTP untuk data terstruktur dan
+\textit{WebSocket} untuk video langsung, tanpa penggunaan \textit{message
+queue} sebagai komponen inti.
 
 \textbf{Pola interaksi utama:} (1) Pola permintaan-respons untuk komunikasi data terstruktur antara \textit{edge}, layanan API, dan aplikasi web, (2) Pola \textit{WebSocket} untuk penyajian video langsung dari \textit{edge} ke aplikasi web, dan (3) Pola propagasi konteks inspeksi untuk menyelaraskan nomor kontainer pada beberapa aliran pemindaian.
 
@@ -317,7 +335,7 @@ Koordinasi antara komponen lokal dan terpusat dilakukan untuk:
   \item Pengiriman hasil identifikasi dan hasil pemindaian dari \textit{edge} ke layanan API
   \item Penyediaan data inspeksi dari layanan API ke aplikasi web
   \item Penyiaran video langsung dari \textit{edge} ke aplikasi web
-  \item Pemantauan status aliran dan status layanan
+  \item Pemantauan ketersediaan aliran video dan status layanan
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -344,7 +362,11 @@ Sebagai bagian dari penempatan lokal, sistem mengimplementasikan arsitektur \tex
 
 \FloatBarrier
 
-Gambar \ref{fig:iot_sensor_architecture} menunjukkan arsitektur \textit{edge} yang diimplementasikan di lokasi inspeksi. Arsitektur ini terdiri dari beberapa komponen utama:
+Gambar \ref{fig:iot_sensor_architecture} menunjukkan arsitektur \textit{edge}
+yang diimplementasikan di lokasi inspeksi. Pada realisasi saat ini, sumber data
+visual berasal dari kamera \textit{RTSP}, baik melalui kamera IP berbasis
+aplikasi maupun aliran video simulatif untuk pengujian. Arsitektur ini terdiri
+dari beberapa komponen utama:
 
 \textbf{Sumber data visual:}
 
@@ -386,25 +408,29 @@ Sistem mengelola data menggunakan repositori terstruktur untuk informasi transak
 
 \textbf{Entitas Utama:}
 
-Model data mencakup entitas inti berikut:
+Model data inti pada operasi inspeksi utama mencakup entitas berikut:
 \begin{itemize}
   \item \textbf{KONTAINER} -- Entitas pusat yang menyimpan identitas kontainer, hasil OCR, ringkasan manifes, hasil pemindaian, keputusan sistem, dan lampiran bukti inspeksi.
   \item \textbf{MANIFEST} -- Entitas yang menyimpan data manifes secara lebih lengkap, seperti asal dan tujuan, pihak pengirim dan penerima, deskripsi muatan, berat, volume, dan dokumen terkait.
-  \item \textbf{TRACKING EVENT} -- Catatan pelacakan objek per \textit{frame} yang berasal dari komponen \textit{edge}.
-  \item \textbf{STREAM STATUS} -- Catatan kondisi operasional setiap aliran video, termasuk status aktif, model yang digunakan, dan informasi kesalahan.
-  \item \textbf{VEHICLE} -- Entitas pendukung untuk menyimpan hasil pemindaian kategori kendaraan dan artefak visual terkait.
+  \item \textbf{USER} -- Entitas pendukung untuk autentikasi dan konteks kepemilikan atau peninjauan data inspeksi.
 \end{itemize}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.75\textwidth]{images/ER Diagram Conceptual.png}
-  \caption{Diagram Relasi Entitas Konseptual Sistem Inspeksi Kargo}
+  \caption{Diagram Relasi Entitas Konseptual Sasaran Sistem Inspeksi Kargo}
   \label{fig:er_diagram}
 \end{figure}
 
 \FloatBarrier
 
-Gambar~\ref{fig:er_diagram} menunjukkan model relasi antar entitas utama dalam sistem inspeksi kargo digital secara konseptual. KONTAINER menjadi entitas sentral yang mengagregasikan hasil identifikasi, hasil pemindaian, dan artefak visual. MANIFEST menyediakan konteks deklarasi muatan yang dapat dibandingkan dengan hasil deteksi aktual. TRACKING EVENT dan STREAM STATUS menyediakan jejak aktivitas operasional dari komponen \textit{edge}. Model data ini dirancang untuk menjaga konsistensi informasi dan memungkinkan keterkaitan hasil inspeksi dari beberapa proses terhadap satu entitas kontainer.
+Gambar~\ref{fig:er_diagram} menunjukkan model relasi entitas pada tingkat
+konseptual sasaran. Pada realisasi operasi inspeksi utama yang digunakan dalam
+penelitian ini, pusat model data berada pada entitas KONTAINER dan MANIFEST,
+dengan USER sebagai konteks autentikasi dan pengelolaan akses. Dengan demikian,
+gambar ini perlu dibaca sebagai representasi konseptual pengembangan sistem,
+bukan sebagai cerminan satu-per-satu dari seluruh koleksi yang aktif pada
+implementasi akhir.
 
 \subsubsection{Mekanisme Komunikasi Data}
 
@@ -416,7 +442,6 @@ Sistem menggunakan beberapa kategori komunikasi untuk koordinasi antarkomponen:
 \begin{itemize}
   \item \textbf{Identifikasi Kontainer} -- Pengiriman hasil OCR dari \textit{edge} ke layanan API
   \item \textbf{Hasil Pemindaian} -- Pengiriman hasil pemindaian kerusakan, barang berisiko, dan kategori muatan dari \textit{edge} ke layanan API
-  \item \textbf{Pelacakan dan Status Aliran} -- Pengiriman data pelacakan dan status operasional aliran video ke layanan API
   \item \textbf{Video Langsung} -- Penyiaran \textit{frame} beranotasi dari \textit{edge} ke aplikasi web
 \end{itemize}
 
@@ -454,7 +479,7 @@ logika bisnis inti.
 
 \subsubsection{Pola Adapter untuk Sistem Eksternal}
 
-Untuk mengisolasi logika bisnis dari detail implementasi integrasi, sistem menggunakan \textbf{pola \textit{adapter}}. Setiap sistem eksternal memiliki \textit{adapter} khusus yang mengimplementasikan antarmuka standar, sehingga penambahan atau penggantian sistem eksternal dapat dilakukan tanpa mengubah kode aplikasi inti.
+Untuk mengisolasi logika bisnis dari detail implementasi integrasi, rancangan sistem menggunakan \textbf{pola \textit{adapter}}. Setiap sistem eksternal direncanakan memiliki \textit{adapter} khusus yang mengimplementasikan antarmuka standar, sehingga penambahan atau penggantian sistem eksternal dapat dilakukan tanpa mengubah kode aplikasi inti.
 
 \textbf{Keuntungan pola \textit{adapter}:}
 \begin{itemize}
@@ -467,13 +492,20 @@ Untuk mengisolasi logika bisnis dari detail implementasi integrasi, sistem mengg
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.75\textwidth]{images/Integration Architecture Diagram.png}
-  \caption{Arsitektur Integrasi dengan Sistem Eksternal Pelabuhan}
+  \caption{Arsitektur Integrasi Sasaran dengan Sistem Eksternal Pelabuhan}
   \label{fig:integration_architecture}
 \end{figure}
 
 \FloatBarrier
 
-Gambar \ref{fig:integration_architecture} menunjukkan arsitektur integrasi sistem dengan ekosistem pelabuhan yang sudah ada. \textit{Integration Interface} menerima dan mengirim data melalui antarmuka yang disepakati, sedangkan \textit{Integration Service} mengimplementasikan pola \textit{adapter} untuk setiap sistem eksternal dengan mengenkapsulasi detail komunikasi, pemetaan data, dan penanganan kesalahan. Data diekstrak dari repositori internal dan ditransformasikan sesuai kebutuhan setiap sistem eksternal. Dengan desain ini, penambahan atau perubahan sistem eksternal dapat dilakukan dengan mengembangkan \textit{adapter} baru tanpa mengubah logika bisnis inti.
+Gambar \ref{fig:integration_architecture} menunjukkan arsitektur integrasi
+sasaran sistem dengan ekosistem pelabuhan yang lebih luas. Pada implementasi
+yang direalisasikan dalam penelitian ini, integrasi aktual masih dibatasi pada
+komponen internal proyek dan dependensi pendukung seperti autentikasi pengguna
+serta penyimpanan artefak visual. Oleh karena itu, lapisan
+\textit{Integration Interface} dan \textit{Integration Service} perlu dibaca
+sebagai rancangan kesiapan perluasan, bukan sebagai integrasi eksternal yang
+seluruhnya telah diimplementasikan.
 
 \subsubsection{Pemetaan dan Transformasi Data}
 
@@ -491,18 +523,18 @@ Lapisan integrasi bertanggung jawab untuk \textbf{pemetaan dan transformasi} ant
 
 \textbf{Pemetaan Dua Arah:}
 
-Lapisan integrasi mendukung pemetaan dua arah untuk menangani aliran data dari sistem internal ke sistem eksternal maupun sebaliknya.
+Lapisan integrasi dirancang untuk mendukung pemetaan dua arah ketika aliran data dari sistem internal ke sistem eksternal maupun sebaliknya direalisasikan.
 
 \subsubsection{Penanganan Kesalahan dan Ketahanan}
 
-Integrasi dengan sistem eksternal rentan terhadap berbagai skenario kegagalan. Lapisan integrasi mengimplementasikan penanganan kesalahan untuk meningkatkan keandalan.
+Integrasi dengan sistem eksternal rentan terhadap berbagai skenario kegagalan. Oleh karena itu, rancangan lapisan integrasi menyiapkan strategi penanganan kesalahan untuk meningkatkan keandalan saat integrasi eksternal direalisasikan.
 
 \textbf{Strategi Penanganan Kesalahan:}
 
 \begin{itemize}
   \item \textbf{Percobaan Ulang:} Percobaan ulang dengan interval yang meningkat untuk permintaan yang gagal
   \item \textbf{Idempoten:} Semua permintaan integrasi dirancang dapat dicoba ulang dengan aman
-  \item \textbf{Antrian Cadangan:} Permintaan yang gagal disimpan untuk investigasi atau percobaan ulang kemudian
+  \item \textbf{Antrian Cadangan:} Permintaan yang gagal dapat disimpan untuk investigasi atau percobaan ulang kemudian
   \item \textbf{Mekanisme Pembatas:} Mekanisme untuk menghentikan sementara pengiriman saat tingkat kegagalan tinggi
 \end{itemize}
 
@@ -511,24 +543,27 @@ Integrasi dengan sistem eksternal rentan terhadap berbagai skenario kegagalan. L
 \begin{itemize}
   \item \textbf{Metrik:} Pelacakan tingkat keberhasilan integrasi dan waktu respons per sistem eksternal
   \item \textbf{Peringatan:} Notifikasi otomatis untuk kondisi anomali
-  \item \textbf{Log Audit:} Pencatatan seluruh permintaan dan respons integrasi untuk kepatuhan
+  \item \textbf{Log Audit:} Pencatatan permintaan dan respons integrasi sebagai kesiapan kepatuhan
 \end{itemize}
 
 \section{Antarmuka Layanan}
 
-Sistem menyediakan antarmuka layanan terstandarisasi untuk komunikasi dengan aplikasi klien dan sistem eksternal. Antarmuka dirancang dengan prinsip modularitas dan kontrak layanan yang jelas.
+Sistem menyediakan antarmuka layanan terstandarisasi untuk komunikasi dengan
+aplikasi klien. Pada implementasi aktual, antarmuka ini terutama digunakan
+untuk autentikasi pengguna, pengelolaan manifes, pengelolaan kontainer, serta
+penerimaan hasil pemindaian dari komponen \textit{edge}. Dukungan terhadap
+sistem eksternal tetap diposisikan sebagai kesiapan perluasan arsitektur.
 
 \textbf{Kategori Layanan Utama:}
 
 \begin{itemize}
   \item \textbf{Autentikasi dan Manajemen Pengguna} -- Verifikasi identitas dan pengelolaan akses pengguna
-  \item \textbf{Manajemen Kontainer} -- Pengelolaan informasi kontainer
-  \item \textbf{Manajemen Inspeksi} -- Koordinasi proses inspeksi dari inisiasi hingga finalisasi
-  \item \textbf{Manajemen Deteksi} -- Pengambilan dan validasi hasil deteksi
+  \item \textbf{Manajemen Kontainer} -- Pengelolaan informasi kontainer dan hasil inspeksi yang teragregasi
+  \item \textbf{Manajemen Manifes} -- Pengelolaan data manifes sebagai konteks deklarasi muatan
+  \item \textbf{Manajemen Inspeksi} -- Koordinasi proses inspeksi dari identifikasi hingga penyajian hasil
+  \item \textbf{Manajemen Deteksi} -- Penerimaan dan validasi hasil OCR serta hasil pemindaian dari komponen \textit{edge}
   \item \textbf{Manajemen Media} -- Penyimpanan dan pengambilan media inspeksi
-  \item \textbf{Pelaporan dan Analitik} -- Generasi laporan dan analisis data inspeksi
-  \item \textbf{Manajemen Notifikasi} -- Pengiriman notifikasi kepada pengguna dan pihak terkait
-  \item \textbf{Integrasi} -- Koordinasi dengan sistem eksternal
+  \item \textbf{Integrasi} -- Kesiapan koordinasi dengan sistem eksternal pada tahap pengembangan lanjutan
 \end{itemize}
 
 Setiap kategori layanan memiliki kontrak antarmuka yang terdefinisi dengan jelas, termasuk format permintaan, respons, dan penanganan kesalahan yang konsisten.
@@ -537,9 +572,9 @@ Setiap kategori layanan memiliki kontrak antarmuka yang terdefinisi dengan jelas
 
 Sistem mendukung beberapa alur proses utama:
 
-\textbf{(1) Proses Inspeksi Menyeluruh:} Proses dimulai dari inisiasi inspeksi, dilanjutkan dengan akuisisi data, pengunggahan ke sistem terpusat, analisis visual, validasi manual, generasi laporan, sinkronisasi dengan sistem eksternal, dan diakhiri dengan notifikasi kepada pihak terkait.
+\textbf{(1) Proses Inspeksi Menyeluruh:} Proses dimulai dari inisiasi inspeksi, dilanjutkan dengan akuisisi data, pengunggahan ke sistem terpusat, analisis visual, validasi manual, generasi laporan, dan penyajian hasil kepada pihak terkait. Integrasi dengan sistem eksternal diposisikan sebagai arah pengembangan lanjutan.
 
-\textbf{(2) Pemantauan dan Pengelolaan Status Layanan:} Sistem memantau status aliran video, status komponen \textit{edge}, dan ketersediaan layanan untuk membantu operator mengidentifikasi gangguan operasional dan menentukan tindak lanjut yang diperlukan.
+\textbf{(2) Pemantauan dan Pengelolaan Status Layanan:} Sistem memantau ketersediaan aliran video, status komponen \textit{edge}, dan ketersediaan layanan untuk membantu operator mengidentifikasi gangguan operasional dan menentukan tindak lanjut yang diperlukan.
 
 \textbf{(3) Penanganan Kegagalan Komunikasi:} Komponen sistem dirancang agar kegagalan komunikasi tidak langsung mengganggu seluruh fungsi secara serempak. Pemisahan jalur antara data terstruktur dan video langsung membantu menjaga keberlangsungan pemantauan maupun pencatatan data sesuai kondisi layanan yang tersedia.
 
@@ -581,7 +616,7 @@ Desain arsitektur sistem inspeksi kargo digital secara eksplisit mempertimbangka
     Arsitektur Berlapis & \textit{Maintainability} - \textit{Modularity} & Pemisahan tanggung jawab memudahkan modifikasi komponen \\
     Pemisahan Jalur Komunikasi & \textit{Performance Efficiency} - \textit{Time Behaviour} & Pemisahan jalur data terstruktur dan video mendukung responsivitas dan konsistensi \\
     Penempatan Tersebar & \textit{Performance Efficiency} - \textit{Time Behaviour} & Pemrosesan lokal mengurangi waktu respons untuk operasi kritis \\
-    Pola Adapter Integrasi & \textit{Compatibility} - \textit{Interoperability} & Abstraksi sistem eksternal memudahkan pertukaran informasi \\
+    Pola Adapter Integrasi & \textit{Compatibility} - \textit{Interoperability} & Abstraksi sistem eksternal memudahkan pertukaran informasi ketika integrasi diperluas \\
     Jejak Audit Komprehensif & \textit{Security} - \textit{Accountability} & Pencatatan aktivitas memungkinkan penelusuran penuh atas tindakan \\
     Kontrol Akses Berbasis Peran & \textit{Security} - \textit{Authenticity} & Verifikasi identitas dan otorisasi melindungi akses ke fungsi sensitif \\
     Validasi Data Berlapis & \textit{Security} - \textit{Integrity} & Pemeriksaan data di berbagai lapisan memastikan kebenaran informasi \\
@@ -602,7 +637,7 @@ Arsitektur berlapis dengan pemisahan tanggung jawab yang jelas memastikan peruba
 
 \textbf{2. \textit{Interoperability} (Kemampuan Bertukar Informasi)}
 
-Pola Adapter untuk integrasi sistem eksternal dan penggunaan kontrak layanan terstandarisasi memfasilitasi pertukaran informasi dengan berbagai sistem yang heterogen di ekosistem pelabuhan.
+Pola Adapter untuk integrasi sistem eksternal dan penggunaan kontrak layanan terstandarisasi memfasilitasi pertukaran informasi dengan berbagai sistem yang heterogen di ekosistem pelabuhan ketika tahap integrasi lanjutan direalisasikan.
 
 \textbf{3. \textit{Auditability} (Ketertelusuran)}
 
@@ -656,13 +691,13 @@ Berikut adalah keputusan arsitektural utama beserta rasionalisasinya:
 
 \textbf{4. Pola Adapter untuk Integrasi}
 
-\textit{Keputusan:} Setiap sistem eksternal diakses melalui \textit{adapter} khusus yang mengimplementasikan antarmuka standar.
+\textit{Keputusan:} Setiap sistem eksternal direncanakan diakses melalui \textit{adapter} khusus yang mengimplementasikan antarmuka standar.
 
-\textit{Rasionalisasi:} Pola ini dipilih mengingat karakteristik ekosistem pelabuhan:
+\textit{Rasionalisasi:} Pola ini dipilih sebagai arah kesiapan integrasi mengingat karakteristik ekosistem pelabuhan:
 \begin{itemize}
-  \item Sistem eksternal (TOS, PCS, INSW) memiliki antarmuka yang heterogen---\textit{adapter} menyediakan abstraksi yang menyeragamkan akses
-  \item Sistem eksternal dapat berubah atau diganti tanpa persetujuan atau koordinasi dengan sistem inspeksi---\textit{adapter} mengisolasi perubahan tersebut dari logika bisnis inti
-  \item Memungkinkan pengujian sistem tanpa ketergantungan langsung pada sistem eksternal aktual
+  \item Sistem eksternal (TOS, PCS, INSW) memiliki antarmuka yang heterogen---\textit{adapter} menyediakan abstraksi yang menyeragamkan akses ketika integrasi tersebut direalisasikan
+  \item Sistem eksternal dapat berubah atau diganti tanpa persetujuan atau koordinasi dengan sistem inspeksi---\textit{adapter} membantu mengisolasi perubahan tersebut dari logika bisnis inti
+  \item Memungkinkan pengembangan dan pengujian rancangan integrasi tanpa ketergantungan langsung pada sistem eksternal aktual
 \end{itemize}
 
 \subsection{Kebutuhan Operasional Sistem}

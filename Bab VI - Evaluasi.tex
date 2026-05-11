@@ -36,9 +36,16 @@ validasi fungsional sistem. Pendekatan ini dipilih karena sesuai dengan tujuan
 penelitian, yaitu menilai implementabilitas rancangan arsitektur dan kesesuaian
 realisasinya terhadap kebutuhan sistem. Artefak utama yang digunakan sebagai
 dasar evaluasi adalah dokumentasi pengujian integrasi, struktur layanan
-yang telah dibangun, perilaku sistem yang telah diimplementasikan pada
+yang telah dibangun, struktur skema data operasional, perilaku sistem yang telah diimplementasikan pada
 proyek pengembangan sistem, serta dokumen lapangan yang menunjukkan konteks
 operasional screening di lingkungan pelabuhan.
+
+Karena fokus penelitian ini berada pada arsitektur sistem, evaluasi tidak
+diarahkan untuk menilai kualitas rekayasa perangkat lunak pada tingkat kode,
+gaya implementasi antarmuka, atau performa tiap model secara terpisah. Yang
+dinilai adalah apakah artefak implementasi yang tersedia benar-benar
+merealisasikan keputusan arsitektural yang telah dirumuskan pada tahap
+perancangan.
 
 Evaluasi dilakukan terhadap tiga komponen utama sistem, yaitu:
 \begin{enumerate}
@@ -65,14 +72,17 @@ Skenario ini bertujuan memastikan bahwa komponen \textit{edge} mampu
 mengirimkan hasil identifikasi dan hasil pemindaian ke layanan API dengan
 mekanisme autentikasi yang sesuai. Keberhasilan skenario ini menunjukkan bahwa
 jalur data terstruktur dari lapisan \textit{edge} ke lapisan aplikasi berjalan
-dengan benar.
+dengan benar. Pada implementasi aktual, mekanisme ini direalisasikan melalui
+\textit{API key} pada keluarga endpoint \texttt{/api/edge}.
 
 \textbf{2. Verifikasi aliran OCR}
 
 Skenario ini memeriksa apakah aliran OCR dapat dijalankan, mendeteksi nomor
 kontainer, dan menghasilkan entitas kontainer pada layanan aplikasi.
 Keberhasilan skenario ini menunjukkan bahwa identitas utama objek inspeksi dapat
-dibentuk secara otomatis dan tersedia untuk proses lanjutan.
+dibentuk secara otomatis dan tersedia untuk proses lanjutan. Dalam implementasi,
+proses ini diwujudkan melalui pembuatan atau pembaruan dokumen kontainer pada
+koleksi \textit{containers}.
 
 \textbf{3. Verifikasi propagasi nomor kontainer}
 
@@ -86,7 +96,9 @@ lintas modul tidak bergantung pada pengisian manual yang berulang.
 Skenario ini memeriksa apakah hasil pemindaian kerusakan, barang berisiko, dan
 kategori muatan dapat tersimpan pada entitas kontainer yang sesuai. Skenario ini
 menjadi indikator bahwa model data yang dirancang benar-benar digunakan sebagai
-wadah integrasi informasi inspeksi.
+wadah integrasi informasi inspeksi. Selain itu, skenario ini juga memeriksa
+bahwa hasil pemindaian tetap berada di dalam struktur data inti, bukan pada
+koleksi pelacakan tambahan.
 
 \textbf{5. Verifikasi siaran video langsung}
 
@@ -123,6 +135,33 @@ dalam Tabel~\ref{tbl:aspek-evaluasi}.
         Ketertelusuran proses & Pencatatan status, waktu, dan artefak visual & Tersedia jejak proses dan bukti inspeksi yang dapat ditelusuri \\
         Pemisahan jalur komunikasi & Pemisahan jalur data terstruktur dan video & Data transaksional dan video menggunakan jalur yang berbeda sesuai fungsi \\
         Kesiapan operasional antarmuka & Perilaku aplikasi web dalam menampilkan hasil & Operator dapat memantau aliran dan membaca hasil inspeksi secara utuh \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Matriks Bukti Evaluasi}
+\label{subsec:matriks-bukti-evaluasi}
+
+Untuk memperjelas hubungan antara skenario evaluasi, artefak yang diperiksa,
+hasil yang diperoleh, dan implikasinya terhadap rancangan arsitektur, Tabel
+\ref{tbl:matriks-bukti-evaluasi} merangkum bukti utama yang digunakan dalam
+penelitian ini.
+
+\begin{table}[ht]
+    \centering
+    \small
+    \caption{Matriks Bukti Evaluasi Realisasi Arsitektur}
+    \label{tbl:matriks-bukti-evaluasi}
+    \begin{tabular}{p{0.20\textwidth} p{0.22\textwidth} p{0.22\textwidth} p{0.26\textwidth}}
+        \toprule
+        \textbf{Skenario} & \textbf{Artefak/Bukti} & \textbf{Hasil} & \textbf{Makna Arsitektural} \\
+        \midrule
+        Konektivitas \textit{edge} ke layanan API & Endpoint \texttt{/api/edge} pada layanan API, autentikasi \textit{API key}, dokumentasi alur pengiriman hasil inspeksi, dan struktur layanan \textit{edge} & Hasil identifikasi dan pemindaian dapat dikirim dari komponen \textit{edge} ke layanan API & Membuktikan bahwa jalur data terstruktur inti direalisasikan sesuai pembagian lapisan \\
+        OCR membentuk entitas kontainer & Endpoint identifikasi kontainer, dokumentasi OCR pada komponen \textit{edge}, dan perilaku pembentukan data pada koleksi kontainer & Nomor kontainer yang dikenali membentuk atau memperbarui entitas kontainer & Menunjukkan bahwa \textit{Container} benar-benar menjadi jangkar data utama \\
+        Propagasi nomor kontainer ke alur lain & Mekanisme propagasi konteks kontainer pada pengelolaan aliran \textit{RTSP} dan skenario pengujian integrasi lintas pemindaian & Hasil pemindaian kerusakan, barang berisiko, dan kategori muatan dapat dikaitkan ke kontainer yang sama & Membuktikan konsistensi konteks inspeksi lintas modul tanpa entri manual berulang \\
+        Penyimpanan hasil inspeksi & Struktur koleksi \textit{containers}, \textit{manifests}, \textit{users}, serta penyimpanan artefak visual pada Cloudflare R2 & Hasil OCR, manifes, hasil pemindaian, dan bukti visual tersimpan secara terhubung pada model data inti & Menunjukkan bahwa arsitektur data yang dirancang benar-benar digunakan pada operasi inti \\
+        Siaran video langsung ke web & Layanan siaran video pada komponen \textit{edge}, koneksi \textit{WebSocket}, dan perilaku pemantauan pada aplikasi web & Aplikasi web menerima video beranotasi langsung dari komponen \textit{edge} & Membuktikan pemisahan jalur video langsung dari jalur data transaksional \\
+        Pembacaan hasil oleh aplikasi web & Endpoint REST pada layanan API dan tampilan inspeksi pada aplikasi web & Data hasil inspeksi dapat dibaca dan ditampilkan kembali kepada operator & Menunjukkan bahwa integrasi antarlapisan berakhir pada interaksi pengguna yang utuh \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -185,9 +224,12 @@ Evaluasi terhadap struktur data menunjukkan bahwa model data yang direalisasikan
 telah mendukung kebutuhan integrasi dan ketertelusuran. Entitas \textit{Container}
 mampu menyimpan hasil OCR, ringkasan manifest, hasil pemindaian kerusakan,
 barang berisiko, klasifikasi muatan, dan bukti inspeksi dalam satu entitas
-terpadu. Sementara itu, entitas \textit{TrackingEvent} dan \textit{StreamStatus}
-menyediakan jejak aktivitas operasional yang dapat digunakan untuk pemantauan
-dan penelusuran.
+terpadu. Sementara itu, data manifes menyediakan konteks deklarasi muatan yang
+dapat dibandingkan dengan hasil deteksi aktual, sehingga keterkaitan antara
+identitas kontainer, isi muatan, dan hasil inspeksi dapat dijaga secara
+konsisten. Struktur ini juga memperjelas bahwa operasi inti sistem bertumpu pada
+koleksi \textit{containers}, \textit{manifests}, dan \textit{users}, sedangkan
+kanal pelacakan tambahan tidak menjadi dasar utama agregasi hasil inspeksi.
 
 Pemisahan penyimpanan antara MongoDB dan Cloudflare R2 juga menunjukkan bahwa
 implementasi mengikuti kebutuhan data yang berbeda. Data terstruktur disimpan
@@ -262,7 +304,10 @@ dibangun memungkinkan hasil inspeksi dari beberapa sumber untuk digabungkan
 dalam satu entitas kontainer. Mekanisme ini penting dalam konteks pelabuhan
 karena proses inspeksi jarang terjadi dalam satu titik tunggal. Sistem harus
 mampu menyatukan hasil dari beberapa tahapan inspeksi tanpa kehilangan konteks
-dan tanpa mengorbankan ketertelusuran.
+dan tanpa mengorbankan ketertelusuran. Oleh sebab itu, temuan evaluasi pada
+penelitian ini perlu dibaca sebagai pembuktian terhadap rancangan arsitektur,
+bukan sebagai penilaian menyeluruh terhadap seluruh keputusan implementasi
+perangkat lunak.
 
 \section{Keterbatasan Evaluasi}
 \label{sec:keterbatasan-evaluasi}
