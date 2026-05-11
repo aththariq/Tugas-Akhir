@@ -20,7 +20,7 @@ Dengan posisi tersebut, pembahasan pada bab ini tidak dimaksudkan sebagai
 dokumentasi menyeluruh atas struktur kode sumber atau keputusan pemrograman
 setiap komponen. Implementasi dibaca sebagai konteks realisasi yang
 menunjukkan apakah rancangan komponen, kontrak data, dan alur integrasi yang
-diusulkan pada penelitian ini benar-benar tercermin pada sistem yang dibangun.
+diusulkan pada tugas akhir ini benar-benar tercermin pada sistem yang dibangun.
 
 Implementasi sistem direalisasikan dalam bentuk beberapa komponen utama yang
 dipisahkan berdasarkan tanggung jawabnya. Pemisahan tersebut selaras dengan
@@ -68,7 +68,7 @@ bagi aplikasi web dan komponen \textit{edge}. Pada operasi inti, seluruh hasil
 identifikasi kontainer dan hasil pemindaian dari komponen \textit{edge}
 diterima oleh layanan ini melalui keluarga endpoint \texttt{/api/edge}. Kanal
 pelacakan tambahan yang sempat tersedia tidak diposisikan sebagai jalur utama
-pada arsitektur inspeksi yang dibahas dalam penelitian ini.
+pada arsitektur inspeksi yang dibahas dalam tugas akhir ini.
 
 \textbf{3. Komponen aplikasi web}
 
@@ -78,7 +78,7 @@ meninjau hasil inspeksi, mengelola aliran kamera, dan membaca hasil identifikasi
 serta analisis yang sudah tersimpan. Aplikasi web mengakses data terstruktur
 melalui layanan API dan menerima video langsung dari komponen \textit{edge}
 melalui \textit{WebSocket}. Penyebutan teknologi implementasi web tidak menjadi
-fokus utama pada penelitian ini, karena yang ditekankan adalah perannya sebagai
+fokus utama pada tugas akhir ini, karena yang ditekankan adalah perannya sebagai
 lapisan presentasi dalam arsitektur sistem.
 
 \textbf{4. Komponen penyimpanan}
@@ -114,7 +114,7 @@ dengan arsitektur berlapis yang telah dirancang sebelumnya.
 Pemetaan tersebut menunjukkan bahwa implementasi yang dihasilkan tidak
 meninggalkan struktur rancangan konseptual, melainkan menerjemahkannya menjadi
 komponen nyata yang dapat diuji. Dengan demikian, hasil implementasi mendukung
-argumen bahwa rancangan arsitektur yang disusun pada penelitian ini bersifat
+argumen bahwa rancangan arsitektur yang disusun pada tugas akhir ini bersifat
 dapat diimplementasikan.
 
 \section{Realisasi Alur Data dan Integrasi}
@@ -191,7 +191,7 @@ didefinisikan sebagai salah satu kapabilitas arsitektur inti.
 \subsection{Struktur Data Inti}
 \label{subsec:struktur-data-inti}
 
-Fokus utama kontribusi pada penelitian ini berada pada bagaimana data inspeksi
+Fokus utama kontribusi pada tugas akhir ini berada pada bagaimana data inspeksi
 dimodelkan, disimpan, dan dipertukarkan secara konsisten. Implementasi sistem
 menunjukkan bahwa operasi inspeksi utama direalisasikan dengan menempatkan
 \textit{Container} sebagai pusat agregasi hasil inspeksi, \textit{Manifest}
@@ -281,7 +281,7 @@ Dari sudut pandang kontribusi penelitian, implementasi ini menunjukkan bahwa
 perancangan arsitektur tidak berhenti pada level konseptual. Struktur data,
 jalur integrasi, dan pembagian komponen yang dirancang benar-benar menjadi dasar
 bagi sistem yang dibangun pada proyek capstone. Hal tersebut penting karena
-menunjukkan bahwa kontribusi penelitian ini terletak pada kemampuan merancang
+menunjukkan bahwa kontribusi tugas akhir ini terletak pada kemampuan merancang
 arsitektur yang dapat diimplementasikan, terintegrasi, dan mendukung kebutuhan
 ketertelusuran proses inspeksi di lingkungan pelabuhan. Dengan kata lain, nilai
 utama bab ini bukan pada rincian kode, melainkan pada keterhubungan antara

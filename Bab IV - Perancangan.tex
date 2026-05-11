@@ -115,7 +115,7 @@ inspeksi selesai atau kondisi kritis ditemukan.
 \textbf{Integrasi dengan Ekosistem Pelabuhan:}
 Sistem dirancang agar siap diintegrasikan dengan sistem operasional eksternal
 yang sudah ada di ekosistem pelabuhan melalui antarmuka layanan
-terstandardisasi. Pada ruang lingkup implementasi penelitian ini, realisasi
+terstandardisasi. Pada ruang lingkup implementasi tugas akhir ini, realisasi
 integrasi masih berfokus pada alur internal proyek, sedangkan sinkronisasi ke
 sistem eksternal diposisikan sebagai arah pengembangan lanjutan. Dengan
 pendekatan tersebut, status inspeksi diharapkan nantinya dapat menjadi bagian
@@ -123,7 +123,7 @@ dari informasi kontainer yang dapat dilacak sepanjang rantai pasok tanpa entri
 ulang manual.
 
 \textbf{Jejak Audit dan Kepatuhan:}
-Sistem dirancang untuk menjaga ketertelusuran transaksi, perubahan data, akses informasi, dan tindakan pengguna melalui pencatatan stempel waktu, identitas pengguna, serta artefak inspeksi yang relevan. Pada implementasi penelitian ini, dukungan tersebut terutama direalisasikan melalui struktur data inspeksi, metadata perangkat, dan penyimpanan bukti visual, sehingga kebutuhan audit dasar dapat dipenuhi dan dikembangkan lebih lanjut pada tahap berikutnya.
+Sistem dirancang untuk menjaga ketertelusuran transaksi, perubahan data, akses informasi, dan tindakan pengguna melalui pencatatan stempel waktu, identitas pengguna, serta artefak inspeksi yang relevan. Pada implementasi tugas akhir ini, dukungan tersebut terutama direalisasikan melalui struktur data inspeksi, metadata perangkat, dan penyimpanan bukti visual, sehingga kebutuhan audit dasar dapat dipenuhi dan dikembangkan lebih lanjut pada tahap berikutnya.
 
 \textbf{Ketahanan Operasional Lokal:}
 Komponen lokal tetap menjalankan akuisisi video, inferensi, dan pemantauan aliran secara dekat dengan sumber data. Pemisahan ini mengurangi ketergantungan terhadap layanan terpusat untuk fungsi yang membutuhkan respons cepat, sekaligus menjaga bahwa penyimpanan hasil inspeksi tetap mengikuti alur terstruktur melalui layanan API saat konektivitas tersedia.
@@ -202,7 +202,7 @@ Sistem diorganisasikan dalam empat lapisan utama: (1) \textbf{\textit{Presentati
 
 Diagram konteks sistem pada Gambar \ref{fig:system_context} menunjukkan
 arsitektur sasaran sistem inspeksi kargo digital dalam ekosistem pelabuhan yang
-lebih luas. Pada implementasi yang direalisasikan pada penelitian ini, batas
+lebih luas. Pada implementasi yang direalisasikan pada tugas akhir ini, batas
 integrasi aktual masih berfokus pada interaksi internal antara komponen
 \textit{edge}, layanan API, aplikasi web, autentikasi pengguna, dan
 penyimpanan artefak visual. Dengan demikian, aktor dan sistem eksternal pada
@@ -467,7 +467,7 @@ Model data inti pada operasi inspeksi utama mencakup entitas berikut:
 
 Gambar~\ref{fig:er_diagram} menunjukkan model relasi entitas pada tingkat
 konseptual sasaran. Pada realisasi operasi inspeksi utama yang digunakan dalam
-penelitian ini, pusat model data berada pada entitas KONTAINER dan MANIFEST,
+tugas akhir ini, pusat model data berada pada entitas KONTAINER dan MANIFEST,
 dengan USER sebagai konteks autentikasi dan pengelolaan akses. Dengan demikian,
 gambar ini perlu dibaca sebagai representasi konseptual pengembangan sistem,
 bukan sebagai cerminan satu-per-satu dari seluruh koleksi yang aktif pada
@@ -541,7 +541,7 @@ Untuk mengisolasi logika bisnis dari detail implementasi integrasi, rancangan si
 
 Gambar \ref{fig:integration_architecture} menunjukkan arsitektur integrasi
 sasaran sistem dengan ekosistem pelabuhan yang lebih luas. Pada implementasi
-yang direalisasikan dalam penelitian ini, integrasi aktual masih dibatasi pada
+yang direalisasikan dalam tugas akhir ini, integrasi aktual masih dibatasi pada
 komponen internal proyek dan dependensi pendukung seperti autentikasi pengguna
 serta penyimpanan artefak visual. Oleh karena itu, lapisan
 \textit{Integration Interface} dan \textit{Integration Service} perlu dibaca
