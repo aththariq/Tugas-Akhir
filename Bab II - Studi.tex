@@ -49,7 +49,11 @@ World Customs Organization SAFE Framework 2025 menganjurkan pendekatan inspeksi 
   \item \textbf{\textit{Compliance Decision}} -- Keputusan kepabeanan berdasarkan bukti digital dan dokumentasi yang dapat diaudit.
 \end{enumerate}
 
-Pola ini menekankan pendekatan berbasis risiko yang memerlukan sistem dengan kemampuan untuk mengelola informasi secara terstruktur, menyediakan jejak audit yang jelas, dan mendukung pengambilan keputusan yang konsisten. Setiap tahapan dalam workflow menghasilkan informasi yang harus dikelola secara sistematis untuk memastikan \textit{traceability} dan kepatuhan terhadap regulasi.
+Pola ini menekankan pendekatan berbasis risiko yang memerlukan sistem dengan
+kemampuan untuk mengelola informasi secara terstruktur, menyediakan jejak audit
+yang jelas, dan mendukung pengambilan keputusan yang konsisten. Setiap tahapan
+dalam alur kerja menghasilkan informasi yang harus dikelola secara sistematis
+untuk memastikan \textit{traceability} dan kepatuhan terhadap regulasi.
 
 \section{Teknologi Inspeksi Kargo Modern}
 
@@ -173,20 +177,25 @@ Sistem terdistribusi memerlukan mekanisme untuk menyampaikan informasi antar kom
 
 Mekanisme ini memungkinkan komponen untuk beroperasi secara independen tanpa bergantung pada ketersediaan simultan semua komponen yang terlibat, mendukung operasi yang berkelanjutan meskipun terjadi gangguan pada bagian tertentu dari sistem.
 
-\subsection{Prinsip Interoperabilitas dan Standarisasi}
+\subsection{Prinsip Interoperabilitas dan Standardisasi}
 
-Interoperabilitas sistem terdistribusi memerlukan kontrak formal yang memungkinkan komponen heterogen untuk berkomunikasi secara efektif \autocite{bass2022}. Bass dkk. menekankan bahwa standarisasi antarmuka merupakan kunci untuk mencapai interoperabilitas yang berkelanjutan.
+Interoperabilitas sistem terdistribusi memerlukan kontrak formal yang
+memungkinkan komponen heterogen untuk berkomunikasi secara efektif
+\autocite{bass2022}. Bass dkk. menekankan bahwa standardisasi antarmuka
+merupakan kunci untuk mencapai interoperabilitas yang berkelanjutan.
 
-Prinsip-prinsip standarisasi mencakup:
+Prinsip-prinsip standardisasi mencakup:
 
 \begin{itemize}
   \item \textbf{\textit{Interface Contracts}} -- Definisi formal tentang operasi, parameter, dan semantik komunikasi antar komponen.
-  \item \textbf{\textit{Data Format Standards}} -- Standarisasi representasi data untuk memastikan interpretasi yang konsisten.
-  \item \textbf{\textit{Protocol Standards}} -- Standarisasi mekanisme komunikasi untuk memastikan keselarasan pertukaran informasi antar komponen.
+  \item \textbf{\textit{Data Format Standards}} -- Standardisasi representasi data untuk memastikan interpretasi yang konsisten.
+  \item \textbf{\textit{Protocol Standards}} -- Standardisasi mekanisme komunikasi untuk memastikan keselarasan pertukaran informasi antarkomponen.
   \item \textbf{\textit{Versioning Strategy}} -- Pendekatan untuk mengelola evolusi \textit{interface} tanpa merusak keselarasan dengan komponen yang ada.
 \end{itemize}
 
-Pendekatan kontrak terstandarisasi memungkinkan komponen untuk berkembang secara independen selama mematuhi interface yang telah disepakati, mendukung evolusi sistem jangka panjang.
+Pendekatan kontrak terstandardisasi memungkinkan komponen untuk berkembang
+secara independen selama mematuhi \textit{interface} yang telah disepakati,
+mendukung evolusi sistem jangka panjang.
 
 \section{Tata Kelola Teknologi Informasi untuk Sistem Inspeksi}
 
@@ -275,11 +284,29 @@ Peraturan Direktur Jenderal Bea dan Cukai terkait pemeriksaan kontainer juga mew
 
 Pengelolaan data merupakan aspek fundamental dalam sistem inspeksi kargo digital yang menjamin keandalan informasi sepanjang siklus operasional. Literatur menunjukkan bahwa kualitas data menjadi faktor kritis dalam mendukung pengambilan keputusan yang akurat dan dapat dipertanggungjawabkan dalam konteks inspeksi kargo.
 
-Konsep kualitas data mencakup beberapa dimensi utama yang relevan dengan sistem inspeksi. \textit{Accuracy} mengacu pada tingkat kesesuaian antara data yang tercatat dengan kondisi aktual yang direpresentasikan. \textit{Completeness} merujuk pada kelengkapan atribut data yang diperlukan untuk mendukung proses inspeksi dan audit. \textit{Consistency} menekankan keseragaman representasi data di seluruh komponen sistem yang berbeda. Dimensi kualitas data ini penting dalam literatur arsitektur karena menentukan efektivitas alur informasi yang menjadi dasar bagi operasi inspeksi.
+Konsep kualitas data mencakup beberapa dimensi utama yang relevan dengan
+sistem inspeksi. \textit{Accuracy} mengacu pada tingkat kesesuaian antara data
+yang tercatat dengan kondisi aktual yang direpresentasikan.
+\textit{Completeness} merujuk pada kelengkapan atribut data yang diperlukan
+untuk mendukung proses inspeksi dan audit. \textit{Consistency} menekankan
+keseragaman representasi data di seluruh komponen sistem yang berbeda. Dimensi
+kualitas data ini penting dalam literatur arsitektur karena menentukan
+efektivitas alur informasi yang menjadi dasar bagi operasi inspeksi.
 
-Prinsip metadata menjadi penting dalam konteks sistem terdistribusi di mana informasi tentang data itu sendiri diperlukan untuk memastikan interpretasi yang tepat. Metadata mencakup informasi tentang sumber data, waktu akuisisi, metode pengumpulan, dan transformasi yang telah dilakukan. Dalam workflow inspeksi, metadata memungkinkan pelacakan asal-usul informasi dan memfasilitasi audit terhadap proses pengambilan keputusan.
+Prinsip \textit{metadata} menjadi penting dalam konteks sistem terdistribusi
+ketika informasi tentang data itu sendiri diperlukan untuk memastikan
+interpretasi yang tepat. \textit{Metadata} mencakup informasi tentang sumber
+data, waktu akuisisi, metode pengumpulan, dan transformasi yang telah
+dilakukan. Dalam alur kerja inspeksi, \textit{metadata} memungkinkan pelacakan
+asal-usul informasi dan memfasilitasi audit terhadap proses pengambilan
+keputusan.
 
-Konsep \textit{traceability} menekankan kemampuan untuk melacak riwayat data dari titik akuisisi hingga penggunaan akhir. Dalam konteks inspeksi kargo, traceability memungkinkan verifikasi terhadap validitas hasil inspeksi dan mendukung akuntabilitas dalam proses kepabeanan. Prinsip ini menjadi relevan khususnya dalam sistem yang melibatkan multiple stakeholder dengan kebutuhan audit yang berbeda.
+Konsep \textit{traceability} menekankan kemampuan untuk melacak riwayat data
+dari titik akuisisi hingga penggunaan akhir. Dalam konteks inspeksi kargo,
+\textit{traceability} memungkinkan verifikasi terhadap validitas hasil
+inspeksi dan mendukung akuntabilitas dalam proses kepabeanan. Prinsip ini
+menjadi relevan khususnya dalam sistem yang melibatkan banyak pemangku
+kepentingan dengan kebutuhan audit yang berbeda.
 
 \section{Celah Literatur dan Kontribusi Penelitian}
 
@@ -310,7 +337,7 @@ Penelitian ini bertujuan untuk mengisi celah-celah tersebut dengan kontribusi be
 
   \item \textbf{Kerangka Audit Trail Multi-Stakeholder} -- Merancang prinsip-prinsip audit trail dan chain of custody digital yang memenuhi kebutuhan berbagai pemangku kepentingan dalam ekosistem inspeksi kargo.
 
-  \item \textbf{Framework Interoperabilitas Kontekstual} -- Mengembangkan kerangka standarisasi interface dan protokol komunikasi yang sesuai dengan regulasi nasional dan karakteristik ekosistem pelabuhan Indonesia.
+  \item \textbf{Framework Interoperabilitas Kontekstual} -- Mengembangkan kerangka standardisasi \textit{interface} dan protokol komunikasi yang sesuai dengan regulasi nasional dan karakteristik ekosistem pelabuhan Indonesia.
 \end{enumerate}
  
 \bigskip

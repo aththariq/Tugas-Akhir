@@ -13,34 +13,37 @@
 
 
 \begin{spacing}{1.0}
-Proses pemeriksaan kargo di pelabuhan masih menghadapi berbagai kendala,
+Proses pemeriksaan kontainer di pelabuhan masih menghadapi berbagai kendala,
 di antaranya fragmentasi informasi antar pemangku kepentingan, pencatatan hasil
-inspeksi yang belum terintegrasi, keterbatasan ketertelusuran bukti inspeksi, serta
-rendahnya visibilitas status pemeriksaan secara waktu nyata. Kondisi tersebut
-menyebabkan proses verifikasi kontainer, validasi manifest, dan pengambilan
-keputusan inspeksi menjadi kurang efisien. Penelitian ini bertujuan merancang
-arsitektur sistem inspeksi kargo digital terintegrasi yang mampu mendukung proses
-identifikasi kontainer, analisis citra inspeksi, integrasi data hasil pemeriksaan, dan
-penyajian informasi bagi petugas pelabuhan secara terpadu.
+inspeksi yang belum terintegrasi, keterbatasan ketertelusuran bukti inspeksi,
+dan rendahnya visibilitas hasil pemeriksaan secara waktu nyata. Kondisi
+tersebut menyebabkan proses verifikasi kontainer, validasi manifes, dan
+pengambilan keputusan operasional menjadi kurang efisien. Tugas akhir ini
+bertujuan merancang arsitektur sistem inspeksi kargo digital terintegrasi yang
+mampu mendukung identifikasi kontainer, pengolahan hasil inspeksi, integrasi
+data, dan penyajian informasi secara terpadu.
 
-Perancangan dilakukan dengan pendekatan berlapis yang mencakup lapisan
-presentasi, aplikasi, data, dan \textit{edge}. Rancangan arsitektur
-menempatkan layanan kecerdasan buatan pada \textit{edge} untuk memproses aliran video
-dan melakukan deteksi awal, layanan API untuk orkestrasi proses bisnis dan
-persistensi data, serta aplikasi web untuk pemantauan, inspeksi, dan pelaporan. Pada aspek data,
-rancangan difokuskan pada struktur data kontainer, manifest, hasil pemindaian,
-status aliran video, dan jejak peristiwa agar sistem mampu menyediakan
-ketertelusuran, konsistensi data, dan dukungan integrasi dengan sistem eksternal.
+Perancangan dilakukan dengan pendekatan \textit{Design Science Research} yang
+mencakup identifikasi masalah, penetapan tujuan, perancangan artefak,
+demonstrasi melalui realisasi sistem, dan evaluasi hasil. Arsitektur sistem
+disusun dengan pendekatan berlapis yang mencakup lapisan presentasi, aplikasi,
+data, dan \textit{edge}. Pada rancangan ini, komponen \textit{edge} bertugas
+melakukan akuisisi aliran video dan inferensi awal, layanan API menangani
+orkestrasi serta persistensi data, sedangkan aplikasi web menyediakan antarmuka
+pemantauan dan pembacaan hasil inspeksi. Pada aspek data, rancangan difokuskan
+pada entitas kontainer dan manifes sebagai pusat integrasi hasil inspeksi dan
+bukti visual.
 
-Hasil implementasi pada proyek pengembangan sistem menunjukkan bahwa rancangan
-arsitektur yang diusulkan dapat direalisasikan menjadi sistem yang terintegrasi
-antara layanan \textit{edge}, layanan API, penyimpanan data, dan antarmuka web.
-Validasi dilakukan melalui pengujian integrasi terhadap alur utama, mulai dari
-identifikasi kontainer, penyebaran data hasil pemindaian, penyimpanan artefak
-inspeksi, hingga penyajian hasil pada antarmuka pengguna. Penelitian ini
-menunjukkan bahwa pendekatan arsitektur terintegrasi mampu menjadi dasar yang
-kuat untuk mendukung proses pemeriksaan kargo yang lebih terstruktur, terdokumentasi,
-dan siap dikembangkan lebih lanjut dalam lingkungan operasional pelabuhan.
+Hasil realisasi sistem menunjukkan bahwa rancangan arsitektur dapat diwujudkan
+menjadi sistem yang menghubungkan komponen \textit{edge}, layanan API,
+penyimpanan data, dan antarmuka web dalam satu alur yang konsisten. Evaluasi
+dilakukan melalui pengujian integrasi terhadap alur utama, mulai dari
+pembentukan entitas kontainer melalui OCR, propagasi nomor kontainer ke alur
+pemindaian lain, penyimpanan hasil inspeksi pada model data inti, hingga
+penyajian hasil pada aplikasi web. Hasil evaluasi menunjukkan bahwa rancangan
+arsitektur yang diusulkan mampu mendukung proses pemeriksaan kontainer yang
+lebih terstruktur, terdokumentasi, dan siap dikembangkan lebih lanjut dalam
+konteks operasional pelabuhan.
 
 Kata kunci: arsitektur sistem, inspeksi kargo digital, integrasi data, pelabuhan, ketertelusuran.
 \end{spacing}

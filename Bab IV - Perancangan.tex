@@ -16,7 +16,7 @@ Sistem inspeksi kargo digital terintegrasi dirancang berdasarkan prinsip arsitek
 Prinsip utama desain meliputi:
 \begin{itemize}
   \item \textbf{Modularitas} -- Setiap komponen memiliki tanggung jawab tunggal dan dapat berevolusi secara independen tanpa mengganggu komponen lain.
-  \item \textbf{Standarisasi Antarmuka} -- Semua interaksi antarkomponen dilakukan melalui kontrak layanan terstandarisasi, sehingga integrasi internal tetap konsisten dan perluasan ke sistem eksternal dapat dilakukan secara bertahap.
+  \item \textbf{Standardisasi Antarmuka} -- Semua interaksi antarkomponen dilakukan melalui kontrak layanan terstandardisasi, sehingga integrasi internal tetap konsisten dan perluasan ke sistem eksternal dapat dilakukan secara bertahap.
   \item \textbf{Pemisahan Jalur Komunikasi} -- Komponen menggunakan jalur komunikasi yang berbeda sesuai kebutuhan, yaitu antarmuka HTTP untuk data terstruktur dan \textit{WebSocket} untuk penyajian video langsung.
   \item \textbf{Pemrosesan Tersebar} -- Memanfaatkan pemrosesan lokal untuk responsivitas tinggi dan pemrosesan terpusat untuk skalabilitas serta analitik mendalam.
   \item \textbf{Keamanan Berlapis} -- Mengimplementasikan prinsip pertahanan berlapis di setiap tingkat arsitektur.
@@ -56,7 +56,11 @@ Kapabilitas di atas diturunkan dari analisis kebutuhan untuk mendukung \textbf{k
 \section{Perbandingan Sistem Saat Ini dan Sistem Usulan}
 \label{sec:perbandingan-sistem}
 
-Bagian ini menyajikan perbandingan konseptual antara sistem inspeksi kargo yang berjalan saat ini di pelabuhan dengan sistem digital terintegrasi yang diusulkan. Perbandingan ini menunjukkan transformasi fundamental dalam cara inspeksi kontainer dilakukan, dari pendekatan manual yang terpisah-pisah menuju ekosistem digital yang terstandarisasi dan terintegrasi.
+Bagian ini menyajikan perbandingan konseptual antara sistem inspeksi kargo
+yang berjalan saat ini di pelabuhan dengan sistem digital terintegrasi yang
+diusulkan. Perbandingan ini menunjukkan transformasi fundamental dalam cara
+inspeksi kontainer dilakukan, dari pendekatan manual yang terpisah-pisah
+menuju ekosistem digital yang terstandardisasi dan terintegrasi.
 
 \subsection{Deskripsi Sistem Saat Ini}
 \label{subsec:deskripsi-sistem-saat-ini}
@@ -69,8 +73,11 @@ Perangkat inspeksi beroperasi secara independen tanpa integrasi sistem yang mema
 \textbf{Pemeriksaan Manual dengan Checklist:}
 Petugas inspeksi melakukan pemeriksaan visual berdasarkan panduan inspeksi yang terstandarisasi. Namun, penerapan panduan ini sangat bergantung pada interpretasi subjektif setiap petugas, menghasilkan variabilitas tinggi dalam hasil inspeksi. Tidak ada mekanisme validasi konsistensi antar petugas.
 
-\textbf{Pencatatan Data yang Tidak Terstandarisasi:}
-Hasil inspeksi dicatat secara manual dengan format yang tidak terstandarisasi. Variasi nomenklatur dan kategori kerusakan antar petugas mengakibatkan kesulitan dalam analisis historis dan pelacakan tren. Dokumentasi media inspeksi sering kali tidak tersimpan dengan baik atau hilang.
+\textbf{Pencatatan Data yang Tidak Terstandardisasi:}
+Hasil inspeksi dicatat secara manual dengan format yang tidak terstandardisasi.
+Variasi nomenklatur dan kategori kerusakan antar petugas mengakibatkan
+kesulitan dalam analisis historis dan pelacakan tren. Dokumentasi media
+inspeksi sering kali tidak tersimpan dengan baik atau hilang.
 
 \textbf{Sistem Informasi yang Tidak Terintegrasi:}
 Data inspeksi tersimpan di sistem yang terpisah dari sistem operasional eksternal. Hal ini memerlukan entri ulang data secara manual ketika informasi inspeksi perlu dibagikan dengan pihak lain atau sistem eksternal. Proses entri ulang manual ini tidak hanya membuang waktu, tetapi juga meningkatkan risiko kesalahan data.
@@ -84,7 +91,11 @@ Tidak ada pencatatan sistematis untuk melacak siapa yang melakukan inspeksi, kap
 \subsection{Deskripsi Sistem Usulan}
 \label{subsec:deskripsi-sistem-usulan}
 
-Sistem inspeksi kargo digital terintegrasi yang diusulkan mentransformasi seluruh alur inspeksi menjadi proses yang terstandarisasi, terintegrasi, dan dapat ditelusuri secara menyeluruh. Sistem ini dirancang berdasarkan arsitektur tersebar yang mengoptimalkan responsivitas, keandalan, dan skalabilitas.
+Sistem inspeksi kargo digital terintegrasi yang diusulkan mentransformasi
+seluruh alur inspeksi menjadi proses yang terstandardisasi, terintegrasi, dan
+dapat ditelusuri secara menyeluruh. Sistem ini dirancang berdasarkan
+arsitektur tersebar yang mengoptimalkan responsivitas, keandalan, dan
+skalabilitas.
 
 \textbf{Akuisisi Data Terkoordinasi:}
 Perangkat sensor terintegrasi melalui komponen koordinasi yang melakukan sinkronisasi pengambilan data. Metadata lengkap secara otomatis dilampirkan pada setiap data yang dikumpulkan. Komponen lokal melakukan pemrosesan awal untuk standarisasi format dan pemeriksaan kualitas sebelum data dikirim ke komponen analisis terpusat.
@@ -96,10 +107,20 @@ Modul analisis visual melakukan deteksi otomatis terhadap berbagai jenis kerusak
 Perubahan status inspeksi, hasil deteksi, dan aktivitas penting dipertukarkan melalui antarmuka layanan yang konsisten. Pendekatan ini menjaga kejelasan kontrak data antarkomponen dan memudahkan pengembangan integrasi lebih lanjut dengan sistem lain di ekosistem pelabuhan.
 
 \textbf{Pelaporan Digital Terstruktur:}
-Hasil inspeksi tersedia secara otomatis dalam waktu singkat setelah proses inspeksi dimulai. Laporan digital terstandarisasi dihasilkan dan dapat diakses oleh pemangku kepentingan yang berwenang. Notifikasi dikirimkan ketika inspeksi selesai atau kondisi kritis ditemukan.
+Hasil inspeksi tersedia secara otomatis dalam waktu singkat setelah proses
+inspeksi dimulai. Laporan digital terstandardisasi dihasilkan dan dapat
+diakses oleh pemangku kepentingan yang berwenang. Notifikasi dikirimkan ketika
+inspeksi selesai atau kondisi kritis ditemukan.
 
 \textbf{Integrasi dengan Ekosistem Pelabuhan:}
-Sistem dirancang agar siap diintegrasikan dengan sistem operasional eksternal yang sudah ada di ekosistem pelabuhan melalui antarmuka layanan terstandarisasi. Pada ruang lingkup implementasi penelitian ini, realisasi integrasi masih berfokus pada alur internal proyek, sedangkan sinkronisasi ke sistem eksternal diposisikan sebagai arah pengembangan lanjutan. Dengan pendekatan tersebut, status inspeksi diharapkan nantinya dapat menjadi bagian dari informasi kontainer yang dapat dilacak sepanjang rantai pasok tanpa entri ulang manual.
+Sistem dirancang agar siap diintegrasikan dengan sistem operasional eksternal
+yang sudah ada di ekosistem pelabuhan melalui antarmuka layanan
+terstandardisasi. Pada ruang lingkup implementasi penelitian ini, realisasi
+integrasi masih berfokus pada alur internal proyek, sedangkan sinkronisasi ke
+sistem eksternal diposisikan sebagai arah pengembangan lanjutan. Dengan
+pendekatan tersebut, status inspeksi diharapkan nantinya dapat menjadi bagian
+dari informasi kontainer yang dapat dilacak sepanjang rantai pasok tanpa entri
+ulang manual.
 
 \textbf{Jejak Audit dan Kepatuhan:}
 Sistem dirancang untuk menjaga ketertelusuran transaksi, perubahan data, akses informasi, dan tindakan pengguna melalui pencatatan stempel waktu, identitas pengguna, serta artefak inspeksi yang relevan. Pada implementasi penelitian ini, dukungan tersebut terutama direalisasikan melalui struktur data inspeksi, metadata perangkat, dan penyimpanan bukti visual, sehingga kebutuhan audit dasar dapat dipenuhi dan dikembangkan lebih lanjut pada tahap berikutnya.
@@ -138,7 +159,7 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
   Akuisisi Data & Perangkat terpisah, tidak terkoordinasi & Terintegrasi melalui komponen koordinasi dengan metadata lengkap, sinkronisasi multi-sumber & Efisiensi tinggi \\
   Deteksi Kerusakan & Inspeksi visual manual, subjektif, inkonsisten & Deteksi berbasis analisis otomatis, objektif, konsisten dengan tingkat keyakinan & Akurasi tinggi \\
   Pemrosesan Data & Analisis manual oleh operator tunggal & Pemrosesan paralel pada komponen lokal dan terpusat & Responsivitas tinggi \\
-  Pelaporan & Konsolidasi manual, format tidak standar, tertunda & Laporan digital otomatis, format terstandarisasi, tersedia segera & Kecepatan tinggi \\
+  Pelaporan & Konsolidasi manual, format tidak standar, tertunda & Laporan digital otomatis, format terstandardisasi, tersedia segera & Kecepatan tinggi \\
   Integrasi Sistem & Entri ulang manual, tidak ada antarmuka terstandar & Integrasi berbasis antarmuka layanan dengan kontrak data yang konsisten & Efisiensi tinggi \\
   Notifikasi & Manual, tidak konsisten, tertunda & Multi-kanal berbasis aturan, otomatis, langsung kepada pengguna terotorisasi & Cakupan penuh \\
   Jejak Audit & Catatan manual, mudah hilang, tidak terstruktur & Pencatatan sistematis dengan stempel waktu, pelacakan pengguna dan tindakan & Kesiapan kepatuhan \\
@@ -150,7 +171,13 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
 
 \FloatBarrier
 
-Perbandingan di atas menunjukkan bahwa transformasi dari sistem manual yang terpisah-pisah menuju sistem digital terintegrasi menghasilkan peningkatan signifikan dalam efisiensi operasional, akurasi deteksi, dan kepatuhan terhadap standar. Sistem usulan dirancang untuk mengatasi keterbatasan mendasar sistem saat ini melalui penerapan prinsip modularitas, standardisasi, dan integrasi yang konsisten dengan kebutuhan yang telah diidentifikasi dalam Bab III.
+Perbandingan di atas menunjukkan bahwa transformasi dari sistem manual yang
+terpisah-pisah menuju sistem digital terintegrasi menghasilkan peningkatan
+signifikan dalam efisiensi operasional, akurasi deteksi, dan kepatuhan
+terhadap standar. Sistem usulan dirancang untuk mengatasi keterbatasan
+mendasar sistem saat ini melalui penerapan prinsip modularitas,
+standardisasi, dan integrasi yang konsisten dengan kebutuhan yang telah
+diidentifikasi dalam Bab III.
 
 \section{Arsitektur Komponen}
 \label{sec:arsitektur-komponen}
@@ -353,6 +380,13 @@ Gambar \ref{fig:deployment_architecture} menunjukkan distribusi komponen sistem 
 
 Sebagai bagian dari penempatan lokal, sistem mengimplementasikan arsitektur \textit{edge} yang berfokus pada akuisisi aliran video dan pemrosesan responsif di lapangan.
 
+Gambar yang disajikan pada bagian ini diturunkan dari kebutuhan untuk
+memisahkan fungsi yang sensitif terhadap latensi dari fungsi yang menuntut
+konsolidasi data terpusat. Karena itu, ilustrasi penempatan komponen tidak
+sekadar menunjukkan lokasi layanan, tetapi juga menjelaskan tahap bagaimana
+data bergerak dari kamera, diproses di \textit{edge}, dikirim ke layanan API,
+dan akhirnya disajikan pada aplikasi web.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\textwidth]{images/IoT Sensor Architecture Diagram.png}
@@ -405,6 +439,13 @@ Arsitektur data dan komunikasi menjelaskan struktur informasi yang dikelola sist
 \subsection{Model Data Konseptual}
 
 Sistem mengelola data menggunakan repositori terstruktur untuk informasi transaksional dan data master. Model data dirancang dengan prinsip standarisasi untuk mengurangi duplikasi dan menjaga konsistensi informasi antarhasil inspeksi.
+Sistem mengelola data menggunakan repositori terstruktur untuk informasi
+transaksional dan data master. Model data dirancang dengan prinsip
+standardisasi untuk mengurangi duplikasi dan menjaga konsistensi informasi
+antarhasil inspeksi. Model ini diturunkan dari kebutuhan integrasi hasil OCR,
+hasil pemindaian, dan konteks manifes ke dalam satu entitas kontainer, sehingga
+setiap atribut yang dimasukkan pada diagram relasi memiliki alasan fungsional
+yang jelas.
 
 \textbf{Entitas Utama:}
 
@@ -448,7 +489,7 @@ Sistem menggunakan beberapa kategori komunikasi untuk koordinasi antarkomponen:
 \textbf{Prinsip komunikasi:}
 
 \begin{itemize}
-  \item \textbf{Struktur Terstandarisasi} -- Setiap pengiriman data menggunakan format yang konsisten dengan metadata dan isi data yang jelas
+  \item \textbf{Struktur Terstandardisasi} -- Setiap pengiriman data menggunakan format yang konsisten dengan metadata dan isi data yang jelas
   \item \textbf{Kontrak Layanan} -- Komponen pengirim dan penerima memiliki kontrak yang jelas mengenai format dan semantik data
   \item \textbf{Pemisahan Fungsi} -- Jalur data transaksional dipisahkan dari jalur video langsung
   \item \textbf{Keterkaitan Konteks} -- Hasil dari beberapa aliran inspeksi dapat dikaitkan pada entitas kontainer yang sama
@@ -486,7 +527,7 @@ Untuk mengisolasi logika bisnis dari detail implementasi integrasi, rancangan si
   \item \textbf{Pemisahan Tanggung Jawab:} Logika bisnis inti tidak bergantung pada detail implementasi sistem eksternal
   \item \textbf{Substitusi Mudah:} Memudahkan penggantian atau peningkatan versi sistem eksternal
   \item \textbf{Kemudahan Pengujian:} Memungkinkan pengujian tanpa ketergantungan ke sistem eksternal aktual
-  \item \textbf{Standarisasi:} Antarmuka standar memudahkan pemahaman integrasi
+  \item \textbf{Standardisasi:} Antarmuka standar memudahkan pemahaman integrasi
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -548,7 +589,7 @@ Integrasi dengan sistem eksternal rentan terhadap berbagai skenario kegagalan. O
 
 \section{Antarmuka Layanan}
 
-Sistem menyediakan antarmuka layanan terstandarisasi untuk komunikasi dengan
+Sistem menyediakan antarmuka layanan terstandardisasi untuk komunikasi dengan
 aplikasi klien. Pada implementasi aktual, antarmuka ini terutama digunakan
 untuk autentikasi pengguna, pengelolaan manifes, pengelolaan kontainer, serta
 penerimaan hasil pemindaian dari komponen \textit{edge}. Dukungan terhadap
@@ -620,7 +661,7 @@ Desain arsitektur sistem inspeksi kargo digital secara eksplisit mempertimbangka
     Jejak Audit Komprehensif & \textit{Security} - \textit{Accountability} & Pencatatan aktivitas memungkinkan penelusuran penuh atas tindakan \\
     Kontrol Akses Berbasis Peran & \textit{Security} - \textit{Authenticity} & Verifikasi identitas dan otorisasi melindungi akses ke fungsi sensitif \\
     Validasi Data Berlapis & \textit{Security} - \textit{Integrity} & Pemeriksaan data di berbagai lapisan memastikan kebenaran informasi \\
-    Model Data Terstandarisasi & \textit{Portability} - \textit{Adaptability} & Struktur data konsisten memudahkan adaptasi sistem \\
+    Model Data Terstandardisasi & \textit{Portability} - \textit{Adaptability} & Struktur data konsisten memudahkan adaptasi sistem \\
     Antarmuka Layanan Terstandar & \textit{Compatibility} - \textit{Co-existence} & Kontrak layanan memungkinkan koeksistensi dengan sistem lain \\
     Komponen \textit{Edge} & \textit{Reliability} - \textit{Availability} & Pengolahan dekat sumber data mendukung ketersediaan fungsi inspeksi \\
     \bottomrule
@@ -633,11 +674,17 @@ Desain arsitektur sistem inspeksi kargo digital secara eksplisit mempertimbangka
 
 \textbf{1. \textit{Maintainability} (Kemudahan Pemeliharaan)}
 
-Arsitektur berlapis dengan pemisahan tanggung jawab yang jelas memastikan perubahan pada satu komponen tidak mempengaruhi komponen lain. Penggunaan antarmuka terstandarisasi memungkinkan penggantian implementasi komponen tanpa mengubah komponen yang bergantung padanya.
+Arsitektur berlapis dengan pemisahan tanggung jawab yang jelas memastikan
+perubahan pada satu komponen tidak mempengaruhi komponen lain. Penggunaan
+antarmuka terstandardisasi memungkinkan penggantian implementasi komponen
+tanpa mengubah komponen yang bergantung padanya.
 
 \textbf{2. \textit{Interoperability} (Kemampuan Bertukar Informasi)}
 
-Pola Adapter untuk integrasi sistem eksternal dan penggunaan kontrak layanan terstandarisasi memfasilitasi pertukaran informasi dengan berbagai sistem yang heterogen di ekosistem pelabuhan ketika tahap integrasi lanjutan direalisasikan.
+Pola Adapter untuk integrasi sistem eksternal dan penggunaan kontrak layanan
+terstandardisasi memfasilitasi pertukaran informasi dengan berbagai sistem
+yang heterogen di ekosistem pelabuhan ketika tahap integrasi lanjutan
+direalisasikan.
 
 \textbf{3. \textit{Auditability} (Ketertelusuran)}
 

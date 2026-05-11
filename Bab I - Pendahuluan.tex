@@ -72,17 +72,28 @@ Peraturan Menteri Perhubungan Nomor 8 Tahun 2022 juga menekankan pentingnya
 digitalisasi layanan kapal dan barang di pelabuhan, termasuk integrasi data
 antarinstansi dan keamanan sistem informasi \autocite{kemenhub2022}.
 
-Berdasarkan kondisi tersebut, terlihat adanya kebutuhan mendesak untuk merancang arsitektur sistem inspeksi kontainer yang tidak hanya mendukung otomasi pemeriksaan, tetapi juga mendukung integrasi data, ketertelusuran proses, dan keterhubungan dengan ekosistem digital pelabuhan Indonesia.
+Berdasarkan kondisi tersebut, terlihat adanya kebutuhan mendesak untuk
+merancang arsitektur sistem inspeksi kontainer yang tidak hanya mendukung
+otomasi pemeriksaan, tetapi juga mendukung integrasi data, ketertelusuran
+proses, dan keterhubungan dengan ekosistem digital pelabuhan Indonesia.
 
 \section{Rumusan Masalah}
 
-Berdasarkan latar belakang yang telah diuraikan, permasalahan utama yang menjadi fokus penelitian ini dirumuskan sebagai berikut:
+Berdasarkan latar belakang yang telah diuraikan, permasalahan utama yang
+menjadi fokus tugas akhir ini dirumuskan sebagai berikut:
 \begin{enumerate}
-  \item Bagaimana mengidentifikasi kebutuhan fungsional dan nonfungsional sistem inspeksi kontainer digital yang mendukung proses pemeriksaan di pelabuhan?
-  \item Bagaimana merancang arsitektur sistem yang mampu mengintegrasikan komponen \textit{edge}, layanan aplikasi, penyimpanan data, dan antarmuka pengguna dalam satu alur kerja yang konsisten?
-  \item Bagaimana memodelkan struktur data dan alur informasi pemeriksaan kontainer agar pencatatan hasil inspeksi, pelacakan riwayat, dan penyediaan bukti inspeksi dapat dilakukan secara terstruktur?
-  \item Bagaimana merancang mekanisme pertukaran data yang memungkinkan hasil identifikasi dan hasil pemindaian dari beberapa komponen dapat dikaitkan pada entitas kontainer yang sama?
-  \item Bagaimana mengevaluasi kesesuaian rancangan arsitektur terhadap sistem yang telah direalisasikan?
+  \item Bagaimana merancang arsitektur sistem yang mampu mengintegrasikan
+  komponen \textit{edge}, layanan aplikasi, penyimpanan data, dan antarmuka
+  pengguna dalam satu alur kerja yang konsisten?
+  \item Bagaimana memodelkan struktur data dan alur informasi pemeriksaan
+  kontainer agar pencatatan hasil inspeksi, pelacakan riwayat, dan penyediaan
+  bukti inspeksi dapat dilakukan secara terstruktur?
+  \item Bagaimana merancang mekanisme pertukaran data yang memungkinkan hasil
+  identifikasi dan hasil pemindaian dari beberapa komponen dapat dikaitkan pada
+  entitas kontainer yang sama?
+  \item Bagaimana merancang pembagian fungsi antarkomponen agar pemrosesan
+  lokal, persistensi data, dan penyajian informasi dapat berjalan selaras dengan
+  kebutuhan operasional inspeksi kontainer?
 \end{enumerate}
 
 \section{Tujuan}
@@ -124,21 +135,63 @@ menjadi dasar integrasi sistem yang direalisasikan.
 
 \section{Metodologi}
 
-Penelitian ini mengadopsi pendekatan \textit{Design Science Research} yang menekankan proses iteratif antara identifikasi masalah, perancangan solusi arsitektural, realisasi artefak, dan evaluasi hasil terhadap kriteria yang ditetapkan. Tahapan penelitian yang dilakukan adalah sebagai berikut:
-\begin{enumerate}
-  \item \textbf{Identifikasi Masalah (\textit{Problem Identification}).} Mengidentifikasi permasalahan yang terjadi dalam proses inspeksi kontainer di Indonesia, termasuk keterbatasan sistem yang ada, kebutuhan integrasi digital, dan urgensi standardisasi hasil inspeksi.
-  \item \textbf{Penetapan Tujuan (\textit{Objective Definition}).} Menetapkan tujuan penelitian berdasarkan permasalahan yang telah diidentifikasi, yaitu menghasilkan rancangan arsitektur sistem inspeksi kontainer digital terintegrasi dengan penekanan pada data dan integrasi.
-  \item \textbf{Studi Literatur.} Mengumpulkan dan menganalisis literatur terkait prinsip perancangan arsitektur sistem, metode inspeksi kontainer, teknologi pendukung, serta standar dan regulasi yang berlaku.
-  \item \textbf{Analisis Kebutuhan.} Menganalisis kebutuhan fungsional dan nonfungsional sistem berdasarkan kondisi lapangan, regulasi, dan integrasi dengan ekosistem pelabuhan yang ada.
-  \item \textbf{Perancangan Arsitektur (\textit{Design}).} Menyusun rancangan arsitektur yang mencakup komponen utama sistem, hubungan antarkomponen, struktur data, alur informasi, dan prinsip-prinsip desain arsitektur.
-  \item \textbf{Realisasi Artefak (\textit{Implementation Context}).} Menggunakan hasil implementasi sistem pada proyek pengembangan sistem sebagai konteks realisasi untuk menilai apakah rancangan arsitektur yang disusun dapat diwujudkan dalam bentuk sistem yang berjalan.
-  \item \textbf{Evaluasi (\textit{Evaluation}).} Mengevaluasi kesesuaian rancangan arsitektur terhadap artefak implementasi dan perilaku integrasi sistem yang telah direalisasikan.
-  \item \textbf{Komunikasi (\textit{Communication}).} Menyusun dokumentasi penelitian yang komprehensif untuk mengomunikasikan hasil penelitian, termasuk rancangan arsitektur, realisasi implementasinya, serta hasil evaluasi.
-\end{enumerate}
+Tugas akhir ini menggunakan pendekatan \textit{Design Science Research} (DSR)
+karena fokus utama pekerjaan ini adalah menghasilkan artefak berupa rancangan
+arsitektur sistem yang relevan terhadap masalah praktis dan dapat dievaluasi
+melalui realisasi sistem \autocite{hevner2004design}. Pendekatan ini dipilih
+karena memungkinkan hubungan yang jelas antara masalah operasional di lapangan,
+keputusan perancangan arsitektur, demonstrasi artefak melalui implementasi, dan
+evaluasi kesesuaian hasil.
 
-Pendekatan ini memastikan bahwa rancangan arsitektur yang dihasilkan memiliki
-landasan yang kuat, keterkaitan yang jelas dengan artefak implementasi, dan
-dapat dievaluasi berdasarkan realisasi sistem yang telah dibangun.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[
+      node distance=0.8cm,
+      box/.style={rectangle, rounded corners, draw=black, align=center, minimum width=0.78\textwidth, minimum height=0.95cm},
+      line/.style={-{Latex[length=2mm]}, thick}
+    ]
+    \node[box] (problem) {Identifikasi masalah pada proses inspeksi kontainer di pelabuhan};
+    \node[box, below=of problem] (objective) {Penetapan tujuan perancangan arsitektur sistem};
+    \node[box, below=of objective] (literature) {Studi literatur dan analisis kebutuhan};
+    \node[box, below=of literature] (design) {Perancangan arsitektur sistem, arsitektur data, dan alur informasi};
+    \node[box, below=of design] (demo) {Demonstrasi artefak melalui realisasi sistem pada proyek capstone};
+    \node[box, below=of demo] (evaluation) {Evaluasi kesesuaian rancangan terhadap realisasi dan bukti integrasi};
+    \node[box, below=of evaluation] (communication) {Penyusunan laporan tugas akhir};
+
+    \draw[line] (problem) -- (objective);
+    \draw[line] (objective) -- (literature);
+    \draw[line] (literature) -- (design);
+    \draw[line] (design) -- (demo);
+    \draw[line] (demo) -- (evaluation);
+    \draw[line] (evaluation) -- (communication);
+  \end{tikzpicture}
+  \caption{Tahapan metodologi \textit{Design Science Research} pada tugas akhir}
+  \label{fig:metodologi-dsr}
+\end{figure}
+
+Gambar~\ref{fig:metodologi-dsr} menunjukkan tahapan metodologi yang digunakan
+pada tugas akhir ini. Tahap pertama adalah identifikasi masalah, yaitu
+menggali kendala yang terjadi pada proses inspeksi kontainer di pelabuhan,
+terutama yang berkaitan dengan fragmentasi data, ketidakterpaduan sistem, dan
+keterbatasan ketertelusuran hasil inspeksi. Hasil identifikasi ini menjadi
+dasar untuk menetapkan tujuan tugas akhir, yaitu merancang arsitektur sistem
+yang mampu menyatukan komponen inspeksi digital dalam satu alur yang konsisten.
+
+Setelah tujuan ditetapkan, dilakukan studi literatur dan analisis kebutuhan
+untuk memperoleh landasan teoretis, standar industri, regulasi, dan kebutuhan
+operasional yang relevan. Tahap berikutnya adalah perancangan artefak, yaitu
+menyusun arsitektur sistem, arsitektur data, alur informasi, serta prinsip
+integrasi yang menjadi inti kontribusi tugas akhir ini.
+
+Dalam konteks DSR, tahap demonstrasi dilakukan melalui penggunaan hasil
+realisasi sistem pada proyek capstone sebagai artefak implementasi yang dapat
+menunjukkan bahwa rancangan arsitektur benar-benar dapat diwujudkan. Setelah
+itu, tahap evaluasi dilakukan untuk menilai kesesuaian antara rancangan
+arsitektur dengan perilaku sistem yang direalisasikan, terutama pada alur data
+utama, pembentukan entitas kontainer, dan integrasi antarkomponen. Tahap
+terakhir adalah komunikasi, yaitu menyusun laporan tugas akhir secara utuh agar
+seluruh hasil perancangan, realisasi, dan evaluasi dapat dipertanggungjawabkan
+secara akademik.
 
 Hasil identifikasi masalah dan penetapan tujuan yang telah diuraikan di atas
 menjadi dasar untuk melakukan studi literatur yang komprehensif. Bab II
