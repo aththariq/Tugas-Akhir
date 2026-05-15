@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber TA"] 1778825086.32499 "TA.bcf" "TA.bbl" "TA" 1778825100.81281 0
-  "TA.bcf" 1778825091.32782 207125 86df7f44787f4d5720740c831c635cce "xelatex"
+["biber TA"] 1778825086.32499 "TA.bcf" "TA.bbl" "TA" 1778829082.55626 0
+  "TA.bcf" 1778829072.7382 207125 86df7f44787f4d5720740c831c635cce "xelatex"
   "daftar-pustaka.bib" 1778729501.43516 15222 1849470d818689aa888aaa6dcc2c4d55 ""
   (generated)
   "TA.bbl"
   "TA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1778825091.40419 "TA.xdv" "TA.pdf" "TA" 1778825100.81508 0
-  "TA.xdv" 1778825091.32856 2371860 234b70e4c6b39a12372fb0f9f6ee198f "xelatex"
+["xdvipdfmx"] 1778829072.82064 "TA.xdv" "TA.pdf" "TA" 1778829082.55813 0
+  "TA.xdv" 1778829072.73904 2372932 501efe7567d19d08a795c43228c4fca4 "xelatex"
   (generated)
   "TA.pdf"
   (rewritten before read)
-["xelatex"] 1778825087.76736 "TA.tex" "TA.xdv" "TA" 1778825100.81286 0
+["xelatex"] 1778829069.10473 "TA.tex" "TA.xdv" "TA" 1778829082.55633 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -241,7 +241,7 @@
   "3 Pernyataan Orisinalitas.tex" 1778824654.60153 972 8690ae73b193e4ff96eb087cc81178ab ""
   "4 Pernyataan Penggunaan AI.tex" 1778824654.60244 1795 43217dab4651b2b6b97bec67d4c62319 ""
   "5 Abstrak.tex" 1778724299.50333 2723 9ccf2164278f978162a6f9c6b2e6f558 ""
-  "6 Kata Pengantar.tex" 1778630078.27078 1945 cb547a0aac45f4da52741f30b1f7c820 ""
+  "6 Kata Pengantar.tex" 1778829025.68624 2090 1e878b1f46732e5d9e82e84cc51ded3b ""
   "7 Daftar Isi.tex" 1778603041.54808 300 239e5099c29eeeb78f7b1ff1cf87d7ac ""
   "8 Daftar Gambar.tex" 1778603041.54874 246 70b4dab54d3670f61d1ad61275e0c206 ""
   "9 Daftar Tabel.tex" 1778603041.54905 244 e6481c663bdaab53a2690c9f84b901ff ""
@@ -253,15 +253,15 @@
   "Bab VI - Evaluasi.tex" 1778819304.37102 28001 82ee9f84cd9fca262f933ae4e1503be0 ""
   "Bab VII - Penutup.tex" 1778819304.37128 3551 c3b20ecf426e9549fd0072b0b8312b40 ""
   "Lampiran-B.tex" 1778738956.11127 18497 02691305411e792711423e654430b072 ""
-  "TA.aux" 1778825091.12858 54093 42fc1cc6604af802036d0fa649843cb8 "xelatex"
+  "TA.aux" 1778829072.53251 54093 42fc1cc6604af802036d0fa649843cb8 "xelatex"
   "TA.bbl" 1778825087.75708 50521 b6d1a9f64ca0895236f261ef476f75be "biber TA"
-  "TA.lof" 1778825091.32845 8233 81c63285d9e604e0a83d3921124a0537 "xelatex"
-  "TA.lol" 1778825091.32852 135 79f436e811cf08f7f66bd26378accb41 "xelatex"
-  "TA.lot" 1778825091.32848 7406 fa77ca38f4370dbfb6e97ee6e57751ce "xelatex"
-  "TA.out" 1778825091.32566 35580 399468f5e5de4b75e59f69a47d760c26 "xelatex"
-  "TA.run.xml" 1778825091.32835 2364 04d2314af2fa8dc40b1ef84878054ae1 "xelatex"
+  "TA.lof" 1778829072.73887 8233 81c63285d9e604e0a83d3921124a0537 "xelatex"
+  "TA.lol" 1778829072.73901 135 79f436e811cf08f7f66bd26378accb41 "xelatex"
+  "TA.lot" 1778829072.73893 7406 fa77ca38f4370dbfb6e97ee6e57751ce "xelatex"
+  "TA.out" 1778829072.7357 35580 399468f5e5de4b75e59f69a47d760c26 "xelatex"
+  "TA.run.xml" 1778829072.73876 2364 04d2314af2fa8dc40b1ef84878054ae1 "xelatex"
   "TA.tex" 1778825066.3299 13420 14af5c01795c1704af44a285b7d0c3e1 ""
-  "TA.toc" 1778825091.32843 22102 41f1c83fe9736c1d13e97247e4e97df9 "xelatex"
+  "TA.toc" 1778829072.73885 22102 41f1c83fe9736c1d13e97247e4e97df9 "xelatex"
   "images/Data Flow Diagram.png" 1774947355.23491 187492 29b34da20d9b030d079ff2b92004cbfa ""
   "images/Deployment Architecture Diagram.png" 1774947355.23762 247340 96ff0d3e85006a057a4f32571ad92e7f ""
   "images/ER Diagram Conceptual.png" 1774947355.23811 95120 d2fab1657429b8ddd61f0a8634be6ac4 ""
