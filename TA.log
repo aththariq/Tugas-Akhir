@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  15 MAY 2026 14:26
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  15 MAY 2026 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1586,12 +1586,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 ] (./TA.toc
 
 [13]
-Overfull \hbox (4.01447pt too wide) in paragraph at lines 154--154
- [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Alternatif 1: Arsitektur Standardisasi 
-Proses dan Struk- 
- []
-
-
 
 [14]
 
@@ -2448,4 +2442,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  84i,17n,95p,1195b,6763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.xdv (126 pages, 2390888 bytes).
+Output written on TA.xdv (126 pages, 2393164 bytes).
