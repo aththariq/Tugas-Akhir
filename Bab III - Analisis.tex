@@ -224,7 +224,7 @@ Atribut kualitas tersebut dipilih karena merepresentasikan faktor kritis keberha
 \section{Alternatif Solusi Konseptual}
 
 Berdasarkan kebutuhan sistem yang telah ditetapkan, lima alternatif solusi
-konseptual dirumuskan untuk mengevaluasi pendekatan desain yang mampu
+konseptual dirumuskan untuk membandingkan pendekatan desain yang mampu
 meningkatkan standardisasi proses, integrasi informasi, dan keandalan
 operasional sistem inspeksi kontainer. Setiap alternatif dianalisis berdasarkan
 prinsip desain, kelebihan, dan keterbatasannya dalam konteks operasional
@@ -255,6 +255,59 @@ Tata kelola data terpadu & Kepemilikan, kualitas, dan \textit{lineage} data & Re
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\FloatBarrier
+
+Selain melalui tabel, perbedaan kelima alternatif juga perlu dibaca sebagai
+perbedaan pusat keputusan arsitektural. Gambar~\ref{fig:peta-alternatif-solusi}
+memperlihatkan bahwa setiap alternatif berangkat dari lensa desain yang berbeda,
+yaitu proses, integrasi, domain, peristiwa, atau tata kelola data. Pemetaan ini
+digunakan sebagai dasar untuk memilih alternatif yang paling sesuai dengan
+kontribusi tugas akhir, yaitu perancangan arsitektur sistem inspeksi kontainer
+yang terintegrasi namun tetap modular.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{0.98\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\scriptsize,
+      altbox/.style={rectangle, rounded corners, draw=black, align=center, minimum width=3.05cm, minimum height=1.05cm},
+      chosen/.style={rectangle, rounded corners, draw=black, very thick, align=center, minimum width=3.05cm, minimum height=1.05cm},
+      note/.style={rectangle, draw=black, align=center, minimum width=3.05cm, minimum height=0.68cm},
+      line/.style={-{Latex[length=1.8mm]}, thick}
+    ]
+    \node[altbox] (a1) at (0,0) {\textbf{Alternatif 1}\\Standardisasi\\Proses dan Data};
+    \node[altbox] (a2) at (3.55,0) {\textbf{Alternatif 2}\\Integrasi\\Terorkestrasi};
+    \node[chosen] (a3) at (7.10,0) {\textbf{Alternatif 3}\\Modular\\Berbasis Domain};
+    \node[altbox] (a4) at (10.65,0) {\textbf{Alternatif 4}\\Alur Kerja\\Berbasis Peristiwa};
+    \node[altbox] (a5) at (14.20,0) {\textbf{Alternatif 5}\\Tata Kelola\\Data Terpadu};
+
+    \node[note, below=0.55cm of a1] (n1) {Lensa utama:\\tahapan inspeksi};
+    \node[note, below=0.55cm of a2] (n2) {Lensa utama:\\pertukaran data};
+    \node[note, below=0.55cm of a3] (n3) {Lensa utama:\\batas tanggung jawab};
+    \node[note, below=0.55cm of a4] (n4) {Lensa utama:\\perubahan status};
+    \node[note, below=0.55cm of a5] (n5) {Lensa utama:\\kepemilikan data};
+
+    \node[note, below=0.42cm of n1] (m1) {Komponen mengikuti\\urutan proses};
+    \node[note, below=0.42cm of n2] (m2) {Komponen dipusatkan\\pada orkestrasi};
+    \node[note, below=0.42cm of n3] (m3) {Komponen dipisah\\berdasarkan domain};
+    \node[note, below=0.42cm of n4] (m4) {Komponen bereaksi\\terhadap \textit{event}};
+    \node[note, below=0.42cm of n5] (m5) {Komponen menjaga\\kualitas dan \textit{lineage}};
+
+    \draw[line] (a1) -- (n1);
+    \draw[line] (a2) -- (n2);
+    \draw[line] (a3) -- (n3);
+    \draw[line] (a4) -- (n4);
+    \draw[line] (a5) -- (n5);
+    \draw[line] (n1) -- (m1);
+    \draw[line] (n2) -- (m2);
+    \draw[line] (n3) -- (m3);
+    \draw[line] (n4) -- (m4);
+    \draw[line] (n5) -- (m5);
+  \end{tikzpicture}}
+  \caption{Peta Perbedaan Konseptual Alternatif Solusi}
+  \label{fig:peta-alternatif-solusi}
+\end{figure}
 
 \FloatBarrier
 

@@ -153,110 +153,110 @@
 \contentsline {section}{\numberline {III.3}Alternatif Solusi Konseptual}{28}{section.3.3}%
 \contentsline {subsection}{\numberline {III.3.1}Alternatif 1: Arsitektur Standardisasi Proses dan Struktur Data}{29}{subsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {III.3.1.1}Prinsip Desain}{29}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {III.3.1.2}Kelebihan}{29}{subsubsection.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {III.3.1.3}Keterbatasan}{29}{subsubsection.3.3.1.3}%
+\contentsline {subsubsection}{\numberline {III.3.1.2}Kelebihan}{30}{subsubsection.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {III.3.1.3}Keterbatasan}{30}{subsubsection.3.3.1.3}%
 \contentsline {subsection}{\numberline {III.3.2}Alternatif 2: Arsitektur Integrasi Terorkestrasi}{30}{subsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {III.3.2.1}Prinsip Desain}{30}{subsubsection.3.3.2.1}%
 \contentsline {subsubsection}{\numberline {III.3.2.2}Kelebihan}{30}{subsubsection.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {III.3.2.3}Keterbatasan}{30}{subsubsection.3.3.2.3}%
-\contentsline {subsection}{\numberline {III.3.3}Alternatif 3: Arsitektur Modular Berbasis Domain}{30}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {III.3.3.1}Prinsip Desain}{30}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {III.3.2.3}Keterbatasan}{31}{subsubsection.3.3.2.3}%
+\contentsline {subsection}{\numberline {III.3.3}Alternatif 3: Arsitektur Modular Berbasis Domain}{31}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {III.3.3.1}Prinsip Desain}{31}{subsubsection.3.3.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsubsection}{\numberline {III.3.3.2}Kelebihan}{31}{subsubsection.3.3.3.2}%
 \contentsline {subsubsection}{\numberline {III.3.3.3}Keterbatasan}{31}{subsubsection.3.3.3.3}%
-\contentsline {subsection}{\numberline {III.3.4}Alternatif 4: Arsitektur Alur Kerja Berbasis Peristiwa}{31}{subsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {III.3.4.1}Prinsip Desain}{31}{subsubsection.3.3.4.1}%
-\contentsline {subsubsection}{\numberline {III.3.4.2}Kelebihan}{31}{subsubsection.3.3.4.2}%
+\contentsline {subsection}{\numberline {III.3.4}Alternatif 4: Arsitektur Alur Kerja Berbasis Peristiwa}{32}{subsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {III.3.4.1}Prinsip Desain}{32}{subsubsection.3.3.4.1}%
+\contentsline {subsubsection}{\numberline {III.3.4.2}Kelebihan}{32}{subsubsection.3.3.4.2}%
 \contentsline {subsubsection}{\numberline {III.3.4.3}Keterbatasan}{32}{subsubsection.3.3.4.3}%
 \contentsline {subsection}{\numberline {III.3.5}Alternatif 5: Arsitektur Tata Kelola Data Terpadu}{32}{subsection.3.3.5}%
 \contentsline {subsubsection}{\numberline {III.3.5.1}Prinsip Desain}{32}{subsubsection.3.3.5.1}%
-\contentsline {subsubsection}{\numberline {III.3.5.2}Kelebihan}{32}{subsubsection.3.3.5.2}%
-\contentsline {subsubsection}{\numberline {III.3.5.3}Keterbatasan}{32}{subsubsection.3.3.5.3}%
+\contentsline {subsubsection}{\numberline {III.3.5.2}Kelebihan}{33}{subsubsection.3.3.5.2}%
+\contentsline {subsubsection}{\numberline {III.3.5.3}Keterbatasan}{33}{subsubsection.3.3.5.3}%
 \contentsline {section}{\numberline {III.4}Analisis Pemilihan Solusi}{33}{section.3.4}%
 \contentsline {subsection}{\numberline {III.4.1}Kriteria Evaluasi}{33}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {III.4.2}Matriks Perbandingan Alternatif}{33}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {III.4.3}Justifikasi Pemilihan Solusi}{34}{subsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {III.4.3.1}Justifikasi Operasional}{34}{subsubsection.3.4.3.1}%
+\contentsline {subsection}{\numberline {III.4.2}Matriks Perbandingan Alternatif}{34}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {III.4.3}Justifikasi Pemilihan Solusi}{35}{subsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {III.4.3.1}Justifikasi Operasional}{35}{subsubsection.3.4.3.1}%
 \contentsline {subsubsection}{\numberline {III.4.3.2}Justifikasi Atribut Kualitas}{35}{subsubsection.3.4.3.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsubsection}{\numberline {III.4.3.3}Justifikasi Berdasarkan Prinsip Arsitektur}{35}{subsubsection.3.4.3.3}%
+\contentsline {subsubsection}{\numberline {III.4.3.3}Justifikasi Berdasarkan Prinsip Arsitektur}{36}{subsubsection.3.4.3.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsubsection}{\numberline {III.4.3.4}Justifikasi Berdasarkan Standar dan Regulasi}{35}{subsubsection.3.4.3.4}%
+\contentsline {subsubsection}{\numberline {III.4.3.4}Justifikasi Berdasarkan Standar dan Regulasi}{36}{subsubsection.3.4.3.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {III.5}Kesimpulan Analisis}{36}{section.3.5}%
-\contentsline {chapter}{\numberline {IV}PERANCANGAN}{37}{chapter.4}%
-\contentsline {section}{\numberline {IV.1}Desain Sistem Secara Umum}{37}{section.4.1}%
-\contentsline {subsection}{\numberline {IV.1.1}Visi dan Prinsip Desain}{37}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {IV.1.2}Kapabilitas Arsitektur yang Diperlukan}{37}{subsection.4.1.2}%
-\contentsline {section}{\numberline {IV.2}Perbandingan Sistem Saat Ini dan Sistem Usulan}{38}{section.4.2}%
-\contentsline {subsection}{\numberline {IV.2.1}Deskripsi Sistem Saat Ini}{38}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {IV.2.2}Deskripsi Sistem Usulan}{39}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Perbandingan Konseptual Sistem}{40}{subsection.4.2.3}%
-\contentsline {section}{\numberline {IV.3}Arsitektur Komponen}{42}{section.4.3}%
-\contentsline {subsection}{\numberline {IV.3.1}Diagram Konteks Sistem}{42}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {IV.3.2}Struktur Lapisan Arsitektur}{44}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {IV.3.2.1}Pola Interaksi Komponen}{46}{subsubsection.4.3.2.1}%
-\contentsline {section}{\numberline {IV.4}Arsitektur Penempatan}{47}{section.4.4}%
-\contentsline {subsection}{\numberline {IV.4.1}Strategi Penempatan Komponen}{47}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {IV.4.2}Arsitektur \textit {Edge} dan Akuisisi Data}{49}{subsection.4.4.2}%
-\contentsline {section}{\numberline {IV.5}Arsitektur Data dan Komunikasi}{50}{section.4.5}%
-\contentsline {subsection}{\numberline {IV.5.1}Model Data Konseptual}{51}{subsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {IV.5.1.1}Mekanisme Komunikasi Data}{52}{subsubsection.4.5.1.1}%
-\contentsline {section}{\numberline {IV.6}Arsitektur Integrasi}{52}{section.4.6}%
-\contentsline {subsection}{\numberline {IV.6.1}Strategi Integrasi dengan Sistem Eksternal}{52}{subsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {IV.6.1.1}Pola Adapter untuk Sistem Eksternal}{53}{subsubsection.4.6.1.1}%
-\contentsline {subsubsection}{\numberline {IV.6.1.2}Pemetaan dan Transformasi Data}{54}{subsubsection.4.6.1.2}%
-\contentsline {subsubsection}{\numberline {IV.6.1.3}Penanganan Kesalahan dan Ketahanan}{54}{subsubsection.4.6.1.3}%
-\contentsline {section}{\numberline {IV.7}Antarmuka Layanan}{54}{section.4.7}%
-\contentsline {section}{\numberline {IV.8}Alur Proses Utama}{55}{section.4.8}%
-\contentsline {section}{\numberline {IV.9}Prinsip Keamanan}{55}{section.4.9}%
-\contentsline {section}{\numberline {IV.10}Pemetaan Komponen terhadap Atribut Kualitas ISO 25010}{56}{section.4.10}%
-\contentsline {section}{\numberline {IV.11}Kesimpulan Desain}{57}{section.4.11}%
-\contentsline {subsection}{\numberline {IV.11.1}Keputusan Arsitektural Kunci}{57}{subsection.4.11.1}%
-\contentsline {subsection}{\numberline {IV.11.2}Kebutuhan Operasional Sistem}{60}{subsection.4.11.2}%
-\contentsline {subsubsection}{\numberline {IV.11.2.1}Kebutuhan Peran Operasional}{60}{subsubsection.4.11.2.1}%
-\contentsline {subsubsection}{\numberline {IV.11.2.2}Kebutuhan Dukungan Operasional}{61}{subsubsection.4.11.2.2}%
-\contentsline {subsection}{\numberline {IV.11.3}Batasan Ruang Lingkup Desain}{61}{subsection.4.11.3}%
-\contentsline {subsection}{\numberline {IV.11.4}Rangkuman}{62}{subsection.4.11.4}%
-\contentsline {chapter}{\numberline {V}IMPLEMENTASI}{63}{chapter.5}%
-\contentsline {section}{\numberline {V.1}Gambaran Umum Implementasi}{63}{section.5.1}%
-\contentsline {section}{\numberline {V.2}Realisasi Arsitektur Sistem}{64}{section.5.2}%
-\contentsline {subsection}{\numberline {V.2.1}Struktur Komponen Implementasi}{64}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {V.2.2}Pemetaan Implementasi terhadap Lapisan Arsitektur}{65}{subsection.5.2.2}%
-\contentsline {section}{\numberline {V.3}Realisasi Alur Data dan Integrasi}{66}{section.5.3}%
-\contentsline {subsection}{\numberline {V.3.1}Jalur Data Terstruktur}{66}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {V.3.2}Jalur Video Langsung}{67}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {V.3.3}Propagasi Nomor Kontainer}{68}{subsection.5.3.3}%
-\contentsline {section}{\numberline {V.4}Realisasi Arsitektur Data}{68}{section.5.4}%
-\contentsline {subsection}{\numberline {V.4.1}Struktur Data Inti}{68}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {V.4.2}Pemisahan Penyimpanan Terstruktur dan Artefak Visual}{69}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {V.4.3}Dukungan terhadap Ketertelusuran dan Audit}{70}{subsection.5.4.3}%
-\contentsline {section}{\numberline {V.5}Implikasi Implementasi terhadap Kontribusi Arsitektural}{70}{section.5.5}%
-\contentsline {chapter}{\numberline {VI}EVALUASI}{71}{chapter.6}%
-\contentsline {section}{\numberline {VI.1}Tujuan Evaluasi}{71}{section.6.1}%
-\contentsline {section}{\numberline {VI.2}Metode Evaluasi}{71}{section.6.2}%
-\contentsline {subsection}{\numberline {VI.2.1}Pendekatan Evaluasi}{71}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {VI.2.2}Skenario Evaluasi}{72}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {VI.2.3}Aspek yang Dievaluasi}{73}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {VI.2.4}Matriks Bukti Evaluasi}{74}{subsection.6.2.4}%
-\contentsline {section}{\numberline {VI.3}Hasil Evaluasi}{75}{section.6.3}%
-\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{75}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{75}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {VI.3.3}Hasil pada Jalur Video Langsung}{76}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{76}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{76}{subsection.6.3.5}%
-\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{77}{section.6.4}%
-\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{78}{subsection.6.4.1}%
-\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{79}{section.6.5}%
-\contentsline {chapter}{\numberline {VII}PENUTUP}{81}{chapter.7}%
-\contentsline {section}{\numberline {VII.1}Kesimpulan}{81}{section.7.1}%
-\contentsline {section}{\numberline {VII.2}Saran}{82}{section.7.2}%
+\contentsline {chapter}{\numberline {IV}PERANCANGAN}{39}{chapter.4}%
+\contentsline {section}{\numberline {IV.1}Desain Sistem Secara Umum}{39}{section.4.1}%
+\contentsline {subsection}{\numberline {IV.1.1}Visi dan Prinsip Desain}{39}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {IV.1.2}Kapabilitas Arsitektur yang Diperlukan}{39}{subsection.4.1.2}%
+\contentsline {section}{\numberline {IV.2}Perbandingan Sistem Saat Ini dan Sistem Usulan}{40}{section.4.2}%
+\contentsline {subsection}{\numberline {IV.2.1}Deskripsi Sistem Saat Ini}{40}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {IV.2.2}Deskripsi Sistem Usulan}{41}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {IV.2.3}Perbandingan Konseptual Sistem}{42}{subsection.4.2.3}%
+\contentsline {section}{\numberline {IV.3}Arsitektur Komponen}{44}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}Diagram Konteks Sistem}{44}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {IV.3.2}Struktur Lapisan Arsitektur}{46}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {IV.3.2.1}Pola Interaksi Komponen}{48}{subsubsection.4.3.2.1}%
+\contentsline {section}{\numberline {IV.4}Arsitektur Penempatan}{49}{section.4.4}%
+\contentsline {subsection}{\numberline {IV.4.1}Strategi Penempatan Komponen}{49}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {IV.4.2}Arsitektur \textit {Edge} dan Akuisisi Data}{51}{subsection.4.4.2}%
+\contentsline {section}{\numberline {IV.5}Arsitektur Data dan Komunikasi}{52}{section.4.5}%
+\contentsline {subsection}{\numberline {IV.5.1}Model Data Konseptual}{53}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {IV.5.1.1}Mekanisme Komunikasi Data}{54}{subsubsection.4.5.1.1}%
+\contentsline {section}{\numberline {IV.6}Arsitektur Integrasi}{54}{section.4.6}%
+\contentsline {subsection}{\numberline {IV.6.1}Strategi Integrasi dengan Sistem Eksternal}{54}{subsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {IV.6.1.1}Pola Adapter untuk Sistem Eksternal}{55}{subsubsection.4.6.1.1}%
+\contentsline {subsubsection}{\numberline {IV.6.1.2}Pemetaan dan Transformasi Data}{56}{subsubsection.4.6.1.2}%
+\contentsline {subsubsection}{\numberline {IV.6.1.3}Penanganan Kesalahan dan Ketahanan}{56}{subsubsection.4.6.1.3}%
+\contentsline {section}{\numberline {IV.7}Antarmuka Layanan}{56}{section.4.7}%
+\contentsline {section}{\numberline {IV.8}Alur Proses Utama}{57}{section.4.8}%
+\contentsline {section}{\numberline {IV.9}Prinsip Keamanan}{57}{section.4.9}%
+\contentsline {section}{\numberline {IV.10}Pemetaan Komponen terhadap Atribut Kualitas ISO 25010}{58}{section.4.10}%
+\contentsline {section}{\numberline {IV.11}Kesimpulan Desain}{59}{section.4.11}%
+\contentsline {subsection}{\numberline {IV.11.1}Keputusan Arsitektural Kunci}{59}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {IV.11.2}Kebutuhan Operasional Sistem}{62}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {IV.11.2.1}Kebutuhan Peran Operasional}{62}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {IV.11.2.2}Kebutuhan Dukungan Operasional}{63}{subsubsection.4.11.2.2}%
+\contentsline {subsection}{\numberline {IV.11.3}Batasan Ruang Lingkup Desain}{63}{subsection.4.11.3}%
+\contentsline {subsection}{\numberline {IV.11.4}Rangkuman}{64}{subsection.4.11.4}%
+\contentsline {chapter}{\numberline {V}IMPLEMENTASI}{65}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Gambaran Umum Implementasi}{65}{section.5.1}%
+\contentsline {section}{\numberline {V.2}Realisasi Arsitektur Sistem}{66}{section.5.2}%
+\contentsline {subsection}{\numberline {V.2.1}Struktur Komponen Implementasi}{66}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {V.2.2}Pemetaan Implementasi terhadap Lapisan Arsitektur}{67}{subsection.5.2.2}%
+\contentsline {section}{\numberline {V.3}Realisasi Alur Data dan Integrasi}{68}{section.5.3}%
+\contentsline {subsection}{\numberline {V.3.1}Jalur Data Terstruktur}{68}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {V.3.2}Jalur Video Langsung}{69}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {V.3.3}Propagasi Nomor Kontainer}{70}{subsection.5.3.3}%
+\contentsline {section}{\numberline {V.4}Realisasi Arsitektur Data}{70}{section.5.4}%
+\contentsline {subsection}{\numberline {V.4.1}Struktur Data Inti}{70}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {V.4.2}Pemisahan Penyimpanan Terstruktur dan Artefak Visual}{71}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {V.4.3}Dukungan terhadap Ketertelusuran dan Audit}{72}{subsection.5.4.3}%
+\contentsline {section}{\numberline {V.5}Implikasi Implementasi terhadap Kontribusi Arsitektural}{72}{section.5.5}%
+\contentsline {chapter}{\numberline {VI}EVALUASI}{73}{chapter.6}%
+\contentsline {section}{\numberline {VI.1}Tujuan Evaluasi}{73}{section.6.1}%
+\contentsline {section}{\numberline {VI.2}Metode Evaluasi}{73}{section.6.2}%
+\contentsline {subsection}{\numberline {VI.2.1}Pendekatan Evaluasi}{73}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {VI.2.2}Skenario Evaluasi}{74}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {VI.2.3}Aspek yang Dievaluasi}{75}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {VI.2.4}Matriks Bukti Evaluasi}{76}{subsection.6.2.4}%
+\contentsline {section}{\numberline {VI.3}Hasil Evaluasi}{77}{section.6.3}%
+\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{77}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{77}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {VI.3.3}Hasil pada Jalur Video Langsung}{78}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{78}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{78}{subsection.6.3.5}%
+\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{79}{section.6.4}%
+\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{80}{subsection.6.4.1}%
+\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{81}{section.6.5}%
+\contentsline {chapter}{\numberline {VII}PENUTUP}{83}{chapter.7}%
+\contentsline {section}{\numberline {VII.1}Kesimpulan}{83}{section.7.1}%
+\contentsline {section}{\numberline {VII.2}Saran}{84}{section.7.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -321,18 +321,18 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{Lampiran \numberline {A}HASIL SURVEI LAPANGAN}{87}{appendix.1.A}%
-\contentsline {section}{\numberline {A.1}Dokumentasi Foto Survei Lokasi}{87}{section.1.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Terminal Pelindo Peti Kemas Tanjung Priok}{87}{subsection.1.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Depo Peti Kemas Tanjung Priok SPIL}{87}{subsection.1.A.1.2}%
-\contentsline {section}{\numberline {A.2}Ringkasan Temuan Survei Lapangan}{87}{section.1.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Alur Operasional Terminal dan Inspeksi Kontainer}{91}{subsection.1.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Kondisi Inspeksi Fisik yang Masih Manual}{92}{subsection.1.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Infrastruktur Pemindaian dan Batas Wewenang}{92}{subsection.1.A.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}Keterbatasan Integrasi Data dan Sistem Terminal}{92}{subsection.1.A.2.4}%
-\contentsline {section}{\numberline {A.3}Ringkasan Wawancara dan Dokumen Pendukung}{93}{section.1.A.3}%
-\contentsline {subsection}{\numberline {A.3.1}Pokok Pertanyaan Wawancara}{93}{subsection.1.A.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Ringkasan Wawancara Lapangan}{93}{subsection.1.A.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Dokumen Pendukung yang Diperoleh}{94}{subsection.1.A.3.3}%
-\contentsline {section}{\numberline {A.4}Bukti Tampilan Realisasi Sistem}{95}{section.1.A.4}%
-\contentsline {section}{\numberline {A.5}Contoh Struktur Data Inti dan Penyimpanan Artefak}{97}{section.1.A.5}%
+\contentsline {chapter}{Lampiran \numberline {A}HASIL SURVEI LAPANGAN}{89}{appendix.1.A}%
+\contentsline {section}{\numberline {A.1}Dokumentasi Foto Survei Lokasi}{89}{section.1.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Terminal Pelindo Peti Kemas Tanjung Priok}{89}{subsection.1.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Depo Peti Kemas Tanjung Priok SPIL}{89}{subsection.1.A.1.2}%
+\contentsline {section}{\numberline {A.2}Ringkasan Temuan Survei Lapangan}{89}{section.1.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Alur Operasional Terminal dan Inspeksi Kontainer}{93}{subsection.1.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Kondisi Inspeksi Fisik yang Masih Manual}{94}{subsection.1.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Infrastruktur Pemindaian dan Batas Wewenang}{94}{subsection.1.A.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}Keterbatasan Integrasi Data dan Sistem Terminal}{94}{subsection.1.A.2.4}%
+\contentsline {section}{\numberline {A.3}Ringkasan Wawancara dan Dokumen Pendukung}{95}{section.1.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Pokok Pertanyaan Wawancara}{95}{subsection.1.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Ringkasan Wawancara Lapangan}{95}{subsection.1.A.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Dokumen Pendukung yang Diperoleh}{96}{subsection.1.A.3.3}%
+\contentsline {section}{\numberline {A.4}Bukti Tampilan Realisasi Sistem}{97}{section.1.A.4}%
+\contentsline {section}{\numberline {A.5}Contoh Struktur Data Inti dan Penyimpanan Artefak}{99}{section.1.A.5}%

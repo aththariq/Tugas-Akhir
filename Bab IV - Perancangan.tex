@@ -349,7 +349,7 @@ pemantauan waktu nyata.
     \node[layerbox] (presentation) at (0,0) {\textbf{Lapisan Presentasi}\\Aplikasi Web dan Antarmuka API};
     \node[layerbox] (application) at (0,-1.45) {\textbf{Lapisan Aplikasi}\\Layanan Inspeksi, Analisis, dan Integrasi};
     \node[layerbox] (data) at (0,-2.9) {\textbf{Lapisan Data}\\Database dan Penyimpanan Berkas};
-    \node[layerbox] (local) at (0,-4.35) {\textbf{Pemrosesan Lokal}\\Pengumpul Data dan Pemroses Lokal};
+    \node[layerbox] (local) at (0,-4.35) {\textbf{Lapisan Edge}\\Akuisisi Video dan Inferensi Awal};
 
     \draw[line] (local.north) -- node[right] {hasil inspeksi} (data.south);
     \draw[line] (data.north) -- node[right] {data terstruktur} (application.south);
@@ -491,9 +491,9 @@ dan akhirnya disajikan pada aplikasi web.
     \node[group] (local) at (0,-2.9) {\textbf{Pemrosesan Lokal}\\OCR dan deteksi pada komponen lokal};
     \node[group] (sensor) at (0,-4.35) {\textbf{Sumber Data Lapangan}\\Kamera RTSP dan aliran video inspeksi};
 
-    \draw[line] (sensor.north) -- node[flowlabel, right] {video} (local.south);
-    \draw[line] (local.north) -- node[flowlabel, right] {hasil inspeksi} (network.south);
-    \draw[line] (network.north) -- node[flowlabel, right] {HTTP} (cloud.south);
+    \draw[line] (sensor.north) -- (local.south);
+    \draw[line] (local.north) -- (network.south);
+    \draw[line] (network.north) -- (cloud.south);
     \draw[line, dashed] (network.east) -- ++(1.45,0) |- (cloud.east);
     \node[flowlabel, anchor=west] at (6.95,-0.72) {video langsung};
   \end{tikzpicture}}
