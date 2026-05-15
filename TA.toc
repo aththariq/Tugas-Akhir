@@ -8,11 +8,11 @@
 \contentsline {chapter}{ABSTRAK}{ix}{chapter*.5}%
 \contentsline {chapter}{KATA PENGANTAR}{xi}{chapter*.6}%
 \contentsline {chapter}{DAFTAR ISI}{xiii}{section*.7}%
-\contentsline {chapter}{DAFTAR GAMBAR}{xix}{section*.8}%
-\contentsline {chapter}{DAFTAR TABEL}{xxi}{section*.9}%
-\contentsline {chapter}{DAFTAR LISTING}{xxiii}{section*.10}%
-\contentsline {chapter}{DAFTAR SIMBOL}{xxv}{section*.10}%
-\contentsline {chapter}{DAFTAR SINGKATAN}{xxvii}{table.0.1}%
+\contentsline {chapter}{DAFTAR GAMBAR}{xvii}{section*.8}%
+\contentsline {chapter}{DAFTAR TABEL}{xix}{section*.9}%
+\contentsline {chapter}{DAFTAR LISTING}{xxi}{section*.10}%
+\contentsline {chapter}{DAFTAR SIMBOL}{xxiii}{section*.10}%
+\contentsline {chapter}{DAFTAR SINGKATAN}{xxv}{table.0.1}%
 \setlength {\cftbeforechapskip }{10pt}
 \renewcommand {\cftchapfont }{\bfseries }
 \renewcommand {\cftchappagefont }{\bfseries }
