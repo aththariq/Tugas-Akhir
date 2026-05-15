@@ -85,10 +85,10 @@ menjadi fokus tugas akhir ini dirumuskan sebagai berikut:
   \item Bagaimana merancang arsitektur sistem yang mampu mengintegrasikan
   komponen \textit{edge}, layanan aplikasi, penyimpanan data, dan antarmuka
   pengguna dalam satu alur kerja yang konsisten?
-  \item Bagaimana memodelkan struktur data dan alur informasi pemeriksaan
-  kontainer agar pencatatan hasil inspeksi, pelacakan riwayat, dan penyediaan
-  bukti inspeksi dapat dilakukan secara terstruktur?
-  \item Bagaimana merancang mekanisme pertukaran data yang memungkinkan hasil
+  \item Bagaimana merancang struktur data pemeriksaan kontainer agar pencatatan
+  hasil inspeksi, pelacakan riwayat, dan penyediaan bukti inspeksi dapat
+  dilakukan secara terstruktur?
+  \item Bagaimana merancang alur informasi yang memungkinkan hasil
   identifikasi dan hasil pemindaian dari beberapa komponen dapat dikaitkan pada
   entitas kontainer yang sama?
   \item Bagaimana merancang pembagian fungsi antarkomponen agar pemrosesan
@@ -98,7 +98,8 @@ menjadi fokus tugas akhir ini dirumuskan sebagai berikut:
 
 Untuk menjawab rumusan masalah tersebut, tugas akhir ini terlebih dahulu
 melakukan identifikasi kebutuhan sistem sebagai dasar perancangan, kemudian
-mengevaluasi kesesuaian rancangan terhadap sistem yang direalisasikan.
+memeriksa kesesuaian rancangan terhadap sistem yang direalisasikan sebagai
+bukti bahwa rancangan dapat diwujudkan dalam ruang lingkup tugas akhir.
 
 \section{Tujuan}
 
@@ -108,9 +109,6 @@ menjadi acuan pengembangan lebih lanjut di lingkungan pelabuhan.
 
 Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
 \begin{enumerate}
-  \item Mengidentifikasi kebutuhan sistem inspeksi kontainer digital berdasarkan
-  kondisi lapangan, regulasi yang berlaku, dan kebutuhan integrasi data di
-  lingkungan pelabuhan.
   \item Merancang arsitektur sistem yang mendefinisikan komponen utama,
   hubungan antarkomponen, dan alur informasi inspeksi kontainer secara
   menyeluruh.
@@ -119,15 +117,16 @@ Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
   \item Menyusun model alur informasi yang memungkinkan integrasi hasil
   identifikasi, hasil pemindaian, dan penyajian informasi kepada pengguna dalam
   satu sistem yang konsisten.
-  \item Mengevaluasi kesesuaian rancangan arsitektur terhadap sistem yang
-  direalisasikan pada proyek pengembangan sistem.
+  \item Merancang pembagian fungsi antarkomponen agar pemrosesan lokal,
+  persistensi data, dan penyajian informasi dapat berjalan sesuai kebutuhan
+  operasional inspeksi kontainer.
 \end{enumerate}
 
 \section{Batasan Masalah}
 
 Agar tugas akhir ini tetap fokus pada kontribusi perancangan arsitektur sistem,
 ruang lingkup pembahasan dibatasi sebagai berikut:
-\begin{itemize}
+\begin{enumerate}
   \item Tugas akhir ini berfokus pada perancangan arsitektur sistem dan
   arsitektur data, bukan pada implementasi detail algoritma deteksi, strategi
   \textit{deployment}, atau tata kelola organisasi secara penuh.
@@ -147,7 +146,7 @@ ruang lingkup pembahasan dibatasi sebagai berikut:
   \item Ruang lingkup terbatas pada sistem inspeksi kontainer digital
   terintegrasi dan tidak mencakup perancangan ulang seluruh ekosistem sistem
   informasi pelabuhan.
-\end{itemize}
+\end{enumerate}
 
 Dengan batasan tersebut, tugas akhir ini menghasilkan rancangan arsitektur
 sistem yang menekankan integrasi komponen, alur data, dan ketertelusuran
@@ -171,6 +170,9 @@ melalui realisasi sistem \autocite{hevner2004design,peffers2007dsrm}.
 Pendekatan ini dipilih karena memungkinkan hubungan yang jelas antara masalah
 operasional di lapangan, keputusan perancangan arsitektur, demonstrasi artefak
 melalui implementasi, dan evaluasi kesesuaian hasil.
+Tahapan metodologi pada Gambar~\ref{fig:metodologi-dsr} diadaptasi dari model
+\textit{Design Science Research Methodology} yang dikemukakan oleh Peffers dkk.
+\autocite{peffers2007dsrm}.
 
 \begin{figure}[ht]
   \centering
@@ -181,15 +183,13 @@ melalui implementasi, dan evaluasi kesesuaian hasil.
     ]
     \node[box] (problem) {Identifikasi masalah pada proses inspeksi kontainer di pelabuhan};
     \node[box, below=of problem] (objective) {Penetapan tujuan perancangan arsitektur sistem};
-    \node[box, below=of objective] (literature) {Studi literatur dan analisis kebutuhan};
-    \node[box, below=of literature] (design) {Perancangan arsitektur sistem, arsitektur data, dan alur informasi};
+    \node[box, below=of objective] (design) {Perancangan dan pengembangan artefak arsitektur sistem};
     \node[box, below=of design] (demo) {Demonstrasi artefak melalui realisasi sistem pada proyek pengembangan sistem};
     \node[box, below=of demo] (evaluation) {Evaluasi kesesuaian rancangan terhadap realisasi dan bukti integrasi};
     \node[box, below=of evaluation] (communication) {Penyusunan laporan tugas akhir};
 
     \draw[line] (problem) -- (objective);
-    \draw[line] (objective) -- (literature);
-    \draw[line] (literature) -- (design);
+    \draw[line] (objective) -- (design);
     \draw[line] (design) -- (demo);
     \draw[line] (demo) -- (evaluation);
     \draw[line] (evaluation) -- (communication);

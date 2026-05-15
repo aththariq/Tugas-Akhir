@@ -77,7 +77,7 @@ berjalan saat ini di sebagian besar pelabuhan Indonesia masih menggunakan
 pendekatan hibrida yang menggabungkan pemeriksaan manual dengan teknologi sensor
 yang beroperasi secara terpisah. Karakteristik utama sistem saat ini meliputi:
 
-\begin{itemize}
+\begin{enumerate}
   \item Akuisisi data terpisah, yaitu perangkat inspeksi beroperasi secara
   independen tanpa integrasi sistem yang memadai. Setiap perangkat menghasilkan
   data yang harus dianalisis secara manual oleh operator yang berbeda, sehingga
@@ -100,7 +100,7 @@ yang beroperasi secara terpisah. Karakteristik utama sistem saat ini meliputi:
   \item Ketiadaan jejak audit komprehensif, yaitu belum ada pencatatan sistematis
   untuk melacak siapa yang melakukan inspeksi, kapan inspeksi dilakukan, dan
   perubahan apa yang terjadi pada data.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Deskripsi Sistem Usulan}
 \label{subsec:deskripsi-sistem-usulan}
@@ -113,7 +113,7 @@ skalabilitas.
 
 Karakteristik utama sistem usulan meliputi:
 
-\begin{itemize}
+\begin{enumerate}
   \item Akuisisi data terkoordinasi, yaitu perangkat sensor terintegrasi melalui
   komponen koordinasi yang melakukan sinkronisasi pengambilan data.
   \textit{Metadata} lengkap secara otomatis dilampirkan pada setiap data yang
@@ -144,7 +144,7 @@ Karakteristik utama sistem usulan meliputi:
   akuisisi video, inferensi, dan pemantauan aliran secara dekat dengan sumber
   data, sementara penyimpanan hasil inspeksi tetap mengikuti alur terstruktur
   melalui layanan API saat konektivitas tersedia.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Perbandingan Konseptual Sistem}
 \label{subsec:perbandingan-komprehensif}
@@ -340,7 +340,22 @@ pemantauan waktu nyata.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{images/Layered Architecture.png}
+  \resizebox{0.95\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\small,
+      layerbox/.style={rectangle, draw=black, rounded corners, minimum width=10.5cm, minimum height=0.95cm, align=center},
+      line/.style={-{Latex[length=2mm]}, thick}
+    ]
+    \node[layerbox] (presentation) at (0,0) {\textbf{Lapisan Presentasi}\\Aplikasi Web dan Antarmuka API};
+    \node[layerbox] (application) at (0,-1.45) {\textbf{Lapisan Aplikasi}\\Layanan Inspeksi, Analisis, dan Integrasi};
+    \node[layerbox] (data) at (0,-2.9) {\textbf{Lapisan Data}\\Database dan Penyimpanan Berkas};
+    \node[layerbox] (local) at (0,-4.35) {\textbf{Pemrosesan Lokal}\\Pengumpul Data dan Pemroses Lokal};
+
+    \draw[line] (local.north) -- node[right] {hasil inspeksi} (data.south);
+    \draw[line] (data.north) -- node[right] {data terstruktur} (application.south);
+    \draw[line] (application.north) -- node[right] {REST} (presentation.south);
+    \draw[line, dashed] (local.east) -- ++(1.1,0) |- node[pos=0.74,right] {video langsung} (presentation.east);
+  \end{tikzpicture}}
   \caption{Arsitektur Berlapis Konseptual Sistem Inspeksi Kargo Digital}
   \label{fig:layered_architecture}
 \end{figure}
@@ -464,7 +479,24 @@ dan akhirnya disajikan pada aplikasi web.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.7\textwidth]{images/IoT Sensor Architecture Diagram.png}
+  \resizebox{0.92\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\small,
+      group/.style={rectangle, draw=black, rounded corners, minimum width=10.8cm, minimum height=0.95cm, align=center},
+      line/.style={-{Latex[length=2mm]}, thick},
+      flowlabel/.style={fill=white, inner sep=1.5pt, font=\small}
+    ]
+    \node[group] (cloud) at (0,0) {\textbf{Cloud / Layanan Terpusat}\\Layanan API, MongoDB, R2, dan Aplikasi Web};
+    \node[group] (network) at (0,-1.45) {\textbf{Jaringan}\\HTTP untuk data terstruktur dan kanal video langsung};
+    \node[group] (local) at (0,-2.9) {\textbf{Pemrosesan Lokal}\\OCR dan deteksi pada komponen lokal};
+    \node[group] (sensor) at (0,-4.35) {\textbf{Sumber Data Lapangan}\\Kamera RTSP dan aliran video inspeksi};
+
+    \draw[line] (sensor.north) -- node[flowlabel, right] {video} (local.south);
+    \draw[line] (local.north) -- node[flowlabel, right] {hasil inspeksi} (network.south);
+    \draw[line] (network.north) -- node[flowlabel, right] {HTTP} (cloud.south);
+    \draw[line, dashed] (network.east) -- ++(1.45,0) |- (cloud.east);
+    \node[flowlabel, anchor=west] at (6.95,-0.72) {video langsung};
+  \end{tikzpicture}}
   \caption{Arsitektur \textit{Edge} di Lokasi Inspeksi}
   \label{fig:iot_sensor_architecture}
 \end{figure}

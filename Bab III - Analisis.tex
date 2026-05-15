@@ -20,7 +20,7 @@ Sistem inspeksi kontainer yang berlaku saat ini dapat dianalisis melalui kerangk
 Dimensi manusia melibatkan beberapa aktor dengan kepentingan dan tanggung jawab
 yang berbeda:
 
-\begin{itemize}
+\begin{enumerate}
   \item Petugas inspeksi pelabuhan melakukan pemeriksaan fisik kontainer
   berdasarkan \textit{checklist} manual dan pengalaman personal.
   \item Petugas Bea dan Cukai berperan dalam verifikasi kepatuhan terhadap
@@ -31,7 +31,7 @@ yang berbeda:
   berinteraksi dengan \textit{Terminal Operating System}.
   \item Pemilik kargo membutuhkan informasi status inspeksi untuk mendukung
   koordinasi logistik.
-\end{itemize}
+\end{enumerate}
 
 Ketergantungan penuh pada interpretasi manual menyebabkan variabilitas hasil
 inspeksi antarpersonel yang signifikan. Tidak adanya mekanisme standardisasi
@@ -61,14 +61,14 @@ Ketiadaan standar formal untuk penilaian kerusakan maupun dokumentasi digital ya
 
 Dimensi teknologi mencerminkan keterbatasan sarana pendukung sistem saat ini:
 
-\begin{itemize}
+\begin{enumerate}
   \item \textit{Checklist} kertas atau formulir digital sederhana belum memiliki
   validasi otomatis maupun panduan standar yang terintegrasi.
   \item \textit{Terminal Operating System} mengelola pergerakan kontainer di
   dalam terminal, tetapi belum menerima data inspeksi secara otomatis.
   \item Email dan \textit{spreadsheet} masih digunakan untuk berbagi informasi
   antarpemangku kepentingan tanpa mekanisme pelacakan formal.
-\end{itemize}
+\end{enumerate}
 
 Tidak ada komponen yang memfasilitasi standardisasi proses, pencatatan digital
 terstruktur, atau integrasi lintas sistem. Akibatnya, informasi inspeksi
@@ -79,14 +79,14 @@ tersebar dalam format heterogen yang sulit dikonsolidasikan.
 Dimensi data menunjukkan keterbatasan kualitas dan keterlacakan informasi
 inspeksi:
 
-\begin{itemize}
+\begin{enumerate}
   \item Data dicatat dalam format bebas tanpa skema standar.
   \item Data tidak disertai mekanisme \textit{audit trail} yang mencatat siapa
   melakukan inspeksi, kapan inspeksi dilakukan, dan kriteria apa yang digunakan.
   \item Data inspeksi masih terisolasi dari sistem TOS, PCS, atau Inaportnet.
   \item Interpretasi hasil inspeksi bergantung pada subjektivitas petugas
   individual dan sulit dipertahankan sebagai informasi yang konsisten.
-\end{itemize}
+\end{enumerate}
 
 Ketiadaan \textit{metadata} dan mekanisme ketertelusuran membuat data inspeksi sulit dimanfaatkan untuk analisis tren ataupun audit kepatuhan. Model interaksi antaraktor dan titik masalah utama pada sistem manual diringkas pada Gambar~\ref{fig:model_konseptual_saat_ini}.
 
@@ -105,7 +105,7 @@ Analisis terhadap model konseptual sistem saat ini menghasilkan identifikasi tig
 
 Ketiadaan mekanisme standardisasi formal menyebabkan beberapa masalah berikut:
 
-\begin{itemize}
+\begin{enumerate}
   \item Konsistensi hasil inspeksi rendah karena sistem belum memiliki definisi
   formal mengenai kategori kerusakan, tingkat keparahan, atau kriteria keputusan
   inspeksi.
@@ -113,35 +113,35 @@ Ketiadaan mekanisme standardisasi formal menyebabkan beberapa masalah berikut:
   pada interpretasi personal petugas tanpa panduan objektif yang terintegrasi.
   \item Belum terdapat komponen sistem yang memverifikasi kelengkapan atau
   kebenaran data inspeksi sebelum digunakan sebagai dasar pengambilan keputusan.
-\end{itemize}
+\end{enumerate}
 
 \subsubsection{Masalah Integrasi dan Interoperabilitas}
 
 Isolasi sistem inspeksi dari ekosistem digital pelabuhan menyebabkan beberapa
 masalah berikut:
 
-\begin{itemize}
+\begin{enumerate}
   \item Data inspeksi belum dapat diakses secara waktu nyata oleh sistem TOS,
   PCS, maupun pemangku kepentingan lain.
   \item Data yang sama sering kali harus dimasukkan ulang ke beberapa sistem,
   sehingga risiko kesalahan dan inkonsistensi meningkat.
   \item Belum terdapat antarmuka atau protokol komunikasi yang memungkinkan
   pertukaran data inspeksi secara otomatis dan mengikuti standar.
-\end{itemize}
+\end{enumerate}
 
 \subsubsection[Masalah Keandalan Operasional]{Masalah Ketahanan dan Keandalan Operasional}
 
 Ketergantungan penuh pada proses manual membuat keandalan operasional rentan
 terhadap beberapa kondisi berikut:
 
-\begin{itemize}
+\begin{enumerate}
   \item Ketersediaan proses sangat bergantung pada petugas dan belum memiliki
   mekanisme cadangan yang memadai.
   \item Gangguan administrasi atau keterbatasan sumber daya dapat menghambat
   kontinuitas inspeksi.
   \item Proses belum memiliki kapabilitas untuk menyesuaikan kapasitas
   pemrosesan terhadap fluktuasi beban kerja.
-\end{itemize}
+\end{enumerate}
 
 Berdasarkan model konseptual dan tiga kategori masalah arsitektural tersebut,
 dapat disimpulkan bahwa sistem inspeksi kontainer saat ini belum mampu
@@ -164,38 +164,24 @@ skenario operasional pelabuhan.
 
 \begin{table}[ht]
 \centering
-\small
+\scriptsize
 \caption{Kebutuhan Fungsional Sistem Inspeksi Kontainer}
 \label{tbl:kebutuhan_fungsional}
-\begin{tabular}{p{0.22\textwidth} p{0.58\textwidth} p{0.12\textwidth}}
+\begin{tabular}{p{0.09\textwidth} p{0.18\textwidth} p{0.50\textwidth} p{0.09\textwidth}}
 \toprule
-\textbf{Domain} & \textbf{Kebutuhan} & \textbf{Prioritas} \\
+\textbf{Kode} & \textbf{Domain} & \textbf{Kebutuhan} & \textbf{Prioritas} \\
 \midrule
-\multirow{3}{*}{\makecell[l]{Pencatatan\\Inspeksi}}
-& Sistem mencatat hasil inspeksi berdasarkan standar formal yang terdokumentasi & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem melacak riwayat inspeksi tiap kontainer beserta waktu dan penanggung jawab & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem menyediakan visualisasi hasil inspeksi untuk dokumentasi dan audit & Tinggi \\
-\midrule
-\multirow{3}{*}{\makecell[l]{Standardisasi\\Proses}}
-& Sistem memberikan panduan penilaian kerusakan berbasis standar industri & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem memvalidasi kelengkapan data sebelum keputusan operasional diambil & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem menjaga konsistensi interpretasi hasil antarpetugas & Tinggi \\
-\midrule
-\multirow{3}{*}{\makecell[l]{Integrasi\\Data}}
-& Sistem menyediakan antarmuka pertukaran data dengan Terminal Operating System & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem mengirimkan notifikasi hasil inspeksi ke pemangku kepentingan relevan & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem menyajikan akses terstruktur untuk pelaporan dan analitik & Sedang \\
-\midrule
-\multirow{2}{*}{\makecell[l]{Tata Kelola\\dan Audit}}
-& Sistem membangun \textit{audit trail} lengkap untuk seluruh aktivitas inspeksi & Tinggi \\
-\cmidrule(l){2-3}
-& Sistem mengelola pengguna dengan kontrol akses berbasis peran & Tinggi \\
+\textbf{FR-01} & \makecell[l]{Pencatatan\\Inspeksi} & Sistem mencatat hasil inspeksi berdasarkan standar formal yang terdokumentasi & Tinggi \\
+\textbf{FR-02} & \makecell[l]{Pencatatan\\Inspeksi} & Sistem melacak riwayat inspeksi tiap kontainer beserta waktu dan penanggung jawab & Tinggi \\
+\textbf{FR-03} & \makecell[l]{Pencatatan\\Inspeksi} & Sistem menyediakan visualisasi hasil inspeksi untuk dokumentasi dan audit & Tinggi \\
+\textbf{FR-04} & \makecell[l]{Standardisasi\\Proses} & Sistem memberikan panduan penilaian kerusakan berbasis standar industri & Tinggi \\
+\textbf{FR-05} & \makecell[l]{Standardisasi\\Proses} & Sistem memvalidasi kelengkapan data sebelum keputusan operasional diambil & Tinggi \\
+\textbf{FR-06} & \makecell[l]{Standardisasi\\Proses} & Sistem menjaga konsistensi interpretasi hasil antarpetugas & Tinggi \\
+\textbf{FR-07} & \makecell[l]{Integrasi\\Data} & Sistem menyediakan antarmuka pertukaran data dengan Terminal Operating System & Tinggi \\
+\textbf{FR-08} & \makecell[l]{Integrasi\\Data} & Sistem mengirimkan notifikasi hasil inspeksi ke pemangku kepentingan relevan & Tinggi \\
+\textbf{FR-09} & \makecell[l]{Integrasi\\Data} & Sistem menyajikan akses terstruktur untuk pelaporan dan analitik & Sedang \\
+\textbf{FR-10} & \makecell[l]{Tata Kelola\\dan Audit} & Sistem membangun \textit{audit trail} lengkap untuk seluruh aktivitas inspeksi & Tinggi \\
+\textbf{FR-11} & \makecell[l]{Tata Kelola\\dan Audit} & Sistem mengelola pengguna dengan kontrol akses berbasis peran & Tinggi \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -210,22 +196,22 @@ Kebutuhan nonfungsional mendefinisikan atribut kualitas yang wajib dipenuhi agar
 
 \begin{table}[ht]
 \centering
-\small
+\scriptsize
 \caption{Kebutuhan Nonfungsional Sistem Inspeksi Kontainer}
 \label{tbl:kebutuhan_nonfungsional}
-\begin{tabular}{p{0.20\textwidth} p{0.72\textwidth}}
+\begin{tabular}{p{0.10\textwidth} p{0.18\textwidth} p{0.62\textwidth}}
 \toprule
-\textbf{Atribut Kualitas} & \textbf{Deskripsi Kebutuhan} \\
+\textbf{Kode} & \textbf{Atribut Kualitas} & \textbf{Deskripsi Kebutuhan} \\
 \midrule
-\makecell[l]{\textit{Performance}\\\textit{Efficiency}}
+\textbf{NFR-01} & \makecell[l]{\textit{Performance}\\\textit{Efficiency}}
 & Sistem merespons permintaan pengguna dalam waktu yang wajar. Efisiensi pemrosesan data dijaga meskipun volume data inspeksi meningkat seiring ekspansi operasional. \\
-\textit{Interoperability}
+\textbf{NFR-02} & \textit{Interoperability}
 & Sistem berinteraksi dengan berbagai sistem pelabuhan (TOS, PCS, Inaportnet) tanpa modifikasi signifikan pada sistem eksternal. \textit{Interface} integrasi mengikuti standar industri logistik. \\
-\textit{Reliability}
+\textbf{NFR-03} & \textit{Reliability}
 & Sistem beroperasi secara konsisten dalam kondisi infrastruktur heterogen. Keandalan operasional dijaga meskipun terjadi gangguan koneksi atau keterbatasan infrastruktur di lokasi pelabuhan tertentu. Ketersediaan sistem dijaga melalui mekanisme toleransi kesalahan dan pemulihan yang efektif. \\
-\textit{Security}
+\textbf{NFR-04} & \textit{Security}
 & Sistem menyediakan mekanisme untuk melindungi integritas dan kerahasiaan data inspeksi. Akses terhadap data dan fungsi sistem dikontrol berdasarkan prinsip \textit{least privilege}. \\
-\textit{Maintainability}
+\textbf{NFR-05} & \textit{Maintainability}
 & Arsitektur sistem mendukung modifikasi dan evolusi dengan upaya minimal. Pemisahan tanggung jawab yang jelas antarkomponen dijaga untuk memfasilitasi pemeliharaan jangka panjang. Sistem memiliki tingkat \textit{modifiability} yang memadai untuk adaptasi terhadap perubahan regulasi atau kebutuhan operasional tanpa perancangan ulang menyeluruh. \\
 \bottomrule
 \end{tabular}
@@ -243,6 +229,34 @@ meningkatkan standardisasi proses, integrasi informasi, dan keandalan
 operasional sistem inspeksi kontainer. Setiap alternatif dianalisis berdasarkan
 prinsip desain, kelebihan, dan keterbatasannya dalam konteks operasional
 pelabuhan Indonesia.
+
+Perbedaan konseptual kelima alternatif diringkas pada
+Tabel~\ref{tbl:perbedaan-konseptual-alternatif}. Ringkasan ini digunakan agar
+pembaca dapat melihat bahwa alternatif yang dibandingkan bukan sekadar variasi
+nama, tetapi memiliki pusat perhatian, bentuk komponen, dan implikasi
+arsitektural yang berbeda.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{Perbedaan Konseptual Alternatif Solusi}
+\label{tbl:perbedaan-konseptual-alternatif}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Alternatif} & \textbf{Pusat Desain} & \textbf{Bentuk Komponen Utama} & \textbf{Implikasi Arsitektural} \\
+\midrule
+Standardisasi proses dan data & Keseragaman tahapan inspeksi dan format data & Modul mengikuti urutan pencatatan, validasi, dan pelaporan & Kuat untuk konsistensi prosedur, tetapi integrasi eksternal masih perlu dirancang terpisah \\
+Integrasi terorkestrasi & Pertukaran informasi antarsistem & Layanan tematik yang dikoordinasikan oleh lapisan orkestrasi & Kuat untuk interoperabilitas, tetapi membutuhkan tata kelola kontrak layanan yang ketat \\
+Modular berbasis domain & Pemisahan tanggung jawab berdasarkan domain inspeksi & Modul akuisisi, analisis, otorisasi, pelaporan, dan integrasi dengan antarmuka jelas & Seimbang untuk modularitas, evolusi sistem, dan integrasi bertahap \\
+Alur kerja berbasis peristiwa & Perubahan status sebagai pemicu proses & Produsen dan konsumen \textit{event} dengan \textit{payload} yang mengikuti standar & Responsif dan mudah diaudit, tetapi kompleksitas skema \textit{event} harus dijaga \\
+Tata kelola data terpadu & Kepemilikan, kualitas, dan \textit{lineage} data & Registri \textit{metadata}, layanan kualitas data, dan mekanisme persetujuan & Kuat untuk audit dan kepatuhan, tetapi membutuhkan kesiapan organisasi yang tinggi \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\FloatBarrier
 
 \subsection{Alternatif 1: Arsitektur Standardisasi Proses dan Struktur Data}
 

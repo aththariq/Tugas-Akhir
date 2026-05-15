@@ -11,30 +11,33 @@ Berdasarkan hasil analisis, perancangan, realisasi sistem, dan evaluasi yang
 telah dilakukan, kesimpulan tugas akhir ini adalah sebagai berikut:
 
 \begin{enumerate}
-  \item Tugas akhir ini berhasil merumuskan rancangan arsitektur sistem inspeksi
-  kargo digital terintegrasi yang memisahkan tanggung jawab sistem ke dalam
-  komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan.
-  Struktur tersebut selaras dengan kebutuhan modularitas, integrasi, dan
-  ketertelusuran proses inspeksi di lingkungan pelabuhan.
-  \item Rancangan arsitektur yang disusun berhasil menempatkan data inspeksi
-  sebagai inti integrasi sistem. Hal ini direalisasikan melalui model data yang
-  memusatkan informasi pada entitas kontainer serta mendukung keterkaitan dengan
-  data manifes, hasil pemindaian, dan artefak visual pendukung.
-  \item Artefak realisasi sistem menunjukkan bahwa rancangan arsitektur yang
-  diusulkan dapat diwujudkan. Komponen \textit{edge}, layanan API, aplikasi web,
-  dan media penyimpanan dapat diintegrasikan sehingga membentuk alur data yang
-  utuh, mulai dari identifikasi kontainer, pengumpulan hasil pemindaian,
-  penyimpanan bukti inspeksi, hingga penyajian hasil kepada pengguna.
-  \item Hasil evaluasi menunjukkan bahwa sistem yang direalisasikan telah
-  mendukung kebutuhan utama tugas akhir, yaitu integrasi antarkomponen,
-  konsistensi alur data, pemisahan jalur komunikasi sesuai fungsi, dan
-  ketertelusuran proses inspeksi. Dengan demikian, rancangan arsitektur yang
-  dihasilkan dapat menjadi landasan pengembangan sistem inspeksi kargo digital
-  terintegrasi, dengan catatan bahwa evaluasi pada tugas akhir ini berfokus pada
-  validasi arsitektur sistem, bukan pada penilaian menyeluruh terhadap
-  \textit{deployment} produksi, dampak bisnis, atau akurasi model deteksi secara
-  mendalam.
+  \item Rancangan arsitektur sistem yang dihasilkan mampu mengintegrasikan
+  komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan
+  dalam satu alur kerja inspeksi yang konsisten. Pemisahan tanggung jawab ini
+  menjadi dasar agar akuisisi data, pemrosesan awal, persistensi, dan penyajian
+  informasi dapat dikelola tanpa saling membebani.
+  \item Rancangan arsitektur data menempatkan entitas kontainer sebagai pusat
+  agregasi informasi inspeksi. Struktur ini mendukung pencatatan hasil OCR,
+  hasil pemindaian, data manifes, riwayat pemeriksaan, dan artefak visual dalam
+  hubungan data yang dapat ditelusuri.
+  \item Model alur informasi yang disusun memungkinkan hasil identifikasi dan
+  hasil pemindaian dari beberapa komponen dikaitkan pada entitas kontainer yang
+  sama. Hal ini terlihat pada pola propagasi nomor kontainer, penyimpanan hasil
+  pemindaian dalam struktur data inti, dan penyajian hasil pada antarmuka web.
+  \item Pembagian fungsi antarkomponen menunjukkan bahwa pemrosesan lokal,
+  persistensi data, dan penyajian informasi dapat dijalankan sesuai karakter
+  bebannya masing-masing. Komponen \textit{edge} menangani akuisisi video dan
+  inferensi awal, layanan API menangani orkestrasi serta penyimpanan data,
+  sedangkan aplikasi web menyajikan hasil inspeksi dan video langsung kepada
+  pengguna.
 \end{enumerate}
+
+Evaluasi pada tugas akhir ini digunakan sebagai pembuktian bahwa keempat tujuan
+tersebut tercapai pada ruang lingkup rancangan dan realisasi yang tersedia.
+Evaluasi tidak dimaksudkan sebagai tujuan tersendiri, melainkan sebagai dasar
+validasi bahwa rancangan arsitektur yang dihasilkan dapat diwujudkan tanpa
+mengklaim penilaian menyeluruh terhadap \textit{deployment} produksi, dampak
+bisnis, atau akurasi model deteksi secara mendalam.
 
 \section{Saran}
 

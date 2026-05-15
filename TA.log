@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  14 MAY 2026 15:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  15 MAY 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1670,21 +1670,12 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 [2]
 
 [3]
-Overfull \hbox (1.57147pt too wide) in paragraph at lines 111--114
-[]\TU/TimesNewRoman(0)/m/n/12 Mengidentifikasi kebutuhan sistem inspeksi kontai
-ner digital berdasarkan kon-
- []
-
-
 
 [4]
 
-[5]
-Underfull \vbox (badness 1092) has occurred while \output is active []
+[5])
 
-
-
-[6]) (./Bab II - Studi.tex
+[6] (./Bab II - Studi.tex
 
 [7]
 
@@ -1857,24 +1848,10 @@ ya dapat menghambat kon-
  []
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 182--182
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Sistem memberikan panduan penilaian kerusakan
-
- []
-
-
-Overfull \hbox (4.13216pt too wide) in paragraph at lines 170--201
- [][] 
- []
-
-
 
 [26]
 
 [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1892,27 +1869,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 []|\TU/TimesNewRoman(0)/m/n/10.95 Modularitas Kompo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--433
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
 []|\TU/TimesNewRoman(0)/m/n/10.95 Keberlanjutan Opera-
  []
 
 
 
-[32]
-
 [33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[34]
 
-
-[34])
-
-[35] (./Bab IV - Perancangan.tex
+[35]) (./Bab IV - Perancangan.tex
 
 [36]
 Bab IV.
@@ -1972,9 +1949,6 @@ Underfull \hbox (badness 5726) in paragraph at lines 313--313
 
 
 [44]
-File: images/Layered Architecture.png Graphic file (type bmp)
-<images/Layered Architecture.png>
-
 
 [45]
 
@@ -1982,29 +1956,32 @@ File: images/Layered Architecture.png Graphic file (type bmp)
 File: images/Data Flow Diagram.png Graphic file (type bmp)
 <images/Data Flow Diagram.png>
 
-
-[47]
-Overfull \hbox (0.869pt too wide) in paragraph at lines 414--415
+Overfull \hbox (0.869pt too wide) in paragraph at lines 429--430
 \TU/TimesNewRoman(0)/m/n/12 sarkan karakteristik beban kerja dan kebutuhan resp
 onsivitas. Komponen yang mem-
  []
 
 
-Underfull \vbox (badness 1019) has occurred while \output is active []
 
-
-
-[48]
+[47]
 File: images/Deployment Architecture Diagram.png Graphic file (type bmp)
 <images/Deployment Architecture Diagram.png>
 
 
+[48]
+
 [49]
-File: images/IoT Sensor Architecture Diagram.png Graphic file (type bmp)
-<images/IoT Sensor Architecture Diagram.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [50]
+File: images/ER Diagram Conceptual.png Graphic file (type bmp)
+<images/ER Diagram Conceptual.png>
+
+Underfull \vbox (badness 4429) has occurred while \output is active []
+
+
 
 [51]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2012,22 +1989,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [52]
-File: images/ER Diagram Conceptual.png Graphic file (type bmp)
-<images/ER Diagram Conceptual.png>
-
-
-[53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[54]
 File: images/Integration Architecture Diagram.png Graphic file (type bmp)
 <images/Integration Architecture Diagram.png>
 
+Underfull \vbox (badness 1748) has occurred while \output is active []
 
-[55]
-Overfull \hbox (0.16011pt too wide) in paragraph at lines 624--625
+
+
+[53]
+Overfull \hbox (0.16011pt too wide) in paragraph at lines 656--657
 []\TU/TimesNewRoman(0)/m/n/12 Integrasi dengan sistem eksternal rentan terhadap
  berbagai skenario kegagalan. Oleh
  []
@@ -2037,42 +2007,44 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[56]
-Overfull \hbox (3.51874pt too wide) in paragraph at lines 673--682
+[54]
+Overfull \hbox (3.51874pt too wide) in paragraph at lines 705--714
 []\TU/TimesNewRoman(0)/m/n/12 Lapisan keamanan konseptual dirancang mencakup ke
 amanan \TU/TimesNewRoman(0)/m/it/12 boundary \TU/TimesNewRoman(0)/m/n/12 untuk 
 meng-
  []
 
 
-
-[57]
-
-[58]
-Underfull \vbox (badness 3460) has occurred while \output is active []
-
-
-
-[59]
-
-[60]
-
-[61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[62]) (./Bab V - Implementasi.tex
+[55]
 
-[63]
+[56]
+Underfull \vbox (badness 3460) has occurred while \output is active []
 
-[64
 
-]
+
+[57]
+
+[58]
+
+[59]
+
+[60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[61]) (./Bab V - Implementasi.tex
+
+[62]
 Bab V.
 
 
-[65
+[63
+
 
 ]
 Package microtype Info: Loading generic protrusion settings for font family
@@ -2081,12 +2053,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[66]
+[64]
 Underfull \vbox (badness 4779) has occurred while \output is active []
 
 
 
-[67]
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []|\TU/TimesNewRoman(0)/b/n/10.95 Implikasi Arsi-
  []
@@ -2239,13 +2211,13 @@ Underfull \vbox (badness 3758) has occurred while \output is active []
 
 
 
+[66]
+
+[67]
+
 [68]
 
 [69]
-
-[70]
-
-[71]
 Overfull \hbox (0.20233pt too wide) in paragraph at lines 364--370
 []\TU/TimesNewRoman(0)/m/n/12 Pendekatan ini memungkinkan sistem menjawab perta
 nyaan operasional seperti kon-
@@ -2253,16 +2225,16 @@ nyaan operasional seperti kon-
 
 ) (./Bab VI - Evaluasi.tex
 
-[72]
+[70]
 Bab VI.
 
 
-[73
+[71
 
 
 ]
 
-[74]
+[72]
 Underfull \hbox (badness 10000) in paragraph at lines 134--134
 []|\TU/TimesNewRoman(0)/m/n/10.95 Komunikasi \TU/TimesNewRoman(0)/m/it/10.95 ed
 ge\TU/TimesNewRoman(0)/m/n/10.95 ,
@@ -2298,42 +2270,45 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+[73]
+
+[74]
+
 [75]
 
 [76]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [77]
 
 [78]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[79]
+[79]) (./Bab VII - Penutup.tex
 
 [80]
-
-[81]) (./Bab VII - Penutup.tex
-
-[82]
 Bab VII.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (1.17969pt too wide) in paragraph at lines 27--33
+[]\TU/TimesNewRoman(0)/m/n/12 Pembagian fungsi antarkomponen menunjukkan bahwa 
+pemrosesan lokal, per-
+ []
 
 
 
-[83
+[81
 
 
 ]
-Overfull \hbox (1.55203pt too wide) in paragraph at lines 60--63
+Overfull \hbox (1.55203pt too wide) in paragraph at lines 63--66
 []\TU/TimesNewRoman(0)/m/n/12 Melakukan evaluasi lebih mendalam terhadap kualit
 as model deteksi dan OCR
  []
 
 )
 
-[84]
+[82]
 Overfull \hbox (11.06693pt too wide) in paragraph at lines 401--401
 \TU/TimesNewRoman(0)/m/it/12 ing, Building, and Deploying Messaging Solutions. 
 \TU/TimesNewRoman(0)/m/n/12 Boston, MA: Addison-Wesley
@@ -2341,12 +2316,12 @@ Overfull \hbox (11.06693pt too wide) in paragraph at lines 401--401
 
 
 
-[85
+[83
 
 
 ]
 
-[86]
+[84]
 Overfull \hbox (2.69678pt too wide) in paragraph at lines 401--401
 [][]\TU/TimesNewRoman(0)/m/n/12 Szeliski, R. 2022. \TU/TimesNewRoman(0)/m/it/12
  Computer Vision: Algorithms and Applications. \TU/TimesNewRoman(0)/m/n/12 2nd 
@@ -2355,9 +2330,9 @@ edisi. Springer.
 
 (./Lampiran-B.tex
 
-[87]
+[85]
 
-[88
+[86
 
 ]
 Lampiran A.
@@ -2373,15 +2348,15 @@ File: images/survei-pt-spil-2.jpg Graphic file (type bmp)
 <images/survei-pt-spil-2.jpg>
 
 
-[89
+[87
 
 ]
 
+[88]
+
+[89]
+
 [90]
-
-[91]
-
-[92]
 Overfull \hbox (6.32448pt too wide) in paragraph at lines 82--85
 []\TU/TimesNewRoman(0)/m/n/12 Temuan-temuan ini memperkuat kebutuhan akan arsit
 ektur sistem yang mampu meng-
@@ -2392,23 +2367,23 @@ Underfull \vbox (badness 2269) has occurred while \output is active []
 
 
 
-[93]
+[91]
 
-[94]
+[92]
 Underfull \hbox (badness 10000) in alignment at lines 191--197
 [] []
  []
 
 
 
-[95]
+[93]
 Underfull \hbox (badness 10000) in alignment at lines 199--205
 [] []
  []
 
 
 
-[96]
+[94]
 Overfull \hbox (0.20233pt too wide) in paragraph at lines 224--240
 []\TU/TimesNewRoman(0)/m/n/12 Dokumen-dokumen tersebut juga memberikan beberapa
  temuan eksplisit yang mem-
@@ -2422,14 +2397,14 @@ File: images/evidence-container-detail.png Graphic file (type bmp)
 <images/evidence-container-detail.png>
 
 
-[97]
+[95]
 
-[98]
+[96]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 296.
 
 
-[99]
+[97]
 File: images/evidence-r2-storage.jpg Graphic file (type bmp)
 <images/evidence-r2-storage.jpg>
 )
@@ -2437,11 +2412,11 @@ Underfull \vbox (badness 4242) has occurred while \output is active []
 
 
 
-[100]
+[98]
 
-[101]
+[99]
 
-[102
+[100
 
 ] (./TA.aux)
  ***********
@@ -2453,7 +2428,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: BC8D9248AC18E618A21449FB122F336C;35444.
+(rerunfilecheck)             Checksum: A58F5FA0627E130DAEE2C62D6F73837A;35444.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -2462,12 +2437,12 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45694 strings out of 473832
- 930079 string characters out of 5729480
- 2428526 words of memory out of 5000000
- 68049 multiletter control sequences out of 15000+600000
- 567425 words of font info for 111 fonts, out of 8000000 for 9000
+ 45727 strings out of 473832
+ 930185 string characters out of 5729480
+ 2428597 words of memory out of 5000000
+ 68085 multiletter control sequences out of 15000+600000
+ 567417 words of font info for 110 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,18n,95p,1195b,6763s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,95p,1195b,6763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.xdv (129 pages, 2327348 bytes).
+Output written on TA.xdv (127 pages, 2368416 bytes).
