@@ -15,16 +15,22 @@ Analisis sistem saat ini dilakukan untuk mengidentifikasi keterbatasan mendasar 
 
 Sistem inspeksi kontainer yang berlaku saat ini dapat dianalisis melalui kerangka \textit{People–Process–Technology–Data} untuk memahami komponen utama dan interaksinya. Kerangka ini memungkinkan identifikasi sistematis terhadap keterbatasan pada setiap dimensi, sehingga rancangan solusi dapat merespons seluruh aspek masalah secara holistik.
 
-\subsubsection{People}
+\subsubsection{Dimensi Manusia}
 
-Dimensi \textit{people} melibatkan aktor-aktor berikut:
+Dimensi manusia melibatkan beberapa aktor dengan kepentingan dan tanggung jawab
+yang berbeda:
 
 \begin{itemize}
-  \item \textbf{Petugas Inspeksi Pelabuhan}: Melakukan pemeriksaan fisik kontainer berdasarkan \textit{checklist} manual dan pengalaman personal.
-  \item \textbf{Petugas Bea dan Cukai}: Melakukan verifikasi kepatuhan terhadap regulasi kepabeanan dan keamanan.
-  \item \textbf{Supervisor Operasional}: Mengawasi proses inspeksi dan mengelola alokasi sumber daya.
-  \item \textbf{Operator Terminal}: Mengelola alur kontainer di dalam area pelabuhan dan berinteraksi dengan \textit{Terminal Operating System}.
-  \item \textbf{Pemilik Kargo}: Memerlukan informasi status inspeksi untuk koordinasi logistik.
+  \item Petugas inspeksi pelabuhan melakukan pemeriksaan fisik kontainer
+  berdasarkan \textit{checklist} manual dan pengalaman personal.
+  \item Petugas Bea dan Cukai berperan dalam verifikasi kepatuhan terhadap
+  regulasi kepabeanan dan keamanan.
+  \item Supervisor operasional mengawasi proses inspeksi serta mengelola
+  alokasi sumber daya.
+  \item Operator terminal mengelola alur kontainer di area pelabuhan dan
+  berinteraksi dengan \textit{Terminal Operating System}.
+  \item Pemilik kargo membutuhkan informasi status inspeksi untuk mendukung
+  koordinasi logistik.
 \end{itemize}
 
 Ketergantungan penuh pada interpretasi manual menyebabkan variabilitas hasil
@@ -32,53 +38,57 @@ inspeksi antarpersonel yang signifikan. Tidak adanya mekanisme standardisasi
 atau panduan objektif terintegrasi memperkuat sifat subjektif dari proses
 penilaian kerusakan.
 
-\subsubsection{Process}
+\subsubsection{Dimensi Proses}
 
-Dimensi \textit{process} menggambarkan alur inspeksi yang mengikuti pola
-sekuensial:
-
+Dimensi proses menggambarkan alur inspeksi yang masih mengikuti pola
+sekuensial sebagai berikut:
 \begin{enumerate}
-  \item Pendaftaran kontainer: kontainer masuk area pelabuhan dan dicatat
-  dalam sistem administrasi terminal.
-  \item Pemeriksaan visual: petugas melakukan inspeksi fisik berdasarkan
-  \textit{checklist} standar seperti CTPAT \textit{Seven Point Inspection} atau
-  panduan IICL.
-  \item Dokumentasi manual: hasil inspeksi dicatat pada formulir kertas atau
-  spreadsheet lokal.
-  \item Verifikasi dan persetujuan: supervisor meninjau hasil inspeksi sebelum
-  kontainer diizinkan keluar dari area pelabuhan.
-  \item Pelaporan manual: data inspeksi diinput ulang ke sistem TOS atau
-  dikirim melalui surat elektronik kepada pemangku kepentingan.
+  \item Kontainer masuk ke area pelabuhan dan dicatat dalam sistem administrasi
+  terminal.
+  \item Petugas melakukan pemeriksaan visual berdasarkan \textit{checklist}
+  standar seperti CTPAT \textit{Seven Point Inspection} atau panduan IICL.
+  \item Hasil pemeriksaan dicatat secara manual pada formulir kertas atau
+  \textit{spreadsheet} lokal.
+  \item Supervisor meninjau hasil inspeksi sebelum kontainer diizinkan keluar
+  dari area pelabuhan.
+  \item Data inspeksi dimasukkan ulang ke sistem TOS atau dikirim melalui surat
+  elektronik kepada pemangku kepentingan.
 \end{enumerate}
 
-Ketiadaan standar formal untuk penilaian kerusakan maupun dokumentasi digital yang terintegrasi dengan alur informasi pelabuhan mengakibatkan fragmentasi proses dan inkonsistensi output. Setiap tahapan dilakukan secara manual tanpa dukungan sistem yang memvalidasi kelengkapan atau kebenaran data.
+Ketiadaan standar formal untuk penilaian kerusakan maupun dokumentasi digital yang terintegrasi dengan alur informasi pelabuhan mengakibatkan fragmentasi proses dan inkonsistensi keluaran. Setiap tahapan dilakukan secara manual tanpa dukungan sistem yang memvalidasi kelengkapan atau kebenaran data.
 
-\subsubsection{Technology}
+\subsubsection{Dimensi Teknologi}
 
-Dimensi \textit{technology} mencerminkan keterbatasan sarana pendukung sistem saat ini:
+Dimensi teknologi mencerminkan keterbatasan sarana pendukung sistem saat ini:
 
 \begin{itemize}
-  \item \textbf{\textit{Checklist} Kertas atau Formulir Digital Sederhana}: Tidak memiliki validasi otomatis atau panduan standar yang terintegrasi.
-  \item \textbf{Terminal Operating System (TOS)}: Mengelola pergerakan kontainer di dalam terminal tetapi tidak menerima data inspeksi secara otomatis.
-  \item \textbf{Sistem Email dan Spreadsheet}: Digunakan untuk berbagi informasi inspeksi antar pemangku kepentingan tanpa mekanisme pelacakan formal.
+  \item \textit{Checklist} kertas atau formulir digital sederhana belum memiliki
+  validasi otomatis maupun panduan standar yang terintegrasi.
+  \item \textit{Terminal Operating System} mengelola pergerakan kontainer di
+  dalam terminal, tetapi belum menerima data inspeksi secara otomatis.
+  \item Email dan \textit{spreadsheet} masih digunakan untuk berbagi informasi
+  antarpemangku kepentingan tanpa mekanisme pelacakan formal.
 \end{itemize}
 
 Tidak ada komponen yang memfasilitasi standardisasi proses, pencatatan digital
 terstruktur, atau integrasi lintas sistem. Akibatnya, informasi inspeksi
 tersebar dalam format heterogen yang sulit dikonsolidasikan.
 
-\subsubsection{Data}
+\subsubsection{Dimensi Data}
 
-Dimensi \textit{data} menunjukkan keterbatasan kualitas dan keterlacakan informasi inspeksi:
+Dimensi data menunjukkan keterbatasan kualitas dan keterlacakan informasi
+inspeksi:
 
 \begin{itemize}
-  \item \textbf{Tidak Terstruktur}: Data dicatat dalam format bebas tanpa skema standar.
-  \item \textbf{Tidak Dapat Dilacak}: Tidak ada mekanisme audit trail yang mencatat siapa melakukan inspeksi, kapan, dan dengan kriteria apa.
-  \item \textbf{Terisolasi}: Data inspeksi tidak terhubung dengan sistem TOS, PCS, atau Inaportnet.
-\item \textbf{Tidak Konsisten}: Interpretasi hasil inspeksi bergantung pada subjektivitas petugas individual.
+  \item Data dicatat dalam format bebas tanpa skema standar.
+  \item Data tidak disertai mekanisme \textit{audit trail} yang mencatat siapa
+  melakukan inspeksi, kapan inspeksi dilakukan, dan kriteria apa yang digunakan.
+  \item Data inspeksi masih terisolasi dari sistem TOS, PCS, atau Inaportnet.
+  \item Interpretasi hasil inspeksi bergantung pada subjektivitas petugas
+  individual dan sulit dipertahankan sebagai informasi yang konsisten.
 \end{itemize}
 
-Ketiadaan metadata dan mekanisme \textit{traceability} membuat data inspeksi sulit dimanfaatkan untuk analisis tren ataupun audit kepatuhan. Model interaksi antaraktor dan titik masalah utama pada sistem manual diringkas pada Gambar~\ref{fig:model_konseptual_saat_ini}.
+Ketiadaan \textit{metadata} dan mekanisme ketertelusuran membuat data inspeksi sulit dimanfaatkan untuk analisis tren ataupun audit kepatuhan. Model interaksi antaraktor dan titik masalah utama pada sistem manual diringkas pada Gambar~\ref{fig:model_konseptual_saat_ini}.
 
 \begin{figure}[ht]
   \centering
@@ -89,36 +99,48 @@ Ketiadaan metadata dan mekanisme \textit{traceability} membuat data inspeksi sul
 
 \subsection{Identifikasi Masalah Arsitektural}
 
-Analisis terhadap model konseptual sistem saat ini menghasilkan identifikasi tiga kategori masalah arsitektural. Kategorisasi ini disusun berdasarkan pengelompokan tematik terhadap keterbatasan yang teridentifikasi pada dimensi \textit{people}, \textit{process}, \textit{technology}, dan \textit{data}. Setiap kategori masalah mencerminkan celah arsitektural yang menghambat pencapaian standarisasi, integrasi, dan keandalan operasional.
+Analisis terhadap model konseptual sistem saat ini menghasilkan identifikasi tiga kategori masalah arsitektural. Kategorisasi ini disusun berdasarkan pengelompokan tematik terhadap keterbatasan yang teridentifikasi pada dimensi \textit{people}, \textit{process}, \textit{technology}, dan \textit{data}. Setiap kategori masalah mencerminkan celah arsitektural yang menghambat pencapaian standardisasi, integrasi, dan keandalan operasional.
 
 \subsubsection{Masalah Standardisasi Proses}
 
-Ketiadaan mekanisme standardisasi formal menyebabkan:
+Ketiadaan mekanisme standardisasi formal menyebabkan beberapa masalah berikut:
 
 \begin{itemize}
-  \item \textbf{Konsistensi Rendah}: Tidak ada definisi formal untuk kategori kerusakan, tingkat keparahan, atau kriteria keputusan inspeksi.
-  \item \textbf{Subjektivitas Tinggi}: Hasil inspeksi bergantung pada interpretasi personal petugas tanpa panduan objektif yang terintegrasi dalam proses.
-  \item \textbf{Tidak Ada Mekanisme Validasi}: Tidak ada komponen sistem yang memverifikasi kelengkapan atau kebenaran data inspeksi sebelum digunakan untuk pengambilan keputusan.
+  \item Konsistensi hasil inspeksi rendah karena sistem belum memiliki definisi
+  formal mengenai kategori kerusakan, tingkat keparahan, atau kriteria keputusan
+  inspeksi.
+  \item Subjektivitas hasil inspeksi tinggi karena penilaian masih bergantung
+  pada interpretasi personal petugas tanpa panduan objektif yang terintegrasi.
+  \item Belum terdapat komponen sistem yang memverifikasi kelengkapan atau
+  kebenaran data inspeksi sebelum digunakan sebagai dasar pengambilan keputusan.
 \end{itemize}
 
 \subsubsection{Masalah Integrasi dan Interoperabilitas}
 
-Isolasi sistem inspeksi dari ekosistem digital pelabuhan menyebabkan:
+Isolasi sistem inspeksi dari ekosistem digital pelabuhan menyebabkan beberapa
+masalah berikut:
 
 \begin{itemize}
-  \item \textbf{Fragmentasi Informasi}: Data inspeksi tidak dapat diakses secara real-time oleh sistem TOS, PCS, atau pemangku kepentingan lainnya.
-  \item \textbf{Redundansi Input}: Data yang sama harus diinput ulang ke berbagai sistem, meningkatkan risiko kesalahan dan inkonsistensi.
-  \item \textbf{Tidak Ada Mekanisme Pertukaran Data Terstandar}: Tidak ada interface atau protokol komunikasi yang memungkinkan pertukaran data inspeksi secara otomatis.
+  \item Data inspeksi belum dapat diakses secara waktu nyata oleh sistem TOS,
+  PCS, maupun pemangku kepentingan lain.
+  \item Data yang sama sering kali harus dimasukkan ulang ke beberapa sistem,
+  sehingga risiko kesalahan dan inkonsistensi meningkat.
+  \item Belum terdapat antarmuka atau protokol komunikasi yang memungkinkan
+  pertukaran data inspeksi secara otomatis dan mengikuti standar.
 \end{itemize}
 
-\subsubsection{Masalah Ketahanan dan Keandalan Operasional}
+\subsubsection[Masalah Keandalan Operasional]{Masalah Ketahanan dan Keandalan Operasional}
 
-Ketergantungan penuh pada proses manual menyebabkan:
+Ketergantungan penuh pada proses manual membuat keandalan operasional rentan
+terhadap beberapa kondisi berikut:
 
 \begin{itemize}
-  \item \textbf{Ketergantungan pada Ketersediaan Petugas}: Tidak ada mekanisme backup atau alternatif ketika petugas tidak tersedia.
-  \item \textbf{Tidak Ada Kontinuitas Operasional}: Proses inspeksi terhenti sepenuhnya jika terjadi gangguan administrasi atau keterbatasan sumber daya.
-  \item \textbf{Tidak Dapat Menangani Variasi Beban}: Sistem tidak memiliki kapabilitas untuk menyesuaikan kapasitas pemrosesan terhadap fluktuasi volume kontainer.
+  \item Ketersediaan proses sangat bergantung pada petugas dan belum memiliki
+  mekanisme cadangan yang memadai.
+  \item Gangguan administrasi atau keterbatasan sumber daya dapat menghambat
+  kontinuitas inspeksi.
+  \item Proses belum memiliki kapabilitas untuk menyesuaikan kapasitas
+  pemrosesan terhadap fluktuasi beban kerja.
 \end{itemize}
 
 Berdasarkan model konseptual dan tiga kategori masalah arsitektural tersebut,
@@ -180,7 +202,7 @@ skenario operasional pelabuhan.
 
 \FloatBarrier
 
-Domain fungsional tersebut disusun dengan mengacu pada standar industri kontainer (IICL, CTPAT) dan kerangka keamanan perdagangan internasional (WCO SAFE Framework), kemudian disesuaikan dengan konteks operasional pelabuhan Indonesia sesuai Peraturan Menteri Perhubungan No.~8/2022.
+Domain fungsional tersebut disusun dengan mengacu pada standar industri kontainer (IICL, CTPAT) dan kerangka keamanan perdagangan internasional (\textit{WCO SAFE Framework}), kemudian disesuaikan dengan konteks operasional pelabuhan Indonesia sesuai Peraturan Menteri Perhubungan No.~8/2022.
 
 \subsection{Kebutuhan Nonfungsional}
 
@@ -226,175 +248,166 @@ pelabuhan Indonesia.
 
 \subsubsection{Prinsip Desain}
 
-Alternatif ini menempatkan blueprint proses sebagai pusat desain arsitektur. Karakteristik utamanya meliputi:
-
-\begin{itemize}
-  \item Seluruh tahapan inspeksi dirumuskan menjadi model proses formal dengan aturan transisi status dan definisi peran aktor yang terdokumentasi.
-  \item Komponen sistem disusun mengikuti alur proses (pencatatan, validasi, pelaporan) sebagai modul-modul sesuai fase proses.
-  \item Struktur data diformalkan melalui kamus data dan template inspeksi baku untuk memastikan konsistensi representasi informasi.
-  \item Harmonisasi proses dan data dilakukan sebelum mempertimbangkan mekanisme integrasi atau otomasi lanjutan.
-\end{itemize}
+Alternatif ini menempatkan \textit{blueprint} proses sebagai pusat desain
+arsitektur. Seluruh tahapan inspeksi dirumuskan menjadi model proses formal
+dengan aturan transisi status dan definisi peran aktor yang terdokumentasi.
+Komponen sistem disusun mengikuti alur pencatatan, validasi, dan pelaporan
+sebagai modul sesuai fase proses. Struktur data diformalkan melalui kamus data
+dan \textit{template} inspeksi baku, sehingga harmonisasi proses dan data
+dilakukan terlebih dahulu sebelum integrasi atau otomasi lanjutan dirancang.
 
 \subsubsection{Kelebihan}
 
-Pendekatan ini memiliki beberapa keunggulan dalam konteks standardisasi:
-
-\begin{itemize}
-  \item Mereduksi variasi interpretasi karena seluruh aktor mematuhi model proses yang sama dan mengisi data sesuai struktur terstandar.
-  \item Modul sistem relatif sederhana karena mengikuti urutan proses yang jelas, sehingga pemeliharaan dan pengembangan bertahap lebih terukur.
-  \item Standardisasi data mempermudah audit dan memfasilitasi interoperabilitas di tahap berikutnya karena informasi telah dinormalisasi sejak pencatatan awal.
-  \item Menguatkan perspektif \textit{people} dan \textit{process} sekaligus mempersiapkan landasan penerapan teknologi lanjutan.
-\end{itemize}
+Pendekatan ini unggul dalam konteks standardisasi karena dapat mereduksi variasi
+interpretasi antarpelaku. Seluruh aktor bekerja mengikuti model proses yang
+sama dan mengisi data sesuai struktur yang telah ditentukan. Modul sistem juga
+relatif sederhana karena mengikuti urutan proses yang jelas, sehingga
+pemeliharaan dan pengembangan bertahap menjadi lebih terukur. Standardisasi
+data mempermudah audit dan mempersiapkan interoperabilitas pada tahap
+berikutnya karena informasi telah dinormalisasi sejak pencatatan awal.
 
 \subsubsection{Keterbatasan}
 
-Beberapa keterbatasan yang perlu dipertimbangkan:
-
-\begin{itemize}
-  \item Ruang inovasi relatif sempit karena desain sangat bergantung pada model proses yang tetap (\textit{fixed}).
-  \item Integrasi dengan sistem eksternal membutuhkan desain tambahan, sebab fokus utama adalah harmonisasi internal.
-  \item Konsolidasi lintas pelabuhan belum otomatis tercapai jika tidak disertai mekanisme orkestrasi informasi.
-  \item Efektif untuk mengatasi keragaman prosedur, tetapi tidak secara langsung menjawab tantangan interoperabilitas yang kompleks.
-\end{itemize}
+Keterbatasannya terletak pada ruang inovasi yang relatif sempit karena desain
+sangat bergantung pada model proses yang tetap. Integrasi dengan sistem
+eksternal masih membutuhkan desain tambahan karena fokus utama alternatif ini
+adalah harmonisasi internal. Konsolidasi lintas pelabuhan juga belum otomatis
+tercapai apabila tidak disertai mekanisme orkestrasi informasi. Dengan demikian,
+alternatif ini kuat untuk mengatasi keragaman prosedur, tetapi belum cukup
+untuk menjawab tantangan interoperabilitas yang lebih kompleks.
 
 \subsection{Alternatif 2: Arsitektur Integrasi Terorkestrasi}
 
 \subsubsection{Prinsip Desain}
 
-Alternatif ini memosisikan desain integrasi sebagai inti arsitektur. Karakteristik utamanya meliputi:
-
-\begin{itemize}
-  \item Proses inspeksi dipecah menjadi domain layanan yang saling berkoordinasi melalui lapisan orkestrasi.
-  \item Komponen sistem diorganisasikan sebagai layanan tematik (perekaman data, penilaian, pelaporan, koordinasi eksternal) yang berkomunikasi melalui kontrak pertukaran informasi terstandar.
-  \item Alur informasi dirancang berbasis katalog layanan dan skema pesan yang terdokumentasi.
-  \item Integrasi dipandang sebagai kerangka utama yang memastikan seluruh proses bergerak sinkron, bukan sebagai tambahan.
-\end{itemize}
+Alternatif ini memosisikan desain integrasi sebagai inti arsitektur. Proses
+inspeksi dipecah menjadi domain layanan yang saling berkoordinasi melalui
+lapisan orkestrasi. Komponen sistem diorganisasikan sebagai layanan tematik,
+seperti perekaman data, penilaian, pelaporan, dan koordinasi eksternal, yang
+berkomunikasi melalui kontrak pertukaran informasi standar. Alur informasi
+dirancang berbasis katalog layanan dan skema pesan yang terdokumentasi, sehingga
+integrasi diperlakukan sebagai kerangka utama yang menjaga sinkronisasi proses.
 
 \subsubsection{Kelebihan}
 
-Keunggulan pendekatan integrasi terorkestrasi meliputi:
-
-\begin{itemize}
-  \item Mereduksi fragmentasi karena aliran informasi diatur melalui kontrak formal antar layanan.
-  \item Mempercepat interoperabilitas dengan sistem pelabuhan lainnya karena titik integrasi telah ditentukan sejak desain konseptual.
-  \item Memudahkan pengawasan kepatuhan data, sebab setiap pesan dapat diperiksa terhadap skema yang sama.
-  \item Lapisan orkestrasi memungkinkan organisasi mengelola beban kerja antar proses secara adaptif.
-\end{itemize}
+Keunggulan pendekatan integrasi terorkestrasi terletak pada kemampuannya
+mereduksi fragmentasi informasi melalui kontrak formal antarlayanan. Titik
+integrasi ditentukan sejak desain konseptual, sehingga interoperabilitas dengan
+sistem pelabuhan lain dapat dipersiapkan lebih awal. Setiap pesan dapat
+diperiksa terhadap skema yang sama, sehingga pengawasan kepatuhan data menjadi
+lebih mudah. Lapisan orkestrasi juga memberi ruang bagi organisasi untuk
+mengelola beban kerja antarproses secara lebih adaptif.
 
 \subsubsection{Keterbatasan}
 
-Keterbatasan yang perlu dipertimbangkan:
-
-\begin{itemize}
-  \item Keberhasilan desain sangat bergantung pada kedisiplinan dalam memelihara kontrak dan katalog pertukaran informasi.
-  \item Kompleksitas koordinasi dapat meningkat ketika jumlah layanan bertambah, memerlukan mekanisme tata kelola integrasi yang kuat.
-  \item Menuntut kesiapan organisasi untuk mengelola perubahan proses lintas unit secara serempak.
-  \item Tanpa manajemen perubahan yang terstruktur, lapisan orkestrasi berisiko menjadi hambatan komunikasi.
-\end{itemize}
+Keterbatasan alternatif ini muncul dari kebutuhan disiplin yang tinggi dalam
+memelihara kontrak dan katalog pertukaran informasi. Kompleksitas koordinasi
+dapat meningkat ketika jumlah layanan bertambah, sehingga diperlukan tata
+kelola integrasi yang kuat. Pendekatan ini juga menuntut kesiapan organisasi
+untuk mengelola perubahan proses lintas unit secara serempak. Tanpa manajemen
+perubahan yang terstruktur, lapisan orkestrasi justru berisiko menjadi hambatan
+komunikasi.
 
 \subsection{Alternatif 3: Arsitektur Modular Berbasis Domain}
 
 \subsubsection{Prinsip Desain}
 
-Alternatif ini merancang sistem berdasarkan pemisahan domain fungsional yang jelas, mengikuti prinsip modularitas dan \textit{loose coupling} \autocite{bass2022}. Karakteristik utamanya meliputi:
-
-\begin{itemize}
-  \item Proses inspeksi dibagi menjadi beberapa domain (akuisisi data, analisis temuan, otorisasi keputusan, pelaporan) dengan siklus proses tersendiri.
-  \item Komponen sistem diwujudkan sebagai modul mandiri yang memegang tanggung jawab domain spesifik, sehingga perubahan pada satu domain tidak mengganggu domain lain.
-  \item Alur informasi mengalir melalui antarmuka terdefinisi antara modul, dengan skema data spesifik domain namun tetap mengikuti model konseptual global.
-  \item Domain terhubung melalui kontrak antardomain yang terdokumentasi.
-\end{itemize}
+Alternatif ini merancang sistem berdasarkan pemisahan domain fungsional yang
+jelas, mengikuti prinsip modularitas dan \textit{loose coupling}
+\autocite{bass2022}. Proses inspeksi dibagi menjadi domain akuisisi data,
+analisis temuan, otorisasi keputusan, dan pelaporan, masing-masing dengan
+siklus proses tersendiri. Komponen sistem diwujudkan sebagai modul mandiri yang
+memegang tanggung jawab spesifik, sehingga perubahan pada satu domain tidak
+langsung mengganggu domain lain. Alur informasi tetap dijaga melalui antarmuka
+terdefinisi dan kontrak antardomain yang terdokumentasi.
 
 \subsubsection{Kelebihan}
 
-Keunggulan pendekatan modular berbasis domain meliputi:
-
-\begin{itemize}
-  \item Fleksibilitas tinggi untuk mengadaptasi proses ketika regulasi atau kebutuhan operasional berubah.
-  \item Setiap domain dapat dikembangkan dan dipelihara oleh tim terpisah tanpa mengorbankan keseluruhan sistem.
-  \item Struktur data yang mengikuti batas domain mempermudah penerapan kontrol akses dan meminimalkan risiko inkonsistensi.
-  \item Mendukung strategi evolusi bertahap: modul baru dapat ditambahkan untuk kapabilitas tambahan tanpa menulis ulang seluruh sistem.
-\end{itemize}
+Keunggulan pendekatan modular berbasis domain adalah fleksibilitasnya dalam
+beradaptasi terhadap perubahan regulasi maupun kebutuhan operasional. Setiap
+domain dapat dikembangkan dan dipelihara oleh tim berbeda tanpa mengorbankan
+keseluruhan sistem. Struktur data yang mengikuti batas domain juga mempermudah
+penerapan kontrol akses dan menekan risiko inkonsistensi. Selain itu, strategi
+evolusi bertahap dapat dilakukan karena modul baru dapat ditambahkan tanpa
+menulis ulang seluruh sistem.
 
 \subsubsection{Keterbatasan}
 
-Keterbatasan yang perlu dipertimbangkan:
-
-\begin{itemize}
-  \item Koordinasi antar domain memerlukan mekanisme tata kelola untuk memastikan kontrak antarmodul tetap konsisten setiap kali ada perubahan.
-  \item Menuntut dokumentasi arsitektur yang lengkap agar tim baru dapat memahami batas domain dan dependensinya.
-  \item Jika disiplin arsitektural melemah, modularitas dapat berubah menjadi silo fungsional yang sulit disatukan kembali.
-\end{itemize}
+Keterbatasannya terletak pada kebutuhan tata kelola antardomain yang konsisten.
+Setiap perubahan pada kontrak antarmodul harus dikendalikan agar tidak memicu
+ketidaksesuaian antarbagian sistem. Pendekatan ini juga menuntut dokumentasi
+arsitektur yang lengkap agar tim baru dapat memahami batas domain dan
+dependensinya. Jika disiplin arsitektural melemah, modularitas dapat berubah
+menjadi silo fungsional yang sulit disatukan kembali.
 
 \subsection{Alternatif 4: Arsitektur Alur Kerja Berbasis Peristiwa}
 
 \subsubsection{Prinsip Desain}
 
-Alternatif ini menjadikan peristiwa bisnis sebagai penggerak utama proses. Karakteristik utamanya meliputi:
-
-\begin{itemize}
-  \item Setiap tahapan inspeksi (registrasi kontainer, akuisisi bukti, analisis temuan, otorisasi) direpresentasikan sebagai \textit{event} yang memicu aktivitas lanjutan.
-  \item Komponen sistem disusun sebagai produsen dan konsumen \textit{event}, misalnya modul perekaman data menghasilkan event yang dikonsumsi modul analisis dan notifikasi.
-  \item Struktur data dirancang dalam bentuk \textit{payload event} yang kaya konteks namun tetap mengacu pada model data global.
-  \item Aliran informasi bersifat reaktif dan transparan karena setiap perubahan keadaan tercatat sebagai peristiwa yang dapat diaudit.
-\end{itemize}
+Alternatif ini menjadikan peristiwa bisnis sebagai penggerak utama proses.
+Setiap tahapan inspeksi, mulai dari registrasi kontainer, akuisisi bukti,
+analisis temuan, hingga otorisasi, direpresentasikan sebagai \textit{event}
+yang memicu aktivitas lanjutan. Komponen sistem disusun sebagai produsen dan
+konsumen \textit{event}; misalnya, modul perekaman data menghasilkan
+\textit{event} yang dikonsumsi oleh modul analisis dan notifikasi. Struktur
+data dirancang dalam bentuk \textit{payload event} yang kaya konteks namun
+tetap mengacu pada model data global. Dengan pola ini, aliran informasi menjadi
+reaktif dan transparan karena setiap perubahan keadaan tercatat sebagai
+peristiwa yang dapat diaudit.
 
 \subsubsection{Kelebihan}
 
-Keunggulan arsitektur berbasis peristiwa meliputi:
-
-\begin{itemize}
-  \item Mendukung orkestrasi proses secara dinamis: perubahan aturan inspeksi dapat dilakukan dengan mengubah logika penanganan \textit{event} tanpa mengganggu modul lain.
-  \item Transparansi meningkat karena setiap \textit{event} membawa metadata yang memudahkan audit dan analitik proses.
-  \item Memudahkan integrasi dengan pihak eksternal yang dapat berlangganan \textit{event} tanpa keterikatan kuat pada modul internal.
-  \item Mendukung skalabilitas dan responsivitas tinggi terhadap perubahan status sistem.
-\end{itemize}
+Keunggulan arsitektur berbasis peristiwa adalah dukungannya terhadap orkestrasi
+proses yang dinamis. Perubahan aturan inspeksi dapat dilakukan dengan mengubah
+logika penanganan \textit{event} tanpa mengganggu modul lain. Transparansi juga
+meningkat karena setiap \textit{event} membawa \textit{metadata} yang membantu audit dan
+analitik proses. Selain itu, pihak eksternal dapat berlangganan \textit{event}
+tertentu tanpa keterikatan kuat pada modul internal, sehingga skalabilitas dan
+responsivitas terhadap perubahan status sistem menjadi lebih baik.
 
 \subsubsection{Keterbatasan}
 
-Keterbatasan yang perlu dipertimbangkan:
-
-\begin{itemize}
-  \item Membutuhkan tata kelola \textit{event} yang disiplin: jika skema \textit{event} tidak dikontrol, kompleksitas meningkat dan sulit memastikan konsistensi data.
-  \item Organisasi harus menyiapkan mekanisme pemantauan untuk memastikan tidak ada peristiwa yang hilang atau tertunda.
-  \item Ketidaksesuaian \textit{event} dapat berujung pada perbedaan status antara aktor.
-  \item Memerlukan kemampuan analisis proses yang matang agar \textit{event} yang dirancang benar-benar mencerminkan kebutuhan bisnis.
-\end{itemize}
+Keterbatasannya adalah kebutuhan tata kelola \textit{event} yang disiplin. Jika
+skema \textit{event} tidak dikendalikan, kompleksitas meningkat dan konsistensi
+data sulit dijaga. Organisasi juga perlu menyiapkan mekanisme pemantauan untuk
+memastikan tidak ada peristiwa yang hilang atau tertunda. Ketidaksesuaian
+\textit{event} dapat menimbulkan perbedaan status antaraktor, sehingga
+kematangan analisis proses menjadi syarat penting agar \textit{event} yang
+dirancang benar-benar mencerminkan kebutuhan bisnis.
 
 \subsection{Alternatif 5: Arsitektur Tata Kelola Data Terpadu}
 
 \subsubsection{Prinsip Desain}
 
-Alternatif ini menitikberatkan desain pada model tata kelola data yang menyatukan proses, komponen, dan kebijakan. Karakteristik utamanya meliputi:
-
-\begin{itemize}
-  \item Proses inspeksi didesain ulang agar setiap aktivitas memiliki aturan kepemilikan data, mekanisme persetujuan, dan jalur eskalasi yang terdokumentasi.
-  \item Komponen sistem diorganisasikan mengikuti peran tata kelola (registri metadata, layanan kualitas data, modul persetujuan) yang memastikan setiap informasi memenuhi standar.
-  \item Alur informasi dibangun di atas repositori referensi yang menyimpan definisi istilah, kamus kode, dan \textit{lineage} data.
-  \item Keterlacakan dijaga dari akuisisi hingga pelaporan melalui mekanisme tata kelola yang terintegrasi.
-\end{itemize}
+Alternatif ini menitikberatkan desain pada model tata kelola data yang
+menyatukan proses, komponen, dan kebijakan. Proses inspeksi didesain ulang agar
+setiap aktivitas memiliki aturan kepemilikan data, mekanisme persetujuan, dan
+jalur eskalasi yang terdokumentasi. Komponen sistem diorganisasikan mengikuti
+peran tata kelola, seperti registri \textit{metadata}, layanan kualitas data, dan modul
+persetujuan, agar setiap informasi memenuhi standar yang sama. Alur informasi
+dibangun di atas repositori referensi yang menyimpan definisi istilah, kamus
+kode, dan \textit{lineage} data, sehingga keterlacakan dapat dijaga dari
+akuisisi hingga pelaporan.
 
 \subsubsection{Kelebihan}
 
-Keunggulan arsitektur tata kelola data terpadu meliputi:
-
-\begin{itemize}
-  \item Meningkatkan keandalan dan konsistensi informasi karena setiap data diperiksa terhadap kebijakan tata kelola sebelum dipakai.
-  \item Memperkuat pengawasan kepatuhan sebab proses, komponen, dan struktur data terikat oleh aturan yang sama.
-  \item Memperjelas tanggung jawab antar aktor: kepemilikan data, mekanisme persetujuan, dan prosedur audit terdokumentasi dengan jelas.
-  \item Menekan risiko sengketa atau interpretasi berbeda melalui definisi standar yang konsisten.
-\end{itemize}
+Keunggulan arsitektur tata kelola data terpadu terletak pada peningkatan
+keandalan dan konsistensi informasi. Setiap data diperiksa terhadap kebijakan
+tata kelola sebelum digunakan, sehingga pengawasan kepatuhan menjadi lebih
+kuat. Proses, komponen, dan struktur data terikat oleh aturan yang sama, dan
+tanggung jawab antaraktor menjadi lebih jelas melalui kepemilikan data,
+mekanisme persetujuan, serta prosedur audit yang terdokumentasi. Definisi
+standar yang konsisten juga menekan risiko sengketa atau perbedaan interpretasi.
 
 \subsubsection{Keterbatasan}
 
-Keterbatasan yang perlu dipertimbangkan:
-
-\begin{itemize}
-  \item Membutuhkan investasi organisasi yang tinggi untuk membangun struktur tata kelola dan memastikan kepatuhan seluruh pihak.
-  \item Jika tidak didukung budaya disiplin data, mekanisme tata kelola dapat menjadi birokratis dan memperlambat proses.
-  \item Membutuhkan integrasi yang baik dengan sistem pelaporan dan analitik agar manfaat \textit{data governance} dapat dirasakan secara nyata.
-  \item Desain harus menyelaraskan kebijakan dengan kebutuhan operasional sehari-hari untuk menghindari hambatan birokratis.
-\end{itemize}
+Keterbatasannya adalah kebutuhan investasi organisasi yang tinggi untuk
+membangun struktur tata kelola dan memastikan kepatuhan seluruh pihak. Jika
+tidak didukung budaya disiplin data, mekanisme tata kelola dapat menjadi
+birokratis dan memperlambat proses. Alternatif ini juga membutuhkan integrasi
+yang baik dengan sistem pelaporan dan analitik agar manfaat \textit{data
+governance} dapat dirasakan secara nyata. Karena itu, desain kebijakan harus
+selalu diselaraskan dengan kebutuhan operasional sehari-hari.
 
 \section{Analisis Pemilihan Solusi}
 
@@ -424,7 +437,7 @@ Keberlanjutan Operasional & Kemampuan untuk menjaga kontinuitas operasional mesk
 
 \FloatBarrier
 
-Kriteria-kriteria ini mewakili faktor kritis keberhasilan sistem inspeksi kargo digital dan selaras dengan \textit{quality attributes} yang direkomendasikan oleh ISO/IEC 25010 serta prinsip arsitektur sistem terdistribusi.
+Kriteria-kriteria ini mewakili faktor kritis keberhasilan sistem inspeksi kargo digital dan selaras dengan atribut kualitas yang direkomendasikan oleh ISO/IEC 25010 serta prinsip arsitektur sistem terdistribusi.
 
 \subsection{Matriks Perbandingan Alternatif}
 
@@ -458,46 +471,56 @@ Hasil evaluasi menunjukkan bahwa \textbf{Alternatif 3: Arsitektur Modular Berbas
 
 Berdasarkan matriks evaluasi dan analisis terhadap karakteristik setiap alternatif, \textbf{Alternatif 3: Arsitektur Modular Berbasis Domain} dipilih sebagai solusi yang paling sesuai untuk mengatasi masalah sistem inspeksi kontainer di Indonesia. Justifikasi pemilihan disusun berdasarkan empat perspektif: kebutuhan operasional, atribut kualitas ISO/IEC 25010, prinsip arsitektur, dan kepatuhan terhadap standar dan regulasi.
 
-\subsubsection{Justifikasi Berdasarkan Kebutuhan Operasional}
+\subsubsection[Justifikasi Operasional]{Justifikasi Berdasarkan Kebutuhan Operasional}
 
-Kebutuhan operasional pelabuhan Indonesia menuntut keselarasan proses antar pelabuhan tanpa mengorbankan kemampuan adaptasi lokal. Arsitektur modular berbasis domain menjawab tuntutan tersebut dengan karakteristik berikut:
+Kebutuhan operasional pelabuhan Indonesia menuntut keselarasan proses antar
+pelabuhan tanpa mengorbankan kemampuan adaptasi lokal. Arsitektur modular
+berbasis domain menjawab tuntutan tersebut dengan membagi alur inspeksi ke
+dalam domain yang jelas, sehingga setiap pelabuhan menjalankan urutan proses
+yang sama namun tetap memiliki keleluasaan mengelola detail operasional.
+Pendekatan ini juga membuat tanggung jawab setiap domain, seperti pencatatan,
+analisis, otorisasi, dan pelaporan, menjadi lebih eksplisit sehingga koordinasi
+antaraktor lebih mudah dilakukan. Selain itu, perubahan kebijakan atau beban
+kerja dapat diserap oleh domain yang relevan tanpa mengganggu keseluruhan
+sistem.
 
-\begin{itemize}
-  \item \textbf{Standardisasi dengan fleksibilitas}: Alur inspeksi dibagi ke dalam domain yang jelas, sehingga setiap pelabuhan menjalankan proses dengan urutan sama namun tetap memiliki keleluasaan mengelola detail operasional.
-  \item \textbf{Koordinasi eksplisit}: Tanggung jawab setiap domain (pencatatan, analisis, otorisasi, pelaporan) terdefinisi secara eksplisit, mempermudah koordinasi antar aktor.
-  \item \textbf{Isolasi perubahan}: Perubahan kebijakan atau beban kerja dapat diserap oleh domain relevan tanpa mengganggu keseluruhan sistem.
-\end{itemize}
+\subsubsection[Justifikasi Atribut Kualitas]{Justifikasi Berdasarkan Atribut Kualitas (ISO/IEC 25010)}
 
-\subsubsection{Justifikasi Berdasarkan Quality Attributes (ISO/IEC 25010)}
-
-Modularitas memberikan kontribusi langsung terhadap atribut kualitas yang diprioritaskan dalam kebutuhan nonfungsional \autocite{bass2022}:
-
-\begin{itemize}
-  \item \textbf{\textit{Maintainability}}: Modul terisolasi mempermudah perbaikan dan evolusi fungsional tanpa efek samping pada domain lain.
-  \item \textbf{\textit{Reliability}}: Keberlanjutan operasional lebih terjamin karena kegagalan satu domain tidak meruntuhkan keseluruhan sistem.
-  \item \textbf{\textit{Interoperability}}: Kontrak antardomain dapat dirancang sebagai antarmuka standar yang dapat diekspose ke sistem eksternal.
-  \item \textbf{\textit{Security}}: Struktur data yang mengikuti batas domain mendukung penerapan kontrol akses berbasis domain dan meminimalkan risiko inkonsistensi.
-\end{itemize}
+Modularitas memberikan kontribusi langsung terhadap atribut kualitas yang
+diprioritaskan dalam kebutuhan nonfungsional \autocite{bass2022}. Dari sisi
+\textit{maintainability}, modul yang terisolasi mempermudah perbaikan dan
+evolusi fungsional tanpa efek samping pada domain lain. Dari sisi
+\textit{reliability}, keberlanjutan operasional lebih terjamin karena kegagalan
+satu domain tidak meruntuhkan keseluruhan sistem. Dari sisi
+\textit{interoperability}, kontrak antardomain dapat dirancang sebagai
+antarmuka standar yang dapat diekspose ke sistem eksternal. Dari sisi
+\textit{security}, struktur data yang mengikuti batas domain mendukung
+penerapan kontrol akses berbasis domain dan meminimalkan risiko inkonsistensi.
 
 \subsubsection{Justifikasi Berdasarkan Prinsip Arsitektur}
 
-Prinsip \textit{modularity} dan \textit{loose coupling} yang menjadi dasar arsitektur ini selaras dengan rekomendasi literatur arsitektur sistem \autocite{newman2015}:
-
-\begin{itemize}
-  \item \textbf{Evolusi independen}: Setiap domain dapat berevolusi dengan siklus pengembangan sendiri, sementara hubungan antardomain dijaga melalui kontrak komunikasi yang terdokumentasi.
-  \item \textbf{Governance terintegrasi}: Pendekatan ini memperkuat tata kelola karena organisasi harus mendokumentasikan batasan, antarmuka, dan dependensi sejak tahap konseptual.
-  \item \textbf{Alignment people-technology}: Penerapan \textit{domain boundary} menyelaraskan aspek \textit{people} dan \textit{technology}, tim proses dapat memfokuskan perbaikan pada domain masing-masing, sedangkan tim teknologi memiliki peta komponen yang jelas.
-\end{itemize}
+Prinsip \textit{modularity} dan \textit{loose coupling} yang menjadi dasar
+arsitektur ini selaras dengan rekomendasi literatur arsitektur sistem
+\autocite{newman2015}. Setiap domain dapat berevolusi dengan siklus
+pengembangan sendiri, sementara hubungan antardomain dijaga melalui kontrak
+komunikasi yang terdokumentasi. Pendekatan ini juga memperkuat tata kelola
+karena organisasi perlu mendokumentasikan batasan, antarmuka, dan dependensi
+sejak tahap konseptual. Di samping itu, penerapan \textit{domain boundary}
+menyelaraskan aspek \textit{people} dan \textit{technology}, karena tim proses
+dapat memfokuskan perbaikan pada domain masing-masing, sedangkan tim teknologi
+memiliki peta komponen yang lebih jelas.
 
 \subsubsection{Justifikasi Berdasarkan Standar dan Regulasi}
 
-Penekanan pada modularitas dan peran domain memudahkan pemetaan kebutuhan regulasi ke komponen sistem:
-
-\begin{itemize}
-  \item \textbf{Integrasi lintas instansi}: Peraturan Menteri Perhubungan No.~8/2022 menuntut integrasi lintas instansi, yang dapat dipenuhi dengan menetapkan domain integrasi sebagai modul khusus yang mengelola pertukaran data resmi \autocite{kemenhub2022}.
-  \item \textbf{Tata kelola informasi}: Prinsip tata kelola informasi dalam WCO SAFE Framework dapat diterjemahkan ke dalam domain tata kelola data yang memegang kendali atas kualitas dan audit informasi \autocite{wco2025}.
-  \item \textbf{Kejelasan tanggung jawab regulatif}: Struktur berbasis domain memastikan setiap kewajiban regulatif memiliki pemilik yang jelas dalam arsitektur konseptual.
-\end{itemize}
+Penekanan pada modularitas dan peran domain juga memudahkan pemetaan
+kebutuhan regulasi ke komponen sistem. Peraturan Menteri Perhubungan No.~8/2022
+menuntut integrasi lintas instansi, dan tuntutan tersebut dapat diterjemahkan
+ke dalam domain integrasi sebagai modul khusus yang mengelola pertukaran data
+resmi \autocite{kemenhub2022}. Prinsip tata kelola informasi dalam \textit{WCO SAFE Framework}
+juga dapat diterjemahkan ke dalam domain tata kelola data yang
+memegang kendali atas kualitas dan audit informasi \autocite{wco2025}. Dengan
+struktur berbasis domain, setiap kewajiban regulatif memiliki pemilik yang
+lebih jelas dalam arsitektur konseptual.
 
 Berdasarkan justifikasi dari empat perspektif tersebut, arsitektur modular
 berbasis domain memberikan fondasi yang kokoh untuk mengatasi tiga kategori
@@ -515,8 +538,8 @@ Eksplorasi terhadap lima alternatif solusi konseptual menunjukkan bahwa arsitekt
 
 Solusi yang dipilih menjadi fondasi untuk perancangan arsitektur konseptual
 yang akan dipaparkan pada Bab IV, mencakup definisi domain komponen, alur
-informasi antardomain, mekanisme integrasi terstandar, dan prinsip tata kelola
+informasi antardomain, mekanisme integrasi standar, dan prinsip tata kelola
 data yang mendukung ekosistem digital pelabuhan. Bab berikutnya menerjemahkan
 hasil analisis ini menjadi struktur arsitektur terperinci agar operasi
-inspeksi kontainer dapat berlangsung secara digital, terstandardisasi, dan
+inspeksi kontainer dapat berlangsung secara digital, mengikuti standar, dan
 siap diintegrasikan.

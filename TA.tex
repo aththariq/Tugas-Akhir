@@ -70,7 +70,6 @@
 \documentclass[12pt,a4paper]{book}
 
 % --- Main packages ---
-\usepackage[utf8]{inputenc} % for UTF-8 encoding
 \usepackage{fontspec} % for font selection
 \usepackage[indonesian]{babel} % untuk bahasa Indonesia
 \usepackage{csquotes} % for context-sensitive quotation facilities
@@ -82,7 +81,6 @@
 \usepackage{tocloft} % for customizing table of contents
 \usepackage{titlesec} % for customizing titles
 \usepackage{lipsum} % for dummy text (lorem ipsum text)
-\usepackage{floatrow} % for customizing float (figure and table) positions
 \usepackage{listings} % for code listing
 \usepackage{amsmath} % for math
 \usepackage{amssymb} % for math symbols
@@ -94,9 +92,6 @@
 \usepackage{multirow} % for multi-row cells in tables
 \usepackage[bahasai]{datetime2} % for date formatting in Indonesian
 \usepackage{geometry} % for page margins
-\usepackage{algorithm} % for algorithms
-\usepackage{algorithmicx} % for algorithmic environment
-\usepackage{algpseudocode} % for pseudocode
 \usepackage{microtype} % Untuk optimasi typography dan spacing
 \usepackage{floatrow} % for customizing float (figure and table) positions
 \usepackage{array} % for better arrays (eg. in tabular environment)
@@ -105,7 +100,6 @@
 \usepackage{xcolor} % for color definitions
 \usepackage{tikz} % for diagrams
 \usepackage[title,titletoc]{appendix} % for appendix management
-\usepackage{csquotes} % for context-sensitive quotation facilities
 \usepackage[hidelinks]{hyperref} % for hyperlinks
 \usepackage{placeins} % for float barriers
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
@@ -165,11 +159,8 @@
 \renewcommand{\lstlistingname}{\textit{Listing}}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
 
-% --- Ubah nama list of algorithm ke "DAFTAR ALGORITMA" ---
-\renewcommand{\algorithmname}{Algoritma}
-\renewcommand{\listalgorithmname}{DAFTAR ALGORITMA}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
-\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}
+% Lingkungan algoritma tidak digunakan pada naskah ini, sehingga konfigurasi
+% khusus algoritma dinonaktifkan untuk menghindari konflik paket float.
 
 % Create list of equations
 \newlistof{myequations}{equ}{DAFTAR PERSAMAAN}
@@ -190,16 +181,19 @@
 
 \renewcommand \cftchapdotsep{4.5} % Atur jarak titik-titik pada daftar isi
 
-%\cftsetrmarg{4em}  % agar judul subbab tidak mepet ke nomor halaman di daftar isi (optional)
+\cftsetrmarg{4.8em}  % beri ruang lebih longgar untuk judul panjang pada daftar isi
 % -- Atur indentasi judul bab, subbab, dan subsubbab di daftar isi ---
 \setlength{\cftchapindent}{0em}
 \setlength{\cftchapnumwidth}{1.8em}
 \setlength{\cftsecindent}{1.8em}
-\setlength{\cftsecnumwidth}{2.4em}
+\setlength{\cftsecnumwidth}{5.2em}
 \setlength{\cftsubsecindent}{4.2em}
-\setlength{\cftsubsecnumwidth}{2.8em}
-\setlength{\cftsubsubsecindent}{7.0em}
-\setlength{\cftsubsubsecnumwidth}{3.2em}
+\setlength{\cftsubsecnumwidth}{5.8em}
+\setlength{\cftsubsubsecindent}{7.2em}
+\setlength{\cftsubsubsecnumwidth}{6.4em}
+\renewcommand{\cftsecaftersnum}{\hspace{0.5em}}
+\renewcommand{\cftsubsecaftersnum}{\hspace{0.5em}}
+\renewcommand{\cftsubsubsecaftersnum}{\hspace{0.5em}}
 
 % --- Ubah nama bulan ke Bahasa Indonesia ---
 \renewcommand*{\DTMbahasaimonthname}[1]{%
@@ -354,7 +348,6 @@
 
 \newgeometry{
       twoside,
-      a4paper,
       inner=4cm,
       outer=3cm,
       top=3cm,

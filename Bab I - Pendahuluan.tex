@@ -96,32 +96,57 @@ menjadi fokus tugas akhir ini dirumuskan sebagai berikut:
   kebutuhan operasional inspeksi kontainer?
 \end{enumerate}
 
+Untuk menjawab rumusan masalah tersebut, tugas akhir ini terlebih dahulu
+melakukan identifikasi kebutuhan sistem sebagai dasar perancangan, kemudian
+mengevaluasi kesesuaian rancangan terhadap sistem yang direalisasikan.
+
 \section{Tujuan}
 
-Penelitian ini bertujuan menghasilkan rancangan arsitektur sistem inspeksi
+Tugas akhir ini bertujuan menghasilkan rancangan arsitektur sistem inspeksi
 kontainer digital terintegrasi yang dapat menjadi dasar realisasi sistem dan
 menjadi acuan pengembangan lebih lanjut di lingkungan pelabuhan.
 
 Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
 \begin{enumerate}
-  \item Mengidentifikasi kebutuhan sistem inspeksi kontainer digital berdasarkan kondisi lapangan, regulasi yang berlaku, dan kebutuhan integrasi data di lingkungan pelabuhan.
-  \item Merancang arsitektur sistem yang mendefinisikan komponen utama, hubungan antarkomponen, dan alur informasi inspeksi kontainer secara menyeluruh.
-  \item Merancang arsitektur data yang mendukung pencatatan hasil inspeksi, penyimpanan bukti visual, dan pelacakan riwayat pemeriksaan kontainer.
-  \item Menyusun model alur informasi yang memungkinkan integrasi hasil identifikasi, hasil pemindaian, dan penyajian informasi kepada pengguna dalam satu sistem yang konsisten.
-  \item Mengevaluasi kesesuaian rancangan arsitektur terhadap sistem yang direalisasikan pada proyek pengembangan sistem.
+  \item Mengidentifikasi kebutuhan sistem inspeksi kontainer digital berdasarkan
+  kondisi lapangan, regulasi yang berlaku, dan kebutuhan integrasi data di
+  lingkungan pelabuhan.
+  \item Merancang arsitektur sistem yang mendefinisikan komponen utama,
+  hubungan antarkomponen, dan alur informasi inspeksi kontainer secara
+  menyeluruh.
+  \item Merancang arsitektur data yang mendukung pencatatan hasil inspeksi,
+  penyimpanan bukti visual, dan pelacakan riwayat pemeriksaan kontainer.
+  \item Menyusun model alur informasi yang memungkinkan integrasi hasil
+  identifikasi, hasil pemindaian, dan penyajian informasi kepada pengguna dalam
+  satu sistem yang konsisten.
+  \item Mengevaluasi kesesuaian rancangan arsitektur terhadap sistem yang
+  direalisasikan pada proyek pengembangan sistem.
 \end{enumerate}
 
 \section{Batasan Masalah}
 
 Agar tugas akhir ini tetap fokus pada kontribusi perancangan arsitektur sistem,
-batasan masalah ditetapkan sebagai berikut:
+ruang lingkup pembahasan dibatasi sebagai berikut:
 \begin{itemize}
-  \item Tugas akhir ini berfokus pada perancangan arsitektur sistem dan arsitektur data, bukan pada implementasi detail algoritma deteksi, strategi \textit{deployment}, atau tata kelola organisasi secara penuh.
-  \item Rancangan arsitektur dibatasi pada definisi komponen utama, relasi antarkomponen, struktur data, dan alur informasi yang mendukung proses inspeksi kontainer digital.
-  \item Tugas akhir ini tidak membahas rancangan infrastruktur fisik pelabuhan, pengembangan perangkat keras sensor secara rinci, maupun operasi bisnis pelabuhan secara menyeluruh.
-  \item Evaluasi tugas akhir ini difokuskan pada kesesuaian rancangan arsitektur terhadap sistem yang direalisasikan dan pada validasi integrasi antarkomponen, bukan pada uji performa kuantitatif menyeluruh atau uji lapangan skala penuh.
-  \item Tugas akhir ini tidak membahas aspek keamanan siber, tata kelola layanan, dan pengelolaan operasional secara mendalam, tetapi hanya meninjau implikasinya pada rancangan arsitektur secara umum.
-  \item Ruang lingkup terbatas pada sistem inspeksi kontainer digital terintegrasi dan tidak mencakup perancangan ulang seluruh ekosistem sistem informasi pelabuhan.
+  \item Tugas akhir ini berfokus pada perancangan arsitektur sistem dan
+  arsitektur data, bukan pada implementasi detail algoritma deteksi, strategi
+  \textit{deployment}, atau tata kelola organisasi secara penuh.
+  \item Rancangan arsitektur dibatasi pada definisi komponen utama, relasi
+  antarkomponen, struktur data, dan alur informasi yang mendukung proses
+  inspeksi kontainer digital.
+  \item Tugas akhir ini tidak membahas rancangan infrastruktur fisik pelabuhan,
+  pengembangan perangkat keras sensor secara rinci, maupun operasi bisnis
+  pelabuhan secara menyeluruh.
+  \item Evaluasi tugas akhir ini difokuskan pada kesesuaian rancangan arsitektur
+  terhadap sistem yang direalisasikan dan pada validasi integrasi
+  antarkomponen, bukan pada uji performa kuantitatif menyeluruh atau uji
+  lapangan skala penuh.
+  \item Aspek keamanan siber, tata kelola layanan, dan pengelolaan operasional
+  tidak dibahas secara mendalam, tetapi hanya ditinjau sejauh relevan terhadap
+  rancangan arsitektur.
+  \item Ruang lingkup terbatas pada sistem inspeksi kontainer digital
+  terintegrasi dan tidak mencakup perancangan ulang seluruh ekosistem sistem
+  informasi pelabuhan.
 \end{itemize}
 
 Dengan batasan tersebut, tugas akhir ini menghasilkan rancangan arsitektur
@@ -129,7 +154,7 @@ sistem yang menekankan integrasi komponen, alur data, dan ketertelusuran
 informasi sebagai landasan bagi pengembangan sistem inspeksi kontainer
 terintegrasi.
 
-Dalam konteks proyek capstone, implementasi sistem yang telah dibangun
+Dalam konteks proyek pengembangan sistem, implementasi sistem yang telah dibangun
 digunakan pada tugas akhir ini sebagai artefak realisasi untuk menilai apakah
 rancangan arsitektur yang disusun benar-benar dapat diwujudkan. Namun,
 pembahasan tugas akhir ini tidak diarahkan untuk menguraikan seluruh detail
@@ -142,10 +167,10 @@ menjadi dasar integrasi sistem yang direalisasikan.
 Tugas akhir ini menggunakan pendekatan \textit{Design Science Research} (DSR)
 karena fokus utama pekerjaan ini adalah menghasilkan artefak berupa rancangan
 arsitektur sistem yang relevan terhadap masalah praktis dan dapat dievaluasi
-melalui realisasi sistem \autocite{hevner2004design}. Pendekatan ini dipilih
-karena memungkinkan hubungan yang jelas antara masalah operasional di lapangan,
-keputusan perancangan arsitektur, demonstrasi artefak melalui implementasi, dan
-evaluasi kesesuaian hasil.
+melalui realisasi sistem \autocite{hevner2004design,peffers2007dsrm}.
+Pendekatan ini dipilih karena memungkinkan hubungan yang jelas antara masalah
+operasional di lapangan, keputusan perancangan arsitektur, demonstrasi artefak
+melalui implementasi, dan evaluasi kesesuaian hasil.
 
 \begin{figure}[ht]
   \centering
@@ -158,7 +183,7 @@ evaluasi kesesuaian hasil.
     \node[box, below=of problem] (objective) {Penetapan tujuan perancangan arsitektur sistem};
     \node[box, below=of objective] (literature) {Studi literatur dan analisis kebutuhan};
     \node[box, below=of literature] (design) {Perancangan arsitektur sistem, arsitektur data, dan alur informasi};
-    \node[box, below=of design] (demo) {Demonstrasi artefak melalui realisasi sistem pada proyek capstone};
+    \node[box, below=of design] (demo) {Demonstrasi artefak melalui realisasi sistem pada proyek pengembangan sistem};
     \node[box, below=of demo] (evaluation) {Evaluasi kesesuaian rancangan terhadap realisasi dan bukti integrasi};
     \node[box, below=of evaluation] (communication) {Penyusunan laporan tugas akhir};
 
@@ -188,7 +213,7 @@ menyusun arsitektur sistem, arsitektur data, alur informasi, serta prinsip
 integrasi yang menjadi inti kontribusi tugas akhir ini.
 
 Dalam konteks DSR, tahap demonstrasi dilakukan melalui penggunaan hasil
-realisasi sistem pada proyek capstone sebagai artefak implementasi yang dapat
+realisasi sistem pada proyek pengembangan sistem sebagai artefak implementasi yang dapat
 menunjukkan bahwa rancangan arsitektur benar-benar dapat diwujudkan. Setelah
 itu, tahap evaluasi dilakukan untuk menilai kesesuaian antara rancangan
 arsitektur dengan perilaku sistem yang direalisasikan, terutama pada alur data

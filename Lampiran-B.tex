@@ -3,18 +3,17 @@
 \label{chap:survei}
 
 Lampiran ini memuat dokumentasi visual dari lokasi dan pihak yang berkaitan
-dengan konteks penelitian. Dokumentasi ini digunakan sebagai pelengkap untuk
+dengan konteks tugas akhir. Dokumentasi ini digunakan sebagai pelengkap untuk
 memberikan gambaran lapangan terhadap lingkungan operasional yang menjadi acuan
 perancangan arsitektur sistem inspeksi kargo digital.
 
 \section{Dokumentasi Foto Survei Lokasi}
 
 Kegiatan survei lapangan dilaksanakan pada dua lokasi utama yang relevan dengan
-konteks penelitian, yaitu:
-\begin{itemize}
-  \item Terminal Pelindo Peti Kemas Tanjung Priok pada tanggal 3 Februari 2026.
-  \item Depo peti kemas Tanjung Priok PT Salam Pacific Indonesia Lines (SPIL) pada tanggal 26 Februari 2026.
-\end{itemize}
+konteks tugas akhir. Lokasi pertama adalah Terminal Pelindo Peti Kemas Tanjung
+Priok, yang dikunjungi pada tanggal 3 Februari 2026. Lokasi kedua adalah Depo
+Peti Kemas Tanjung Priok PT Salam Pacific Indonesia Lines (SPIL), yang
+dikunjungi pada tanggal 26 Februari 2026.
 
 \subsection{Terminal Pelindo Peti Kemas Tanjung Priok}
 
@@ -46,7 +45,7 @@ tambahan pada Gambar~\ref{fig:survei_tpk_pelindo_tambahan_1} dan
 Gambar~\ref{fig:survei_tpk_pelindo_tambahan_2} melengkapi gambaran kondisi area
 operasional yang diamati selama kunjungan lapangan.
 
-\subsection{Depo Peti Kemas Tanjung Priok PT Salam Pacific Indonesia Lines (SPIL)}
+\subsection{Depo Peti Kemas Tanjung Priok SPIL}
 
 \begin{figure}[htbp]
   \centering
@@ -65,7 +64,7 @@ operasional yang diamati selama kunjungan lapangan.
 Foto pada Gambar~\ref{fig:survei_pt_spil} dan
 Gambar~\ref{fig:survei_pt_spil_tambahan} digunakan sebagai dokumentasi pihak
 yang berkaitan dengan kegiatan logistik dan menjadi pelengkap konteks domain
-penelitian pada sistem inspeksi kargo digital terintegrasi.
+tugas akhir pada sistem inspeksi kargo digital terintegrasi.
 
 \section{Ringkasan Temuan Survei Lapangan}
 \label{sec:temuan_survei}
@@ -81,8 +80,8 @@ ketertelusuran bukti inspeksi dan penyelarasan data antarkomponen menjadi
 semakin penting ketika proses melibatkan beberapa pihak dalam rantai logistik.
 
 Temuan-temuan ini memperkuat kebutuhan akan arsitektur sistem yang mampu
-menghubungkan proses akuisisi data, pengolahan hasil inspeksi, penyimpanan
-artefak visual, serta penyajian informasi kepada pengguna secara konsisten.
+menghubungkan akuisisi data, pengolahan hasil inspeksi, penyimpanan artefak
+visual, dan penyajian informasi kepada pengguna secara konsisten.
 
 \subsection{Alur Operasional Terminal dan Inspeksi Kontainer}
 
@@ -97,7 +96,7 @@ ditentukan.
 
 Temuan ini menunjukkan bahwa proses operasional terminal sudah memiliki alur
 kerja yang terstruktur, tetapi pencatatan hasil pemeriksaan fisik masih sangat
-bergantung pada kedisiplinan operator dan kesesuaian input pada beberapa titik
+bergantung pada kedisiplinan operator dan kesesuaian masukan pada beberapa titik
 proses. Kondisi tersebut menegaskan pentingnya sistem yang mampu menjaga
 konsistensi hubungan antara identitas kontainer, hasil pemeriksaan, dan lokasi
 operasional secara terintegrasi.
@@ -140,7 +139,7 @@ data visual dan data inspeksi belum sepenuhnya terhubung dalam satu alur
 informasi yang terpadu. Dengan kata lain, keberadaan sistem operasional belum
 otomatis berarti tersedianya integrasi data inspeksi yang kuat.
 
-Kondisi ini memperkuat argumen bahwa kebutuhan utama pada penelitian bukan
+Kondisi ini memperkuat argumen bahwa kebutuhan utama pada tugas akhir bukan
 sekadar penambahan perangkat inspeksi, melainkan perancangan arsitektur sistem
 yang mampu menghubungkan akuisisi data, penyimpanan hasil pemeriksaan,
 penyajian bukti visual, dan distribusi informasi secara konsisten.
@@ -160,22 +159,20 @@ selama kegiatan pengumpulan data.
 
 Pokok pertanyaan yang digunakan dalam wawancara lapangan disusun untuk
 memperdalam pemahaman terhadap konteks operasional, kebutuhan informasi, dan
-kendala integrasi pada layanan inspeksi serta screening kontainer. Pertanyaan
-yang diajukan mencakup beberapa kelompok topik berikut.
-
-\begin{enumerate}
-  \item Alur inspeksi dan prosedur operasional standar, termasuk lokasi pemeriksaan, alur kerja, target waktu layanan, peran petugas, mekanisme pencatatan hasil, penanganan kerusakan berat, dan pihak-pihak yang terlibat dalam penyelesaian sengketa.
-  \item Klasifikasi kerusakan kontainer, termasuk acuan standar yang digunakan, jenis kerusakan yang diprioritaskan, ambang toleransi, serta pembedaan antara kerusakan aktual dan gangguan visual.
-  \item Kebutuhan pengumpulan bukti visual berupa foto atau video untuk mendukung identifikasi kondisi kontainer rusak maupun kontainer dalam kondisi baik sebagai pembanding.
-  \item Acuan regulasi, kebijakan, dan \textit{framework} teknologi informasi yang digunakan dalam perancangan, pengoperasian, dan pemeliharaan sistem di lingkungan terminal.
-  \item Pembagian peran antara unit internal dan vendor dalam pengelolaan layanan screening, termasuk mekanisme pemeliharaan sistem dan pelaporan gangguan.
-  \item Struktur pengambilan keputusan dan koordinasi, termasuk pihak yang terlibat dalam perubahan layanan, evaluasi kinerja, dan penanganan kendala operasional.
-  \item Tingkat layanan dan mekanisme pemantauan layanan screening, termasuk keberadaan SLA serta tantangan pemenuhannya.
-  \item Pengelolaan data, akses, dan \textit{audit trail}, termasuk lokasi penyimpanan data hasil screening, pihak yang memiliki akses, dan kemudahan penelusuran data saat terjadi klaim atau investigasi kasus.
-  \item Integrasi antarsistem, khususnya hubungan antara sistem screening, sistem otoritas kepabeanan, sistem operasional terminal, dan sistem nasional yang relevan.
-  \item Masalah utama yang dihadapi dalam layanan screening saat ini dan kemampuan yang diharapkan dari solusi digital yang lebih terintegrasi.
-  \item Ketersediaan dokumen pendukung, termasuk pedoman tata kelola TI, dokumen acuan \textit{framework}, alur proses screening, dokumen SLA, diagram integrasi sistem, dan SOP penanganan insiden.
-\end{enumerate}
+kendala integrasi pada layanan inspeksi serta \textit{screening} kontainer. Pertanyaan
+yang diajukan mencakup alur inspeksi dan prosedur operasional standar, termasuk
+lokasi pemeriksaan, alur kerja, target waktu layanan, peran petugas, mekanisme
+pencatatan hasil, penanganan kerusakan berat, dan pihak-pihak yang terlibat
+dalam penyelesaian sengketa. Wawancara juga menggali klasifikasi kerusakan
+kontainer, acuan standar yang digunakan, jenis kerusakan yang diprioritaskan,
+ambang toleransi, serta pembedaan antara kerusakan aktual dan gangguan visual.
+Selain itu, pembahasan mencakup kebutuhan pengumpulan bukti visual, acuan
+regulasi dan kerangka kerja teknologi informasi, pembagian peran antara unit
+internal dan vendor, struktur pengambilan keputusan, pemantauan SLA, pengelolaan
+data dan \textit{audit trail}, integrasi antarsistem, masalah utama dalam
+layanan \textit{screening}, serta ketersediaan dokumen pendukung seperti pedoman tata
+kelola TI, alur proses, dokumen SLA, diagram integrasi, dan SOP penanganan
+insiden.
 
 \noindent
 Jawaban atas pokok pertanyaan tersebut tidak direkam dalam bentuk transkrip
@@ -189,7 +186,7 @@ klasifikasi kerusakan kontainer, kebutuhan pengumpulan bukti visual, acuan
 regulasi dan kerangka kerja teknologi informasi, pembagian peran internal dan
 vendor, struktur koordinasi pengambilan keputusan, pemantauan layanan,
 pengelolaan data dan \textit{audit trail}, integrasi antarsistem, serta harapan
-perbaikan terhadap layanan screening dan inspeksi kontainer.
+perbaikan terhadap layanan \textit{screening} dan inspeksi kontainer.
 
 \begin{longtable}{@{} p{0.18\textwidth} p{0.74\textwidth} @{}}
 \textbf{Tanggal} & 3 Februari 2026 \\ \addlinespace
@@ -211,30 +208,155 @@ perbaikan terhadap layanan screening dan inspeksi kontainer.
 
 Selain catatan wawancara, pengumpulan data lapangan juga dilengkapi dengan
 dokumen resmi yang relevan dengan tata kelola teknologi informasi, proses
-screening, tingkat layanan, integrasi sistem, dan penanganan insiden. Dokumen
+\textit{screening}, tingkat layanan, integrasi sistem, dan penanganan insiden. Dokumen
 pendukung tersebut digunakan sebagai dasar triangulasi untuk menafsirkan
 temuan lapangan secara lebih hati-hati.
-
-\begin{enumerate}
-  \item Pedoman tata kelola TI internal Pelindo, termasuk kebijakan tata kelola TI, manajemen risiko, keamanan informasi, serta dokumen kebijakan strategis dan operasional.
-  \item Dokumen acuan \textit{framework} dan penilaian tata kelola, termasuk laporan \textit{enterprise architecture}, tata kelola TI, \textit{roadmap}, dan penilaian tingkat kematangan.
-  \item Dokumen alur proses screening kontainer dari sisi operasional.
-  \item Dokumen tingkat layanan dan keberlangsungan layanan terkait alat pemindai peti kemas.
-  \item Diagram integrasi sistem terkait layanan screening dan alat pemindai.
-  \item Dokumen prosedur pengelolaan insiden sistem informasi dan insiden keamanan pada sistem screening.
-\end{enumerate}
+Dokumen yang diperoleh mencakup pedoman tata kelola TI internal Pelindo,
+termasuk kebijakan tata kelola TI, manajemen risiko, keamanan informasi, serta
+dokumen kebijakan strategis dan operasional. Pengumpulan data juga mencakup
+dokumen acuan kerangka kerja dan penilaian tata kelola, seperti laporan
+\textit{enterprise architecture}, tata kelola TI, \textit{roadmap}, dan
+penilaian tingkat kematangan. Selain itu, digunakan dokumen alur proses
+\textit{screening} kontainer, dokumen tingkat layanan dan keberlangsungan layanan alat
+pemindai peti kemas, diagram integrasi sistem terkait layanan \textit{screening}, serta
+dokumen prosedur pengelolaan insiden sistem informasi dan insiden keamanan.
 
 Dokumen-dokumen tersebut juga memberikan beberapa temuan eksplisit yang
-memperkuat hasil observasi dan wawancara lapangan:
-\begin{itemize}
-  \item Dokumen \textit{assessment} Hico Scan menunjukkan bahwa layanan alat pemindai telah ditempatkan dalam konteks integrasi yang berkaitan dengan \textit{Port Operating Solution}, \textit{Enterprise Digital Solution}, dan Pelindo Hub, sehingga kebutuhan integrasi sistem pada tugas akhir ini memiliki dasar operasional yang nyata.
-  \item Dokumen \textit{traffic management} alat pemindai menunjukkan bahwa proses screening kontainer melibatkan pengaturan jalur operasional yang spesifik serta koordinasi petugas keamanan dan pengemudi, sehingga alur layanan tidak hanya bergantung pada perangkat pemindai, tetapi juga pada koordinasi proses di lapangan.
-  \item Keberadaan dokumen BCP layanan alat pemindai menunjukkan bahwa keberlangsungan layanan screening dipandang sebagai aspek operasional penting, sehingga rancangan arsitektur perlu mempertimbangkan ketersediaan layanan dan penanganan gangguan.
-  \item Dokumen prosedur pengelolaan insiden sistem informasi dan insiden keamanan menunjukkan bahwa layanan screening berada dalam kerangka tata kelola dan penanganan insiden formal, sehingga kebutuhan jejak audit, kontrol akses, dan pemantauan layanan pada arsitektur menjadi semakin relevan.
-\end{itemize}
+memperkuat hasil observasi dan wawancara lapangan. Dokumen \textit{assessment}
+Hico Scan menunjukkan bahwa layanan alat pemindai telah ditempatkan dalam
+konteks integrasi yang berkaitan dengan \textit{Port Operating Solution},
+\textit{Enterprise Digital Solution}, dan Pelindo Hub, sehingga kebutuhan
+integrasi sistem pada tugas akhir ini memiliki dasar operasional yang nyata.
+Dokumen \textit{traffic management} alat pemindai menunjukkan bahwa proses
+\textit{screening} kontainer melibatkan pengaturan jalur operasional yang spesifik serta
+koordinasi petugas keamanan dan pengemudi. Dengan demikian, alur layanan tidak
+hanya bergantung pada perangkat pemindai, tetapi juga pada koordinasi proses di
+lapangan. Keberadaan dokumen BCP layanan alat pemindai memperlihatkan bahwa
+keberlangsungan layanan \textit{screening} dipandang sebagai aspek operasional penting,
+sedangkan prosedur pengelolaan insiden sistem informasi dan insiden keamanan
+menunjukkan bahwa layanan \textit{screening} berada dalam kerangka tata kelola formal.
+Temuan tersebut membuat kebutuhan jejak audit, kontrol akses, dan pemantauan
+layanan pada arsitektur menjadi semakin relevan.
 
-Daftar dokumen tersebut memperkuat temuan bahwa layanan screening dan inspeksi
+Daftar dokumen tersebut memperkuat temuan bahwa layanan \textit{screening} dan inspeksi
 kontainer berada dalam konteks operasional yang melibatkan banyak komponen,
 pihak, dan titik integrasi. Oleh karena itu, kebutuhan terhadap arsitektur
 sistem yang terstruktur, terintegrasi, dan mendukung ketertelusuran data
 menjadi semakin relevan.
+
+\section{Bukti Tampilan Realisasi Sistem}
+\label{sec:bukti_tampilan_realisasi}
+
+Bagian ini memuat contoh tampilan antarmuka sistem yang digunakan sebagai bukti
+visual pendukung pada evaluasi arsitektur. Bukti ini tidak ditujukan untuk
+menilai kualitas antarmuka secara rinci, melainkan untuk menunjukkan bahwa
+keputusan arsitektural yang dibahas pada Bab~\ref{chap:evaluasi} memang telah
+direalisasikan dalam bentuk alur sistem yang dapat diamati.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{images/evidence-ocr-live.png}
+  \caption{Tampilan aliran OCR langsung yang menunjukkan deteksi nomor kontainer pada antarmuka pemantauan}
+  \label{fig:evidence_ocr_live}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{images/evidence-defect-live.png}
+  \caption{Tampilan \textit{defect scan} langsung yang menunjukkan anotasi kerusakan pada antarmuka pemantauan}
+  \label{fig:evidence_defect_live}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{images/evidence-container-detail.png}
+  \caption{Tampilan detail kontainer yang memperlihatkan agregasi hasil OCR, hasil pemindaian, dan \textit{metadata} inspeksi pada satu entitas kontainer}
+  \label{fig:evidence_container_detail}
+\end{figure}
+
+Ketiga tampilan tersebut mendukung tiga pembuktian utama. Pertama, nomor
+kontainer dapat dikenali dari aliran OCR dan digunakan sebagai identitas objek
+inspeksi. Kedua, hasil pemindaian kerusakan dapat ditampilkan langsung pada
+jalur video terpisah dari data transaksional. Ketiga, hasil dari beberapa
+proses inspeksi dapat disajikan kembali pada satu halaman detail kontainer,
+sehingga keputusan arsitektural mengenai integrasi data, pemisahan jalur
+komunikasi, dan ketertelusuran hasil memiliki bukti realisasi yang dapat
+diamati secara langsung.
+
+\section{Contoh Struktur Data Inti dan Penyimpanan Artefak}
+\label{sec:contoh-struktur-data}
+
+Selain bukti tampilan antarmuka, evaluasi arsitektur juga diperkuat dengan
+contoh struktur data inti yang digunakan sistem. Contoh ini menunjukkan bahwa
+hasil OCR, hasil pemindaian kerusakan, hasil pemindaian barang berisiko, hasil
+klasifikasi muatan, hasil tinjauan manual, dan lampiran bukti visual memang
+terkonsolidasi pada satu entitas kontainer. Demi menjaga kerahasiaan, sebagian
+nilai identitas pengguna disamarkan tanpa mengubah struktur data utamanya.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, breaklines=true, caption={Cuplikan struktur data inti pada entitas kontainer}, label={lst:container-entity-sample}]
+{
+  "containerNumber": "DFSU6625920",
+  "userEmail": "<disamarkan>",
+  "ocr": {
+    "detectedNumber": "DFSU6625920",
+    "confidence": 0.79,
+    "status": "SUCCESS"
+  },
+  "manifest": {
+    "found": false,
+    "source": "NOT_FOUND"
+  },
+  "defectScan": {
+    "summary": {
+      "total": 1,
+      "critical": 1
+    },
+    "hasCriticalDefects": true,
+    "status": "SUCCESS"
+  },
+  "illegalScan": {
+    "hasIllegalItems": true,
+    "threatLevel": "NONE",
+    "status": "SUCCESS"
+  },
+  "categoryScan": {
+    "detectedCategories": ["Spare_Part"],
+    "matchesManifest": false,
+    "status": "SUCCESS"
+  },
+  "manualReview": {
+    "required": true,
+    "reviewed": true,
+    "decision": "APPROVE"
+  },
+  "attachments": [
+    {
+      "type": "PHOTO",
+      "source": "MOBILE_APP",
+      "url": "https://cdn.cargovision.app/evidence/<container-id>/<file>.jpg"
+    }
+  ],
+  "status": "CLEARED"
+}
+\end{lstlisting}
+
+Cuplikan pada Listing~\ref{lst:container-entity-sample} memperlihatkan bahwa
+nomor kontainer berfungsi sebagai jangkar integrasi, sedangkan hasil-hasil
+inspeksi disimpan pada bidang-bidang terstruktur di dalam entitas yang sama.
+Struktur ini mendukung argumen bahwa arsitektur data yang dirancang memang
+memungkinkan penggabungan konteks OCR, kerusakan, barang berisiko, klasifikasi
+muatan, tinjauan manual, dan lampiran bukti visual secara konsisten.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{images/evidence-r2-storage.jpg}
+  \caption[Artefak visual pada Cloudflare R2]{Contoh penyimpanan artefak visual hasil pemindaian pada Cloudflare R2}
+  \label{fig:evidence_r2_storage}
+\end{figure}
+
+Gambar~\ref{fig:evidence_r2_storage} menunjukkan bahwa artefak visual hasil
+pemindaian benar-benar disimpan pada penyimpanan objek dan direferensikan
+melalui alamat yang terpisah dari data transaksional. Bukti ini memperkuat
+keputusan arsitektural untuk memisahkan data inti pada entitas kontainer dari
+berkas visual berukuran besar agar ketertelusuran tetap terjaga tanpa
+membebani model data utama.

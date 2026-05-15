@@ -14,14 +14,14 @@
 
 \begin{spacing}{1.0}
 Proses pemeriksaan kontainer di pelabuhan masih menghadapi berbagai kendala,
-di antaranya fragmentasi informasi antar pemangku kepentingan, pencatatan hasil
+di antaranya fragmentasi informasi antarpemangku kepentingan, pencatatan hasil
 inspeksi yang belum terintegrasi, keterbatasan ketertelusuran bukti inspeksi,
 dan rendahnya visibilitas hasil pemeriksaan secara waktu nyata. Kondisi
 tersebut menyebabkan proses verifikasi kontainer, validasi manifes, dan
 pengambilan keputusan operasional menjadi kurang efisien. Tugas akhir ini
 bertujuan merancang arsitektur sistem inspeksi kargo digital terintegrasi yang
-mampu mendukung identifikasi kontainer, pengolahan hasil inspeksi, integrasi
-data, dan penyajian informasi secara terpadu.
+mendukung identifikasi kontainer, pengolahan hasil inspeksi, integrasi data,
+dan penyajian informasi secara terpadu.
 
 Perancangan dilakukan dengan pendekatan \textit{Design Science Research} yang
 mencakup identifikasi masalah, penetapan tujuan, perancangan artefak,
@@ -30,20 +30,21 @@ disusun dengan pendekatan berlapis yang mencakup lapisan presentasi, aplikasi,
 data, dan \textit{edge}. Pada rancangan ini, komponen \textit{edge} bertugas
 melakukan akuisisi aliran video dan inferensi awal, layanan API menangani
 orkestrasi serta persistensi data, sedangkan aplikasi web menyediakan antarmuka
-pemantauan dan pembacaan hasil inspeksi. Pada aspek data, rancangan difokuskan
-pada entitas kontainer dan manifes sebagai pusat integrasi hasil inspeksi dan
-bukti visual.
+pemantauan hasil inspeksi. Pada aspek data, entitas kontainer ditempatkan
+sebagai pusat integrasi hasil inspeksi, manifes, dan bukti visual.
 
 Hasil realisasi sistem menunjukkan bahwa rancangan arsitektur dapat diwujudkan
 menjadi sistem yang menghubungkan komponen \textit{edge}, layanan API,
 penyimpanan data, dan antarmuka web dalam satu alur yang konsisten. Evaluasi
-dilakukan melalui pengujian integrasi terhadap alur utama, mulai dari
-pembentukan entitas kontainer melalui OCR, propagasi nomor kontainer ke alur
-pemindaian lain, penyimpanan hasil inspeksi pada model data inti, hingga
-penyajian hasil pada aplikasi web. Hasil evaluasi menunjukkan bahwa rancangan
-arsitektur yang diusulkan mampu mendukung proses pemeriksaan kontainer yang
-lebih terstruktur, terdokumentasi, dan siap dikembangkan lebih lanjut dalam
-konteks operasional pelabuhan.
+dilakukan melalui pengujian integrasi terhadap alur utama, meliputi pembentukan
+entitas kontainer melalui OCR, propagasi nomor kontainer ke alur pemindaian
+lain, penyimpanan hasil inspeksi pada model data inti, dan penyajian hasil pada
+aplikasi web. Hasil evaluasi menunjukkan bahwa rancangan yang diusulkan mampu
+mendukung proses pemeriksaan kontainer yang lebih terstruktur, terdokumentasi,
+dan siap dikembangkan lebih lanjut. Dengan demikian, kontribusi utama tugas
+akhir ini adalah rancangan arsitektur yang memetakan pembagian tanggung jawab
+antarkomponen, menempatkan entitas kontainer sebagai pusat integrasi data
+inspeksi, dan memvalidasi kesesuaian rancangan terhadap realisasi sistem.
 
 Kata kunci: arsitektur sistem, inspeksi kargo digital, integrasi data, pelabuhan, ketertelusuran.
 \end{spacing}

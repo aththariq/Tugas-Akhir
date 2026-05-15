@@ -7,66 +7,57 @@
 
 \section{Kesimpulan}
 
-Berdasarkan hasil analisis, perancangan, implementasi, dan evaluasi yang telah
-dilakukan, dapat diambil beberapa kesimpulan sebagai berikut.
+Berdasarkan hasil analisis, perancangan, realisasi sistem, dan evaluasi yang
+telah dilakukan, kesimpulan tugas akhir ini adalah sebagai berikut:
 
 \begin{enumerate}
-    \item Penelitian ini berhasil merumuskan rancangan arsitektur sistem
-    inspeksi kargo digital terintegrasi yang memisahkan tanggung jawab sistem ke
-    dalam komponen \textit{edge}, layanan API, aplikasi web, dan lapisan
-    penyimpanan. Struktur tersebut selaras dengan kebutuhan modularitas,
-    integrasi, dan ketertelusuran proses inspeksi di lingkungan pelabuhan.
-
-    \item Rancangan arsitektur yang disusun berhasil menempatkan data inspeksi
-    sebagai inti integrasi sistem. Hal ini direalisasikan melalui model data
-    yang memusatkan informasi pada entitas kontainer serta mendukung keterkaitan
-    dengan data manifes, hasil pemindaian, dan artefak visual pendukung.
-
-    \item Implementasi sistem menunjukkan bahwa rancangan arsitektur yang
-    diusulkan dapat direalisasikan. Komponen \textit{edge}, layanan API,
-    aplikasi web, dan media penyimpanan dapat diintegrasikan sehingga membentuk
-    alur data yang utuh, mulai dari identifikasi kontainer, pengumpulan hasil
-    pemindaian, penyimpanan bukti inspeksi, hingga penyajian hasil kepada
-    pengguna. Pada tugas akhir ini, implementasi tersebut diperlakukan sebagai
-    bukti realisasi rancangan arsitektural, bukan sebagai fokus utama pada
-    rincian rekayasa perangkat lunak tiap komponen.
-
-    \item Hasil evaluasi menunjukkan bahwa sistem yang direalisasikan telah
-    mendukung kebutuhan utama penelitian, yaitu integrasi antarkomponen,
-    konsistensi alur data, pemisahan jalur komunikasi sesuai fungsi, dan
-    ketertelusuran proses inspeksi. Dengan demikian, rancangan arsitektur yang
-    dihasilkan dapat menjadi landasan yang layak bagi pengembangan sistem
-    inspeksi kargo digital terintegrasi pada lingkungan operasional pelabuhan.
+  \item Tugas akhir ini berhasil merumuskan rancangan arsitektur sistem inspeksi
+  kargo digital terintegrasi yang memisahkan tanggung jawab sistem ke dalam
+  komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan.
+  Struktur tersebut selaras dengan kebutuhan modularitas, integrasi, dan
+  ketertelusuran proses inspeksi di lingkungan pelabuhan.
+  \item Rancangan arsitektur yang disusun berhasil menempatkan data inspeksi
+  sebagai inti integrasi sistem. Hal ini direalisasikan melalui model data yang
+  memusatkan informasi pada entitas kontainer serta mendukung keterkaitan dengan
+  data manifes, hasil pemindaian, dan artefak visual pendukung.
+  \item Artefak realisasi sistem menunjukkan bahwa rancangan arsitektur yang
+  diusulkan dapat diwujudkan. Komponen \textit{edge}, layanan API, aplikasi web,
+  dan media penyimpanan dapat diintegrasikan sehingga membentuk alur data yang
+  utuh, mulai dari identifikasi kontainer, pengumpulan hasil pemindaian,
+  penyimpanan bukti inspeksi, hingga penyajian hasil kepada pengguna.
+  \item Hasil evaluasi menunjukkan bahwa sistem yang direalisasikan telah
+  mendukung kebutuhan utama tugas akhir, yaitu integrasi antarkomponen,
+  konsistensi alur data, pemisahan jalur komunikasi sesuai fungsi, dan
+  ketertelusuran proses inspeksi. Dengan demikian, rancangan arsitektur yang
+  dihasilkan dapat menjadi landasan pengembangan sistem inspeksi kargo digital
+  terintegrasi, dengan catatan bahwa evaluasi pada tugas akhir ini berfokus pada
+  validasi arsitektur sistem, bukan pada penilaian menyeluruh terhadap
+  \textit{deployment} produksi, dampak bisnis, atau akurasi model deteksi secara
+  mendalam.
 \end{enumerate}
 
 \section{Saran}
 
-Berdasarkan hasil penelitian dan keterbatasan yang telah diidentifikasi,
-beberapa saran pengembangan yang dapat dilakukan pada tahap selanjutnya adalah
-sebagai berikut.
+Berdasarkan hasil tugas akhir dan keterbatasan yang telah diidentifikasi,
+pengembangan lanjutan dapat diarahkan pada beberapa hal berikut:
 
 \begin{enumerate}
-    \item Melakukan evaluasi kuantitatif terhadap performa sistem, seperti
-    latensi menyeluruh, kapasitas pemrosesan, dan ketahanan sistem ketika
-    dioperasikan pada beban yang lebih tinggi.
-
-    \item Melakukan pengujian lapangan pada lingkungan pelabuhan yang lebih
-    representatif agar rancangan arsitektur dapat divalidasi terhadap kondisi
-    operasional nyata, termasuk variasi jaringan, variasi kualitas aliran video,
-    dan integrasi dengan proses kerja harian petugas.
-
-    \item Mengembangkan integrasi yang lebih luas dengan sistem eksternal di
-    ekosistem pelabuhan, seperti sistem operasional terminal, sistem komunitas
-    pelabuhan, dan sistem kepabeanan, sehingga hasil inspeksi dapat menjadi
-    bagian dari alur informasi logistik yang lebih menyeluruh.
-
-    \item Menyempurnakan mekanisme tata kelola data dan audit, termasuk
-    pengelolaan riwayat perubahan, retensi artefak inspeksi, dan penguatan
-    kontrol akses agar sistem lebih siap digunakan pada lingkungan yang memiliki
-    tuntutan kepatuhan tinggi.
-
-    \item Mengembangkan evaluasi yang lebih mendalam terhadap kualitas model
-    deteksi dan OCR, terutama pada variasi kondisi kontainer, pencahayaan, dan
-    kualitas citra, agar performa keseluruhan sistem semakin andal pada
-    implementasi skala operasional.
+  \item Melakukan evaluasi kuantitatif terhadap performa sistem, seperti latensi
+  menyeluruh, kapasitas pemrosesan, dan ketahanan sistem ketika dioperasikan
+  pada beban yang lebih tinggi.
+  \item Melakukan pengujian lapangan pada lingkungan pelabuhan yang lebih
+  representatif agar rancangan arsitektur dapat divalidasi terhadap kondisi
+  operasional nyata, termasuk variasi jaringan, kualitas aliran video, dan
+  proses kerja harian petugas.
+  \item Mengembangkan integrasi yang lebih luas dengan sistem eksternal di
+  ekosistem pelabuhan, seperti sistem operasional terminal, sistem komunitas
+  pelabuhan, dan sistem kepabeanan, agar hasil inspeksi menjadi bagian dari alur
+  informasi logistik yang lebih menyeluruh.
+  \item Menyempurnakan mekanisme tata kelola data dan audit, termasuk
+  pengelolaan riwayat perubahan, retensi artefak inspeksi, dan penguatan kontrol
+  akses agar sistem lebih siap digunakan pada lingkungan yang memiliki tuntutan
+  kepatuhan tinggi.
+  \item Melakukan evaluasi lebih mendalam terhadap kualitas model deteksi dan
+  OCR pada variasi kondisi kontainer, pencahayaan, dan kualitas citra agar
+  performa keseluruhan sistem semakin andal pada implementasi skala operasional.
 \end{enumerate}
