@@ -177,7 +177,7 @@ skenario operasional pelabuhan.
 \textbf{FR-04} & \makecell[l]{Standardisasi\\Proses} & Sistem memberikan panduan penilaian kerusakan berbasis standar industri & Tinggi \\
 \textbf{FR-05} & \makecell[l]{Standardisasi\\Proses} & Sistem memvalidasi kelengkapan data sebelum keputusan operasional diambil & Tinggi \\
 \textbf{FR-06} & \makecell[l]{Standardisasi\\Proses} & Sistem menjaga konsistensi interpretasi hasil antarpetugas & Tinggi \\
-\textbf{FR-07} & \makecell[l]{Integrasi\\Data} & Sistem menyediakan antarmuka pertukaran data dengan Terminal Operating System & Tinggi \\
+\textbf{FR-07} & \makecell[l]{Integrasi\\Data} & Sistem menyediakan pola antarmuka pertukaran data yang dapat dikembangkan untuk integrasi dengan Terminal Operating System & Tinggi \\
 \textbf{FR-08} & \makecell[l]{Integrasi\\Data} & Sistem mengirimkan notifikasi hasil inspeksi ke pemangku kepentingan relevan & Tinggi \\
 \textbf{FR-09} & \makecell[l]{Integrasi\\Data} & Sistem menyajikan akses terstruktur untuk pelaporan dan analitik & Sedang \\
 \textbf{FR-10} & \makecell[l]{Tata Kelola\\dan Audit} & Sistem membangun \textit{audit trail} lengkap untuk seluruh aktivitas inspeksi & Tinggi \\
@@ -206,7 +206,7 @@ Kebutuhan nonfungsional mendefinisikan atribut kualitas yang wajib dipenuhi agar
 \textbf{NFR-01} & \makecell[l]{\textit{Performance}\\\textit{Efficiency}}
 & Sistem merespons permintaan pengguna dalam waktu yang wajar. Efisiensi pemrosesan data dijaga meskipun volume data inspeksi meningkat seiring ekspansi operasional. \\
 \textbf{NFR-02} & \textit{Interoperability}
-& Sistem berinteraksi dengan berbagai sistem pelabuhan (TOS, PCS, Inaportnet) tanpa modifikasi signifikan pada sistem eksternal. \textit{Interface} integrasi mengikuti standar industri logistik. \\
+& Arsitektur sistem menyediakan batas antarmuka dan pola pertukaran data yang memungkinkan integrasi bertahap dengan berbagai sistem pelabuhan (TOS, PCS, Inaportnet) tanpa mengubah logika inti sistem. \textit{Interface} integrasi dirancang mengikuti format data yang konsisten dan mudah dipetakan ke standar industri logistik. \\
 \textbf{NFR-03} & \textit{Reliability}
 & Sistem beroperasi secara konsisten dalam kondisi infrastruktur heterogen. Keandalan operasional dijaga meskipun terjadi gangguan koneksi atau keterbatasan infrastruktur di lokasi pelabuhan tertentu. Ketersediaan sistem dijaga melalui mekanisme toleransi kesalahan dan pemulihan yang efektif. \\
 \textbf{NFR-04} & \textit{Security}

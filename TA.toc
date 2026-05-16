@@ -8,11 +8,11 @@
 \contentsline {chapter}{ABSTRAK}{ix}{chapter*.5}%
 \contentsline {chapter}{KATA PENGANTAR}{xi}{chapter*.6}%
 \contentsline {chapter}{DAFTAR ISI}{xiii}{section*.7}%
-\contentsline {chapter}{DAFTAR GAMBAR}{xvii}{section*.8}%
-\contentsline {chapter}{DAFTAR TABEL}{xix}{section*.9}%
-\contentsline {chapter}{DAFTAR LISTING}{xxi}{section*.10}%
-\contentsline {chapter}{DAFTAR SIMBOL}{xxiii}{section*.10}%
-\contentsline {chapter}{DAFTAR SINGKATAN}{xxv}{table.0.1}%
+\contentsline {chapter}{DAFTAR GAMBAR}{xix}{section*.8}%
+\contentsline {chapter}{DAFTAR TABEL}{xxi}{section*.9}%
+\contentsline {chapter}{DAFTAR LISTING}{xxiii}{section*.10}%
+\contentsline {chapter}{DAFTAR SIMBOL}{xxv}{section*.10}%
+\contentsline {chapter}{DAFTAR SINGKATAN}{xxvii}{table.0.1}%
 \setlength {\cftbeforechapskip }{10pt}
 \renewcommand {\cftchapfont }{\bfseries }
 \renewcommand {\cftchappagefont }{\bfseries }
@@ -245,18 +245,19 @@
 \contentsline {subsection}{\numberline {VI.2.2}Skenario Evaluasi}{74}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {VI.2.3}Aspek yang Dievaluasi}{75}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {VI.2.4}Matriks Bukti Evaluasi}{76}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {VI.2.5}Keterkaitan Hasil Evaluasi dengan Kebutuhan Sistem}{77}{subsection.6.2.5}%
 \contentsline {section}{\numberline {VI.3}Hasil Evaluasi}{77}{section.6.3}%
-\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{77}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{77}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{78}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{78}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {VI.3.3}Hasil pada Jalur Video Langsung}{78}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{78}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{78}{subsection.6.3.5}%
-\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{79}{section.6.4}%
-\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{80}{subsection.6.4.1}%
-\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{81}{section.6.5}%
-\contentsline {chapter}{\numberline {VII}PENUTUP}{83}{chapter.7}%
-\contentsline {section}{\numberline {VII.1}Kesimpulan}{83}{section.7.1}%
-\contentsline {section}{\numberline {VII.2}Saran}{84}{section.7.2}%
+\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{79}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{79}{subsection.6.3.5}%
+\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{80}{section.6.4}%
+\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{81}{subsection.6.4.1}%
+\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{82}{section.6.5}%
+\contentsline {chapter}{\numberline {VII}PENUTUP}{85}{chapter.7}%
+\contentsline {section}{\numberline {VII.1}Kesimpulan}{85}{section.7.1}%
+\contentsline {section}{\numberline {VII.2}Saran}{86}{section.7.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -321,18 +322,18 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{Lampiran \numberline {A}HASIL SURVEI LAPANGAN}{89}{appendix.1.A}%
-\contentsline {section}{\numberline {A.1}Dokumentasi Foto Survei Lokasi}{89}{section.1.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Terminal Pelindo Peti Kemas Tanjung Priok}{89}{subsection.1.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Depo Peti Kemas Tanjung Priok SPIL}{89}{subsection.1.A.1.2}%
-\contentsline {section}{\numberline {A.2}Ringkasan Temuan Survei Lapangan}{89}{section.1.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Alur Operasional Terminal dan Inspeksi Kontainer}{93}{subsection.1.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Kondisi Inspeksi Fisik yang Masih Manual}{94}{subsection.1.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Infrastruktur Pemindaian dan Batas Wewenang}{94}{subsection.1.A.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}Keterbatasan Integrasi Data dan Sistem Terminal}{94}{subsection.1.A.2.4}%
-\contentsline {section}{\numberline {A.3}Ringkasan Wawancara dan Dokumen Pendukung}{95}{section.1.A.3}%
-\contentsline {subsection}{\numberline {A.3.1}Pokok Pertanyaan Wawancara}{95}{subsection.1.A.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Ringkasan Wawancara Lapangan}{95}{subsection.1.A.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Dokumen Pendukung yang Diperoleh}{96}{subsection.1.A.3.3}%
-\contentsline {section}{\numberline {A.4}Bukti Tampilan Realisasi Sistem}{97}{section.1.A.4}%
-\contentsline {section}{\numberline {A.5}Contoh Struktur Data Inti dan Penyimpanan Artefak}{99}{section.1.A.5}%
+\contentsline {chapter}{Lampiran \numberline {A}HASIL SURVEI LAPANGAN}{91}{appendix.1.A}%
+\contentsline {section}{\numberline {A.1}Dokumentasi Foto Survei Lokasi}{91}{section.1.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Terminal Pelindo Peti Kemas Tanjung Priok}{91}{subsection.1.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Depo Peti Kemas Tanjung Priok SPIL}{91}{subsection.1.A.1.2}%
+\contentsline {section}{\numberline {A.2}Ringkasan Temuan Survei Lapangan}{91}{section.1.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Alur Operasional Terminal dan Inspeksi Kontainer}{95}{subsection.1.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Kondisi Inspeksi Fisik yang Masih Manual}{96}{subsection.1.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Infrastruktur Pemindaian dan Batas Wewenang}{96}{subsection.1.A.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}Keterbatasan Integrasi Data dan Sistem Terminal}{96}{subsection.1.A.2.4}%
+\contentsline {section}{\numberline {A.3}Ringkasan Wawancara dan Dokumen Pendukung}{97}{section.1.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Pokok Pertanyaan Wawancara}{97}{subsection.1.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Ringkasan Wawancara Lapangan}{97}{subsection.1.A.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Dokumen Pendukung yang Diperoleh}{98}{subsection.1.A.3.3}%
+\contentsline {section}{\numberline {A.4}Bukti Tampilan Realisasi Sistem}{99}{section.1.A.4}%
+\contentsline {section}{\numberline {A.5}Contoh Struktur Data Inti dan Penyimpanan Artefak}{101}{section.1.A.5}%

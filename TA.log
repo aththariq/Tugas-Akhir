@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  16 MAY 2026 10:24
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  16 MAY 2026 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1595,27 +1595,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
 ) (./8 Daftar Gambar.tex
 
-[16] (./TA.lof
+[16]
 
-[17
+[17]
 
-])
+[18
+
+] (./TA.lof
+
+[19])
 \tf@lof=\write7
 \openout7 = `TA.lof'.
 
 ) (./9 Daftar Tabel.tex
 
-[18] (./TA.lot)
+[20] (./TA.lot)
 \tf@lot=\write8
 \openout8 = `TA.lot'.
 
 ) (./12 Daftar Listing.tex
 
-[19
+[21
 
 ]
 
-[20
+[22
 
 ] (./TA.lol)
 \tf@lol=\write9
@@ -1623,9 +1627,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
 ) (./13 Daftar Simbol.tex
 
-[21]
+[23]
 
-[22
+[24
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 12--22
@@ -1634,9 +1638,9 @@ Underfull \hbox (badness 10000) in alignment at lines 12--22
 
 ) (./14 Daftar Singkatan.tex
 
-[23]
+[25]
 
-[24
+[26
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 16--56
@@ -1645,9 +1649,9 @@ Underfull \hbox (badness 10000) in alignment at lines 16--56
 
 )
 
-[25]
+[27]
 
-[26
+[28
 
 ] (./Bab I - Pendahuluan.tex
 Bab I.
@@ -1667,9 +1671,9 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 
 [4]
 
-[5])
+[5]
 
-[6] (./Bab II - Studi.tex
+[6]) (./Bab II - Studi.tex
 
 [7]
 
@@ -2275,21 +2279,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [75]
 
 [76]
+Underfull \vbox (badness 1924) has occurred while \output is active []
+
+
 
 [77]
 
 [78]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3058) has occurred while \output is active []
 
 
 
 [79]
+Underfull \vbox (badness 4779) has occurred while \output is active []
+
+
 
 [80]
 
 [81]) (./Bab VII - Penutup.tex
 
 [82]
+
+[83]
+
+[84
+
+]
 Bab VII.
 
 Overfull \hbox (1.17969pt too wide) in paragraph at lines 27--33
@@ -2299,8 +2315,7 @@ pemrosesan lokal, per-
 
 
 
-[83
-
+[85
 
 ]
 Overfull \hbox (1.55203pt too wide) in paragraph at lines 63--66
@@ -2310,7 +2325,7 @@ as model deteksi dan OCR
 
 )
 
-[84]
+[86]
 Overfull \hbox (11.06693pt too wide) in paragraph at lines 398--398
 \TU/TimesNewRoman(0)/m/it/12 ing, Building, and Deploying Messaging Solutions. 
 \TU/TimesNewRoman(0)/m/n/12 Boston, MA: Addison-Wesley
@@ -2318,12 +2333,12 @@ Overfull \hbox (11.06693pt too wide) in paragraph at lines 398--398
 
 
 
-[85
+[87
 
 
 ]
 
-[86]
+[88]
 Overfull \hbox (2.69678pt too wide) in paragraph at lines 398--398
 [][]\TU/TimesNewRoman(0)/m/n/12 Szeliski, R. 2022. \TU/TimesNewRoman(0)/m/it/12
  Computer Vision: Algorithms and Applications. \TU/TimesNewRoman(0)/m/n/12 2nd 
@@ -2332,9 +2347,9 @@ edisi. Springer.
 
 (./Lampiran-B.tex
 
-[87]
+[89]
 
-[88
+[90
 
 ]
 Lampiran A.
@@ -2350,15 +2365,15 @@ File: images/survei-pt-spil-2.jpg Graphic file (type bmp)
 <images/survei-pt-spil-2.jpg>
 
 
-[89
+[91
 
 ]
 
-[90]
-
-[91]
-
 [92]
+
+[93]
+
+[94]
 Overfull \hbox (6.32448pt too wide) in paragraph at lines 82--85
 []\TU/TimesNewRoman(0)/m/n/12 Temuan-temuan ini memperkuat kebutuhan akan arsit
 ektur sistem yang mampu meng-
@@ -2369,23 +2384,23 @@ Underfull \vbox (badness 2269) has occurred while \output is active []
 
 
 
-[93]
+[95]
 
-[94]
+[96]
 Underfull \hbox (badness 10000) in alignment at lines 191--197
 [] []
  []
 
 
 
-[95]
+[97]
 Underfull \hbox (badness 10000) in alignment at lines 199--205
 [] []
  []
 
 
 
-[96]
+[98]
 Overfull \hbox (0.20233pt too wide) in paragraph at lines 224--240
 []\TU/TimesNewRoman(0)/m/n/12 Dokumen-dokumen tersebut juga memberikan beberapa
  temuan eksplisit yang mem-
@@ -2399,14 +2414,14 @@ File: images/evidence-container-detail.png Graphic file (type bmp)
 <images/evidence-container-detail.png>
 
 
-[97]
+[99]
 
-[98]
+[100]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 296.
 
 
-[99]
+[101]
 File: images/evidence-r2-storage.jpg Graphic file (type bmp)
 <images/evidence-r2-storage.jpg>
 )
@@ -2414,11 +2429,11 @@ Underfull \vbox (badness 4242) has occurred while \output is active []
 
 
 
-[100]
+[102]
 
-[101]
+[103]
 
-[102
+[104
 
 ] (./TA.aux)
  ***********
@@ -2430,7 +2445,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: 399468F5E5DE4B75E59F69A47D760C26;35580.
+(rerunfilecheck)             Checksum: 32F856297D8621F64EE6CE4DF11613D8;35908.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -2439,12 +2454,12 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45850 strings out of 473832
- 931959 string characters out of 5729480
- 2428802 words of memory out of 5000000
- 68208 multiletter control sequences out of 15000+600000
+ 45852 strings out of 473832
+ 932025 string characters out of 5729480
+ 2429306 words of memory out of 5000000
+ 68210 multiletter control sequences out of 15000+600000
  567417 words of font info for 110 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  84i,17n,95p,1195b,6763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.xdv (128 pages, 2419844 bytes).
+Output written on TA.xdv (132 pages, 2456012 bytes).

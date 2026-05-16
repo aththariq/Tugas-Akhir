@@ -207,6 +207,56 @@ yang direalisasikan.
     \end{tabularx}
 \end{table}
 
+\subsection{Keterkaitan Hasil Evaluasi dengan Kebutuhan Sistem}
+\label{subsec:keterkaitan-hasil-kebutuhan}
+
+Kebutuhan fungsional dan nonfungsional yang dirumuskan pada Bab~\ref{chap:analisis-masalah}
+tidak seluruhnya dievaluasi sebagai pengujian produk akhir. Sebagian kebutuhan,
+terutama yang berkaitan dengan integrasi eksternal dan tata kelola operasional
+penuh, berada pada tingkat kesiapan rancangan karena ruang lingkup tugas akhir
+ini adalah perancangan arsitektur sistem. Oleh karena itu, Tabel~\ref{tbl:pemetaan-fr-nfr-evaluasi}
+merangkum hubungan antara kelompok kebutuhan, bukti evaluasi yang digunakan,
+dan status validasinya.
+
+\begin{table}[ht]
+    \centering
+    \scriptsize
+    \caption[Pemetaan kebutuhan terhadap hasil evaluasi]{Pemetaan Kebutuhan terhadap Hasil Evaluasi Arsitektur}
+    \label{tbl:pemetaan-fr-nfr-evaluasi}
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.12}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.18\textwidth}}
+        \toprule
+        \textbf{Kelompok Kebutuhan} & \textbf{Kode Terkait} & \textbf{Bukti Evaluasi} & \textbf{Status Validasi} \\
+        \midrule
+        Pencatatan dan ketertelusuran inspeksi &
+        FR-01, FR-02, FR-03, FR-10 &
+        Entitas kontainer menyimpan hasil OCR, hasil pemindaian, status, waktu, penanggung jawab, dan referensi artefak visual sebagaimana ditunjukkan pada Listing~\ref{lst:container-entity-sample}. &
+        Terpenuhi pada realisasi sistem \\
+        Standardisasi proses dan konsistensi interpretasi &
+        FR-04, FR-05, FR-06 &
+        Struktur data hasil inspeksi memisahkan jenis temuan, tingkat risiko, tingkat keparahan, dan konteks hasil pemindaian sehingga hasil dapat dibaca secara konsisten oleh aplikasi web. &
+        Terdukung oleh rancangan dan realisasi terbatas \\
+        Integrasi data dan penyajian informasi &
+        FR-07, FR-08, FR-09 &
+        Keluarga \textit{endpoint} \nolinkurl{/api/edge}, antarmuka web, dan pola \textit{adapter} menunjukkan kesiapan pertukaran data. Integrasi penuh dengan TOS, PCS, atau sistem eksternal lain tidak diklaim sebagai hasil realisasi. &
+        Terpenuhi untuk integrasi internal; siap dikembangkan untuk integrasi eksternal \\
+        Kontrol akses dan pemisahan konteks penggunaan &
+        FR-11, NFR-04 &
+        Komponen \textit{edge} menggunakan \textit{API key}, sedangkan aplikasi web menggunakan autentikasi berbasis pengguna. &
+        Terpenuhi pada mekanisme dasar \\
+        Efisiensi jalur komunikasi dan pemantauan waktu nyata &
+        NFR-01, NFR-03 &
+        Video beranotasi disalurkan melalui \textit{WebSocket}, sedangkan data inspeksi dikirim melalui layanan API dan disimpan secara terstruktur. &
+        Terdukung secara arsitektural; belum diuji sebagai performa kuantitatif menyeluruh \\
+        Interoperabilitas dan kemudahan pemeliharaan &
+        NFR-02, NFR-05 &
+        Pemisahan komponen \textit{edge}, API, web, basis data, dan penyimpanan objek menunjukkan batas tanggung jawab yang jelas serta kontrak layanan yang dapat dikembangkan bertahap. &
+        Terpenuhi sebagai rancangan arsitektur \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
 \section{Hasil Evaluasi}
 \label{sec:hasil-evaluasi}
 
