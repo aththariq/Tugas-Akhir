@@ -249,9 +249,13 @@ dan status validasinya.
         NFR-01, NFR-03 &
         Video beranotasi disalurkan melalui \textit{WebSocket}, sedangkan data inspeksi dikirim melalui layanan API dan disimpan secara terstruktur. &
         Terdukung secara arsitektural; belum diuji sebagai performa kuantitatif menyeluruh \\
-        Interoperabilitas dan kemudahan pemeliharaan &
-        NFR-02, NFR-05 &
-        Pemisahan komponen \textit{edge}, API, web, basis data, dan penyimpanan objek menunjukkan batas tanggung jawab yang jelas serta kontrak layanan yang dapat dikembangkan bertahap. &
+        Interoperabilitas bertahap &
+        NFR-02 &
+        Pola \textit{adapter}, kontrak data, dan pemisahan layanan inti menunjukkan bahwa integrasi dengan sistem eksternal dapat dikembangkan tanpa mengubah logika inspeksi utama. &
+        Terpenuhi sebagai rancangan kesiapan integrasi \\
+        Kemudahan pemeliharaan &
+        NFR-05 &
+        Pemisahan komponen \textit{edge}, API, web, basis data, dan penyimpanan objek menunjukkan batas tanggung jawab yang jelas dan mendukung perubahan bertahap per komponen. &
         Terpenuhi sebagai rancangan arsitektur \\
         \bottomrule
     \end{tabularx}
@@ -519,8 +523,9 @@ artefak realisasi sistem dan skenario integrasi yang tersedia pada lingkungan
 pengembangan, sehingga evaluasi pada skala operasional penuh di lingkungan
 pelabuhan nyata masih menjadi pekerjaan lanjutan.
 
-Keterbatasan tersebut tidak mengurangi nilai hasil evaluasi terhadap kontribusi
-hal tersebut, tetapi menunjukkan ruang pengembangan untuk pekerjaan lanjutan.
+Keterbatasan tersebut tidak mengurangi nilai evaluasi terhadap kontribusi
+arsitektural tugas akhir ini, tetapi menunjukkan ruang pengembangan untuk
+pekerjaan lanjutan.
 Evaluasi lanjutan dapat diarahkan pada pengukuran performa sistem,
 uji beban, pengujian ketahanan operasional, dan validasi pada lingkungan
 lapangan yang lebih representatif.
