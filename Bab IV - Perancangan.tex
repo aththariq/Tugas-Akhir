@@ -484,9 +484,10 @@ dan akhirnya disajikan pada aplikasi web.
       font=\small,
       group/.style={rectangle, draw=black, rounded corners, minimum width=10.8cm, minimum height=0.95cm, align=center},
       line/.style={-{Latex[length=2mm]}, thick},
-      flowlabel/.style={fill=white, inner sep=1.5pt, font=\small}
-    ]
-    \node[group] (cloud) at (0,0) {\textbf{Cloud / Layanan Terpusat}\\Layanan API, MongoDB, R2, dan Aplikasi Web};
+	      flowlabel/.style={fill=white, inner sep=1.5pt, font=\small}
+	    ]
+	    \useasboundingbox (-8.4,-4.95) rectangle (8.4,0.55);
+	    \node[group] (cloud) at (0,0) {\textbf{Cloud / Layanan Terpusat}\\Layanan API, MongoDB, R2, dan Aplikasi Web};
     \node[group] (network) at (0,-1.45) {\textbf{Jaringan}\\HTTP untuk data terstruktur dan kanal video langsung};
     \node[group] (local) at (0,-2.9) {\textbf{Pemrosesan Lokal}\\OCR dan deteksi pada komponen lokal};
     \node[group] (sensor) at (0,-4.35) {\textbf{Sumber Data Lapangan}\\Kamera RTSP dan aliran video inspeksi};
