@@ -11,7 +11,7 @@
 \contentsline {chapter}{DAFTAR GAMBAR}{xix}{section*.8}%
 \contentsline {chapter}{DAFTAR TABEL}{xxi}{section*.9}%
 \contentsline {chapter}{DAFTAR LISTING}{xxiii}{section*.10}%
-\contentsline {chapter}{DAFTAR SIMBOL}{xxv}{section*.10}%
+\contentsline {chapter}{DAFTAR SIMBOL}{xxv}{chapter*.11}%
 \contentsline {chapter}{DAFTAR SINGKATAN}{xxvii}{table.0.1}%
 \setlength {\cftbeforechapskip }{10pt}
 \renewcommand {\cftchapfont }{\bfseries }
