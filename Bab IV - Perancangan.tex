@@ -163,11 +163,11 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
     \textbf{Aspek} & \textbf{Sistem Saat Ini} & \textbf{Sistem Usulan} & \textbf{Dampak} \\
     \midrule
     Akuisisi Data & Perangkat terpisah, tidak terkoordinasi & Terintegrasi melalui komponen koordinasi dengan \textit{metadata} lengkap, sinkronisasi multi-sumber & Efisiensi tinggi \\
-    Deteksi Kerusakan & Inspeksi visual manual, subjektif, inkonsisten & Deteksi berbasis analisis otomatis, objektif, konsisten dengan tingkat keyakinan & Akurasi tinggi \\
+    Deteksi Kerusakan & Inspeksi visual manual, subjektif, inkonsisten & Deteksi berbasis analisis otomatis, objektif, konsisten dengan tingkat keyakinan & Konsistensi meningkat \\
     Pemrosesan Data & Analisis manual oleh operator tunggal & Pemrosesan paralel pada komponen lokal dan terpusat & Responsivitas tinggi \\
     Pelaporan & Konsolidasi manual, format tidak standar, tertunda & Laporan digital otomatis, format standar, tersedia segera & Kecepatan tinggi \\
     Integrasi Sistem & Entri ulang manual, tidak ada antarmuka standar & Integrasi berbasis antarmuka layanan dengan kontrak data yang konsisten & Efisiensi tinggi \\
-    Notifikasi & Manual, tidak konsisten, tertunda & Multi-kanal berbasis aturan, otomatis, langsung kepada pengguna terotorisasi & Cakupan penuh \\
+    Notifikasi & Manual, tidak konsisten, tertunda & Multi-kanal berbasis aturan, otomatis, langsung kepada pengguna terotorisasi & Distribusi informasi lebih baik \\
     Jejak Audit & Catatan manual, mudah hilang, tidak terstruktur & Pencatatan sistematis dengan stempel waktu, pelacakan pengguna dan tindakan & Kesiapan kepatuhan \\
     Skalabilitas & Terbatas oleh jumlah petugas & Penskalaan berdasarkan beban, kapasitas adaptif & Skalabilitas tinggi \\
     Keandalan & Titik kegagalan tunggal, tanpa duplikasi & Pemisahan komponen lokal dan terpusat dengan pemantauan status layanan & Keandalan tinggi \\
@@ -179,9 +179,9 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
 \FloatBarrier
 
 Perbandingan di atas menunjukkan bahwa transformasi dari sistem manual yang
-terpisah-pisah menuju sistem digital terintegrasi menghasilkan peningkatan
-signifikan dalam efisiensi operasional, akurasi deteksi, dan kepatuhan
-terhadap standar. Sistem usulan dirancang untuk mengatasi keterbatasan
+terpisah-pisah menuju sistem digital terintegrasi diarahkan untuk meningkatkan
+efisiensi operasional, konsistensi pembacaan hasil inspeksi, dan kesiapan
+kepatuhan terhadap standar. Sistem usulan dirancang untuk mengatasi keterbatasan
 mendasar sistem saat ini melalui penerapan prinsip modularitas,
 standardisasi, dan integrasi yang konsisten dengan kebutuhan yang telah
 diidentifikasi dalam Bab III.
@@ -344,17 +344,20 @@ pemantauan waktu nyata.
   \begin{tikzpicture}[
       font=\small,
       layerbox/.style={rectangle, draw=black, rounded corners, minimum width=10.5cm, minimum height=0.95cm, align=center},
-      line/.style={-{Latex[length=2mm]}, thick}
+      line/.style={-{Latex[length=2mm]}, thick},
+      flowlabel/.style={fill=white, inner sep=1.5pt, font=\small}
     ]
-    \node[layerbox] (presentation) at (0,0) {\textbf{Lapisan Presentasi}\\Aplikasi Web dan Antarmuka API};
+    \node[layerbox] (presentation) at (0,0) {\textbf{Lapisan Presentasi}\\Aplikasi Web dan Antarmuka Pengguna};
     \node[layerbox] (application) at (0,-1.45) {\textbf{Lapisan Aplikasi}\\Layanan Inspeksi, Analisis, dan Integrasi};
     \node[layerbox] (data) at (0,-2.9) {\textbf{Lapisan Data}\\Database dan Penyimpanan Berkas};
     \node[layerbox] (local) at (0,-4.35) {\textbf{Lapisan Edge}\\Akuisisi Video dan Inferensi Awal};
 
-    \draw[line] (local.north) -- node[right] {hasil inspeksi} (data.south);
-    \draw[line] (data.north) -- node[right] {data terstruktur} (application.south);
-    \draw[line] (application.north) -- node[right] {REST} (presentation.south);
-    \draw[line, dashed] (local.east) -- ++(1.1,0) |- node[pos=0.74,right] {video langsung} (presentation.east);
+    \draw[line] ([xshift=-1.25cm]application.north) -- ([xshift=-1.25cm]presentation.south);
+    \node[flowlabel] at (-2.1,-0.72) {REST};
+    \draw[line] ([xshift=1.35cm]application.south) -- ([xshift=1.35cm]data.north);
+    \node[flowlabel] at (2.55,-2.16) {persistensi};
+    \draw[line] (local.west) -- ++(-0.85,0) |- node[flowlabel, pos=0.62, left] {hasil inspeksi} (application.west);
+    \draw[line, dashed] (local.east) -- ++(1.1,0) |- node[flowlabel, pos=0.74, right] {video langsung} (presentation.east);
   \end{tikzpicture}}
   \caption{Arsitektur Berlapis Konseptual Sistem Inspeksi Kargo Digital}
   \label{fig:layered_architecture}
@@ -637,8 +640,8 @@ yang direalisasikan dalam tugas akhir ini, integrasi aktual masih dibatasi pada
 komponen internal proyek dan dependensi pendukung seperti autentikasi pengguna
 serta penyimpanan artefak visual. Oleh karena itu, lapisan
 \textit{Integration Interface} dan \textit{Integration Service} perlu dibaca
-sebagai rancangan kesiapan perluasan, bukan sebagai integrasi eksternal yang
-seluruhnya telah diimplementasikan.
+sebagai rancangan kesiapan perluasan, bukan sebagai klaim realisasi integrasi
+eksternal penuh.
 
 \subsubsection{Pemetaan dan Transformasi Data}
 
@@ -701,7 +704,7 @@ tersedia.
 
 \section{Prinsip Keamanan}
 
-Keamanan sistem inspeksi kargo digital dirancang dengan prinsip \textbf{pertahanan berlapis}, mengimplementasikan beberapa lapisan keamanan untuk melindungi data, sistem, dan akses pengguna. Desain keamanan konsisten dengan persyaratan regulasi dan praktik terbaik industri untuk pengelolaan informasi.
+Keamanan sistem inspeksi kargo digital dirancang dengan prinsip \textbf{pertahanan berlapis}, yaitu pemisahan beberapa area kontrol keamanan untuk melindungi data, sistem, dan akses pengguna. Desain keamanan konsisten dengan persyaratan regulasi dan praktik terbaik industri untuk pengelolaan informasi.
 
 Lapisan keamanan konseptual dirancang mencakup keamanan \textit{boundary}
 untuk mengisolasi sistem dari ancaman eksternal, keamanan aplikasi melalui
