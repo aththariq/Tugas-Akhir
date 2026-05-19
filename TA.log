@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  19 MAY 2026 19:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  19 MAY 2026 20:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1480,6 +1480,13 @@ File: images/ganesha.jpg Graphic file (type bmp)
 <images/ganesha.jpg>
 
 
+Package datetime2 Warning: Region `bahasai' has ignored 
+(datetime2)                the following settings:
+(datetime2)                showmonthname=true
+ on input line 38.
+
+
+
 [1
 
 
@@ -2459,4 +2466,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  84i,17n,95p,1195b,6763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.xdv (132 pages, 2463468 bytes).
+Output written on TA.xdv (132 pages, 2463364 bytes).
