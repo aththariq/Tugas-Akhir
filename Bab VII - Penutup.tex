@@ -13,17 +13,19 @@ telah dilakukan, kesimpulan tugas akhir ini adalah sebagai berikut:
 \begin{enumerate}
   \item Rancangan arsitektur sistem yang dihasilkan mampu mengintegrasikan
   komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan
-  dalam satu alur kerja inspeksi yang konsisten. Pemisahan tanggung jawab ini
-  menjadi dasar agar akuisisi data, pemrosesan awal, persistensi, dan penyajian
-  informasi dapat dikelola tanpa saling membebani.
+  dalam satu alur kerja inspeksi yang konsisten pada ruang lingkup realisasi
+  internal tugas akhir. Pemisahan tanggung jawab ini menjadi dasar agar akuisisi
+  data, pemrosesan awal, persistensi, dan penyajian informasi dapat dikelola
+  tanpa saling membebani.
   \item Rancangan arsitektur data menempatkan entitas kontainer sebagai pusat
   agregasi informasi inspeksi. Struktur ini mendukung pencatatan hasil OCR,
   hasil pemindaian, data manifes, riwayat pemeriksaan, dan artefak visual dalam
-  hubungan data yang dapat ditelusuri.
+  hubungan data yang dapat ditelusuri pada artefak realisasi yang diuji.
   \item Model alur informasi yang disusun memungkinkan hasil identifikasi dan
   hasil pemindaian dari beberapa komponen dikaitkan pada entitas kontainer yang
-  sama. Hal ini terlihat pada pola propagasi nomor kontainer, penyimpanan hasil
-  pemindaian dalam struktur data inti, dan penyajian hasil pada antarmuka web.
+  sama dalam skenario evaluasi internal. Hal ini terlihat pada pola propagasi
+  nomor kontainer, penyimpanan hasil pemindaian dalam struktur data inti, dan
+  penyajian hasil pada antarmuka web.
   \item Pembagian fungsi antarkomponen menunjukkan bahwa pemrosesan lokal,
   persistensi data, dan penyajian informasi dapat dijalankan sesuai karakter
   bebannya masing-masing. Komponen \textit{edge} menangani akuisisi video dan
@@ -32,14 +34,16 @@ telah dilakukan, kesimpulan tugas akhir ini adalah sebagai berikut:
   pengguna.
 \end{enumerate}
 
-Dengan demikian, rancangan yang dihasilkan menjawab kebutuhan utama sistem,
-terutama integrasi antarkomponen, ketertelusuran data inspeksi, pemisahan
-tanggung jawab, interoperabilitas bertahap, dan kemudahan pemeliharaan.
+Dengan demikian, rancangan yang dihasilkan menjawab kebutuhan utama sistem pada
+ruang lingkup perancangan dan realisasi internal, terutama integrasi
+antarkomponen, ketertelusuran data inspeksi, pemisahan tanggung jawab,
+interoperabilitas bertahap, dan kemudahan pemeliharaan.
 
 Evaluasi pada tugas akhir ini digunakan sebagai pembuktian bahwa keempat tujuan
-tersebut tercapai pada ruang lingkup rancangan dan realisasi yang tersedia.
+tersebut tercapai pada ruang lingkup rancangan arsitektur, realisasi internal,
+dan skenario evaluasi yang tersedia.
 Evaluasi tidak dimaksudkan sebagai tujuan tersendiri, melainkan sebagai dasar
-validasi bahwa rancangan arsitektur yang dihasilkan dapat diwujudkan tanpa
+validasi terhadap keterwujudan rancangan arsitektur yang dihasilkan tanpa
 mengklaim penilaian menyeluruh terhadap \textit{deployment} produksi, dampak
 bisnis, atau akurasi model deteksi secara mendalam.
 

@@ -29,7 +29,7 @@
 % - Pastikan Anda telah menginstal paket-paket LaTeX yang diperlukan, termasuk
 %   biblatex-chicago dan fontspec.
 % - Gunakan editor LaTeX yang mendukung XeLaTeX, seperti TeXstudio, Overleaf, atau lainnya.
-% - Jika meenggunakan Visual Studio Code sebagai editor, pastikan mengatur "latex-workshop.latex.tools" dan
+% - Jika menggunakan Visual Studio Code sebagai editor, pastikan mengatur "latex-workshop.latex.tools" dan
 %   "latex-workshop.latex.recipes" untuk mendukung XeLaTeX dan Biber dengan cara menambahkan konfigurasi berikut:
 %   "latex-workshop.latex.tools": [ 
 %       {
@@ -115,6 +115,8 @@
     language=english,
     autolang=other
 ]{biblatex-chicago}
+\DeclareLanguageMapping{indonesian}{english}
+\DeclareQuoteAlias{english}{indonesian}
 \addbibresource{daftar-pustaka.bib}
 
 % --- Terjemahan istilah daftar pustaka ke Bahasa Indonesia ---
@@ -155,8 +157,8 @@
 \pagestyle{plain}
 
 % --- Ubah nama list of listing ke "DAFTAR LISTING" ---
-\renewcommand{\lstlistlistingname}{DAFTAR LISTING}
-\renewcommand{\lstlistingname}{Listing}
+\renewcommand{\lstlistlistingname}{DAFTAR \textit{LISTING}}
+\renewcommand{\lstlistingname}{\textit{Listing}}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
 
 % Lingkungan algoritma tidak digunakan pada naskah ini, sehingga konfigurasi
@@ -310,6 +312,7 @@
 % --- Atur indentasi paragraf ---
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{12pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{2em}
 
 \setlist[enumerate]{nosep, topsep=-10pt} % mengurangi spasi antar item dan atas bawah daftar
 \setlist[itemize]{nosep, topsep=-10pt} % mengurangi spasi antar item dan atas bawah daftar

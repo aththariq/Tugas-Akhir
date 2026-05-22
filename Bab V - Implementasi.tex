@@ -8,7 +8,7 @@
 \section{Gambaran Umum Implementasi}
 \label{sec:gambaran-umum-implementasi}
 
-Bab ini menjelaskan realisasi rancangan arsitektur sistem inspeksi kargo digital
+Bab ini menjelaskan realisasi rancangan arsitektur sistem inspeksi kontainer digital
 terintegrasi yang telah dibahas pada Bab IV. Fokus pembahasan tidak diarahkan
 pada rincian implementasi kode program secara umum, melainkan pada bagaimana
 keputusan arsitektural direalisasikan menjadi sistem yang dapat beroperasi.
@@ -20,7 +20,7 @@ Dengan posisi tersebut, pembahasan pada bab ini tidak dimaksudkan sebagai
 dokumentasi menyeluruh atas struktur kode sumber atau keputusan pemrograman
 setiap komponen. Implementasi dibaca sebagai konteks realisasi yang
 menunjukkan apakah rancangan komponen, kontrak data, dan alur integrasi yang
-diusulkan pada tugas akhir ini benar-benar tercermin pada sistem yang dibangun.
+diusulkan pada tugas akhir ini tercermin pada sistem yang dibangun.
 
 Artefak sistem yang digunakan untuk merealisasikan rancangan terdiri atas beberapa komponen utama yang
 dipisahkan berdasarkan tanggung jawabnya. Pemisahan tersebut selaras dengan
@@ -152,7 +152,9 @@ arsitektur.
   \caption{Pemetaan Rancangan Arsitektur terhadap Realisasi Sistem}
   \label{tbl:pemetaan-rancangan-realisasi}
   \small
-  \begin{tabularx}{\textwidth}{p{0.2\textwidth} p{0.24\textwidth} p{0.24\textwidth} X}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}X}
     \toprule
     \textbf{Rancangan} & \textbf{Realisasi} & \textbf{Bukti/Penanda} & \textbf{Implikasi Arsitektural} \\
     \midrule
@@ -237,6 +239,7 @@ melalui jalur penyimpanan transaksional.
 
 \begin{figure}[htbp]
   \centering
+  \resizebox{\textwidth}{!}{%
   \begin{tikzpicture}[
     scale=0.92,
     transform shape,
@@ -258,7 +261,7 @@ melalui jalur penyimpanan transaksional.
     \draw[arrow] (web.north east) -- node[left,font=\scriptsize]{REST} (api.south west);
     \draw[arrow] (web) -- node[below,font=\scriptsize]{akses URL} (r2);
     \draw[arrow] (tepi.south) -- node[left,font=\scriptsize]{\textit{WebSocket}} (web.north);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \caption{Alur Realisasi Data Inspeksi pada Implementasi Sistem}
   \label{fig:implementation_data_flow}
 \end{figure}
@@ -381,7 +384,7 @@ yang menekankan modularitas dan integrasi berlapis.
 
 Dari sudut pandang kontribusi tugas akhir, artefak realisasi ini menunjukkan bahwa
 perancangan arsitektur tidak berhenti pada level konseptual. Struktur data,
-jalur integrasi, dan pembagian komponen yang dirancang benar-benar menjadi dasar
+jalur integrasi, dan pembagian komponen yang dirancang menjadi dasar
 bagi sistem yang direalisasikan pada proyek pengembangan sistem. Hal tersebut penting karena
 menunjukkan bahwa kontribusi tugas akhir ini terletak pada kemampuan merancang
 arsitektur yang dapat diimplementasikan, terintegrasi, dan mendukung kebutuhan

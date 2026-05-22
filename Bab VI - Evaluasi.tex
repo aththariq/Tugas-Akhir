@@ -9,8 +9,8 @@
 \label{sec:tujuan-evaluasi}
 
 Evaluasi pada tugas akhir ini bertujuan untuk menilai apakah rancangan
-arsitektur sistem inspeksi kargo digital terintegrasi yang telah direalisasikan
-benar-benar mendukung kebutuhan utama yang telah diidentifikasi pada tahap
+arsitektur sistem inspeksi kontainer digital terintegrasi yang telah direalisasikan
+mendukung kebutuhan utama yang telah diidentifikasi pada tahap
 analisis dan perancangan. Berbeda dengan evaluasi yang berfokus pada akurasi
 model secara mendalam, evaluasi pada tugas akhir ini menitikberatkan pada
 kesesuaian realisasi arsitektur, integrasi antarkomponen, konsistensi alur data,
@@ -47,7 +47,7 @@ operasional \textit{screening} di lingkungan pelabuhan.
 Karena fokus tugas akhir ini berada pada arsitektur sistem, evaluasi tidak
 diarahkan untuk menilai kualitas rekayasa perangkat lunak pada tingkat kode,
 gaya implementasi antarmuka, atau performa tiap model secara terpisah. Yang
-dinilai adalah apakah artefak realisasi yang tersedia benar-benar
+dinilai adalah apakah artefak realisasi yang tersedia
 merealisasikan keputusan arsitektural yang telah dirumuskan pada tahap
 perancangan.
 
@@ -98,7 +98,7 @@ melalui beberapa skenario utama.
   \item Verifikasi penyimpanan hasil pemindaian dilakukan untuk memeriksa apakah
   hasil pemindaian kerusakan, barang berisiko, dan kategori muatan dapat
   tersimpan pada entitas kontainer yang sesuai. Skenario ini menjadi indikator
-  bahwa model data yang dirancang benar-benar digunakan sebagai wadah integrasi
+  bahwa model data yang dirancang digunakan sebagai wadah integrasi
   informasi inspeksi. Selain itu, skenario ini juga memeriksa bahwa hasil
   pemindaian tetap berada di dalam struktur data inti, bukan pada koleksi
   pelacakan tambahan.
@@ -127,7 +127,7 @@ dalam Tabel~\ref{tbl:aspek-evaluasi}.
     \small
     \caption[Aspek evaluasi arsitektur]{Aspek Evaluasi Realisasi Arsitektur}
     \label{tbl:aspek-evaluasi}
-    \begin{tabular}{p{0.24\textwidth} p{0.25\textwidth} p{0.37\textwidth}}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.25\textwidth} >{\raggedright\arraybackslash}X}
         \toprule
         \textbf{Aspek} & \textbf{Fokus Pengujian} & \textbf{Indikator Keberhasilan} \\
         \midrule
@@ -137,7 +137,7 @@ dalam Tabel~\ref{tbl:aspek-evaluasi}.
         Pemisahan jalur komunikasi & Pemisahan jalur data terstruktur dan video & Data transaksional dan video menggunakan jalur yang berbeda sesuai fungsi \\
         Kesiapan operasional antarmuka & Perilaku aplikasi web dalam menampilkan hasil & Operator dapat memantau aliran dan membaca hasil inspeksi secara utuh \\
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \subsection{Matriks Bukti Evaluasi}
@@ -148,7 +148,8 @@ sedangkan hasil validasinya ditunjukkan secara lebih konkret pada
 Tabel~\ref{tbl:matriks-bukti-evaluasi}. Matriks tersebut memperlihatkan cara
 validasi, bukti yang diperiksa, hasil aktual yang diamati, dan status
 keberhasilan setiap skenario. Dengan demikian, evaluasi tidak hanya berupa
-pernyataan bahwa rancangan berhasil, tetapi menunjukkan dasar pemeriksaannya.
+pernyataan umum tentang keberhasilan rancangan, tetapi menunjukkan dasar
+pemeriksaannya.
 
 Prosedur validasi arsitektur dilakukan dalam empat langkah. Pertama, setiap
 skenario dikaitkan dengan keputusan arsitektural yang telah dirumuskan pada
@@ -158,9 +159,11 @@ terstruktur, dan pemisahan penyimpanan artefak visual. Kedua, artefak realisasi
 yang relevan diperiksa, meliputi struktur layanan API, struktur data kontainer,
 tampilan antarmuka, dan bukti penyimpanan artefak visual. Ketiga, hasil aktual
 dibandingkan dengan indikator keberhasilan pada Tabel~\ref{tbl:aspek-evaluasi}.
-Keempat, skenario dinyatakan terpenuhi apabila bukti yang diperiksa menunjukkan
-bahwa keputusan arsitektural tersebut benar-benar muncul pada perilaku sistem
-yang direalisasikan.
+Keempat, skenario dinyatakan terpenuhi pada ruang lingkup evaluasi apabila bukti
+yang diperiksa menunjukkan bahwa keputusan arsitektural tersebut muncul pada
+perilaku sistem yang direalisasikan. Status pada tabel tidak dimaksudkan sebagai
+klaim bahwa sistem telah divalidasi pada skala produksi atau lingkungan
+operasional penuh.
 
 \begin{table}[ht]
     \centering
@@ -169,7 +172,7 @@ yang direalisasikan.
     \label{tbl:matriks-bukti-evaluasi}
     \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{1.08}
-    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.09\textwidth}}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.13\textwidth}}
         \toprule
         \textbf{Skenario} & \textbf{Cara Validasi} & \textbf{Bukti Konkret} & \textbf{Hasil Aktual} & \textbf{Status} \\
         \midrule
@@ -177,32 +180,32 @@ yang direalisasikan.
         Memeriksa alur pengiriman hasil dari komponen \textit{edge} melalui keluarga \textit{endpoint} \texttt{/api/edge} dan mekanisme \textit{API key}. &
         Struktur layanan API dan bukti data pada entitas kontainer di Listing~\ref{lst:container-entity-sample}. &
         Hasil OCR, \textit{defect scan}, \textit{illegal scan}, dan \textit{category scan} tersimpan pada dokumen kontainer yang sama. &
-        Terpenuhi \\
+        Terpenuhi internal \\
         OCR membentuk entitas kontainer &
         Memeriksa apakah hasil OCR menghasilkan atau memperbarui entitas kontainer sebagai pusat agregasi data. &
         Gambar~\ref{fig:evidence_ocr_live} dan Listing~\ref{lst:container-entity-sample}. &
         Nomor kontainer terdeteksi sebagai DFSU6625920 dan muncul kembali pada struktur data inti kontainer. &
-        Terpenuhi \\
+        Terpenuhi terbatas \\
         Propagasi nomor kontainer ke alur lain &
         Memeriksa apakah nomor kontainer hasil OCR digunakan oleh alur pemindaian lain sebagai konteks bersama. &
         Gambar~\ref{fig:evidence_container_detail} dan struktur \texttt{defectScan}, \texttt{illegalScan}, serta \texttt{categoryScan} pada Listing~\ref{lst:container-entity-sample}. &
         Hasil pemindaian kerusakan, barang berisiko, dan kategori muatan dikaitkan ke entitas kontainer yang sama. &
-        Terpenuhi \\
+        Terpenuhi terbatas \\
         Penyimpanan hasil inspeksi &
         Memeriksa lokasi penyimpanan data terstruktur dan artefak visual yang dihasilkan proses inspeksi. &
         Listing~\ref{lst:container-entity-sample} dan Gambar~\ref{fig:evidence_r2_storage}. &
         Data transaksional tersimpan di MongoDB, sedangkan bukti visual tersimpan sebagai objek pada Cloudflare R2. &
-        Terpenuhi \\
+        Terpenuhi internal \\
         Siaran video langsung ke web &
         Memeriksa apakah aplikasi web menerima aliran video beranotasi dari komponen \textit{edge} melalui \textit{WebSocket}. &
         Gambar~\ref{fig:evidence_ocr_live} dan Gambar~\ref{fig:evidence_defect_live}. &
         Antarmuka web menampilkan aliran OCR dan \textit{defect scan} secara langsung dengan anotasi hasil deteksi. &
-        Terpenuhi \\
+        Terpenuhi terbatas \\
         Pembacaan hasil oleh aplikasi web &
         Memeriksa apakah aplikasi web dapat membaca hasil inspeksi yang telah tersimpan melalui layanan API. &
         Gambar~\ref{fig:evidence_container_detail}. &
         Halaman detail kontainer menampilkan ringkasan OCR, jumlah \textit{defect}, \textit{illegal items}, kategori, jumlah \textit{scan}, dan \textit{metadata} inspeksi. &
-        Terpenuhi \\
+        Terpenuhi internal \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -232,7 +235,7 @@ dan status validasinya.
         Pencatatan dan ketertelusuran inspeksi &
         FR-01, FR-02, FR-03, FR-10 &
         Entitas kontainer menyimpan hasil OCR, hasil pemindaian, status, waktu, penanggung jawab, dan referensi artefak visual sebagaimana ditunjukkan pada Listing~\ref{lst:container-entity-sample}. &
-        Terpenuhi pada realisasi sistem \\
+        Terpenuhi pada realisasi internal \\
         Standardisasi proses dan konsistensi interpretasi &
         FR-04, FR-05, FR-06 &
         Struktur data hasil inspeksi memisahkan jenis temuan, tingkat risiko, tingkat keparahan, dan konteks hasil pemindaian sehingga hasil dapat dibaca secara konsisten oleh aplikasi web. &
@@ -240,7 +243,7 @@ dan status validasinya.
         Integrasi data dan penyajian informasi &
         FR-07, FR-08, FR-09 &
         Keluarga \textit{endpoint} \nolinkurl{/api/edge}, antarmuka web, dan pola \textit{adapter} menunjukkan kesiapan pertukaran data. Integrasi penuh dengan TOS, PCS, atau sistem eksternal lain tidak diklaim sebagai hasil realisasi. &
-        Terpenuhi untuk integrasi internal; siap dikembangkan untuk integrasi eksternal \\
+        Terpenuhi untuk integrasi internal; eksternal sebagai sasaran \\
         Kontrol akses dan pemisahan konteks penggunaan &
         FR-11, NFR-04 &
         Komponen \textit{edge} menggunakan \textit{API key}, sedangkan aplikasi web menggunakan autentikasi berbasis pengguna. &
@@ -252,11 +255,11 @@ dan status validasinya.
         Interoperabilitas bertahap &
         NFR-02 &
         Pola \textit{adapter}, kontrak data, dan pemisahan layanan inti menunjukkan bahwa integrasi dengan sistem eksternal dapat dikembangkan tanpa mengubah logika inspeksi utama. &
-        Terpenuhi sebagai rancangan kesiapan integrasi \\
+        Terdukung sebagai rancangan kesiapan integrasi \\
         Kemudahan pemeliharaan &
         NFR-05 &
         Pemisahan komponen \textit{edge}, API, web, basis data, dan penyimpanan objek menunjukkan batas tanggung jawab yang jelas dan mendukung perubahan bertahap per komponen. &
-        Terpenuhi sebagai rancangan arsitektur \\
+        Terdukung sebagai rancangan arsitektur \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -265,8 +268,9 @@ dan status validasinya.
 \label{sec:hasil-evaluasi}
 
 Sesuai arahan evaluasi pada tugas akhir ini, hasil tidak hanya dibaca sebagai
-daftar fungsi yang berjalan, tetapi sebagai validasi bahwa rancangan arsitektur
-memang implementabel dan mendukung tujuan yang telah ditetapkan.
+daftar fungsi yang berjalan, tetapi sebagai indikasi bahwa rancangan arsitektur
+dapat direalisasikan pada skenario yang diuji dan mendukung tujuan yang telah
+ditetapkan dalam ruang lingkup tugas akhir.
 Karena itu, setiap hasil pada bagian ini perlu dipahami melalui tiga lapis:
 
 \begin{enumerate}
@@ -275,7 +279,7 @@ Karena itu, setiap hasil pada bagian ini perlu dipahami melalui tiga lapis:
   jawab antarkomponen.
   \item Keputusan arsitektural yang diambil untuk menjawab kebutuhan tersebut.
   \item Artefak implementasi dan skenario evaluasi yang menunjukkan bahwa
-  keputusan tersebut benar-benar dapat direalisasikan pada sistem yang dibangun.
+  keputusan tersebut dapat direalisasikan pada sistem yang dibangun.
 \end{enumerate}
 
 \subsection{Hasil pada Integrasi Antarlayanan}
@@ -302,7 +306,7 @@ Pada alur identifikasi, sistem mampu membuat atau memperbarui entitas kontainer
 berdasarkan nomor kontainer yang dihasilkan oleh proses OCR. Setelah identitas
 kontainer terbentuk, aliran pemindaian lain dapat menggunakan identitas tersebut
 sebagai konteks bersama untuk menyimpan hasil inspeksi. Hal ini memperlihatkan
-bahwa kontainer benar-benar menjadi entitas agregasi utama pada arsitektur data
+bahwa kontainer menjadi entitas agregasi utama pada arsitektur data
 yang dibangun.
 
 Pengujian propagasi nomor kontainer menunjukkan bahwa aliran OCR dapat
@@ -328,8 +332,9 @@ Pemisahan ini memberikan dua keuntungan utama:
   berukuran besar.
 \end{enumerate}
 
-Dengan demikian, jalur video langsung terbukti mendukung kebutuhan operasional
-tanpa mengganggu jalur penyimpanan data transaksional.
+Dengan demikian, jalur video langsung menunjukkan dukungan terhadap kebutuhan
+pemantauan pada ruang lingkup skenario evaluasi tanpa mengganggu jalur
+penyimpanan data transaksional.
 
 \subsection{Hasil pada Arsitektur Data}
 \label{subsec:hasil-arsitektur-data}
@@ -359,13 +364,13 @@ Dari seluruh skenario dan artefak evaluasi, terdapat tiga temuan utama yang
 paling kuat dalam mendukung kontribusi tugas akhir ini:
 
 \begin{enumerate}
-  \item Integrasi antarlayanan berhasil direalisasikan pada jalur yang memang
+  \item Integrasi antarlayanan dapat direalisasikan pada jalur yang memang
   kritis bagi operasi sistem. Dokumentasi pengujian integrasi menunjukkan bahwa
   komponen \textit{edge}, layanan API, dan aplikasi web telah terhubung melalui
   pembagian jalur yang jelas: data terstruktur dikirim ke layanan API, sedangkan
   video langsung dikirim ke aplikasi web melalui \textit{WebSocket}. Temuan ini
   penting karena menunjukkan bahwa keputusan arsitektural inti tidak berhenti
-  pada tingkat diagram, tetapi benar-benar diwujudkan dalam perilaku sistem.
+  pada tingkat diagram, tetapi tercermin dalam perilaku sistem.
   Contoh hasil realisasi tersebut dapat dilihat pada
   Gambar~\ref{fig:evidence_container_detail} yang menunjukkan bahwa satu halaman
   detail kontainer dapat memuat ringkasan hasil OCR, jumlah \textit{defect},
@@ -376,7 +381,7 @@ paling kuat dalam mendukung kontribusi tugas akhir ini:
   inspeksi. Hasil evaluasi pada alur OCR dan propagasi nomor kontainer
   memperlihatkan bahwa identitas kontainer tidak hanya dikenali, tetapi juga
   digunakan sebagai konteks bersama untuk mengaitkan hasil pemindaian lain.
-  Dengan demikian, struktur data yang dirancang berhasil mendukung agregasi
+  Dengan demikian, struktur data yang dirancang mendukung agregasi
   hasil inspeksi dari beberapa aliran ke satu entitas yang sama. Temuan ini
   menjadi bukti paling langsung bahwa fokus arsitektur data pada tugas akhir ini
   memang relevan. Gambar~\ref{fig:evidence_ocr_live} menunjukkan bahwa nomor
@@ -395,17 +400,18 @@ paling kuat dalam mendukung kontribusi tugas akhir ini:
   memiliki dasar kebutuhan operasional yang nyata, bukan sekadar preferensi
   desain. Bukti visual untuk jalur pemantauan langsung juga dapat diamati pada
   Gambar~\ref{fig:evidence_ocr_live} dan Gambar~\ref{fig:evidence_defect_live},
-  yang memperlihatkan bahwa aliran OCR dan \textit{defect scan} benar-benar
+  yang memperlihatkan bahwa aliran OCR dan \textit{defect scan}
   tampil pada antarmuka pemantauan.
 \end{enumerate}
 
 \section{Pembahasan Hasil Evaluasi}
 \label{sec:pembahasan-hasil-evaluasi}
 
-Secara umum, hasil evaluasi menunjukkan bahwa rancangan arsitektur berhasil
-direalisasikan menjadi sistem yang terintegrasi. Dari perspektif arsitektur,
-keberhasilan utama tidak hanya terletak pada tersedianya komponen-komponen
-sistem, tetapi pada kemampuannya untuk bekerja dalam alur yang konsisten.
+Secara umum, hasil evaluasi menunjukkan bahwa rancangan arsitektur dapat
+direalisasikan menjadi sistem yang terintegrasi pada ruang lingkup internal
+tugas akhir. Dari perspektif arsitektur, nilai utama evaluasi tidak hanya
+terletak pada tersedianya komponen-komponen sistem, tetapi pada kemampuannya
+untuk bekerja dalam alur yang konsisten.
 Komponen \textit{edge} bertanggung jawab terhadap pengambilan data dan inferensi
 awal, layanan API bertanggung jawab terhadap persistensi dan integrasi data,
 sedangkan aplikasi web bertanggung jawab terhadap penyajian hasil dan interaksi
@@ -483,7 +489,7 @@ Pemeriksaan kode layanan API juga menunjukkan bahwa jalur utama integrasi
 memang direalisasikan melalui keluarga \textit{endpoint} \nolinkurl{/api/edge}. Jalur
 inti tersebut mencakup \textit{endpoint} identifikasi kontainer serta \textit{endpoint}
 pemindaian kerusakan, barang berisiko, dan kategori muatan. Temuan ini
-memperkuat kesimpulan bahwa arsitektur yang dibangun benar-benar berpusat pada
+memperkuat kesimpulan bahwa arsitektur yang dibangun berpusat pada
 entitas kontainer dan tidak bergantung pada jalur \textit{tracking} lama
 sebagai pusat persistensi inspeksi.
 
@@ -500,10 +506,10 @@ Argumen validasi tersebut diringkas pada Tabel~\ref{tbl:argumen-validasi-arsitek
         \toprule
         \textbf{Premis Kebutuhan} & \textbf{Keputusan Arsitektur} & \textbf{Bukti Realisasi} & \textbf{Simpulan} \\
         \midrule
-        Data inspeksi berasal dari beberapa proses dan harus tetap terhubung pada objek yang sama & Nomor kontainer dijadikan jangkar integrasi dan pusat agregasi data & Alur OCR membentuk atau memperbarui entitas kontainer, lalu hasil pemindaian lain dikaitkan ke entitas yang sama & Rancangan arsitektur data terbukti mendukung konsistensi konteks inspeksi \\
-        Video langsung dan data transaksional memiliki karakteristik beban dan tujuan yang berbeda & Jalur video dipisahkan dari jalur data terstruktur & Video beranotasi disiarkan melalui \textit{WebSocket}, sedangkan hasil inspeksi dikirim ke layanan API & Pemisahan jalur komunikasi terbukti layak dan sesuai fungsi \\
-        Hasil inspeksi harus dapat ditelusuri, diaudit, dan dibandingkan dengan konteks manifes & Data inti disimpan pada model kontainer dan manifes, sedangkan artefak visual dipisahkan ke penyimpanan objek & Koleksi \textit{containers} dan \textit{manifests} menyimpan data terstruktur, sedangkan bukti visual disimpan pada Cloudflare R2 & Rancangan penyimpanan terbukti mendukung ketertelusuran dan pengelolaan bukti inspeksi \\
-        Komponen sistem memiliki tanggung jawab berbeda dan harus tetap dapat berkembang tanpa saling membebani & Komponen \textit{edge}, API, web, dan penyimpanan dipisahkan menurut peran & Skenario integrasi menunjukkan komponen saling terhubung melalui kontrak layanan yang berbeda sesuai tanggung jawabnya & Pembagian lapisan arsitektur terbukti implementabel pada ruang lingkup tugas akhir ini \\
+        Data inspeksi berasal dari beberapa proses dan harus tetap terhubung pada objek yang sama & Nomor kontainer dijadikan jangkar integrasi dan pusat agregasi data & Alur OCR membentuk atau memperbarui entitas kontainer, lalu hasil pemindaian lain dikaitkan ke entitas yang sama & Rancangan arsitektur data mendukung konsistensi konteks inspeksi pada skenario evaluasi \\
+        Video langsung dan data transaksional memiliki karakteristik beban dan tujuan yang berbeda & Jalur video dipisahkan dari jalur data terstruktur & Video beranotasi disiarkan melalui \textit{WebSocket}, sedangkan hasil inspeksi dikirim ke layanan API & Pemisahan jalur komunikasi layak diterapkan pada ruang lingkup realisasi internal \\
+        Hasil inspeksi harus dapat ditelusuri, diaudit, dan dibandingkan dengan konteks manifes & Data inti disimpan pada model kontainer dan manifes, sedangkan artefak visual dipisahkan ke penyimpanan objek & Koleksi \textit{containers} dan \textit{manifests} menyimpan data terstruktur, sedangkan bukti visual disimpan pada Cloudflare R2 & Rancangan penyimpanan mendukung ketertelusuran dan pengelolaan bukti inspeksi pada artefak yang diuji \\
+        Komponen sistem memiliki tanggung jawab berbeda dan harus tetap dapat berkembang tanpa saling membebani & Komponen \textit{edge}, API, web, dan penyimpanan dipisahkan menurut peran & Skenario integrasi menunjukkan komponen saling terhubung melalui kontrak layanan yang berbeda sesuai tanggung jawabnya & Pembagian lapisan arsitektur bersifat implementabel pada ruang lingkup tugas akhir ini \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -512,7 +518,8 @@ Argumen validasi tersebut diringkas pada Tabel~\ref{tbl:argumen-validasi-arsitek
 \label{sec:keterbatasan-evaluasi}
 
 Walaupun hasil evaluasi menunjukkan bahwa sistem dapat berjalan sesuai dengan
-rancangan arsitektur, terdapat beberapa keterbatasan yang perlu dicatat.
+rancangan arsitektur pada skenario yang diuji, terdapat beberapa keterbatasan
+yang perlu dicatat.
 
 Evaluasi pada tugas akhir ini berfokus pada integrasi sistem dan validasi alur
 data, sehingga belum menilai performa kuantitatif seperti latensi menyeluruh,
@@ -523,9 +530,8 @@ artefak realisasi sistem dan skenario integrasi yang tersedia pada lingkungan
 pengembangan, sehingga evaluasi pada skala operasional penuh di lingkungan
 pelabuhan nyata masih menjadi pekerjaan lanjutan.
 
-Keterbatasan tersebut tidak mengurangi nilai evaluasi terhadap kontribusi
-arsitektural tugas akhir ini, tetapi menunjukkan ruang pengembangan untuk
-pekerjaan lanjutan.
+Keterbatasan tersebut membatasi generalisasi hasil evaluasi, tetapi tidak
+menghilangkan nilai evaluasi terhadap kontribusi arsitektural tugas akhir ini.
 Evaluasi lanjutan dapat diarahkan pada pengukuran performa sistem,
 uji beban, pengujian ketahanan operasional, dan validasi pada lingkungan
 lapangan yang lebih representatif.

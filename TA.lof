@@ -102,12 +102,12 @@
 \contentsline {figure}{\numberline {IV.1}{\ignorespaces Diagram Konteks Sasaran Sistem Inspeksi Kargo Digital Terintegrasi}}{45}{figure.caption.25}%
 \contentsline {figure}{\numberline {IV.2}{\ignorespaces Arsitektur Berlapis Konseptual Sistem Inspeksi Kargo Digital}}{48}{figure.caption.27}%
 \contentsline {figure}{\numberline {IV.3}{\ignorespaces Diagram Aliran Data End-to-End dalam Sistem Inspeksi Kargo}}{49}{figure.caption.28}%
-\contentsline {figure}{\numberline {IV.4}{\ignorespaces Arsitektur Penempatan dengan Distribusi Komponen Terpusat dan \textit {Edge}}}{51}{figure.caption.29}%
-\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur \textit {Edge} di Lokasi Inspeksi}}{52}{figure.caption.30}%
-\contentsline {figure}{\numberline {IV.6}{\ignorespaces Diagram Relasi Entitas Konseptual Sasaran Sistem Inspeksi Kargo}}{53}{figure.caption.31}%
-\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur Integrasi Sasaran dengan Sistem Eksternal Pelabuhan}}{55}{figure.caption.32}%
+\contentsline {figure}{\numberline {IV.4}{\ignorespaces Diagram Relasi Entitas Konseptual Sasaran Sistem Inspeksi Kargo}}{50}{figure.caption.29}%
+\contentsline {figure}{\numberline {IV.5}{\ignorespaces Arsitektur Integrasi Sasaran dengan Sistem Eksternal Pelabuhan}}{52}{figure.caption.30}%
+\contentsline {figure}{\numberline {IV.6}{\ignorespaces Arsitektur Penempatan dengan Distribusi Komponen Terpusat dan \textit {Edge}}}{56}{figure.caption.31}%
+\contentsline {figure}{\numberline {IV.7}{\ignorespaces Arsitektur \textit {Edge} di Lokasi Inspeksi}}{57}{figure.caption.32}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {V.1}{\ignorespaces Alur Realisasi Data Inspeksi pada Implementasi Sistem}}{70}{figure.caption.39}%
+\contentsline {figure}{\numberline {V.1}{\ignorespaces Alur Realisasi Data Inspeksi pada Implementasi Sistem}}{69}{figure.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
