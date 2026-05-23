@@ -2,8 +2,13 @@
 % BAB IV PART 1 - PENDAHULUAN DAN PERBANDINGAN
 % ==========================================
 \cleardoublepage
-\chapter{PERANCANGAN}
+\chapter{ARSITEKTUR SISTEM INSPEKSI KONTAINER DIGITAL TERINTEGRASI}
 \label{chap:perancangan}
+
+Bab ini menyajikan artefak rancangan sistem inspeksi kontainer digital
+terintegrasi. Susunan pembahasan dibuat mengikuti tujuan tugas akhir: deskripsi
+umum sistem, rancangan arsitektur sistem, rancangan arsitektur data, model alur
+informasi, dan pembagian fungsi antarkomponen.
 
 \section{Deskripsi Umum Sistem}
 \label{sec:desain-sistem-umum}
@@ -60,7 +65,7 @@ Arsitektur sistem memerlukan sejumlah kapabilitas untuk memenuhi kebutuhan fungs
 
 Kapabilitas di atas diturunkan dari analisis kebutuhan untuk mendukung \textbf{kemudahan pemeliharaan} melalui modularitas, \textbf{interoperabilitas} melalui kontrak layanan yang jelas, \textbf{auditabilitas} melalui ketertelusuran aktivitas, dan \textbf{keandalan operasi}. Pada realisasinya, kapabilitas tersebut diwujudkan melalui pemisahan komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan data, sedangkan interoperabilitas dengan sistem eksternal diposisikan sebagai kesiapan perluasan.
 
-\section{Arsitektur Sistem Terintegrasi}
+\section{Desain Arsitektur Sistem Terintegrasi}
 \label{sec:perbandingan-sistem}
 
 Bagian ini menjawab tujuan pertama tugas akhir, yaitu merancang arsitektur

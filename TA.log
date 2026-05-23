@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  22 MAY 2026 11:03
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  23 MAY 2026 19:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1594,13 +1594,13 @@ File: images/signature.png Graphic file (type bmp)
 
 [14]
 
-[15])
+[15]
+
+[16])
 \tf@toc=\write6
 \openout6 = `TA.toc'.
 
 ) (./8 Daftar Gambar.tex
-
-[16]
 
 [17]
 
@@ -1876,7 +1876,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Bab IV.
 
-Underfull \hbox (badness 7397) in paragraph at lines 49--49
+Underfull \hbox (badness 7397) in paragraph at lines 54--54
 []|\TU/TimesNewRoman(0)/m/n/10 Penyimpanan Data Tidak
  []
 
@@ -1903,22 +1903,22 @@ File: images/System Context Diagram.drawio.png Graphic file (type bmp)
 
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 []|\TU/TimesNewRoman(0)/m/n/10.95 Menampilkan hasil inspeksi,
  []
 
 
-Underfull \hbox (badness 6380) in paragraph at lines 311--312
+Underfull \hbox (badness 6380) in paragraph at lines 316--317
 \TU/TimesNewRoman(0)/m/n/10.95 sung, dan akses operasional
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 313--313
+Underfull \hbox (badness 1178) in paragraph at lines 318--318
 []|\TU/TimesNewRoman(0)/m/n/10.95 Koordinasi proses, autenti-
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 319--319
+Underfull \hbox (badness 5726) in paragraph at lines 324--324
 \TU/TimesNewRoman(0)/m/n/10.95 pemrosesan dekat sumber
  []
 
@@ -1946,7 +1946,7 @@ File: images/Integration Architecture Diagram.png Graphic file (type bmp)
 
 
 [52]
-Underfull \hbox (badness 1092) in paragraph at lines 571--572
+Underfull \hbox (badness 1092) in paragraph at lines 576--577
 \TU/TimesNewRoman(0)/m/n/12 Oleh karena itu, rancangan lapisan integrasi menyia
 pkan strategi penanganan
  []
@@ -2167,7 +2167,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TA.out' has not changed.
-(rerunfilecheck)             Checksum: 40230D19865BADD954D8550FF04A5CF6;36080.
+(rerunfilecheck)             Checksum: BA5C97C405953D5727D5D56D9E0A4530;36363.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -2178,10 +2178,10 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 Here is how much of TeX's memory you used:
  45859 strings out of 473832
  932111 string characters out of 5729480
- 2447086 words of memory out of 5000000
+ 2447423 words of memory out of 5000000
  68217 multiletter control sequences out of 15000+600000
  567409 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  84i,17n,95p,1495b,6608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TA.xdv (132 pages, 2489776 bytes).
+Output written on TA.xdv (132 pages, 2496652 bytes).

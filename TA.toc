@@ -190,11 +190,11 @@
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {III.5}Kesimpulan Analisis}{37}{section.3.5}%
-\contentsline {chapter}{\numberline {IV}PERANCANGAN}{39}{chapter.4}%
+\contentsline {chapter}{\numberline {IV}ARSITEKTUR SISTEM INSPEKSI KONTAINER DIGITAL TERINTEGRASI}{39}{chapter.4}%
 \contentsline {section}{\numberline {IV.1}Deskripsi Umum Sistem}{39}{section.4.1}%
 \contentsline {subsection}{\numberline {IV.1.1}Visi dan Prinsip Desain}{39}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {IV.1.2}Kapabilitas Arsitektur yang Diperlukan}{39}{subsection.4.1.2}%
-\contentsline {section}{\numberline {IV.2}Arsitektur Sistem Terintegrasi}{40}{section.4.2}%
+\contentsline {section}{\numberline {IV.2}Desain Arsitektur Sistem Terintegrasi}{40}{section.4.2}%
 \contentsline {subsection}{\numberline {IV.2.1}Deskripsi Sistem Saat Ini}{40}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {IV.2.2}Deskripsi Sistem Usulan}{41}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {IV.2.3}Perbandingan Konseptual Sistem}{42}{subsection.4.2.3}%
