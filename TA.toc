@@ -87,7 +87,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.3.4}Prinsip Arsitektur Layanan}{14}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {II.3.4}Prinsip Arsitektur Layanan}{15}{subsection.2.3.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {II.4}Kecerdasan Buatan dalam Inspeksi Visual}{15}{section.2.4}%
@@ -97,7 +97,7 @@
 \contentsline {subsection}{\numberline {II.4.2}Pembelajaran dari Pola Data Visual}{15}{subsection.2.4.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.4.3}Prinsip Keandalan Model Prediktif}{15}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {II.4.3}Prinsip Keandalan Model Prediktif}{16}{subsection.2.4.3}%
 \contentsline {section}{\numberline {II.5}Komunikasi Data dan Integrasi Sistem}{16}{section.2.5}%
 \contentsline {subsection}{\numberline {II.5.1}Konsep Komunikasi Berbasis Kejadian}{16}{subsection.2.5.1}%
 \babel@toc {english}{}\relax 
@@ -105,14 +105,14 @@
 \contentsline {subsection}{\numberline {II.5.2}Mekanisme Penyampaian Informasi Terdistribusi}{16}{subsection.2.5.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.5.3}Prinsip Interoperabilitas dan Standardisasi}{16}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {II.5.3}Prinsip Interoperabilitas dan Standardisasi}{17}{subsection.2.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {II.6}Tata Kelola Teknologi Informasi untuk Sistem Inspeksi}{17}{section.2.6}%
 \contentsline {subsection}{\numberline {II.6.1}Kerangka COBIT untuk Tata Kelola TI}{17}{subsection.2.6.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.6.2}ITIL untuk \textit {Service Management}}{17}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {II.6.2}ITIL untuk \textit {Service Management}}{18}{subsection.2.6.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {II.6.3}Prinsip \textit {Audit Trail} dan \textit {Digital Evidence}}{18}{subsection.2.6.3}%
@@ -124,7 +124,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.7.2}\textit {WCO SAFE Framework}}{18}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {II.7.2}\textit {WCO SAFE Framework}}{19}{subsection.2.7.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {II.7.3}Regulasi Nasional Indonesia}{19}{subsection.2.7.3}%
@@ -135,7 +135,7 @@
 \contentsline {section}{\numberline {II.8}Prinsip Pengelolaan Data dalam Sistem Inspeksi}{19}{section.2.8}%
 \contentsline {section}{\numberline {II.9}Celah Literatur dan Kontribusi Penelitian}{20}{section.2.9}%
 \contentsline {subsection}{\numberline {II.9.1}Identifikasi Celah Penelitian}{20}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {II.9.2}Kontribusi Tugas Akhir}{20}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {II.9.2}Kontribusi Tugas Akhir}{21}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{23}{chapter.3}%
 \contentsline {section}{\numberline {III.1}Analisis Sistem Saat Ini}{23}{section.3.1}%
 \contentsline {subsection}{\numberline {III.1.1}Model Konseptual Sistem Inspeksi Kontainer Saat Ini}{23}{subsection.3.1.1}%
@@ -245,16 +245,16 @@
 \contentsline {subsection}{\numberline {VI.2.2}Skenario Evaluasi}{74}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {VI.2.3}Aspek yang Dievaluasi}{75}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {VI.2.4}Matriks Bukti Evaluasi}{76}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {VI.2.5}Keterkaitan Hasil Evaluasi dengan Kebutuhan Sistem}{76}{subsection.6.2.5}%
-\contentsline {section}{\numberline {VI.3}Hasil Evaluasi}{76}{section.6.3}%
-\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{77}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{78}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {VI.3.3}Hasil pada Jalur Video Langsung}{78}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{79}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{79}{subsection.6.3.5}%
-\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{80}{section.6.4}%
-\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{81}{subsection.6.4.1}%
-\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{82}{section.6.5}%
+\contentsline {subsection}{\numberline {VI.2.5}Keterkaitan Hasil Evaluasi dengan Kebutuhan Sistem}{77}{subsection.6.2.5}%
+\contentsline {section}{\numberline {VI.3}Hasil Evaluasi}{78}{section.6.3}%
+\contentsline {subsection}{\numberline {VI.3.1}Hasil pada Integrasi Antarlayanan}{78}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {VI.3.2}Hasil pada Alur Identifikasi dan Pemindaian}{79}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {VI.3.3}Hasil pada Jalur Video Langsung}{79}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {VI.3.4}Hasil pada Arsitektur Data}{80}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {VI.3.5}Temuan Evaluasi Utama}{80}{subsection.6.3.5}%
+\contentsline {section}{\numberline {VI.4}Pembahasan Hasil Evaluasi}{81}{section.6.4}%
+\contentsline {subsection}{\numberline {VI.4.1}Validasi Konseptual terhadap Tujuan Arsitektural}{82}{subsection.6.4.1}%
+\contentsline {section}{\numberline {VI.5}Keterbatasan Evaluasi}{84}{section.6.5}%
 \contentsline {chapter}{\numberline {VII}PENUTUP}{85}{chapter.7}%
 \contentsline {section}{\numberline {VII.1}Kesimpulan}{85}{section.7.1}%
 \contentsline {section}{\numberline {VII.2}Saran}{86}{section.7.2}%
