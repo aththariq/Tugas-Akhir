@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  25 MAY 2026 15:51
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.21)  25 MAY 2026 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1909,22 +1909,22 @@ File: images/System Context Diagram.drawio.png Graphic file (type bmp)
 
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
 []|\TU/TimesNewRoman(0)/m/n/10.95 Menampilkan hasil inspeksi,
  []
 
 
-Underfull \hbox (badness 6380) in paragraph at lines 316--317
+Underfull \hbox (badness 6380) in paragraph at lines 317--318
 \TU/TimesNewRoman(0)/m/n/10.95 sung, dan akses operasional
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 318--318
+Underfull \hbox (badness 1178) in paragraph at lines 319--319
 []|\TU/TimesNewRoman(0)/m/n/10.95 Koordinasi proses, autenti-
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 324--324
+Underfull \hbox (badness 5726) in paragraph at lines 325--325
 \TU/TimesNewRoman(0)/m/n/10.95 pemrosesan dekat sumber
  []
 
@@ -1952,7 +1952,7 @@ File: images/Integration Architecture Diagram.png Graphic file (type bmp)
 
 
 [52]
-Underfull \hbox (badness 1092) in paragraph at lines 576--577
+Underfull \hbox (badness 1092) in paragraph at lines 577--578
 \TU/TimesNewRoman(0)/m/n/12 Oleh karena itu, rancangan lapisan integrasi menyia
 pkan strategi penanganan
  []
@@ -2184,7 +2184,7 @@ Package logreq Info: Writing requests to 'TA.run.xml'.
 Here is how much of TeX's memory you used:
  45859 strings out of 473832
  932111 string characters out of 5729480
- 2447423 words of memory out of 5000000
+ 2447422 words of memory out of 5000000
  68217 multiletter control sequences out of 15000+600000
  567409 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
