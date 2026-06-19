@@ -7,88 +7,54 @@
 
 \section{Latar Belakang}
 
-Sektor logistik memegang peranan penting dalam mendukung perdagangan nasional
-dan internasional. Sebagai negara kepulauan, Indonesia merupakan jalur
-transportasi laut strategis yang banyak dilalui perdagangan global. Saat ini,
-90\% perdagangan internasional diangkut melalui jalur laut dan 40\% dari
-perdagangan dunia tersebut melalui perairan Indonesia. Meski pemerintah terus
-berupaya meningkatkan efisiensi, biaya logistik nasional masih tergolong
-tinggi. Berdasarkan data terbaru, proporsi biaya logistik terhadap Produk
-Domestik Bruto (PDB) di Indonesia sempat mencapai 24\% pada tahun 2020 dan
-baru menurun menjadi sekitar 14,29\% pada tahun 2023. Angka ini masih lebih
-tinggi dibanding rata-rata negara maju yang kurang dari 10\%, seperti
-Jepang dan Singapura yang berada di angka 8\% \autocite{bappenas2023,pwc2023}.
+Kelancaran arus kontainer berpengaruh langsung terhadap biaya dan kualitas
+layanan logistik pelabuhan. Di Indonesia, biaya logistik terhadap Produk
+Domestik Bruto (PDB) tercatat pernah mencapai 24\% pada tahun 2020 dan menurun
+menjadi sekitar 14,29\% pada tahun 2023; angka tersebut masih berada di atas
+pembanding kawasan seperti Singapura yang berada pada kisaran 8\%
+\autocite{kemenkeu2023nle,pelindo2023logistik}. Salah satu proses yang
+mendukung kelancaran arus tersebut adalah inspeksi kontainer, karena hasil
+inspeksi menentukan kesiapan fisik kontainer, kelengkapan dokumen, dan tindak
+lanjut operasional.
 
-Untuk menjaga kelancaran proses logistik dan menekan biaya operasional, salah
-satu aspek krusial yang perlu diperhatikan adalah pemeriksaan peti kemas.
-Proses ini merupakan tahapan penting dalam rantai logistik karena berpengaruh
-langsung terhadap keamanan, efisiensi, dan kelancaran distribusi barang.
-Survei Kementerian Perhubungan Indonesia pada tahun 2018 menunjukkan bahwa
-hanya 20\% peti kemas di Indonesia yang layak pakai, sedangkan 80\% lainnya
-berada dalam kondisi buruk, baik rusak maupun tidak memenuhi standar kualitas
-\autocite{lukmandono2024}. Kondisi tersebut menunjukkan perlunya pemeriksaan
-peti kemas yang lebih andal, baik untuk menilai kondisi fisik peti kemas maupun
-untuk memastikan keamanan muatannya.
+Kebutuhan inspeksi semakin penting karena kondisi fisik kontainer tidak selalu
+seragam. Survei Kementerian Perhubungan Indonesia pada tahun 2018 menunjukkan
+bahwa hanya 20\% kontainer di Indonesia yang layak pakai, sedangkan 80\%
+lainnya berada dalam kondisi buruk atau tidak memenuhi standar kualitas
+\autocite{lukmandono2024}. Namun, peningkatan proses inspeksi tidak cukup hanya
+dilihat sebagai persoalan alat pemeriksaan. Hasil identifikasi kontainer, bukti
+visual, status pemeriksaan, dan penanggung jawab inspeksi perlu terhubung dalam
+riwayat kontainer yang konsisten agar dapat digunakan kembali untuk pelacakan
+dan audit.
 
-Beberapa pendekatan teknologi sebenarnya sudah mulai diterapkan di industri global. Salah satunya adalah penggunaan kamera termal atau \textit{infrared thermography} yang dapat mendeteksi perbedaan suhu pada permukaan kontainer untuk mengidentifikasi adanya anomali seperti lubang, retakan, atau kebocoran. Metode ini tergolong cepat, tidak merusak objek yang diperiksa, dan cocok untuk \textit{screening} awal. Meski demikian, efektivitas metode ini sangat bergantung pada kondisi lingkungan dan jenis kerusakan. Penyok, korosi awal, atau kerusakan struktural ringan yang tidak memengaruhi suhu sering kali tidak terdeteksi, sehingga hasil inspeksi kurang dapat diandalkan. Selain itu, hasil dari inspeksi termal biasanya belum terintegrasi dengan sistem pelaporan digital yang dapat dilacak secara menyeluruh \autocite{kim2022}.
+Hasil survei lapangan yang dirangkum pada Lampiran~\ref{chap:survei}
+menunjukkan bahwa proses eksisting masih melibatkan pemeriksaan visual,
+dokumen kertas, pencatatan lapangan, dan koordinasi lintas pihak. Sistem
+operasional terminal dapat mengelola pergerakan kontainer, tetapi data hasil
+inspeksi belum selalu tersambung secara otomatis dengan identitas kontainer dan
+bukti visual. Akibatnya, informasi inspeksi berisiko tersebar pada dokumen,
+catatan petugas, atau sistem yang berbeda sehingga riwayat kontainer tidak
+terbentuk secara utuh.
 
-Di sisi lain, sejumlah operator pelabuhan internasional telah mengembangkan sistem pemindaian otomatis berbasis 3D yang ditempatkan di pintu masuk pelabuhan. Teknologi ini memungkinkan pemetaan bentuk kontainer secara waktu nyata untuk mendeteksi penyok atau kerusakan struktural lain tanpa perlu pemeriksaan manual. Sistem seperti TMEIC DMG 3D, Camco Argus ADI, dan Visy ADDS merupakan beberapa contoh teknologi yang digunakan untuk keperluan ini. Untuk bagian dalam kontainer, teknologi X-ray seperti Leidos VACIS dimanfaatkan untuk memindai isi tanpa perlu membuka kontainer, sehingga anomali isi atau barang ilegal dapat lebih cepat dikenali \autocite{lim2021}.
-
-Mulai tahun 2024, Direktorat Jenderal Bea dan Cukai juga telah merencanakan
-penggunaan alat pengecekan isi muatan peti kemas dengan teknologi X-ray, sinar
-gamma, atau pemindai sejenis sebagaimana diatur dalam Peraturan Direktur
-Jenderal Bea dan Cukai PER-1/BC/2023. Teknologi pemindai lain, seperti
-Hi-Co Scan, mulai diperkenalkan karena mampu menampilkan isi kontainer tanpa
-perlu membuka segelnya. Meskipun teknologi ini meningkatkan efisiensi dan
-keamanan arus barang, fokusnya masih berada pada pemeriksaan isi muatan, bukan
-pada kondisi fisik peti kemas. Oleh karena itu, masih terdapat ruang yang
-signifikan untuk pengembangan sistem inspeksi kondisi kontainer, misalnya
-melalui pemanfaatan teknologi visual atau sensor otomatis yang dapat menilai
-kerusakan struktural, kebocoran, dan deformasi secara waktu nyata.
-Pengembangan di bidang ini penting bagi peningkatan efisiensi, keselamatan
-logistik, dan keandalan rantai pasok secara menyeluruh.
-
-Walaupun teknologi-teknologi tersebut telah banyak digunakan secara global, sebagian besar pelabuhan di Indonesia masih bergantung pada metode manual. Petugas biasanya melakukan pemeriksaan berdasarkan \textit{checklist} standar seperti CTPAT 7-Point Container Inspection atau panduan inspeksi dari IICL dan UCIRC. Di tingkat internasional, program inspeksi kontainer yang komprehensif seperti \textit{National Container Inspection Program} (NCIP) milik U.S. Coast Guard mengharuskan inspektur memiliki pengetahuan tentang berbagai kriteria inspeksi dan perbaikan yang banyak digunakan, termasuk panduan dari \textit{Institute of International Container Lessors} (IICL) dan \textit{Unified Container Inspection and Repair Criteria} (UCIRC), untuk memastikan kontainer memenuhi standar keselamatan struktural dan regulasi pengangkutan bahan berbahaya \autocite{uscg2019}.
-
-Permasalahan utama di Indonesia bukan hanya terletak pada keterbatasan
-teknologi, tetapi juga pada belum adanya sistem inspeksi yang benar-benar
-terintegrasi dengan alur kerja pelabuhan dan sistem kepabeanan. Ketiadaan
-integrasi ini berkontribusi terhadap lamanya proses pemeriksaan dan pengeluaran
-barang di pelabuhan, sehingga menghambat kelancaran arus barang dan pada
-akhirnya ikut mendorong tingginya harga barang konsumen
-\autocite{wulansari2022}. Data hasil pemeriksaan, baik manual maupun berbasis
-sensor, belum secara otomatis tercatat dalam sistem yang dapat digunakan untuk
-audit, pelaporan, maupun koordinasi antarinstansi. Tanpa dukungan pencatatan
-digital, pelacakan inspeksi, dan standar operasional yang konsisten, potensi
-kesalahan tetap tinggi dan efisiensi sulit dicapai.
-
-Dalam konteks ini, tantangan utama tidak lagi hanya terletak pada ketersediaan
-perangkat inspeksi, tetapi pada bagaimana berbagai komponen digital dapat
-dihubungkan ke dalam satu arsitektur sistem yang konsisten. Sistem inspeksi
-yang efektif perlu mampu mengintegrasikan pengambilan data di lapangan,
-analisis visual, penyimpanan hasil inspeksi, serta penyajian informasi kepada
-operator dan sistem lain di lingkungan pelabuhan. Selain itu, regulasi seperti
-Peraturan Menteri Perhubungan Nomor 8 Tahun 2022 juga menekankan pentingnya
-digitalisasi layanan kapal dan barang di pelabuhan, termasuk integrasi data
-antarinstansi dan keamanan sistem informasi \autocite{kemenhub2022}.
-
-Berdasarkan kondisi tersebut, terlihat adanya kebutuhan mendesak untuk
-merancang arsitektur sistem inspeksi kontainer yang tidak hanya mendukung
-otomasi pemeriksaan, tetapi juga mendukung integrasi data, ketertelusuran
-proses, dan keterhubungan dengan ekosistem digital pelabuhan Indonesia.
-Dalam tugas akhir ini, istilah inspeksi kargo difokuskan pada proses
-pemeriksaan kontainer sebagai unit utama objek inspeksi.
+Permasalahan tersebut menunjukkan perlunya rancangan arsitektur sistem yang
+menyatukan akuisisi data di lapangan, pemrosesan awal, penyimpanan hasil
+inspeksi, dan penyajian riwayat kontainer. Peraturan Menteri Perhubungan Nomor
+PM~8 Tahun 2022 mengatur pelayanan kapal melalui Inaportnet sebagai layanan
+elektronik di pelabuhan \autocite{kemenhub2022}. Oleh karena itu, tugas akhir
+ini berfokus pada perancangan arsitektur sistem otomasi inspeksi kontainer di
+pelabuhan, dengan kontainer sebagai pusat informasi dan inspeksi sebagai
+aktivitas yang membentuk riwayat kontainer.
 
 \section{Rumusan Masalah}
 
 Berdasarkan latar belakang yang telah diuraikan, permasalahan utama yang
 menjadi fokus tugas akhir ini dirumuskan sebagai berikut:
 \begin{enumerate}
-  \item Bagaimana merancang arsitektur sistem yang mampu mengintegrasikan
+  \item Bagaimana merancang arsitektur sistem yang mengintegrasikan
   komponen \textit{edge}, layanan aplikasi, penyimpanan data, dan antarmuka
   pengguna dalam satu alur kerja yang konsisten?
   \item Bagaimana merancang struktur data pemeriksaan kontainer agar pencatatan
-  hasil inspeksi, pelacakan riwayat, dan penyediaan bukti inspeksi dapat
+  hasil inspeksi, riwayat kontainer, dan penyediaan bukti inspeksi dapat
   dilakukan secara terstruktur?
   \item Bagaimana merancang alur informasi yang memungkinkan hasil
   identifikasi dan hasil pemindaian dari beberapa komponen dapat dikaitkan pada
@@ -105,8 +71,8 @@ bukti bahwa rancangan dapat diwujudkan dalam ruang lingkup tugas akhir.
 
 \section{Tujuan}
 
-Tugas akhir ini bertujuan menghasilkan rancangan arsitektur sistem inspeksi
-kontainer digital terintegrasi yang dapat menjadi dasar realisasi sistem dan
+Tugas akhir ini bertujuan menghasilkan rancangan arsitektur sistem otomasi
+inspeksi kontainer yang dapat menjadi dasar realisasi sistem dan
 menjadi acuan pengembangan lebih lanjut di lingkungan pelabuhan.
 
 Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
@@ -115,7 +81,7 @@ Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
   hubungan antarkomponen, dan alur informasi inspeksi kontainer secara
   menyeluruh.
   \item Merancang arsitektur data yang mendukung pencatatan hasil inspeksi,
-  penyimpanan bukti visual, dan pelacakan riwayat pemeriksaan kontainer.
+  penyimpanan bukti visual, dan riwayat pemeriksaan kontainer.
   \item Menyusun model alur informasi yang memungkinkan integrasi hasil
   identifikasi, hasil pemindaian, dan penyajian informasi kepada pengguna dalam
   satu sistem yang konsisten.
@@ -126,115 +92,117 @@ Secara khusus, tugas akhir ini memiliki tujuan sebagai berikut:
 
 \section{Batasan Masalah}
 
-Agar tugas akhir ini tetap fokus pada kontribusi perancangan arsitektur sistem,
-ruang lingkup pembahasan dibatasi sebagai berikut:
+Agar pembahasan tetap fokus pada kontribusi arsitektur sistem, ruang lingkup
+tugas akhir ini dibatasi sebagai berikut:
 \begin{enumerate}
   \item Tugas akhir ini berfokus pada perancangan arsitektur sistem dan
-  arsitektur data, bukan pada implementasi detail algoritma deteksi, strategi
-  \textit{deployment}, atau tata kelola organisasi secara penuh.
+  arsitektur data, bukan pada pengembangan detail algoritma deteksi atau
+  perangkat keras sensor.
   \item Rancangan arsitektur dibatasi pada definisi komponen utama, relasi
   antarkomponen, struktur data, dan alur informasi yang mendukung proses
-  inspeksi kontainer digital.
+  otomasi inspeksi kontainer.
   \item Tugas akhir ini tidak membahas rancangan infrastruktur fisik pelabuhan,
-  pengembangan perangkat keras sensor secara rinci, maupun operasi bisnis
-  pelabuhan secara menyeluruh.
+  operasi bisnis pelabuhan secara menyeluruh, atau perancangan ulang seluruh
+  ekosistem sistem informasi pelabuhan.
   \item Evaluasi tugas akhir ini difokuskan pada kesesuaian rancangan arsitektur
-  terhadap sistem yang direalisasikan dan pada validasi integrasi
-  antarkomponen, bukan pada uji performa kuantitatif menyeluruh atau uji
+  terhadap sistem yang direalisasikan dan pada bukti integrasi antarkomponen,
+  bukan pada uji performa kuantitatif menyeluruh atau uji
   lapangan skala penuh.
   \item Aspek keamanan siber, tata kelola layanan, dan pengelolaan operasional
-  tidak dibahas secara mendalam, tetapi hanya ditinjau sejauh relevan terhadap
-  rancangan arsitektur.
-  \item Ruang lingkup terbatas pada sistem inspeksi kontainer digital
-  terintegrasi dan tidak mencakup perancangan ulang seluruh ekosistem sistem
-  informasi pelabuhan.
+  dibahas pada batas keputusan arsitektur, yaitu kontrol akses, pencatatan
+  aktivitas, pemisahan tanggung jawab komponen, dan kebutuhan integrasi.
 \end{enumerate}
 
-Dengan batasan tersebut, tugas akhir ini menghasilkan rancangan arsitektur
-sistem yang menekankan integrasi komponen, alur data, dan ketertelusuran
-informasi sebagai landasan bagi pengembangan sistem inspeksi kontainer
-terintegrasi.
+\section{Definisi Operasional Istilah}
 
-Dalam konteks proyek pengembangan sistem, implementasi sistem yang telah dibangun
-digunakan pada tugas akhir ini sebagai artefak realisasi untuk menilai apakah
-rancangan arsitektur yang disusun benar-benar dapat diwujudkan. Namun,
-pembahasan tugas akhir ini tidak diarahkan untuk menguraikan seluruh detail
-rekayasa perangkat lunak, \textit{deployment}, atau tata kelola layanan secara
-menyeluruh, melainkan untuk menjelaskan bagaimana keputusan arsitektural
-menjadi dasar integrasi sistem yang direalisasikan.
+Untuk menghindari perbedaan pemaknaan istilah, beberapa istilah utama dalam
+tugas akhir ini digunakan dengan makna operasional berikut:
+\begin{itemize}[leftmargin=1.2cm,itemsep=0.15em,topsep=0.2em]
+  \item \textbf{Kontainer}: unit fisik standar yang menjadi objek utama inspeksi, identifikasi, pencatatan hasil, dan pembentukan riwayat pemeriksaan.
+  \item \textbf{Inspeksi kontainer}: pemeriksaan terhadap kontainer yang mencakup identifikasi nomor, pemeriksaan visual, pencatatan hasil, dan pengaitan bukti ke entitas kontainer.
+  \item \textbf{Manifes}: data deklaratif mengenai muatan dan perjalanan kontainer yang digunakan sebagai konteks pembanding terhadap hasil identifikasi atau pemindaian.
+  \item \textbf{Riwayat kontainer}: kumpulan informasi yang dapat ditelusuri mengenai identitas, waktu dan status pemeriksaan, hasil inspeksi, penanggung jawab, serta referensi bukti visual.
+  \item \textbf{Artefak visual}: berkas citra atau video hasil akuisisi dan pemindaian yang menjadi bukti pendukung proses inspeksi.
+\end{itemize}
 
-Pembagian ruang lingkup tersebut juga digunakan untuk membedakan kontribusi
-tugas akhir ini dari pekerjaan lain pada proyek pengembangan sistem yang sama.
-Rincian implementasi model deteksi, pengembangan fitur aplikasi, strategi
-\textit{deployment}, dan tata kelola layanan dapat menjadi bagian dari pekerjaan
-pengembangan lain, sedangkan tugas akhir ini menggunakan artefak realisasi
-tersebut sebagai bahan demonstrasi dan validasi rancangan arsitektur. Dengan
-demikian, kontribusi utama tugas akhir ini tetap berada pada perumusan
-arsitektur sistem, arsitektur data, alur integrasi, dan pembagian tanggung jawab
-antarkomponen.
+\section{Pembagian Tugas Kelompok}
+
+Tugas akhir ini dikerjakan dalam konteks proyek kelompok Cargovision dengan
+ruang lingkup yang saling melengkapi. Untuk memperjelas batas kontribusi, Tabel
+\ref{tbl:pembagian-tugas-kelompok} merangkum fokus pengerjaan setiap anggota.
+Laporan ini berfokus pada bagian arsitektur sistem, kontrak data berbasis
+kontainer, dan batas tanggung jawab antarkomponen.
+
+\begin{table}[ht]
+  \centering
+  \small
+  \caption[Pembagian tugas kelompok Cargovision]{Pembagian Tugas Kelompok Cargovision}
+  \label{tbl:pembagian-tugas-kelompok}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.12}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.24\textwidth}}
+    \toprule
+    \textbf{Anggota} & \textbf{Fokus Kontribusi} & \textbf{Keterkaitan dengan Laporan Ini} \\
+    \midrule
+    Aththariq Lisan Quran Daulah Sentono & Perancangan arsitektur, kontrak data berpusat pada kontainer, serta batas tanggung jawab antara \textit{edge}, API, web, dan penyimpanan. & Menjadi fokus utama tugas akhir ini. \\
+    Alessandro Jusack Hasian & Realisasi prototipe, alur OCR dan YOLO11, layanan \textit{edge}, backend, dasbor web, dan alur peninjauan operator. & Menjadi artefak realisasi yang digunakan sebagai bukti evaluasi arsitektur. \\
+    Eleanor Cordelia & Tata kelola, COBIT/ITIL/SLA, jejak audit, \textit{API gateway}, \textit{anti-corruption layer}, serta model peran dan akuntabilitas. & Menjadi konteks pendukung untuk aspek kontrol akses, audit, dan kesiapan tata kelola. \\
+    Muhammad Faiz Atharrahman & Model penempatan, rancangan hibrida \textit{on-premise} tiga lapis, CI/CD, VPN, pemantauan, dan pengujian beban. & Menjadi konteks pendukung untuk aspek penempatan, kapasitas, dan evaluasi operasional lanjutan. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
 
 \section{Metodologi}
 
 Tugas akhir ini menggunakan pendekatan \textit{Design Science Research} (DSR)
-karena fokus utama pekerjaan ini adalah menghasilkan artefak berupa rancangan
-arsitektur sistem yang relevan terhadap masalah praktis dan dapat dievaluasi
-melalui realisasi sistem \autocite{hevner2004design,peffers2007dsrm}.
-Pendekatan ini dipilih karena memungkinkan hubungan yang jelas antara masalah
-operasional di lapangan, keputusan perancangan arsitektur, demonstrasi artefak
-melalui implementasi, dan evaluasi kesesuaian hasil.
-Tahapan metodologi pada Gambar~\ref{fig:metodologi-dsr} diadaptasi dari model
-\textit{Design Science Research Methodology} yang dikemukakan oleh Peffers dkk.
-\autocite{peffers2007dsrm}.
+karena hasil utama yang disusun adalah artefak rancangan arsitektur sistem
+\autocite{hevner2004design,peffers2007dsrm}. Pendekatan ini digunakan untuk
+menghubungkan masalah operasional di lapangan, keputusan perancangan,
+demonstrasi artefak melalui realisasi sistem, dan evaluasi kesesuaian hasil.
+Tahapan yang digunakan mengikuti model \textit{Design Science Research
+Methodology} dari Peffers dkk. \autocite{peffers2007dsrm}, sebagaimana
+diringkas pada Gambar~\ref{fig:metodologi-dsr}. Pada tugas akhir ini, tahap
+perancangan menghasilkan arsitektur sistem, arsitektur data, alur informasi,
+dan pembagian fungsi antarkomponen, sedangkan tahap evaluasi menilai alur data
+utama, pembentukan riwayat kontainer, dan integrasi antarkomponen.
 
 \begin{figure}[ht]
   \centering
+  \resizebox{0.96\textwidth}{!}{%
   \begin{tikzpicture}[
-      node distance=0.8cm,
-      box/.style={rectangle, rounded corners, draw=black, align=center, minimum width=0.78\textwidth, minimum height=0.95cm},
-      line/.style={-{Latex[length=2mm]}, thick}
+      font=\scriptsize,
+      dsrstep/.style={rectangle, rounded corners, draw=black, align=center, minimum width=2.55cm, minimum height=0.84cm},
+      flow/.style={-{Latex[length=1.8mm]}, thick}
     ]
-    \node[box] (problem) {Identifikasi masalah pada proses inspeksi kontainer di pelabuhan};
-    \node[box, below=of problem] (objective) {Penetapan tujuan perancangan arsitektur sistem};
-    \node[box, below=of objective] (design) {Perancangan dan pengembangan artefak arsitektur sistem};
-    \node[box, below=of design] (demo) {Demonstrasi artefak melalui realisasi sistem pada proyek pengembangan sistem};
-    \node[box, below=of demo] (evaluation) {Evaluasi kesesuaian rancangan terhadap realisasi dan bukti integrasi};
-    \node[box, below=of evaluation] (communication) {Penyusunan laporan tugas akhir};
+    \node[dsrstep] (problem) at (0,0) {Identifikasi\\Masalah};
+    \node[dsrstep] (objective) at (3.0,0) {Penetapan\\Tujuan};
+    \node[dsrstep] (design) at (6.0,0) {Perancangan\\Artefak};
+    \node[dsrstep] (demo) at (9.0,0) {Demonstrasi\\Sistem};
+    \node[dsrstep] (evaluation) at (12.0,0) {Evaluasi\\Kesesuaian};
+    \node[dsrstep] (communication) at (15.0,0) {Komunikasi\\Hasil};
 
-    \draw[line] (problem) -- (objective);
-    \draw[line] (objective) -- (design);
-    \draw[line] (design) -- (demo);
-    \draw[line] (demo) -- (evaluation);
-    \draw[line] (evaluation) -- (communication);
-  \end{tikzpicture}
-  \caption{Tahapan metodologi \textit{Design Science Research} pada tugas akhir}
+    \draw[flow] (problem) -- (objective);
+    \draw[flow] (objective) -- (design);
+    \draw[flow] (design) -- (demo);
+    \draw[flow] (demo) -- (evaluation);
+    \draw[flow] (evaluation) -- (communication);
+  \end{tikzpicture}}
+  \caption{Alur Metodologi \textit{Design Science Research} pada Tugas Akhir}
   \label{fig:metodologi-dsr}
 \end{figure}
 
-Gambar~\ref{fig:metodologi-dsr} menunjukkan tahapan metodologi yang digunakan
-pada tugas akhir ini. Tahap pertama adalah identifikasi masalah, yaitu
-menggali kendala yang terjadi pada proses inspeksi kontainer di pelabuhan,
-terutama yang berkaitan dengan fragmentasi data, ketidakterpaduan sistem, dan
-keterbatasan ketertelusuran hasil inspeksi. Hasil identifikasi ini menjadi
-dasar untuk menetapkan tujuan tugas akhir, yaitu merancang arsitektur sistem
-yang mampu menyatukan komponen inspeksi digital dalam satu alur yang konsisten.
+\FloatBarrier
 
-Setelah tujuan ditetapkan, dilakukan studi literatur dan analisis kebutuhan
-untuk memperoleh landasan teoretis, standar industri, regulasi, dan kebutuhan
-operasional yang relevan. Tahap berikutnya adalah perancangan artefak, yaitu
-menyusun arsitektur sistem, arsitektur data, alur informasi, serta prinsip
-integrasi yang menjadi inti kontribusi tugas akhir ini.
+\section{Sistematika Penulisan}
 
-Dalam konteks DSR, tahap demonstrasi dilakukan melalui penggunaan hasil
-realisasi sistem pada proyek pengembangan sistem sebagai artefak implementasi yang dapat
-menunjukkan bahwa rancangan arsitektur benar-benar dapat diwujudkan. Setelah
-itu, tahap evaluasi dilakukan untuk menilai kesesuaian antara rancangan
-arsitektur dengan perilaku sistem yang direalisasikan, terutama pada alur data
-utama, pembentukan entitas kontainer, dan integrasi antarkomponen. Tahap
-terakhir adalah komunikasi, yaitu menyusun laporan tugas akhir secara utuh agar
-seluruh hasil perancangan, realisasi, dan evaluasi dapat dipertanggungjawabkan
-secara akademik.
-
-Hasil identifikasi masalah dan penetapan tujuan pada bab ini menjadi dasar
-untuk melakukan studi literatur yang komprehensif. Bab II
-membahas landasan teori dan studi literatur yang relevan dengan perancangan
-arsitektur sistem inspeksi kontainer digital.
+Laporan tugas akhir ini disusun dalam tujuh bab utama dengan alur pembahasan
+sebagai berikut. Bab I memuat pendahuluan dan batas kontribusi. Bab II
+membahas landasan teori, regulasi, standar industri, dan penelitian terkait.
+Bab III menjelaskan kondisi sistem saat ini, kebutuhan sistem, alternatif
+solusi, dan dasar pemilihan pendekatan. Bab IV menyajikan rancangan arsitektur
+sistem, arsitektur data, alur informasi, pembagian fungsi antarkomponen, dan
+prinsip integrasi. Bab V menjelaskan realisasi sistem sebagai artefak
+demonstrasi. Bab VI membahas metode, hasil, pembahasan, serta keterbatasan
+evaluasi. Bab VII berisi kesimpulan dan saran pengembangan.

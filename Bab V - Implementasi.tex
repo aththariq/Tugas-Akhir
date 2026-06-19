@@ -5,10 +5,14 @@
 \chapter{IMPLEMENTASI}
 \label{chap:implementasi}
 
+\newcommand{\implementationitem}[1]{%
+  \par\Needspace{4\baselineskip}\medskip\noindent\textbf{#1.}\space\ignorespaces
+}
+
 \section{Gambaran Umum Implementasi}
 \label{sec:gambaran-umum-implementasi}
 
-Bab ini menjelaskan realisasi rancangan arsitektur sistem inspeksi kontainer digital
+Bab ini menjelaskan realisasi rancangan arsitektur sistem otomasi inspeksi kontainer
 terintegrasi yang telah dibahas pada Bab IV. Fokus pembahasan tidak diarahkan
 pada rincian implementasi kode program secara umum, melainkan pada bagaimana
 keputusan arsitektural direalisasikan menjadi sistem yang dapat beroperasi.
@@ -65,13 +69,13 @@ diposisikan sebagai kesiapan pengembangan lanjutan.
     Pengayaan data dari seluruh sumber eksternal pelabuhan dan standardisasi lintas organisasi. \\
     Jalur video langsung &
     Penyiaran \textit{frame} beranotasi dari komponen \textit{edge} ke aplikasi web melalui \textit{WebSocket} &
-    Infrastruktur produksi multi-lokasi dengan jaminan ketersediaan dan pengukuran performa skala operasional. \\
+    Infrastruktur operasional multi-lokasi dengan jaminan ketersediaan dan pengukuran performa skala pelabuhan. \\
     Artefak bukti inspeksi &
     Penyimpanan citra hasil OCR, visualisasi deteksi, dan bukti pendukung pada penyimpanan objek &
     Kebijakan retensi, tata kelola audit formal, dan integrasi bukti ke sistem kepabeanan atau terminal. \\
     Evaluasi &
-    Validasi skenario arsitektur: komunikasi antarkomponen, konsistensi data, pemisahan jalur, dan ketertelusuran bukti &
-    Evaluasi bisnis, evaluasi \textit{deployment} produksi, dan evaluasi kuantitatif mendalam terhadap performa model AI. \\
+    Validasi skenario arsitektur: komunikasi antarkomponen, konsistensi data, pemisahan jalur, dan riwayat bukti &
+    Evaluasi bisnis, evaluasi penerapan operasional, dan evaluasi kuantitatif terhadap performa model AI. \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -147,9 +151,10 @@ Tabel~\ref{tbl:pemetaan-rancangan-realisasi} merangkum komponen rancangan,
 bentuk realisasi, bukti atau penanda implementasi, serta implikasinya terhadap
 arsitektur.
 
-\begin{table}[htbp]
+\begin{center}
+  \begin{minipage}{\textwidth}
   \centering
-  \caption{Pemetaan Rancangan Arsitektur terhadap Realisasi Sistem}
+  \captionof{table}{Pemetaan Rancangan Arsitektur terhadap Realisasi Sistem}
   \label{tbl:pemetaan-rancangan-realisasi}
   \small
   \setlength{\tabcolsep}{4pt}
@@ -179,10 +184,9 @@ arsitektur.
     Hasil OCR, hasil kerusakan, barang berisiko, dan kategori berada pada entitas kontainer yang sama &
     Integrasi lintas alur dapat dilakukan tanpa pengisian ulang identitas kontainer. \\
     \bottomrule
-  \end{tabularx}
-\end{table}
-
-\FloatBarrier
+\end{tabularx}
+  \end{minipage}
+\end{center}
 
 \section{Realisasi Alur Data dan Integrasi}
 \label{sec:realisasi-alur-data}
@@ -224,7 +228,7 @@ besar yang tidak memerlukan penyimpanan transaksional.
 
 Pada implementasinya, aplikasi web membuka koneksi \textit{WebSocket} langsung ke
 komponen \textit{edge}. Melalui koneksi tersebut, aplikasi web menerima
-\textit{frame} yang sudah diberi anotasi beserta \textit{metadata} deteksi yang relevan
+\textit{frame} yang sudah diberi anotasi beserta \textit{metadata} deteksi yang diperlukan
 untuk pemantauan. Dengan pendekatan ini, operator dapat memantau kondisi
 lapangan secara langsung, tetapi penyimpanan hasil inspeksi formal tetap
 dilakukan melalui layanan API. Keputusan ini memperlihatkan pemisahan yang
@@ -239,28 +243,27 @@ melalui jalur penyimpanan transaksional.
 
 \begin{figure}[htbp]
   \centering
-  \resizebox{\textwidth}{!}{%
+  \resizebox{0.98\textwidth}{!}{%
   \begin{tikzpicture}[
-    scale=0.92,
-    transform shape,
-    block/.style={draw, rounded corners, align=center, minimum width=2.45cm, minimum height=0.9cm, font=\small},
-    data/.style={draw, align=center, minimum width=2.45cm, minimum height=0.9cm, font=\small},
+    font=\small,
+    block/.style={draw, rounded corners, align=center, minimum width=2.70cm, minimum height=0.92cm},
+    data/.style={draw, align=center, minimum width=2.70cm, minimum height=0.92cm},
     arrow/.style={-{Latex[length=2mm]}, thick}
   ]
     \node[block] (camera) at (0,2.2) {Kamera\\\textit{RTSP}};
-    \node[block] (tepi) at (3.4,2.2) {Komponen\\\textit{Edge}};
-    \node[block] (api) at (6.8,2.2) {Layanan API\\\texttt{/api/...}};
-    \node[data] (db) at (10.2,2.2) {MongoDB\\\textit{containers}};
-    \node[block] (web) at (3.4,-0.35) {Aplikasi Web};
-    \node[data] (r2) at (8.2,-0.35) {Cloudflare R2\\Artefak Visual};
+    \node[block] (tepi) at (3.25,2.2) {Komponen\\\textit{Edge}};
+    \node[block] (api) at (6.50,2.2) {Layanan API\\\texttt{/api/...}};
+    \node[data] (db) at (9.75,2.2) {MongoDB\\\textit{containers}};
+    \node[block] (web) at (3.25,-0.42) {Aplikasi Web};
+    \node[data] (r2) at (8.00,-0.42) {Cloudflare R2\\Artefak Visual};
 
     \draw[arrow] (camera) -- (tepi);
     \draw[arrow] (tepi) -- (api);
     \draw[arrow] (api) -- (db);
-    \draw[arrow] (api.south east) -- node[right,font=\scriptsize]{simpan artefak} (r2.north);
-    \draw[arrow] (web.north east) -- node[left,font=\scriptsize]{REST} (api.south west);
-    \draw[arrow] (web) -- node[below,font=\scriptsize]{akses URL} (r2);
-    \draw[arrow] (tepi.south) -- node[left,font=\scriptsize]{\textit{WebSocket}} (web.north);
+    \draw[arrow] (api.south east) -- node[right]{simpan artefak} (r2.north);
+    \draw[arrow] (web.north east) -- node[left]{REST} (api.south west);
+    \draw[arrow] (web) -- node[below]{akses URL} (r2);
+    \draw[arrow] (tepi.south) -- node[left]{\textit{WebSocket}} (web.north);
   \end{tikzpicture}}
   \caption{Alur Realisasi Data Inspeksi pada Implementasi Sistem}
   \label{fig:implementation_data_flow}
@@ -268,13 +271,12 @@ melalui jalur penyimpanan transaksional.
 
 \FloatBarrier
 
-\subsection{Propagasi Nomor Kontainer}
-\label{subsec:propagasi-nomor-kontainer}
-
-Salah satu kebutuhan integrasi utama dalam sistem ini adalah kemampuan
-menyelaraskan hasil identifikasi kontainer dengan aliran pemeriksaan lainnya.
-Pada realisasinya, ketika aliran OCR berhasil mendeteksi nomor kontainer,
-nomor tersebut secara otomatis dipropagasikan ke aliran lain yang sedang aktif.
+\Needspace{5\baselineskip}
+Salah satu kebutuhan integrasi utama dalam sistem ini adalah propagasi nomor
+kontainer, yaitu mekanisme untuk menyelaraskan hasil identifikasi kontainer
+dengan aliran pemeriksaan lainnya. Pada realisasinya, ketika aliran OCR
+berhasil mendeteksi nomor kontainer, nomor tersebut secara otomatis
+dipropagasikan ke aliran lain yang sedang aktif.
 
 Mekanisme ini memiliki dua implikasi arsitektural yang penting:
 
@@ -286,9 +288,8 @@ Mekanisme ini memiliki dua implikasi arsitektural yang penting:
   operator.
 \end{enumerate}
 
-Dengan demikian, realisasi sistem berhasil menunjukkan kebutuhan integrasi data
-lintas modul yang sebelumnya didefinisikan sebagai salah satu kapabilitas
-arsitektur inti.
+Dengan demikian, realisasi sistem menunjukkan bahwa kebutuhan integrasi data
+lintas modul telah diwujudkan pada kapabilitas arsitektur inti yang diuji.
 
 \section{Realisasi Arsitektur Data}
 \label{sec:realisasi-arsitektur-data}
@@ -303,8 +304,7 @@ menunjukkan bahwa operasi inspeksi utama direalisasikan dengan menempatkan
 sebagai konteks deklarasi muatan, dan \textit{User} sebagai konteks autentikasi
 serta akses pengguna.
 
-\textbf{Entitas \textit{Container}}
-
+\implementationitem{Entitas \textit{Container}}
 Entitas \textit{Container} menjadi pusat agregasi data inspeksi. Entitas ini
 menyimpan identitas kontainer, hasil OCR, ringkasan manifest, hasil pemindaian
 kerusakan, hasil pemindaian barang berisiko, hasil klasifikasi muatan, keputusan
@@ -315,8 +315,7 @@ implementatif, struktur ini direalisasikan melalui objek-objek tertanam seperti
 struktur ini, seluruh hasil inspeksi terhadap satu kontainer dapat ditelusuri
 dalam satu entitas logis yang konsisten.
 
-\textbf{Entitas \textit{Manifest}}
-
+\implementationitem{Entitas \textit{Manifest}}
 Entitas \textit{Manifest} menyimpan data manifes secara lebih lengkap, meliputi
 informasi kapal, asal dan tujuan, pihak pengirim dan penerima, deskripsi muatan,
 berat, volume, data kepabeanan, serta dokumen pendukung. Keberadaan entitas ini
@@ -325,8 +324,7 @@ muatan yang tercatat. Pada implementasinya, data manifes diisikan melalui
 aplikasi web, baik melalui entri manual maupun impor data yang tersedia pada
 layanan aplikasi.
 
-\textbf{Konteks autentikasi dan akses pengguna}
-
+\implementationitem{Konteks autentikasi dan akses pengguna}
 Selain dua entitas utama tersebut, sistem juga menggunakan data pengguna untuk
 mendukung autentikasi, otorisasi, dan peninjauan hasil inspeksi melalui aplikasi
 web. Namun, data pengguna tidak menjadi pusat agregasi operasi inspeksi, melainkan
@@ -340,26 +338,22 @@ untuk data pelacakan dan status aliran. Akan tetapi, kanal tersebut tidak
 menjadi bagian inti dari operasi inspeksi kontainer yang dibahas pada tugas akhir
 ini, sehingga tidak diposisikan sebagai model data utama pada naskah ini.
 
-\subsection{Pemisahan Penyimpanan Terstruktur dan Artefak Visual}
-\label{subsec:pemisahan-penyimpanan}
-
+\implementationitem{Pemisahan penyimpanan terstruktur dan artefak visual}
 Realisasi sistem juga menunjukkan bahwa penyimpanan data dilakukan dengan
 memisahkan data terstruktur dari artefak visual. Data yang bersifat operasional
 dan transaksional disimpan di MongoDB, sedangkan citra hasil OCR, visualisasi
 hasil deteksi, dan bukti pendukung lainnya disimpan di Cloudflare R2.
 
-Keputusan ini relevan dengan kebutuhan arsitektural yang telah dirumuskan pada
+Keputusan ini menjawab kebutuhan arsitektural yang telah dirumuskan pada
 Bab IV. Data terstruktur membutuhkan dukungan kueri, pembaruan status, dan
 pengelolaan konsistensi. Sebaliknya, artefak visual membutuhkan media
 penyimpanan objek yang lebih sesuai untuk berkas berukuran besar. Pemisahan ini
-meningkatkan efisiensi pengelolaan data sekaligus menjaga struktur informasi
-tetap ringkas pada basis data utama.
+menjaga struktur data utama tetap ringkas dan mengurangi kebutuhan penyimpanan
+media berukuran besar di basis data transaksional.
 
-\subsection{Dukungan terhadap Ketertelusuran dan Audit}
-\label{subsec:dukungan-ketertelusuran}
-
+\implementationitem{Dukungan terhadap riwayat kontainer dan audit}
 Salah satu tujuan penting dari rancangan arsitektur adalah menyediakan
-ketertelusuran proses inspeksi. Pada implementasinya, tujuan tersebut
+riwayat proses inspeksi pada tingkat kontainer. Pada implementasinya, tujuan tersebut
 direalisasikan melalui penyimpanan stempel waktu, identitas perangkat,
 identitas kamera, hasil deteksi, ringkasan keputusan, serta artefak visual pada
 setiap tahapan penting.
@@ -382,12 +376,12 @@ interaksi pengguna, dan lapisan data menangani penyimpanan serta penyediaan
 informasi. Pola realisasi ini memperkuat validitas keputusan arsitektural
 yang menekankan modularitas dan integrasi berlapis.
 
-Dari sudut pandang kontribusi tugas akhir, artefak realisasi ini menunjukkan bahwa
+Pada ruang lingkup kontribusi tugas akhir, artefak realisasi ini menunjukkan bahwa
 perancangan arsitektur tidak berhenti pada level konseptual. Struktur data,
 jalur integrasi, dan pembagian komponen yang dirancang menjadi dasar
-bagi sistem yang direalisasikan pada proyek pengembangan sistem. Hal tersebut penting karena
-menunjukkan bahwa kontribusi tugas akhir ini terletak pada kemampuan merancang
-arsitektur yang dapat diimplementasikan, terintegrasi, dan mendukung kebutuhan
-ketertelusuran proses inspeksi di lingkungan pelabuhan. Dengan kata lain, nilai
+bagi sistem yang direalisasikan pada proyek pengembangan sistem. Hal tersebut
+menunjukkan bahwa kontribusi tugas akhir ini terletak pada rancangan arsitektur
+yang memiliki padanan implementasi, kontrak integrasi, dan dukungan terhadap
+riwayat proses inspeksi di lingkungan pelabuhan. Dengan kata lain, nilai
 utama bab ini bukan pada rincian kode, melainkan pada keterhubungan antara
-rancangan arsitektural dan perilaku sistem yang berhasil direalisasikan.
+rancangan arsitektural dan perilaku sistem yang direalisasikan.

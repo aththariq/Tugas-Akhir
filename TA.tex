@@ -80,7 +80,6 @@
 
 \usepackage{tocloft} % for customizing table of contents
 \usepackage{titlesec} % for customizing titles
-\usepackage{lipsum} % for dummy text (lorem ipsum text)
 \usepackage{listings} % for code listing
 \usepackage{amsmath} % for math
 \usepackage{amssymb} % for math symbols
@@ -99,10 +98,12 @@
 \usepackage{tabularx} % for tables with adjustable-width columns
 \usepackage{xcolor} % for color definitions
 \usepackage{tikz} % for diagrams
+\usepackage{tikz-uml} % for standard UML diagrams
+\usepackage{needspace} % keep compact item headings with their following text
 \usepackage[title,titletoc]{appendix} % for appendix management
 \usepackage[hidelinks]{hyperref} % for hyperlinks
 \usepackage{placeins} % for float barriers
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,backgrounds}
 
 
 \setmainfont{Times New Roman} % set main font to Times New Roman
@@ -186,12 +187,12 @@
 \cftsetrmarg{4em}  % mengikuti template, dengan ruang cukup untuk nomor halaman
 % -- Atur indentasi judul bab, subbab, dan subsubbab di daftar isi ---
 \setlength{\cftchapindent}{0em}
-\setlength{\cftchapnumwidth}{1.5em}
+\setlength{\cftchapnumwidth}{2.4em}
 \setlength{\cftsecindent}{1.5em}
-\setlength{\cftsecnumwidth}{2.2em}
-\setlength{\cftsubsecindent}{3.7em}
-\setlength{\cftsubsecnumwidth}{2.9em}
-\setlength{\cftsubsubsecindent}{6.6em}
+\setlength{\cftsecnumwidth}{3.0em}
+\setlength{\cftsubsecindent}{4.5em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+\setlength{\cftsubsubsecindent}{7.7em}
 \setlength{\cftsubsubsecnumwidth}{3.5em}
 
 % --- Ubah nama bulan ke Bahasa Indonesia ---
@@ -253,7 +254,7 @@
 % --- END OF LISTINGS STYLE FOR PYTHON CODE ---
 
 % --- FORMAT TAMPILAN JUDUL BAB, SUBBAB, JUDUL GAMBAR DAN TABEL ---
-\setcounter{tocdepth}{4} % kedalaman daftar isi sampai subsubbab
+\setcounter{tocdepth}{2} % daftar isi cukup sampai subbab agar tidak terlalu panjang
 \setcounter{secnumdepth}{4} % kedalaman penomoran sampai subsubbab
 % --- Judul Bab ---
 \titleformat{\chapter}[display]
@@ -261,10 +262,10 @@
       {\MakeUppercase \chaptertitlename\ \thechapter}{0pt}{\large} % Chapter number format
       \renewcommand\thechapter{\Roman{chapter}}
 % --- Atur spasi sebelum dan sesudah judul bab/chapter ---  
-\titlespacing{\chapter}{0pt}{0pt}{5pt}
-\titlespacing{\section}{0pt}{6pt}{6pt}
-\titlespacing{\subsection}{0pt}{6pt}{6pt}
-\titlespacing{\subsubsection}{0pt}{6pt}{6pt}
+\titlespacing{\chapter}{0pt}{0pt}{3pt}
+\titlespacing{\section}{0pt}{4pt}{4pt}
+\titlespacing{\subsection}{0pt}{4pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{3pt}
 
 % --- Judul Subbab dan Subsubbab ---
 \titleformat{\section}
@@ -311,11 +312,19 @@
 
 % --- Atur indentasi paragraf ---
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{12pt plus 2pt minus 1pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
 \setlength{\emergencystretch}{2em}
+\raggedbottom
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
 
 \setlist[enumerate]{nosep, topsep=-10pt} % mengurangi spasi antar item dan atas bawah daftar
 \setlist[itemize]{nosep, topsep=-10pt} % mengurangi spasi antar item dan atas bawah daftar
+
+% Mode kompak untuk naskah evaluasi digital: hindari halaman kosong verso yang
+% berasal dari \cleardoublepage pada kelas book.
+\let\cleardoublepage\clearpage
 
 % ==========================================
 % AWAL DOKUMEN
@@ -360,9 +369,9 @@
 %\input{7a Daftar Lampiran.tex} % Optional. Daftar lampiran sudah ada di dalam daftar isi.
 \input{8 Daftar Gambar.tex}
 \input{9 Daftar Tabel.tex}
-%\input{10 Daftar Persamaan.tex} % Dinonaktifkan karena tidak ada persamaan bernomor pada naskah saat ini.
+\input{10 Daftar Persamaan.tex}
 %\input{11 Daftar Algoritma.tex} % Dinonaktifkan karena tidak ada algoritma pada naskah saat ini.
-\input{12 Daftar Listing.tex}
+%\input{12 Daftar Listing.tex} % Opsional; daftar listing dinonaktifkan agar naskah lebih ringkas.
 \input{13 Daftar Simbol.tex}
 \input{14 Daftar Singkatan.tex}
 
@@ -410,6 +419,7 @@
   %\makeatletter 
   %\renewcommand{\thechapter}{\@Alph\c@chapter} 
   %\makeatother
+%\input{Lampiran-A.tex} % Opsional; contoh payload rinci tidak direferensikan dari bab utama.
 \input{Lampiran-B.tex}
 \end{appendices}
 \backmatter

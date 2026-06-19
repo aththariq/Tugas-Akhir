@@ -3,7 +3,7 @@
 
 \begin{center}
 
-    \textbf{Perancangan Arsitektur Sistem Inspeksi Kargo Digital Terintegrasi untuk Optimalisasi Proses Pemeriksaan Kontainer di Pelabuhan} \\
+    \textbf{Perancangan Arsitektur Sistem Otomasi Inspeksi Kontainer di Pelabuhan} \\
     \vspace{0.4cm}
     oleh \\
     \vspace{0.4cm}
@@ -13,15 +13,14 @@
 
 
 \begin{spacing}{1.0}
-Proses pemeriksaan kontainer di pelabuhan masih menghadapi berbagai kendala,
-di antaranya fragmentasi informasi antarpemangku kepentingan, pencatatan hasil
-inspeksi yang belum terintegrasi, keterbatasan ketertelusuran bukti inspeksi,
-dan rendahnya visibilitas hasil pemeriksaan secara waktu nyata. Kondisi
-tersebut menyebabkan proses verifikasi kontainer, validasi manifes, dan
-pengambilan keputusan operasional menjadi kurang efisien. Tugas akhir ini
-bertujuan merancang arsitektur sistem inspeksi kargo digital terintegrasi yang
-mendukung identifikasi kontainer, pengolahan hasil inspeksi, integrasi data,
-dan penyajian informasi secara terpadu.
+Proses inspeksi kontainer di pelabuhan masih menghadapi fragmentasi informasi
+antarpemangku kepentingan, pencatatan hasil inspeksi yang belum terhubung dengan
+riwayat kontainer, serta keterbatasan bukti visual yang dapat dirujuk kembali.
+Kondisi tersebut membuat identitas kontainer, hasil pemeriksaan, dan bukti
+inspeksi berisiko tersebar pada media yang berbeda. Tugas akhir ini bertujuan
+merancang arsitektur sistem otomasi inspeksi kontainer yang mendukung
+identifikasi kontainer, pencatatan hasil inspeksi, pengelolaan bukti visual, dan
+penyajian riwayat kontainer dalam satu struktur informasi.
 
 Perancangan dilakukan dengan pendekatan \textit{Design Science Research} yang
 mencakup identifikasi masalah, penetapan tujuan, perancangan artefak,
@@ -31,20 +30,19 @@ data, dan \textit{edge}. Pada rancangan ini, komponen \textit{edge} bertugas
 melakukan akuisisi aliran video dan inferensi awal, layanan API menangani
 orkestrasi serta persistensi data, sedangkan aplikasi web menyediakan antarmuka
 pemantauan hasil inspeksi. Pada aspek data, entitas kontainer ditempatkan
-sebagai pusat integrasi hasil inspeksi, manifes, dan bukti visual.
+sebagai pusat penghubung identitas, hasil inspeksi, manifes, dan bukti visual.
 
 Hasil realisasi sistem menunjukkan bahwa rancangan arsitektur dapat diwujudkan
-menjadi sistem yang menghubungkan komponen \textit{edge}, layanan API,
-penyimpanan data, dan antarmuka web dalam satu alur yang konsisten. Evaluasi
-dilakukan melalui pengujian integrasi terhadap alur utama, meliputi pembentukan
-entitas kontainer melalui OCR, propagasi nomor kontainer ke alur pemindaian
-lain, penyimpanan hasil inspeksi pada model data inti, dan penyajian hasil pada
-aplikasi web. Hasil evaluasi menunjukkan bahwa rancangan yang diusulkan mampu
-mendukung proses pemeriksaan kontainer yang lebih terstruktur, terdokumentasi,
-dan siap dikembangkan lebih lanjut. Dengan demikian, kontribusi utama tugas
-akhir ini adalah rancangan arsitektur yang memetakan pembagian tanggung jawab
-antarkomponen, menempatkan entitas kontainer sebagai pusat integrasi data
-inspeksi, dan memvalidasi kesesuaian rancangan terhadap realisasi sistem.
+menjadi alur yang menghubungkan komponen \textit{edge}, layanan API,
+penyimpanan data, dan antarmuka web. Evaluasi dilakukan melalui pengujian
+integrasi terhadap alur utama, meliputi pembentukan entitas kontainer melalui
+OCR, propagasi nomor kontainer ke alur pemindaian lain, penyimpanan hasil
+inspeksi pada model data inti, dan penyajian hasil pada aplikasi web. Berdasarkan
+hasil evaluasi tersebut, rancangan yang diusulkan mendukung pencatatan riwayat
+kontainer pada ruang lingkup realisasi internal tugas akhir. Kontribusi utama
+tugas akhir ini adalah rancangan arsitektur yang memetakan pembagian tanggung
+jawab antarkomponen, menempatkan entitas kontainer sebagai pusat informasi
+inspeksi, dan mengevaluasi kesesuaian rancangan terhadap realisasi sistem.
 
-Kata kunci: arsitektur sistem, inspeksi kargo digital, integrasi data, pelabuhan, ketertelusuran.
+Kata kunci: arsitektur sistem, otomasi inspeksi kontainer, integrasi data, pelabuhan, riwayat kontainer.
 \end{spacing}

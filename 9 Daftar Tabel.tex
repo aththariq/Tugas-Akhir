@@ -1,7 +1,11 @@
 \cleardoublepage
 \renewcommand{\cftlottitlefont}{\hfill\large\bfseries\MakeUppercase}
 \renewcommand{\cftafterlottitle}{\hfill}
-\titlespacing*{\chapter}{0pt}{40pt}{20pt}
+\titlespacing*{\chapter}{0pt}{30pt}{12pt}
 \phantomsection
 \addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\begingroup
+\footnotesize
+\setlength{\cftbeforetabskip}{0pt}
 \listoftables
+\endgroup

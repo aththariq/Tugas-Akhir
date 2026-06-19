@@ -10,42 +10,49 @@
 Berdasarkan hasil analisis, perancangan, realisasi sistem, dan evaluasi yang
 telah dilakukan, kesimpulan tugas akhir ini adalah sebagai berikut:
 
-\begin{enumerate}
-  \item Rancangan arsitektur sistem yang dihasilkan mampu mengintegrasikan
-  komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan
-  dalam satu alur kerja inspeksi yang konsisten pada ruang lingkup realisasi
-  internal tugas akhir. Pemisahan tanggung jawab ini menjadi dasar agar akuisisi
-  data, pemrosesan awal, persistensi, dan penyajian informasi dapat dikelola
-  tanpa saling membebani.
+\begin{enumerate}[itemsep=0.2\baselineskip, topsep=0.2\baselineskip, parsep=0pt]
+  \item Tujuan pertama tercapai melalui rancangan arsitektur yang
+  menghubungkan komponen \textit{edge}, layanan API, aplikasi web, MongoDB, dan
+  penyimpanan artefak visual dalam satu alur inspeksi internal. Hasil evaluasi
+  menunjukkan bahwa data terstruktur dikirim melalui keluarga \textit{endpoint}
+  \texttt{/api/edge}, data kontainer dibaca kembali oleh aplikasi web, dan video
+  langsung dipisahkan melalui \textit{WebSocket}. Kesimpulan yang dapat ditarik
+  adalah arsitektur internal telah terhubung, sedangkan integrasi penuh dengan
+  sistem eksternal pelabuhan masih menjadi sasaran pengembangan.
   \item Rancangan arsitektur data menempatkan entitas kontainer sebagai pusat
-  agregasi informasi inspeksi. Struktur ini mendukung pencatatan hasil OCR,
-  hasil pemindaian, data manifes, riwayat pemeriksaan, dan artefak visual dalam
-  hubungan data yang dapat ditelusuri pada artefak realisasi yang diuji.
-  \item Model alur informasi yang disusun memungkinkan hasil identifikasi dan
-  hasil pemindaian dari beberapa komponen dikaitkan pada entitas kontainer yang
-  sama dalam skenario evaluasi internal. Hal ini terlihat pada pola propagasi
-  nomor kontainer, penyimpanan hasil pemindaian dalam struktur data inti, dan
-  penyajian hasil pada antarmuka web.
+  agregasi informasi inspeksi. Hasil evaluasi menunjukkan bahwa hasil OCR, data
+  manifes, hasil pemindaian, riwayat pemeriksaan, dan artefak visual dapat
+  dikaitkan ke identitas kontainer yang sama pada artefak evaluasi. Dengan
+  demikian, tujuan kedua tercapai pada ruang lingkup struktur data dan
+  penyimpanan bukti visual yang diuji.
+  \item Model alur informasi yang disusun menunjukkan bahwa hasil identifikasi
+  dan hasil pemindaian dari beberapa komponen dapat disatukan pada entitas
+  kontainer yang sama. Pada evaluasi internal, nomor kontainer hasil OCR
+  dipropagasikan sebagai konteks bersama, hasil pemindaian disimpan pada struktur
+  data inti, dan informasi tersebut disajikan kembali pada antarmuka web. Hasil
+  ini menjawab tujuan ketiga mengenai konsistensi alur informasi.
   \item Pembagian fungsi antarkomponen menunjukkan bahwa pemrosesan lokal,
-  persistensi data, dan penyajian informasi dapat dijalankan sesuai karakter
+  persistensi data, dan penyajian informasi dapat ditempatkan sesuai karakter
   bebannya masing-masing. Komponen \textit{edge} menangani akuisisi video dan
   inferensi awal, layanan API menangani orkestrasi serta penyimpanan data,
   sedangkan aplikasi web menyajikan hasil inspeksi dan video langsung kepada
-  pengguna.
+  pengguna. Estimasi kapasitas menghasilkan 96 kontainer/jam pada kondisi
+  terbaik satu jalur, 42 kontainer/jam pada kondisi nominal satu jalur, 15
+  kontainer/jam pada kondisi terburuk satu jalur, 84 kontainer/jam pada skenario
+  dua jalur, dan 168 kontainer/jam pada skenario empat jalur. Hasil tersebut
+  menjawab tujuan keempat pada tingkat rancangan dan skenario, tetapi belum
+  menggantikan uji beban operasional penuh.
 \end{enumerate}
 
-Dengan demikian, rancangan yang dihasilkan menjawab kebutuhan utama sistem pada
-ruang lingkup perancangan dan realisasi internal, terutama integrasi
-antarkomponen, ketertelusuran data inspeksi, pemisahan tanggung jawab,
-interoperabilitas bertahap, dan kemudahan pemeliharaan.
-
-Evaluasi pada tugas akhir ini digunakan sebagai pembuktian bahwa keempat tujuan
-tersebut tercapai pada ruang lingkup rancangan arsitektur, realisasi internal,
-dan skenario evaluasi yang tersedia.
-Evaluasi tidak dimaksudkan sebagai tujuan tersendiri, melainkan sebagai dasar
-validasi terhadap keterwujudan rancangan arsitektur yang dihasilkan tanpa
-mengklaim penilaian menyeluruh terhadap \textit{deployment} produksi, dampak
-bisnis, atau akurasi model deteksi secara mendalam.
+Secara keseluruhan, rancangan yang dihasilkan menjawab kebutuhan utama sistem
+pada ruang lingkup perancangan dan realisasi internal. Kebutuhan yang terpenuhi
+meliputi keterhubungan antarkomponen, penggunaan kontainer sebagai jangkar
+riwayat dan bukti inspeksi, pemisahan tanggung jawab antara \textit{edge}, API,
+penyimpanan, dan web, kesiapan interoperabilitas bertahap, serta kemudahan
+pemeliharaan melalui pemisahan lapisan. Status pemenuhan tersebut berlaku pada
+bukti evaluasi internal dan skenario yang tersedia, bukan pada klaim penerapan
+operasional penuh di pelabuhan, dampak bisnis, atau pengukuran akurasi model
+deteksi pada kumpulan data uji operasional penuh.
 
 \section{Saran}
 
@@ -68,7 +75,7 @@ pengembangan lanjutan dapat diarahkan pada beberapa hal berikut:
   pengelolaan riwayat perubahan, retensi artefak inspeksi, dan penguatan kontrol
   akses agar sistem lebih siap digunakan pada lingkungan yang memiliki tuntutan
   kepatuhan tinggi.
-  \item Melakukan evaluasi lebih mendalam terhadap kualitas model deteksi dan
-  OCR pada variasi kondisi kontainer, pencahayaan, dan kualitas citra agar
-  performa keseluruhan sistem semakin andal pada implementasi skala operasional.
+  \item Melakukan evaluasi kuantitatif terhadap kualitas model deteksi dan OCR
+  pada variasi kondisi kontainer, pencahayaan, dan kualitas citra agar performa
+  keseluruhan sistem semakin andal pada implementasi skala operasional.
 \end{enumerate}

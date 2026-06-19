@@ -2,13 +2,13 @@
 % BAB IV PART 1 - PENDAHULUAN DAN PERBANDINGAN
 % ==========================================
 \cleardoublepage
-\chapter{ARSITEKTUR SISTEM INSPEKSI KONTAINER DIGITAL TERINTEGRASI}
+\chapter{ARSITEKTUR SISTEM OTOMASI INSPEKSI KONTAINER}
 \label{chap:perancangan}
 
-Bab ini menyajikan artefak rancangan sistem inspeksi kontainer digital
-terintegrasi. Susunan pembahasan dibuat mengikuti tujuan tugas akhir: deskripsi
-umum sistem, rancangan arsitektur sistem, rancangan arsitektur data, model alur
-informasi, dan pembagian fungsi antarkomponen.
+Bab ini menyajikan artefak rancangan sistem otomasi inspeksi kontainer
+terintegrasi. Susunan pembahasan dibuat mengikuti tujuan tugas akhir: kebutuhan
+utama rancangan, deskripsi umum sistem, rancangan arsitektur sistem, rancangan
+arsitektur data, model alur informasi, dan pembagian fungsi antarkomponen.
 
 \section{Deskripsi Umum Sistem}
 \label{sec:desain-sistem-umum}
@@ -16,7 +16,7 @@ informasi, dan pembagian fungsi antarkomponen.
 \subsection{Visi dan Prinsip Desain}
 \label{subsec:visi-prinsip}
 
-Sistem inspeksi kontainer digital terintegrasi dirancang berdasarkan prinsip
+Sistem otomasi inspeksi kontainer dirancang berdasarkan prinsip
 arsitektur yang mengedepankan modularitas, skalabilitas, dan keamanan.
 Pendekatan desain mengacu pada pemisahan layanan berdasarkan tanggung jawab
 utama sistem agar akuisisi data, pengolahan hasil inspeksi, persistensi data,
@@ -31,39 +31,76 @@ komunikasi diterapkan dengan menggunakan HTTP untuk data terstruktur dan
 \textit{WebSocket} untuk penyajian video langsung, sedangkan pemrosesan
 tersebar digunakan untuk menempatkan fungsi yang sensitif terhadap latensi di
 \textit{edge} dan fungsi yang menuntut konsolidasi data di layanan terpusat.
-Selain itu, prinsip keamanan berlapis dan ketertelusuran diterapkan untuk
+Selain itu, prinsip keamanan berlapis dan pencatatan riwayat diterapkan untuk
 memastikan data inspeksi, status layanan, dan artefak visual tetap terlindungi
-dan dapat ditelusuri kembali.
+dan dapat ditelusuri kembali melalui identitas kontainer.
+
+\subsection{Kebutuhan Utama Rancangan}
+\label{subsec:kebutuhan-utama-rancangan}
+
+Kebutuhan utama pada rancangan ini adalah kebutuhan berprioritas tinggi yang
+langsung menentukan apakah arsitektur dapat mendukung alur inspeksi kontainer
+secara utuh. Kebutuhan ini tidak dibaca sebagai daftar seluruh fitur aplikasi,
+tetapi sebagai dasar pemilihan komponen, alur komunikasi, struktur data, dan
+mekanisme evaluasi. Rangkuman kebutuhan utama ditunjukkan pada
+Tabel~\ref{tbl:kebutuhan_utama_rancangan}.
+
+\begin{table}[ht]
+  \centering
+  \footnotesize
+  \caption[Kebutuhan utama rancangan arsitektur]{Kebutuhan Utama Rancangan Arsitektur}
+  \label{tbl:kebutuhan_utama_rancangan}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.12}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.28\textwidth}}
+    \toprule
+    \textbf{Kode} & \textbf{Kebutuhan Utama} & \textbf{Implikasi terhadap Rancangan} \\
+    \midrule
+    KU-01 & Komponen \textit{edge}, layanan API, aplikasi web, dan penyimpanan harus terhubung dalam satu alur inspeksi. & Arsitektur dipisahkan per lapisan, tetapi komunikasi antarlapisan didefinisikan melalui kontrak layanan. \\
+    KU-02 & Identitas kontainer harus menjadi jangkar integrasi hasil OCR, pemindaian, dan konteks manifes. & Entitas kontainer ditempatkan sebagai pusat agregasi data inspeksi. \\
+    KU-03 & Hasil inspeksi harus membentuk riwayat kontainer yang memuat status, waktu, penanggung jawab, dan bukti visual. & Data terstruktur disimpan pada basis data, sedangkan artefak visual dipisahkan ke penyimpanan objek. \\
+    KU-04 & Jalur data transaksional dan video langsung harus dipisahkan sesuai karakter bebannya. & HTTP digunakan untuk data terstruktur, sedangkan \textit{WebSocket} digunakan untuk video beranotasi langsung. \\
+    KU-05 & Akses sistem dan aktivitas penting harus dapat dikendalikan dan ditelusuri. & Rancangan memasukkan autentikasi, otorisasi, dan pencatatan aktivitas sebagai kapabilitas inti. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
 
 \subsection{Kapabilitas Arsitektur yang Diperlukan}
 \label{subsec:kapabilitas-arsitektur}
 
-Arsitektur sistem memerlukan sejumlah kapabilitas untuk memenuhi kebutuhan fungsional dan nonfungsional yang telah diidentifikasi. Tabel~\ref{tbl:architecture_capabilities} merangkum kapabilitas yang diperlukan untuk mendukung operasi sistem.
+Arsitektur sistem memerlukan sejumlah kapabilitas untuk memenuhi kebutuhan
+utama, fungsional, dan nonfungsional yang telah diidentifikasi.
+Tabel~\ref{tbl:architecture_capabilities} merangkum kapabilitas yang diperlukan
+untuk mendukung operasi sistem.
 
 \begin{table}[ht]
   \centering
   \footnotesize
   \caption{Kapabilitas Arsitektur yang Diperlukan}
   \label{tbl:architecture_capabilities}
-  \begin{tabular}{p{0.28\textwidth} p{0.59\textwidth}}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.12}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.25\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.25\textwidth}}
     \toprule
-    \textbf{Kapabilitas} & \textbf{Deskripsi} \\
+    \textbf{Kapabilitas} & \textbf{Indikator Rancangan} & \textbf{Bukti pada Rancangan} \\
     \midrule
-    Koordinasi Proses & Kemampuan mengoordinasikan alur kerja inspeksi, mengelola status proses, dan memastikan sekuensi aktivitas yang tepat \\
-    Penyimpanan Data Terstruktur & Kemampuan menyimpan data transaksional dan master dengan menjaga konsistensi dan integritas informasi \\
-    Penyimpanan Data Tidak Terstruktur & Kemampuan menyimpan dan mengambil media digital seperti citra dan video secara efisien \\
-    Pertukaran Informasi & Kemampuan memfasilitasi komunikasi antarkomponen dengan format dan kontrak standar \\
-    Penyajian Informasi & Kemampuan menyajikan informasi kepada pengguna melalui antarmuka yang intuitif dan responsif \\
-    Analisis Visual & Kemampuan melakukan analisis terhadap citra untuk mengidentifikasi kondisi dan anomali \\
-    Pengamanan Akses & Kemampuan mengendalikan siapa yang dapat mengakses informasi dan melakukan operasi tertentu \\
-    Pencatatan Aktivitas & Kemampuan merekam seluruh aktivitas kritis untuk keperluan audit dan penelusuran \\
+    Koordinasi Proses & Alur inspeksi memiliki urutan aktivitas, status, dan pemicu antaraktivitas yang eksplisit. & Diagram aktivitas UML dan alur proses utama. \\
+    Penyimpanan Data Terstruktur & Data OCR, hasil pemindaian, manifes, status, dan penanggung jawab tersimpan dalam struktur yang dapat dikaitkan ke identitas kontainer. & Model data konseptual dan entitas kontainer. \\
+    Penyimpanan Artefak Visual & Citra bukti dan video tidak ditempatkan sebagai beban utama basis data transaksional. & Pemisahan MongoDB dan penyimpanan objek. \\
+    Pertukaran Informasi & Komponen \textit{edge}, API, web, dan penyimpanan berkomunikasi melalui jalur dan kontrak yang dibedakan menurut jenis data. & HTTP untuk data terstruktur dan \textit{WebSocket} untuk video langsung. \\
+    Penyajian Informasi & Pengguna dapat membaca status, hasil pemindaian, dan riwayat kontainer dari antarmuka yang mengambil data melalui layanan API. & Halaman detail kontainer dan alur pembacaan hasil. \\
+    Analisis Visual & Hasil OCR dan pemindaian visual digunakan sebagai masukan yang dikaitkan kembali ke entitas kontainer. & Alur OCR, \textit{defect scan}, dan propagasi nomor kontainer. \\
+    Pengamanan Akses & Akses mesin-ke-mesin dan akses pengguna dipisahkan sesuai konteks penggunaannya. & \textit{API key} untuk \textit{edge} dan autentikasi pengguna pada web. \\
+    Pencatatan Aktivitas & Aktivitas penting memiliki konteks waktu, sumber, dan hubungan ke kontainer agar dapat ditelusuri ulang. & Model audit, riwayat kontainer, dan metadata inspeksi. \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
 \FloatBarrier
 
-Kapabilitas pada Tabel~\ref{tbl:architecture_capabilities} diturunkan dari analisis kebutuhan untuk mendukung \textbf{kemudahan pemeliharaan} melalui modularitas, \textbf{interoperabilitas} melalui kontrak layanan yang jelas, \textbf{auditabilitas} melalui ketertelusuran aktivitas, dan \textbf{keandalan operasi}. Pada realisasinya, kapabilitas tersebut diwujudkan melalui pemisahan komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan data, sedangkan interoperabilitas dengan sistem eksternal diposisikan sebagai kesiapan perluasan.
+Kapabilitas pada Tabel~\ref{tbl:architecture_capabilities} diturunkan dari analisis kebutuhan untuk mendukung \textbf{kemudahan pemeliharaan} melalui modularitas, \textbf{interoperabilitas} melalui kontrak layanan yang jelas, \textbf{auditabilitas} melalui pencatatan aktivitas, dan \textbf{keandalan operasi}. Pada realisasinya, kapabilitas tersebut diwujudkan melalui pemisahan komponen \textit{edge}, layanan API, aplikasi web, dan lapisan penyimpanan data, sedangkan interoperabilitas dengan sistem eksternal diposisikan sebagai kesiapan perluasan.
 
 \section{Desain Arsitektur Sistem Terintegrasi}
 \label{sec:perbandingan-sistem}
@@ -72,11 +109,11 @@ Bagian ini menjawab tujuan pertama tugas akhir, yaitu merancang arsitektur
 sistem yang mendefinisikan komponen utama, hubungan antarkomponen, dan alur
 informasi inspeksi kontainer secara menyeluruh. Untuk memperjelas dasar
 perancangan tersebut, bagian ini terlebih dahulu menyajikan perbandingan
-konseptual antara sistem inspeksi kargo
-yang berjalan saat ini di pelabuhan dengan sistem digital terintegrasi yang
+konseptual antara sistem inspeksi kontainer
+yang berjalan saat ini di pelabuhan dengan sistem terintegrasi yang
 diusulkan. Perbandingan ini menunjukkan transformasi fundamental dalam cara
 inspeksi kontainer dilakukan, dari pendekatan manual yang terpisah-pisah
-menuju ekosistem digital yang mengikuti standar dan terintegrasi.
+menuju ekosistem terintegrasi yang mengikuti standar.
 
 \subsection{Deskripsi Sistem Saat Ini}
 \label{subsec:deskripsi-sistem-saat-ini}
@@ -88,24 +125,25 @@ yang beroperasi secara terpisah. Karakteristik utama sistem saat ini meliputi:
 
 \begin{enumerate}
   \item Akuisisi data terpisah, yaitu perangkat inspeksi beroperasi secara
-  independen tanpa integrasi sistem yang memadai. Setiap perangkat menghasilkan
-  data yang harus dianalisis secara manual oleh operator yang berbeda, sehingga
-  proses menjadi tidak efisien dan rentan terhadap inkonsistensi.
+  independen tanpa antarmuka data yang terdokumentasi. Setiap perangkat
+  menghasilkan data yang harus dianalisis ulang secara manual oleh operator yang
+  berbeda, sehingga waktu konsolidasi bertambah dan risiko inkonsistensi
+  meningkat.
   \item Pemeriksaan manual dengan \textit{checklist}, yaitu petugas inspeksi
   melakukan pemeriksaan visual berdasarkan panduan inspeksi standar. Namun,
   penerapan panduan ini sangat bergantung pada interpretasi subjektif setiap
   petugas dan belum didukung mekanisme validasi konsistensi antarpetugas.
   \item Pencatatan data yang tidak mengikuti standar, yaitu hasil inspeksi
   dicatat secara manual dengan format yang berbeda-beda. Variasi nomenklatur dan
-  kategori kerusakan antarpetugas mengakibatkan kesulitan dalam analisis
+  kategori kerusakan antarpetugas mengharuskan normalisasi ulang sebelum analisis
   historis dan pelacakan tren.
   \item Sistem informasi yang tidak terintegrasi, yaitu data inspeksi tersimpan
   di sistem yang terpisah dari sistem operasional eksternal. Kondisi ini
   memerlukan entri ulang data secara manual ketika informasi inspeksi perlu
   dibagikan kepada pihak lain atau sistem eksternal.
-  \item Pelaporan dengan keterlambatan signifikan, yaitu laporan inspeksi baru
-  tersedia setelah konsolidasi data, verifikasi manual, dan proses administratif
-  pelaporan selesai dilakukan.
+  \item Pelaporan dengan jeda administratif, yaitu laporan inspeksi baru tersedia
+  setelah konsolidasi data, verifikasi manual, dan proses pelaporan selesai
+  dilakukan.
   \item Ketiadaan jejak audit komprehensif, yaitu belum ada pencatatan sistematis
   untuk melacak siapa yang melakukan inspeksi, kapan inspeksi dilakukan, dan
   perubahan apa yang terjadi pada data.
@@ -114,7 +152,7 @@ yang beroperasi secara terpisah. Karakteristik utama sistem saat ini meliputi:
 \subsection{Deskripsi Sistem Usulan}
 \label{subsec:deskripsi-sistem-usulan}
 
-Sistem inspeksi kontainer digital terintegrasi yang diusulkan mentransformasi
+Sistem otomasi inspeksi kontainer yang diusulkan mentransformasi
 seluruh alur inspeksi menjadi proses yang mengikuti standar, terintegrasi, dan
 dapat ditelusuri secara menyeluruh. Sistem ini dirancang berdasarkan
 arsitektur tersebar yang mengoptimalkan responsivitas, keandalan, dan
@@ -135,7 +173,7 @@ Karakteristik utama sistem usulan meliputi:
   \item Komunikasi layanan standar, yaitu perubahan status inspeksi, hasil
   deteksi, dan aktivitas penting dipertukarkan melalui antarmuka layanan yang
   konsisten untuk menjaga kejelasan kontrak data antarkomponen.
-  \item Pelaporan digital terstruktur, yaitu hasil inspeksi tersedia secara
+  \item Pelaporan terstruktur, yaitu hasil inspeksi tersedia secara
   otomatis dalam waktu singkat setelah proses inspeksi dimulai, dapat diakses
   oleh pemangku kepentingan yang berwenang, dan dapat disertai notifikasi ketika
   kondisi kritis ditemukan.
@@ -145,10 +183,10 @@ Karakteristik utama sistem usulan meliputi:
   realisasi integrasi masih berfokus pada alur internal proyek, sedangkan
   sinkronisasi ke sistem eksternal diposisikan sebagai arah pengembangan
   lanjutan.
-  \item Jejak audit dan kepatuhan, yaitu sistem dirancang untuk menjaga
-  ketertelusuran transaksi, perubahan data, akses informasi, dan tindakan
+  \item Jejak audit dan kepatuhan, yaitu sistem dirancang untuk menjaga riwayat
+  transaksi, perubahan data, akses informasi, dan tindakan
   pengguna melalui pencatatan stempel waktu, identitas pengguna, serta artefak
-  inspeksi yang relevan.
+  inspeksi yang terkait dengan kontainer.
   \item Ketahanan operasional lokal, yaitu komponen lokal tetap menjalankan
   akuisisi video, inferensi, dan pemantauan aliran secara dekat dengan sumber
   data, sementara penyimpanan hasil inspeksi tetap mengikuti alur terstruktur
@@ -171,15 +209,15 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
     \toprule
     \textbf{Aspek} & \textbf{Sistem Saat Ini} & \textbf{Sistem Usulan} & \textbf{Dampak} \\
     \midrule
-    Akuisisi Data & Perangkat terpisah, tidak terkoordinasi & Terintegrasi melalui komponen koordinasi dengan \textit{metadata} lengkap dan sinkronisasi multi-sumber & Efisiensi berpotensi meningkat \\
-    Deteksi Kerusakan & Inspeksi visual manual, subjektif, inkonsisten & Deteksi berbasis analisis otomatis dengan tingkat keyakinan yang dapat divalidasi petugas & Konsistensi berpotensi meningkat \\
-    Pemrosesan Data & Analisis manual oleh operator tunggal & Pemrosesan pada komponen lokal dan terpusat sesuai karakter beban & Responsivitas lebih terarah \\
-    Pelaporan & Konsolidasi manual, format tidak standar, tertunda & Laporan digital terstruktur setelah data inspeksi diterima dan disimpan & Pelaporan lebih cepat \\
+    Akuisisi Data & Perangkat terpisah, tidak terkoordinasi & Terintegrasi melalui komponen koordinasi dengan \textit{metadata} identitas, waktu, kamera, dan artefak & Konsolidasi ulang data manual berkurang \\
+    Deteksi Kerusakan & Inspeksi visual manual, subjektif, inkonsisten & Deteksi berbasis analisis otomatis dengan tingkat keyakinan yang dapat divalidasi petugas & Keluaran inspeksi memiliki struktur dan bukti visual yang sama \\
+    Pemrosesan Data & Analisis manual oleh operator tunggal & Pemrosesan pada komponen lokal dan terpusat sesuai karakter beban & Jalur kerja lokal dan pusat terpisah menurut fungsi \\
+    Pelaporan & Konsolidasi manual, format tidak standar, tertunda & Laporan terstruktur setelah data inspeksi diterima dan disimpan & Jeda konsolidasi laporan manual dapat dikurangi \\
     Integrasi Sistem & Entri ulang manual, tidak ada antarmuka standar & Integrasi berbasis antarmuka layanan dengan kontrak data yang konsisten & Entri ulang dapat dikurangi \\
     Notifikasi & Manual, tidak konsisten, tertunda & Notifikasi berbasis aturan kepada pengguna terotorisasi & Distribusi informasi lebih tertata \\
     Jejak Audit & Catatan manual, mudah hilang, tidak terstruktur & Pencatatan sistematis dengan stempel waktu, pelacakan pengguna, dan artefak bukti & Kesiapan kepatuhan meningkat \\
-    Skalabilitas & Terbatas oleh jumlah petugas & Pemisahan komponen agar kapasitas dapat dikembangkan per lapisan & Skalabilitas lebih terencana \\
-    Keandalan & Titik kegagalan tunggal, tanpa duplikasi & Pemisahan komponen lokal dan terpusat dengan pemantauan status layanan & Ketahanan lebih terstruktur \\
+    Skalabilitas & Terbatas oleh jumlah petugas & Pemisahan komponen agar kapasitas dapat dikembangkan per lapisan & Kapasitas dapat dihitung per jalur inspeksi \\
+    Keandalan & Titik kegagalan tunggal, tanpa duplikasi & Pemisahan komponen lokal dan terpusat dengan pemantauan status layanan & Gangguan dapat dilokalisasi per komponen \\
     Keamanan Data & Catatan manual tidak terenkripsi, tanpa kontrol akses & Perlindungan data di setiap lapisan dan kontrol akses berbasis peran & Keamanan lebih terkendali \\
     \bottomrule
   \end{tabularx}
@@ -189,9 +227,9 @@ Tabel~\ref{tbl:comparison_characteristics} menyajikan perbandingan karakteristik
 \vspace{-2.6cm}
 
 Perbandingan pada Tabel~\ref{tbl:comparison_characteristics} menunjukkan bahwa transformasi dari sistem manual yang
-terpisah-pisah menuju sistem digital terintegrasi diarahkan untuk memperbaiki
+terpisah-pisah menuju sistem terintegrasi diarahkan untuk memperbaiki
 alur pencatatan, konsistensi pembacaan hasil inspeksi, dan kesiapan
-ketertelusuran terhadap standar. Dampak yang ditampilkan pada tabel merupakan
+riwayat kontainer terhadap standar. Dampak yang ditampilkan pada tabel merupakan
 dampak rancangan yang diharapkan dari perubahan arsitektural, bukan hasil
 pengukuran operasional penuh. Sistem usulan dirancang untuk mengatasi
 keterbatasan mendasar sistem saat ini melalui penerapan prinsip modularitas,
@@ -201,7 +239,7 @@ diidentifikasi dalam Bab III.
 \subsection{Rincian Arsitektur Komponen}
 \label{sec:arsitektur-komponen}
 
-Bagian ini menjelaskan desain komponen sistem inspeksi kontainer digital, termasuk identifikasi komponen utama, tanggung jawab masing-masing komponen, dan pola interaksi antarkomponen. Desain ini kemudian menjadi dasar realisasi sistem pada proyek pengembangan sistem, sehingga pembahasannya menekankan struktur yang tercermin pada hubungan antara proses inspeksi, data, dan antarmuka pengguna.
+Bagian ini menjelaskan desain komponen sistem otomasi inspeksi kontainer, termasuk identifikasi komponen utama, tanggung jawab masing-masing komponen, dan pola interaksi antarkomponen. Desain ini kemudian menjadi dasar realisasi sistem pada proyek pengembangan sistem, sehingga pembahasannya menekankan struktur yang tercermin pada hubungan antara proses inspeksi, data, dan antarmuka pengguna.
 
 Sistem diorganisasikan dalam empat lapisan utama: (1) \textbf{\textit{Presentation Layer}} untuk interaksi pengguna melalui aplikasi web, (2) \textbf{\textit{Application Layer}} untuk logika proses inspeksi, autentikasi, dan orkestrasi data melalui layanan API, (3) \textbf{\textit{Data Layer}} untuk penyimpanan data terstruktur dan artefak visual, dan (4) \textbf{\textit{Edge Layer}} untuk akuisisi aliran video, inferensi, dan pengiriman hasil inspeksi dari lapangan.
 
@@ -236,20 +274,80 @@ Penyusunan diagram konteks dilakukan melalui tahapan berikut:
   \item Menetapkan batas sistem dengan menempatkan Cargovision sebagai pusat
   koordinasi data inspeksi, sementara sistem seperti Inaportnet, TOS/PCS, dan
   API Ditjen Hubla diposisikan sebagai sasaran integrasi eksternal yang
-  relevan dengan konteks pelabuhan.
+  berkaitan dengan konteks pelabuhan.
 \end{enumerate}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{images/System Context Diagram.drawio.png}
-  \caption{Diagram Konteks Sasaran Sistem Inspeksi Kargo Digital Terintegrasi}
+  \vspace{0.45em}
+  \resizebox{0.97\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\scriptsize,
+      system/.style={rectangle, draw=black, rounded corners, align=center, text width=4.95cm, minimum height=1.45cm},
+      actor/.style={rectangle, draw=black, align=center, text width=3.18cm, minimum height=0.76cm},
+      ext/.style={rectangle, draw=black, dashed, align=center, text width=3.18cm, minimum height=0.76cm},
+      line/.style={-{Latex[length=1.8mm]}, thick},
+      target/.style={-{Latex[length=1.8mm]}, thick, dashed},
+      relmark/.style={inner sep=0pt, font=\tiny\bfseries},
+      legendbox/.style={rectangle, draw=black, rounded corners, fill=white, inner sep=4pt},
+      dashedline/.style={thick, dashed}
+    ]
+    \node[system] (cv) at (0,0) {\textbf{Cargovision}\\Sistem otomasi inspeksi\\kontainer\\OCR, pemindaian\\riwayat, bukti visual};
+
+    \node[actor] (inspector) at (-6.0,1.9) {Petugas Inspeksi};
+    \node[actor] (operator) at (-6.0,-1.9) {Operator Terminal};
+    \node[actor] (web) at (0,-3.0) {Aplikasi Web\\Pengguna Internal};
+
+    \node[ext] (customs) at (6.45,2.55) {Bea dan Cukai};
+    \node[ext] (logistics) at (6.45,1.05) {Perusahaan Logistik\\Pemilik Kontainer};
+    \node[ext] (shipper) at (6.45,-0.65) {\textit{Shipper}/\textit{Consignee}};
+    \node[ext] (tos) at (6.45,-2.35) {TOS / PCS};
+    \node[ext] (inaportnet) at (0,2.55) {Inaportnet\\API Ditjen Hubla};
+
+    \draw[line] (inspector.east) -- ([yshift=0.32cm]cv.west);
+    \draw[line] (operator.east) -- ([yshift=-0.32cm]cv.west);
+    \draw[line] ([xshift=0.42cm]cv.south) -- ([xshift=0.42cm]web.north);
+    \draw[line] ([xshift=-0.42cm]web.north) -- ([xshift=-0.42cm]cv.south);
+    \node[relmark] at (-3.30,1.86) {1};
+    \node[relmark] at (-3.30,-1.86) {2};
+    \node[relmark] at (0.78,-1.65) {3};
+    \node[relmark] at (-0.78,-1.65) {4};
+
+    \coordinate (externalHub) at (4.55,0);
+    \draw[dashedline] (cv.east) -- (externalHub);
+    \draw[target] (externalHub) |- (customs.west);
+    \draw[target] (externalHub) |- (logistics.west);
+    \draw[target] (externalHub) |- (shipper.west);
+    \draw[target] (externalHub) |- (tos.west);
+    \draw[target] (cv.north) -- (inaportnet.south);
+    \node[relmark] at (0.42,1.70) {5};
+    \node[relmark] at (4.88,0.42) {6};
+    \node[legendbox, anchor=north west, minimum width=4.90cm, minimum height=0.90cm] (legend) at (-6.8,-3.00) {};
+    \draw[line] ([xshift=0.22cm,yshift=-0.28cm]legend.north west) -- ++(0.78,0)
+      node[anchor=west, xshift=0.14cm] {realisasi internal};
+    \draw[target] ([xshift=0.22cm,yshift=-0.62cm]legend.north west) -- ++(0.78,0)
+      node[anchor=west, xshift=0.14cm] {sasaran integrasi eksternal};
+  \end{tikzpicture}}
+  \vspace{0.15em}
+
+  {\scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}cl@{\hspace{1.0em}}cl@{\hspace{1.0em}}cl@{}}
+    \textbf{1} & validasi temuan &
+    \textbf{2} & status operasional &
+    \textbf{3} & hasil/video langsung \\
+    \textbf{4} & tinjauan &
+    \textbf{5} & integrasi Inaportnet &
+    \textbf{6} & integrasi eksternal
+  \end{tabular}}
+  \caption{Diagram Konteks Sasaran Sistem Otomasi Inspeksi Kontainer}
   \label{fig:system_context}
 \end{figure}
 
 \FloatBarrier
 
 Diagram konteks sistem pada Gambar \ref{fig:system_context} menunjukkan
-arsitektur sasaran sistem inspeksi kontainer digital dalam ekosistem pelabuhan yang
+arsitektur sasaran sistem otomasi inspeksi kontainer dalam ekosistem pelabuhan yang
 lebih luas. Pada implementasi yang direalisasikan pada tugas akhir ini, batas
 integrasi aktual masih berfokus pada interaksi internal antara komponen
 \textit{edge}, layanan API, aplikasi web, autentikasi pengguna, dan
@@ -371,7 +469,7 @@ pemantauan waktu nyata.
     \draw[line] (local.west) -- ++(-0.85,0) |- node[flowlabel, pos=0.62, left] {hasil inspeksi} (application.west);
     \draw[line, dashed] (local.east) -- ++(1.1,0) |- node[flowlabel, pos=0.74, right] {video langsung} (presentation.east);
   \end{tikzpicture}}
-  \caption{Arsitektur Berlapis Konseptual Sistem Inspeksi Kargo Digital}
+  \caption{Arsitektur Berlapis Konseptual Sistem Otomasi Inspeksi Kontainer}
   \label{fig:layered_architecture}
 \end{figure}
 
@@ -415,25 +513,69 @@ Interaksi antarkomponen mengikuti pola komunikasi standar untuk menjaga konsiste
   entitas kontainer yang sama.
 \end{enumerate}
 
-Diagram aliran data pada Gambar~\ref{fig:data_flow} diturunkan dari tiga objek
-informasi utama yang harus bergerak di dalam sistem, yaitu aliran video dari
-kamera, data hasil identifikasi dan pemindaian, serta artefak visual sebagai
-bukti inspeksi. Ketiga objek informasi tersebut kemudian dipetakan terhadap
-komponen yang bertanggung jawab untuk akuisisi, pemrosesan, penyimpanan, dan
-penyajian. Dengan demikian, diagram tidak hanya menggambarkan koneksi teknis,
-tetapi juga menunjukkan alasan pemisahan jalur antara data persisten dan video
-langsung.
+Diagram sekuens UML pada Gambar~\ref{fig:data_flow} diturunkan dari tiga
+objek informasi utama yang harus bergerak di dalam sistem, yaitu aliran video
+dari kamera, data hasil identifikasi dan pemindaian, serta artefak visual
+sebagai bukti inspeksi. Ketiga objek informasi tersebut kemudian dipetakan
+terhadap komponen yang bertanggung jawab untuk akuisisi, pemrosesan,
+penyimpanan, dan penyajian. Dengan demikian, diagram tidak hanya menggambarkan
+koneksi teknis, tetapi juga menunjukkan alasan pemisahan jalur antara data
+persisten dan video langsung.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{images/Data Flow Diagram.png}
-  \caption{Diagram Aliran Data End-to-End dalam Sistem Inspeksi Kargo}
+  {\tikzumlset{font=\scriptsize}
+  \resizebox{0.98\textwidth}{!}{%
+  \begin{tikzpicture}
+    \begin{umlseqdiag}
+      \umlobject[class={Kamera RTSP}]{Kamera}
+      \umlcontrol[class={Cargovision Edge}]{Edge}
+      \umlcontrol[class={API Cargovision}]{API}
+      \umldatabase[class={Data Kontainer}]{MongoDB}
+      \umldatabase[class={Artefak Visual}]{R2}
+      \umlboundary[class={Aplikasi Web}]{Web}
+
+      \begin{umlcall}[op={aliranVideo()}, type=asynchron, dt=4]{Kamera}{Edge}
+      \end{umlcall}
+      \begin{umlcallself}[op={OCR dan validasi nomor}, type=synchron, return={nomor stabil}, dt=5]{Edge}
+      \end{umlcallself}
+      \begin{umlcall}[op={identifikasiKontainer()}, type=synchron, return={containerId}, dt=4]{Edge}{API}
+        \begin{umlcall}[op={upsertContainer()}, type=synchron, return={containerId}]{API}{MongoDB}
+        \end{umlcall}
+      \end{umlcall}
+      \begin{umlcallself}[op={pemindaianKerusakan()}, type=synchron, return={hasil scan}, dt=4]{Edge}
+      \end{umlcallself}
+      \begin{umlcall}[op={kirimHasilInspeksi()}, type=synchron, return={status tersimpan}, dt=4]{Edge}{API}
+        \begin{umlcall}[op={simpanArtefak()}, type=synchron, return={url bukti}]{API}{R2}
+        \end{umlcall}
+        \begin{umlcall}[op={catatRiwayat()}, type=synchron, return={riwayat diperbarui}, dt=2]{API}{MongoDB}
+        \end{umlcall}
+      \end{umlcall}
+      \umlsdnode[dt=55]{Web}
+      \begin{umlcall}[op={ambilDetailKontainer()}, type=synchron, return={riwayat kontainer}, dt=5]{Web}{API}
+      \end{umlcall}
+      \begin{umlcall}[op={streamVideoAnotasi()}, type=asynchron, dt=4]{Edge}{Web}
+      \end{umlcall}
+    \end{umlseqdiag}
+  \end{tikzpicture}}}
+  \caption[Diagram sekuens UML alur inspeksi Cargovision]{Diagram Sekuens UML Alur Inspeksi Cargovision}
   \label{fig:data_flow}
 \end{figure}
 
 \FloatBarrier
 
-Gambar \ref{fig:data_flow} mengilustrasikan aliran informasi menyeluruh dalam sistem inspeksi kontainer digital. Alur dimulai dari kamera dan perangkat akuisisi yang mengirimkan aliran video ke komponen \textit{edge}. Komponen \textit{edge} melakukan inferensi awal dan menghasilkan data terstruktur hasil identifikasi atau hasil pemindaian. Data tersebut dikirim ke layanan API untuk disimpan pada basis data, sedangkan artefak visual disimpan pada media penyimpanan objek. Aplikasi web kemudian membaca data terstruktur melalui layanan API dan menerima video beranotasi langsung dari komponen \textit{edge}. Aliran data ini menunjukkan pemisahan tanggung jawab yang jelas antara akuisisi, pemrosesan, penyimpanan, dan distribusi informasi.
+Gambar \ref{fig:data_flow} mengilustrasikan urutan interaksi utama dalam sistem
+otomasi inspeksi kontainer. Alur dimulai dari kamera RTSP yang mengirimkan
+aliran video ke komponen \textit{edge}. Komponen \textit{edge} melakukan
+inferensi awal untuk membaca nomor kontainer, kemudian layanan API membentuk
+atau memperbarui entitas \textit{Container}. Setelah nomor kontainer
+terkonfirmasi, hasil pemindaian kerusakan atau kategori menggunakan konteks
+kontainer yang sama dan dikirim kembali ke layanan API. Ringkasan hasil
+disimpan pada MongoDB, sedangkan artefak visual disimpan pada Cloudflare R2.
+Aplikasi web membaca riwayat kontainer melalui layanan API dan menerima video
+beranotasi langsung melalui \textit{WebSocket}. Alur ini menunjukkan pemisahan
+tanggung jawab antara akuisisi, pemrosesan, penyimpanan, dan penyajian
+informasi.
 
 \section{Arsitektur Data Pemeriksaan Kontainer}
 
@@ -452,7 +594,7 @@ transaksional dan data master. Model data dirancang dengan prinsip
 standardisasi untuk mengurangi duplikasi dan menjaga konsistensi informasi
 antarhasil inspeksi. Model ini diturunkan dari kebutuhan integrasi hasil OCR,
 hasil pemindaian, dan konteks manifes ke dalam satu entitas kontainer, sehingga
-setiap atribut yang dimasukkan pada diagram relasi memiliki alasan fungsional
+setiap atribut yang dimasukkan pada diagram kelas memiliki alasan fungsional
 yang jelas. Pada operasi inspeksi utama, entitas KONTAINER diposisikan sebagai
 pusat penyimpanan identitas kontainer, hasil OCR, ringkasan manifes, hasil
 pemindaian, keputusan sistem, dan lampiran bukti inspeksi. Entitas MANIFEST
@@ -463,24 +605,72 @@ kepemilikan atau peninjauan data inspeksi.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.75\textwidth]{images/ER Diagram Conceptual.png}
-  \caption{Diagram Relasi Entitas Konseptual Sasaran Sistem Inspeksi Kargo}
+  {\tikzumlset{font=\scriptsize}
+  \resizebox{0.96\textwidth}{!}{%
+  \begin{tikzpicture}
+    \umlclass[x=0,y=0,width=4.1cm,fill=black!6]{Kontainer}{
+      + nomorKontainer : string\\
+      + statusInspeksi : enum\\
+      + waktuTerakhir : datetime
+    }{}
+
+    \umlclass[x=-5.2,y=3.0,width=3.6cm]{User}{
+      + idUser : string\\
+      + peran : string
+    }{}
+    \umlclass[x=-5.2,y=0,width=3.9cm]{AuditEvent}{
+      + aksi : string\\
+      + waktu : datetime
+    }{}
+    \umlclass[x=5.2,y=0,width=3.9cm]{Manifest}{
+      + nomorDokumen : string\\
+      + ringkasanMuatan : string
+    }{}
+    \umlclass[x=0,y=-3.0,width=4.1cm]{Inspeksi}{
+      + idInspeksi : string\\
+      + waktuMulai : datetime\\
+      + hasil : enum
+    }{}
+    \umlclass[x=-5.2,y=-6.0,width=3.9cm]{Deteksi}{
+      + jenis : string\\
+      + confidence : float
+    }{}
+    \umlclass[x=0,y=-6.0,width=4.1cm]{ArtefakVisual}{
+      + uri : string\\
+      + tipeMedia : string
+    }{}
+    \umlclass[x=5.2,y=-6.0,width=3.9cm]{Peristiwa}{
+      + tipe : string\\
+      + waktu : datetime
+    }{}
+
+    \umluniassociate[geometry=--, mult1={1}, mult2={0..*}]{User}{AuditEvent}
+    \umluniassociate[geometry=--, mult1={0..*}, mult2={1}]{AuditEvent}{Kontainer}
+    \umlassociate[geometry=--, mult1={1}, mult2={0..1}]{Kontainer}{Manifest}
+    \umlcompose[geometry=--, mult1={1}, mult2={0..*}]{Kontainer}{Inspeksi}
+    \umlcompose[geometry=--, mult1={1}, mult2={0..*}]{Inspeksi}{Deteksi}
+    \umlcompose[geometry=--, mult1={1}, mult2={0..*}]{Inspeksi}{ArtefakVisual}
+    \umluniassociate[geometry=--, mult1={1}, mult2={0..*}]{Inspeksi}{Peristiwa}
+  \end{tikzpicture}}}
+  \caption[Diagram kelas UML model data berpusat pada kontainer]{Diagram Kelas UML Model Data Berpusat pada Kontainer}
   \label{fig:er_diagram}
 \end{figure}
 
 \FloatBarrier
 
-Gambar~\ref{fig:er_diagram} menunjukkan model relasi entitas pada tingkat
-konseptual sasaran. Pada realisasi operasi inspeksi utama yang digunakan dalam
-tugas akhir ini, pusat model data berada pada entitas KONTAINER dan MANIFEST,
-dengan USER sebagai konteks autentikasi dan pengelolaan akses. Dengan demikian,
-gambar ini perlu dibaca sebagai representasi konseptual pengembangan sistem,
-bukan sebagai cerminan satu-per-satu dari seluruh koleksi yang aktif pada
-implementasi akhir.
+Gambar~\ref{fig:er_diagram} menunjukkan model data konseptual dalam bentuk
+diagram kelas UML pada tingkat sasaran. Pusat model berada pada kelas
+Kontainer karena identitas kontainer
+menjadi jangkar untuk konteks manifes, riwayat inspeksi, bukti visual, peristiwa
+operasional, dan audit. Entitas INSPEKSI pada model ini dibaca sebagai entitas
+pendukung yang membentuk riwayat pemeriksaan kontainer, bukan sebagai pusat data
+utama. Dengan demikian, gambar ini perlu dibaca sebagai representasi konseptual
+pengembangan sistem, bukan sebagai cerminan satu-per-satu dari seluruh koleksi
+yang aktif pada implementasi akhir.
 
 \subsubsection{Mekanisme Komunikasi Data}
 
-Komunikasi antarkomponen menggunakan dua bentuk utama, yaitu pertukaran data terstruktur melalui HTTP dan penyiaran video langsung melalui \textit{WebSocket}. Setiap komunikasi membawa \textit{metadata} identifikasi, waktu, dan data yang relevan dengan proses inspeksi.
+Komunikasi antarkomponen menggunakan dua bentuk utama, yaitu pertukaran data terstruktur melalui HTTP dan penyiaran video langsung melalui \textit{WebSocket}. Setiap komunikasi membawa \textit{metadata} identifikasi, waktu, dan data yang diperlukan dalam proses inspeksi.
 
 Sistem menggunakan tiga kategori komunikasi utama untuk koordinasi
 antarkomponen, yaitu pengiriman hasil OCR dari \textit{edge} ke layanan API
@@ -496,13 +686,10 @@ dapat dihubungkan pada entitas kontainer yang sama.
 
 \section{Alur Informasi dan Integrasi Hasil Inspeksi}
 
-Bagian ini menjawab tujuan ketiga tugas akhir, yaitu menyusun model alur
-informasi yang memungkinkan integrasi hasil identifikasi, hasil pemindaian,
-dan penyajian informasi kepada pengguna dalam satu sistem yang konsisten.
-Arsitektur integrasi menjelaskan bagaimana sistem inspeksi kontainer digital
-diposisikan terhadap sistem operasional eksternal yang sudah ada di ekosistem
-pelabuhan. Integrasi dirancang dengan prinsip pemisahan tanggung jawab,
-ketahanan terhadap kegagalan, dan kompatibilitas dengan sistem yang ada.
+Bagian ini merangkum alur integrasi hasil identifikasi, hasil pemindaian, dan
+penyajian informasi inspeksi kontainer. Fokus pembahasan diarahkan pada
+hubungan antara komponen \textit{edge}, layanan API, penyimpanan data, aplikasi
+web, dan kesiapan antarmuka terhadap sistem eksternal.
 
 \subsection{Strategi Integrasi dengan Sistem Eksternal}
 
@@ -518,8 +705,8 @@ logika aplikasi inti.
 Karakteristik pendekatan integrasi ini mencakup komunikasi data terstruktur
 melalui antarmuka layanan yang jelas, pemisahan logika proses internal dari
 detail komunikasi sistem eksternal, dukungan transformasi data agar model
-internal dapat disesuaikan dengan kebutuhan pihak lain, serta kemampuan
-perluasan bertahap ketika integrasi dengan sistem eksternal direalisasikan.
+internal dapat dipetakan ke kebutuhan pihak lain, serta titik perluasan bertahap
+ketika integrasi dengan sistem eksternal direalisasikan.
 
 \subsubsection{Pola Adapter untuk Sistem Eksternal}
 
@@ -532,7 +719,7 @@ versinya, kemudahan pengujian tanpa ketergantungan pada sistem eksternal
 aktual, serta standardisasi antarmuka yang mempermudah pemahaman hubungan
 integrasi.
 
-Diagram integrasi pada Gambar~\ref{fig:integration_architecture} disusun dengan
+Diagram komponen UML pada Gambar~\ref{fig:integration_architecture} disusun dengan
 mengambil aktor dan sistem eksternal dari diagram konteks, kemudian
 menempatkannya di luar batas sistem inti. Aliran yang masuk dan keluar dari
 sistem dipusatkan melalui antarmuka integrasi agar perubahan pada sistem
@@ -544,14 +731,75 @@ web.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.75\textwidth]{images/Integration Architecture Diagram.png}
-  \caption{Arsitektur Integrasi Sasaran dengan Sistem Eksternal Pelabuhan}
+  \resizebox{0.98\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\scriptsize,
+      component/.style={rectangle, draw=black, rounded corners=1.5pt, fill=black!2,
+        align=center, minimum width=2.92cm, minimum height=0.78cm, inner sep=4pt},
+      componentwide/.style={component, minimum width=3.28cm},
+      externalcomp/.style={component, minimum width=3.22cm, fill=black!1},
+      internal/.style={-{Latex[length=2.25mm,width=1.7mm]}, thick, shorten >=3pt, shorten <=3pt},
+      external/.style={-{Latex[length=2.25mm,width=1.7mm]}, thick, dashed, shorten >=3pt, shorten <=3pt},
+      trunk/.style={thick, dashed},
+      legendbox/.style={rectangle, draw=black, rounded corners=2pt, fill=white, inner sep=4pt},
+      component glyph/.pic={
+        \draw (0,0) rectangle (0.16,-0.24);
+        \draw (-0.07,-0.055) rectangle (0.045,-0.105);
+        \draw (-0.07,-0.155) rectangle (0.045,-0.205);
+      }
+    ]
+    \node[component] (edge) at (-5.75,1.30) {Cargovision Edge};
+    \node[component] (web) at (-5.75,-0.52) {Aplikasi Web};
+    \node[componentwide] (core) at (-2.05,0.36) {Core API};
+    \node[componentwide] (store) at (-2.05,-1.58) {MongoDB dan R2};
+    \node[componentwide] (interface) at (1.70,0.36) {Integration Interface};
+
+    \node[externalcomp] (tosAdapter) at (6.80,2.02) {Adapter TOS/PCS};
+    \node[externalcomp] (hublaAdapter) at (6.80,0.78) {Adapter Inaportnet};
+    \node[externalcomp] (customsAdapter) at (6.80,-0.46) {Adapter Bea Cukai};
+    \node[externalcomp] (partnerAdapter) at (6.80,-1.70) {Adapter Mitra Logistik};
+
+    \foreach \n in {edge,web,core,store,interface,tosAdapter,hublaAdapter,customsAdapter,partnerAdapter} {
+      \pic at ($(\n.north east)+(-0.20,-0.14)$) {component glyph};
+    }
+
+    \coordinate (coreInTop) at ($(core.west)+(0,0.22)$);
+    \coordinate (coreInBottom) at ($(core.west)+(0,-0.22)$);
+    \coordinate (leftFan) at (-4.08,0.36);
+    \draw[internal] (edge.east) -- (edge.east -| leftFan) |- (coreInTop);
+    \draw[internal] (web.east) -- (web.east -| leftFan) |- (coreInBottom);
+    \draw[internal] (core.south) -- (store.north);
+    \draw[external] (core.east) -- (interface.west);
+
+    \coordinate (split) at (4.35,0.36);
+    \coordinate (fanTop) at (4.35,2.02);
+    \coordinate (fanHubla) at (4.35,0.78);
+    \coordinate (fanCustoms) at (4.35,-0.46);
+    \coordinate (fanBottom) at (4.35,-1.70);
+    \draw[trunk] (interface.east) -- (split);
+    \draw[trunk] (fanTop) -- (fanBottom);
+    \foreach \p in {split,fanTop,fanHubla,fanCustoms,fanBottom} {
+      \fill (\p) circle (1.05pt);
+    }
+    \draw[external] (fanTop) -- (tosAdapter.west);
+    \draw[external] (fanHubla) -- (hublaAdapter.west);
+    \draw[external] (fanCustoms) -- (customsAdapter.west);
+    \draw[external] (fanBottom) -- (partnerAdapter.west);
+
+    \node[legendbox, minimum width=4.72cm, minimum height=1.05cm] at (-4.65,-2.88) {};
+    \node[anchor=west, font=\scriptsize\bfseries] at (-6.78,-2.55) {Keterangan};
+    \draw[internal] (-6.78,-2.87) -- (-6.03,-2.87);
+    \node[anchor=west] at (-5.84,-2.87) {realisasi internal};
+    \draw[external] (-6.78,-3.18) -- (-6.03,-3.18);
+    \node[anchor=west] at (-5.84,-3.18) {kesiapan integrasi eksternal};
+  \end{tikzpicture}}
+  \caption{Diagram Komponen UML Arsitektur Integrasi Sasaran dengan Sistem Eksternal Pelabuhan}
   \label{fig:integration_architecture}
 \end{figure}
 
 \FloatBarrier
 
-Gambar \ref{fig:integration_architecture} menunjukkan arsitektur integrasi
+Gambar \ref{fig:integration_architecture} menunjukkan diagram komponen UML untuk arsitektur integrasi
 sasaran sistem dengan ekosistem pelabuhan yang lebih luas. Pada implementasi
 yang direalisasikan dalam tugas akhir ini, integrasi aktual masih dibatasi pada
 komponen internal proyek dan dependensi pendukung seperti autentikasi pengguna
@@ -560,30 +808,25 @@ serta penyimpanan artefak visual. Oleh karena itu, lapisan
 sebagai rancangan kesiapan perluasan, bukan sebagai klaim realisasi integrasi
 eksternal penuh.
 
-\subsubsection{Pemetaan dan Transformasi Data}
+Lapisan integrasi bertanggung jawab memetakan model data internal sistem ke
+format data yang digunakan oleh sistem eksternal. Dalam rancangan ini,
+transformasi data mencakup penyesuaian nilai kategori sesuai format sistem
+eksternal, konversi satuan pengukuran bila diperlukan, penyesuaian format waktu
+dan identifikasi, penanganan informasi yang tidak tersedia, serta pemetaan
+informasi yang hanya dimiliki sistem eksternal tertentu. Lapisan integrasi juga
+dirancang untuk mendukung pemetaan dua arah ketika aliran data dari sistem
+internal ke sistem eksternal maupun sebaliknya direalisasikan.
 
-Lapisan integrasi bertanggung jawab untuk \textbf{pemetaan dan transformasi} antara model data internal sistem dengan model data sistem eksternal.
-
-Dalam rancangan ini, transformasi mencakup penyesuaian nilai kategori sesuai
-format sistem eksternal, konversi satuan pengukuran bila diperlukan,
-penyesuaian format waktu dan identifikasi, penanganan informasi yang tidak
-tersedia, serta pemetaan informasi yang hanya dimiliki sistem eksternal
-tertentu. Lapisan integrasi juga dirancang untuk mendukung pemetaan dua arah
-ketika aliran data dari sistem internal ke sistem eksternal maupun sebaliknya
-direalisasikan.
-
-\subsubsection{Penanganan Kesalahan dan Ketahanan}
-
-Integrasi dengan sistem eksternal rentan terhadap berbagai skenario kegagalan. Oleh karena itu, rancangan lapisan integrasi menyiapkan strategi penanganan kesalahan untuk meningkatkan keandalan saat integrasi eksternal direalisasikan.
-
+Selain pemetaan data, rancangan lapisan integrasi juga menyiapkan mekanisme
+ketahanan ketika komunikasi dengan sistem eksternal mengalami kegagalan.
 Strategi yang disiapkan mencakup percobaan ulang dengan interval yang
 meningkat, sifat idempoten agar permintaan dapat dicoba ulang dengan aman,
 antrean cadangan untuk menyimpan permintaan yang gagal, serta mekanisme
 pembatas untuk menghentikan sementara pengiriman saat tingkat kegagalan tinggi.
-Selain itu, rancangan pemantauan integrasi menekankan pelacakan metrik seperti
-tingkat keberhasilan dan waktu respons, peringatan otomatis untuk kondisi
-anomali, serta log audit atas permintaan dan respons integrasi sebagai bentuk
-kesiapan kepatuhan.
+Rancangan pemantauan integrasi juga menekankan pelacakan metrik seperti tingkat
+keberhasilan dan waktu respons, peringatan otomatis untuk kondisi anomali, serta
+log audit atas permintaan dan respons integrasi sebagai bentuk kesiapan
+kepatuhan.
 
 \subsection{Antarmuka Layanan}
 
@@ -621,7 +864,7 @@ tersedia.
 
 \subsection{Prinsip Keamanan}
 
-Keamanan sistem inspeksi kontainer digital dirancang dengan prinsip \textbf{pertahanan berlapis}, yaitu pemisahan beberapa area kontrol keamanan untuk melindungi data, sistem, dan akses pengguna. Desain keamanan diarahkan agar selaras dengan persyaratan regulasi dan praktik terbaik industri untuk pengelolaan informasi.
+Keamanan sistem otomasi inspeksi kontainer dirancang dengan prinsip \textbf{pertahanan berlapis}, yaitu pemisahan beberapa area kontrol keamanan untuk melindungi data, sistem, dan akses pengguna. Desain keamanan diarahkan agar selaras dengan persyaratan regulasi dan praktik terbaik industri untuk pengelolaan informasi.
 
 Lapisan keamanan konseptual dirancang mencakup keamanan \textit{boundary}
 untuk mengisolasi sistem dari ancaman eksternal, keamanan aplikasi melalui
@@ -637,36 +880,40 @@ atas identitas pengguna, peran, dan hak akses.
 \section{Pembagian Fungsi Antarkomponen}
 
 Bagian ini menjawab tujuan keempat tugas akhir, yaitu merancang pembagian
-fungsi antarkomponen agar pemrosesan lokal, persistensi data, dan penyajian
-informasi dapat berjalan sesuai kebutuhan operasional inspeksi kontainer.
+fungsi antarkomponen berdasarkan karakter beban pemrosesan lokal, persistensi
+data, dan penyajian informasi dalam operasi inspeksi kontainer.
 Arsitektur penempatan menggambarkan bagaimana komponen sistem didistribusikan
 untuk mendukung responsivitas pengolahan di lapangan sekaligus menjaga
 konsistensi data pada layanan terpusat.
 
 \subsection{Strategi Penempatan Komponen}
 
-Sistem mengadopsi strategi penempatan tersebar yang membagi komponen berdasarkan karakteristik beban kerja dan kebutuhan responsivitas. Komponen yang membutuhkan pemrosesan dekat dengan sumber data ditempatkan pada perangkat \textit{edge}, sedangkan komponen yang membutuhkan penyimpanan terpusat, pengelolaan data, dan penyajian informasi ditempatkan pada layanan API, basis data, dan aplikasi web.
+Sistem mengadopsi strategi penempatan tersebar yang membagi komponen berdasarkan
+karakteristik beban kerja dan kebutuhan responsivitas. Komponen yang membutuhkan
+pemrosesan dekat dengan sumber data ditempatkan pada perangkat \textit{edge},
+sedangkan komponen yang membutuhkan penyimpanan terpusat, pengelolaan data, dan
+penyajian informasi ditempatkan pada layanan API, basis data, dan aplikasi web.
 
-\textbf{Penempatan layanan terpusat.} Komponen yang memerlukan konsolidasi
-informasi, akses ke data historis, dan penyediaan data kepada pengguna
-ditempatkan di lokasi terpusat agar kapasitasnya dapat disesuaikan dengan
-volume operasi, data terkonsolidasi dapat disimpan secara berkelanjutan,
-autentikasi dan akses pengguna dapat dikelola secara seragam, serta antarmuka
-data untuk aplikasi web dapat disediakan dari satu titik layanan.
+Komponen yang memerlukan konsolidasi informasi, akses ke data historis, dan
+penyediaan data kepada pengguna ditempatkan pada layanan terpusat. Penempatan
+ini membuat kapasitas dapat disesuaikan dengan volume operasi, data
+terkonsolidasi dapat disimpan secara berkelanjutan, autentikasi dan akses
+pengguna dapat dikelola seragam, serta antarmuka data untuk aplikasi web
+tersedia dari satu titik layanan.
 
-\textbf{Penempatan lokal.} Komponen yang memerlukan responsivitas pada tahap pemantauan awal
-ditempatkan di lokasi lokal karena harus terhubung langsung dengan kamera
+Komponen yang memerlukan responsivitas pada tahap pemantauan awal ditempatkan
+di lokasi lokal. Komponen ini harus terhubung langsung dengan kamera
 \textit{RTSP}, menjalankan inferensi awal dan pengolahan video di dekat sumber
 data, mengirimkan hasil inspeksi ke layanan API, dan menyiarkan video
 beranotasi langsung ke aplikasi web.
 
-\textbf{Koordinasi antarkomponen.} Koordinasi antara komponen lokal dan
-terpusat dilakukan melalui pengiriman hasil identifikasi dan hasil pemindaian
-dari \textit{edge} ke layanan API, penyediaan data inspeksi dari layanan API
-ke aplikasi web, penyiaran video langsung dari \textit{edge} ke aplikasi web,
-serta pemantauan ketersediaan aliran video dan status layanan.
+Koordinasi antara komponen lokal dan layanan terpusat dilakukan melalui
+pengiriman hasil identifikasi dan pemindaian dari \textit{edge} ke layanan API,
+penyediaan data inspeksi dari layanan API ke aplikasi web, penyiaran video
+langsung dari \textit{edge} ke aplikasi web, serta pemantauan ketersediaan
+aliran video dan status layanan.
 
-Penempatan pada Gambar~\ref{fig:deployment_architecture} disusun berdasarkan
+Diagram deployment UML pada Gambar~\ref{fig:deployment_architecture} disusun berdasarkan
 tiga kriteria. Pertama, fungsi yang membutuhkan kedekatan dengan sumber data
 ditempatkan pada \textit{edge}. Kedua, fungsi yang membutuhkan konsolidasi,
 riwayat, dan kontrol akses ditempatkan pada layanan terpusat. Ketiga, artefak
@@ -676,14 +923,65 @@ antara komponen lokal dan komponen terpusat.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.75\textwidth]{images/Deployment Architecture Diagram.png}
-  \caption{Arsitektur Penempatan dengan Distribusi Komponen Terpusat dan \textit{Edge}}
+  \resizebox{0.96\textwidth}{!}{%
+  \begin{tikzpicture}[
+      font=\scriptsize,
+      deploy/.style={rectangle, draw=black, rounded corners=2pt, align=center, fill=black!2},
+      device/.style={deploy, minimum width=3.65cm, minimum height=6.20cm},
+      network/.style={deploy, minimum width=2.90cm, minimum height=6.20cm},
+      cloud/.style={deploy, minimum width=7.10cm, minimum height=6.20cm},
+      artifact/.style={rectangle, draw=black, align=center, fill=white, text width=2.52cm, minimum width=2.52cm, minimum height=0.76cm, inner xsep=5pt, inner ysep=4pt},
+      database/.style={cylinder, draw=black, shape border rotate=90, aspect=0.25, align=center, fill=white, minimum width=2.35cm, minimum height=0.96cm},
+      line/.style={-{Latex[length=2.05mm,width=1.55mm]}, thick, shorten >=1pt, shorten <=1pt},
+      bendline/.style={line, rounded corners=3pt},
+      videoline/.style={-{Latex[length=2.05mm,width=1.55mm]}, thick, dashed, shorten >=1pt, shorten <=1pt},
+      label/.style={fill=white, inner sep=1.5pt, align=center},
+      legendbox/.style={rectangle, draw=black, rounded corners=2pt, fill=white, inner sep=4pt}
+    ]
+    \node[device] (edgeDevice) at (-5.75,0) {};
+    \node[anchor=north, align=center, font=\scriptsize\bfseries] at (edgeDevice.north) {$\ll$device$\gg$\\Lokasi Inspeksi};
+    \node[network] (networkNode) at (-1.55,0) {};
+    \node[anchor=north, align=center, font=\scriptsize\bfseries] at (networkNode.north) {$\ll$network$\gg$\\LAN / Internet};
+    \node[cloud] (cloudNode) at (4.05,0) {};
+    \node[anchor=north, align=center, font=\scriptsize\bfseries] at (cloudNode.north) {$\ll$node$\gg$\\Layanan Terpusat};
+
+    \node[artifact] (camera) at (-5.75,1.78) {$\ll$device$\gg$\\Kamera RTSP};
+    \node[artifact] (edge) at (-5.75,0.28) {$\ll$execution environment$\gg$\\Cargovision Edge};
+    \node[artifact] (localBuffer) at (-5.75,-1.22) {$\ll$artifact$\gg$\\Buffer lokal};
+
+    \node[artifact] (http) at (-1.55,0.28) {$\ll$protocol$\gg$\\HTTP API};
+    \node[artifact] (ws) at (-1.55,-2.24) {$\ll$protocol$\gg$\\WebSocket};
+
+    \node[artifact] (api) at (2.05,0.28) {$\ll$execution environment$\gg$\\Layanan API};
+    \node[database] (mongo) at (5.78,0.28) {$\ll$database$\gg$\\MongoDB};
+    \node[artifact] (r2) at (2.05,-1.35) {$\ll$artifact$\gg$\\R2};
+    \node[artifact] (web) at (5.78,-1.35) {$\ll$artifact$\gg$\\Aplikasi Web};
+
+    \draw[line] (camera.south) -- (edge.north);
+    \draw[line] (edge.south) -- (localBuffer.north);
+
+    \draw[line] (edge.east) -- (http.west);
+    \coordinate (edgeVideoOut) at ($(edge.east)+(0,-0.08)$);
+    \coordinate (videoBranch) at (-3.45,-2.24);
+    \draw[videoline, rounded corners=3pt] (edgeVideoOut) -- ++(0.52,0) |- (videoBranch) -- (ws.west);
+
+    \draw[line] (http.east) -- (api.west);
+    \coordinate (webVideoIn) at ($(web.south west)+(0.55,0)$);
+    \draw[videoline, rounded corners=3pt] (ws.east) -- ++(1.12,0) -| (webVideoIn);
+
+    \draw[line] (api.east) -- (mongo.west);
+    \draw[line] (api.south) -- (r2.north);
+
+    \draw[line] (r2.east) -- (web.west);
+
+  \end{tikzpicture}}
+  \caption{Diagram Deployment UML dengan Distribusi Komponen Terpusat dan \textit{Edge}}
   \label{fig:deployment_architecture}
 \end{figure}
 
 \FloatBarrier
 
-Gambar \ref{fig:deployment_architecture} menunjukkan distribusi komponen sistem antara perangkat \textit{edge} dan layanan terpusat. Pada sisi \textit{edge}, sistem menjalankan layanan untuk akuisisi aliran video, inferensi, dan siaran video langsung. Pada sisi terpusat, layanan API menangani persistensi dan penyediaan data, MongoDB menyimpan data terstruktur, media penyimpanan objek menyimpan artefak visual, dan aplikasi web menyediakan antarmuka bagi pengguna. Arsitektur ini menempatkan pemrosesan yang sensitif terhadap latensi di dekat sumber data, sementara penyimpanan dan penyajian informasi dipusatkan untuk menjaga konsistensi.
+Gambar \ref{fig:deployment_architecture} menunjukkan diagram deployment UML antara perangkat \textit{edge}, jaringan, dan layanan terpusat. Pada sisi \textit{edge}, sistem menjalankan layanan untuk akuisisi aliran video, inferensi, dan siaran video langsung. Pada sisi terpusat, layanan API menangani persistensi dan penyediaan data, MongoDB menyimpan data terstruktur, media penyimpanan objek menyimpan artefak visual, dan aplikasi web menyediakan antarmuka bagi pengguna. Arsitektur ini menempatkan pemrosesan yang sensitif terhadap latensi di dekat sumber data, sementara penyimpanan dan penyajian informasi dipusatkan untuk menjaga konsistensi.
 
 \subsection{Arsitektur \textit{Edge} dan Akuisisi Data}
 
@@ -750,7 +1048,7 @@ layanan terpusat.
 \section{Pemetaan Komponen terhadap Atribut Kualitas ISO 25010}
 \label{sec:pemetaan-iso25010}
 
-Desain arsitektur sistem inspeksi kontainer digital secara eksplisit mempertimbangkan atribut kualitas yang didefinisikan dalam standar ISO/IEC 25010. Tabel~\ref{tbl:iso25010_mapping} memetakan komponen utama arsitektur terhadap atribut kualitas yang didukungnya.
+Desain arsitektur sistem otomasi inspeksi kontainer secara eksplisit mempertimbangkan atribut kualitas yang didefinisikan dalam standar ISO/IEC 25010. Tabel~\ref{tbl:iso25010_mapping} memetakan komponen utama arsitektur terhadap atribut kualitas yang didukungnya.
 
 \begin{table}[ht]
   \centering
@@ -790,7 +1088,7 @@ Dari sisi \textit{interoperability}, pola \textit{adapter} untuk integrasi
 sistem eksternal dan penggunaan kontrak layanan standar memfasilitasi
 pertukaran informasi dengan berbagai sistem yang heterogen di ekosistem
 pelabuhan ketika tahap integrasi lanjutan direalisasikan. Dari sisi
-ketertelusuran, pencatatan aktivitas pada lapisan sistem mendukung agar
+riwayat kontainer, pencatatan aktivitas pada lapisan sistem mendukung agar
 tindakan penting dapat ditelusuri untuk keperluan investigasi, penyelesaian
 sengketa, dan kepatuhan regulasi. Adapun dari sisi keandalan, desain
 penempatan tersebar dengan pemisahan fungsi lokal dan terpusat diarahkan untuk
@@ -802,7 +1100,7 @@ operasional.
 
 \section{Kesimpulan Desain}
 
-Bab ini telah menyajikan desain arsitektur sistem inspeksi kontainer digital terintegrasi yang dirancang untuk mengatasi permasalahan yang telah diidentifikasi di Bab III. Desain ini berfokus pada integrasi komponen, pemrosesan responsif, dan konsistensi alur data sebagai dasar realisasi sistem yang diimplementasikan.
+Bab ini telah menyajikan desain arsitektur sistem otomasi inspeksi kontainer yang dirancang untuk mengatasi permasalahan yang telah diidentifikasi di Bab III. Desain ini berfokus pada integrasi komponen, pemrosesan responsif, dan konsistensi alur data sebagai dasar realisasi sistem yang diimplementasikan.
 
 \subsection{Keputusan Arsitektural Kunci}
 
@@ -819,7 +1117,7 @@ Berikut adalah keputusan arsitektural utama beserta rasionalisasinya:
 
   \item Pemrosesan tersebar dengan kapabilitas lokal digunakan dengan
   mengombinasikan pemrosesan lokal di titik akuisisi data dan pemrosesan
-  terpusat untuk analisis mendalam. Pendekatan ini dipilih berdasarkan
+  terpusat untuk analisis yang memerlukan konsolidasi data. Pendekatan ini dipilih berdasarkan
   karakteristik lingkungan operasi pelabuhan. Operasi pemantauan inspeksi
   membutuhkan respons yang memadai pada tahap awal, sehingga pemrosesan lokal memungkinkan deteksi awal
   anomali kritis tanpa menunggu respons dari sistem terpusat. Konektivitas
@@ -850,14 +1148,14 @@ Berikut adalah keputusan arsitektural utama beserta rasionalisasinya:
 \end{enumerate}
 
 Keputusan tersebut diturunkan dari kebutuhan arsitektural yang telah
-diidentifikasi pada Bab III. Untuk menjaga keterlacakan antara masalah,
+diidentifikasi pada Bab III. Untuk memetakan hubungan antara masalah,
 kebutuhan, keputusan desain, dan dasar evaluasi, hubungan tersebut diringkas
 pada Tabel~\ref{tbl:traceability-rancangan-arsitektur}.
 
 \begin{table}[ht]
   \centering
   \footnotesize
-  \caption[Matriks keterlacakan rancangan arsitektur]{Matriks Keterlacakan Rancangan Arsitektur}
+  \caption[Matriks pemetaan rancangan arsitektur]{Matriks Pemetaan Rancangan Arsitektur}
   \label{tbl:traceability-rancangan-arsitektur}
   \setlength{\tabcolsep}{4pt}
   \renewcommand{\arraystretch}{1.12}
@@ -928,73 +1226,24 @@ dipilih agar alasan desain dapat ditelusuri secara eksplisit.
 
 \FloatBarrier
 
-\subsection{Kebutuhan Operasional Sistem}
+\subsection{Batas Operasional dan Ruang Lingkup Desain}
 
-Desain arsitektur perlu didukung oleh kebutuhan operasional yang memadai agar
-sistem dapat digunakan secara berkelanjutan dalam lingkungan pelabuhan.
+Desain arsitektur ini membutuhkan dukungan operasional berupa administrator
+sistem, operator inspeksi, validator hasil, dan pengelola operasional. Keempat
+peran tersebut diperlukan untuk menjalankan akuisisi data, validasi hasil,
+pemantauan layanan, pengendalian akses, dan penanganan gangguan. Kebutuhan ini
+selaras dengan temuan lapangan bahwa layanan inspeksi tidak hanya bergantung
+pada perangkat teknis, tetapi juga pada prosedur, tingkat layanan, dan tata
+kelola insiden.
 
-\subsubsection{Kebutuhan Peran Operasional}
+Ruang lingkup desain difokuskan pada inspeksi visual nonintrusif terhadap
+kondisi eksterior kontainer, dokumentasi kondisi dalam bentuk citra dan data
+inspeksi, penyajian hasil kepada pengguna, serta kesiapan integrasi dengan
+sistem informasi pelabuhan. Desain ini tidak mencakup inspeksi interior,
+perbaikan fisik, perhitungan biaya kerusakan, validasi kepatuhan dokumen
+pengiriman, penentuan tanggung jawab bisnis atau hukum, maupun integrasi dengan
+sistem asuransi.
 
-Pengoperasian sistem membutuhkan beberapa peran dengan kompetensi yang sesuai
-agar fungsi akuisisi data, validasi hasil, pemantauan layanan, dan pengelolaan
-akses dapat berjalan konsisten.
-
-\begin{table}[ht]
-  \centering
-  \small
-  \caption[Kebutuhan peran operasional]{Kebutuhan Peran Operasional Sistem}
-  \label{tbl:kebutuhan_peran}
-  \setlength{\tabcolsep}{4pt}
-  \renewcommand{\arraystretch}{1.08}
-  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.30\textwidth}}
-    \toprule
-    \textbf{Peran} & \textbf{Tanggung Jawab} & \textbf{Kompetensi} \\
-    \midrule
-    Administrator Sistem & Pengelolaan infrastruktur, pemantauan kesehatan sistem, pengelolaan akses pengguna & Administrasi sistem, jaringan dasar \\
-    Operator Inspeksi & Pengoperasian perangkat inspeksi, inisiasi proses inspeksi, validasi hasil deteksi & Prosedur inspeksi, pengoperasian perangkat \\
-    Validator & Verifikasi hasil deteksi otomatis, penanganan kasus anomali, eskalasi keputusan & Pengetahuan kerusakan kontainer, prosedur penanganan \\
-    Manajer Operasional & Pemantauan kinerja operasional, analisis laporan agregat, koordinasi lintas departemen & Analisis data, manajemen operasional \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
-
-\FloatBarrier
-
-\subsubsection{Kebutuhan Dukungan Operasional}
-
-Selain peran operasional, sistem membutuhkan dukungan operasional yang mencakup
-pemeliharaan layanan, ketersediaan infrastruktur, keamanan dan pengendalian
-akses, serta prosedur operasional. Pemeliharaan layanan mencakup pemantauan
-kesehatan komponen, pengelolaan log, pencadangan data, dan penanganan
-gangguan. Ketersediaan infrastruktur mencakup layanan komputasi terpusat,
-komponen \textit{edge} di titik inspeksi, penyimpanan data, serta konektivitas
-jaringan yang memadai. Keamanan dan pengendalian akses mencakup perlindungan
-akses pengguna, pengelolaan identitas, serta pengamanan perangkat dan data,
-sedangkan prosedur operasional mencakup SOP penggunaan sistem, eskalasi
-insiden, pemulihan layanan, dan pelatihan pengguna.
-
-Aspek-aspek tersebut selaras dengan temuan lapangan yang menunjukkan bahwa
-layanan \textit{screening} dan inspeksi tidak hanya bergantung pada komponen teknis,
-tetapi juga pada prosedur operasional, tingkat layanan, dan tata kelola
-insiden yang jelas.
-
-\subsection{Batasan Ruang Lingkup Desain}
-
-Penting untuk menegaskan batasan ruang lingkup desain sistem ini agar ekspektasi
-terhadap kapabilitas sistem sesuai dengan tujuan yang ditetapkan. Pada ruang
-lingkup yang dicakup, sistem difokuskan pada inspeksi visual nonintrusif
-terhadap kondisi eksterior kontainer, dokumentasi kondisi dalam bentuk citra
-dan data inspeksi, deteksi otomatis kerusakan berdasarkan analisis visual,
-pelaporan hasil inspeksi kepada pihak terkait, serta kesiapan integrasi dengan
-sistem informasi pelabuhan yang relevan.
-
-Sebaliknya, desain ini tidak mencakup inspeksi interior kontainer, proses
-perbaikan fisik atas kerusakan yang terdeteksi, perhitungan biaya kerusakan,
-validasi kepatuhan dokumen pengiriman, penentuan pihak yang bertanggung jawab
-secara bisnis atau hukum, maupun integrasi dengan sistem asuransi. Batasan ini
-menjaga fokus desain pada kapabilitas inti inspeksi visual otomatis, sementara
-aspek lain tetap dapat diposisikan sebagai pengembangan lanjutan.
-
-\subsection{Rangkuman}
-
-Desain arsitektur ini menetapkan kerangka yang memandu realisasi sistem berdasarkan karakteristik operasi pelabuhan dan kebutuhan pemangku kepentingan. Kebutuhan operasional memastikan sistem dapat dijalankan secara berkelanjutan, sedangkan batasan ruang lingkup menjaga fokus desain dan ekspektasi yang realistis terhadap kapabilitas sistem.
+Dengan batas tersebut, rancangan tetap diarahkan pada kapabilitas inti
+arsitektur: pemisahan tanggung jawab komponen, pengaitan hasil inspeksi pada
+entitas kontainer, penyimpanan bukti visual, dan kesiapan integrasi bertahap.
