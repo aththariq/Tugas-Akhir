@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{parskip}
+
+\setmainfont{Times New Roman}
+\geometry{
+  a4paper,
+  left=4cm,
+  right=3cm,
+  top=3cm,
+  bottom=3cm
+}
+\pagestyle{empty}
+\setlength{\emergencystretch}{2em}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries ABSTRACT}
+
+\vspace{0.45cm}
+
+\textbf{SYSTEM ARCHITECTURE DESIGN FOR AUTOMATED CONTAINER INSPECTION IN PORTS}
+
+\vspace{0.4cm}
+by
+
+\vspace{0.4cm}
+Aththariq Lisan Quran Daulah Sentono\\
+18222013
+\end{center}
+
+\begin{spacing}{1.0}
+Container inspection processes at ports still face information fragmentation
+among stakeholders, inspection records that are not yet connected to container
+history, and limited visual evidence that can be referenced later. These
+conditions create a risk that container identity, inspection results, and
+inspection evidence are scattered across different media. This final project
+aims to design a container inspection automation system architecture that
+supports container identification, inspection result recording, visual evidence
+management, and container history presentation within a single information
+structure.
+
+The design was conducted using the Design Science Research approach, which
+includes problem identification, objective definition, artifact design,
+demonstration through system realization, and result evaluation. The system
+architecture was structured using a layered approach consisting of presentation,
+application, data, and edge layers. In this design, the edge component handles
+video stream acquisition and initial inference, the API service manages
+orchestration and data persistence, and the web application provides an
+interface for monitoring inspection results. From the data perspective, the
+container entity is positioned as the central link between identity, inspection
+results, manifest information, and visual evidence.
+
+The system realization shows that the proposed architecture can be implemented
+as a flow connecting the edge component, API service, data storage, and web
+interface. The evaluation was carried out through integration testing of the
+main flows, including the creation of a container entity through OCR, propagation
+of the container number to other scanning flows, storage of inspection results
+in the core data model, and presentation of results in the web application.
+Based on these evaluation results, the proposed design supports container
+history recording within the scope of the internal realization of this final
+project. The main contribution of this final project is an architecture design
+that maps responsibility separation among components, places the container
+entity as the center of inspection information, and evaluates the suitability of
+the design against the system realization.
+
+Keywords: system architecture, container inspection automation, data
+integration, port, container history.
+\end{spacing}
+
+\end{document}

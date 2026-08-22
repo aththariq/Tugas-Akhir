@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "createdAt": "2026-05-19T12:25:31.730Z",
+  "updatedAt": "2026-05-19T12:55:41.373Z",
+  "briefPath": ".omx/ultragoal/brief.md",
+  "goalsPath": ".omx/ultragoal/goals.json",
+  "ledgerPath": ".omx/ultragoal/ledger.jsonl",
+  "codexGoalMode": "aggregate",
+  "goals": [
+    {
+      "id": "G001-check-tugas-akhir-for-remaining-mism",
+      "title": "Check Tugas-Akhir for remaining mismatch and inconsistency after rece...",
+      "objective": "Check Tugas-Akhir for remaining mismatch and inconsistency after recent thesis revisions. Audit LaTeX source and generated PDF/build state for mismatches in scope, rumusan masalah, tujuan, kesimpulan, FR/NFR mapping, diagrams/tables/listings, citations, labels/references, and cross-TA boundaries. Fix safe issues directly when clear; otherwise produce a precise issue list with file references.",
+      "status": "complete",
+      "attempt": 1,
+      "createdAt": "2026-05-19T12:25:31.730Z",
+      "updatedAt": "2026-05-19T12:55:41.373Z",
+      "startedAt": "2026-05-19T12:25:53.848Z",
+      "evidence": "TA mismatch audit complete; Bab IV wording/diagram adjusted; TA.pdf rebuilt; label/ref/input scan clean; rendered IV.2 and IV.5 inspected.",
+      "completedAt": "2026-05-19T12:55:41.373Z"
+    }
+  ],
+  "codexObjective": "Complete all ultragoal stories in .omx/ultragoal/goals.json: G001-check-tugas-akhir-for-remaining-mism Check Tugas-Akhir for remaining mismatch and inconsistency after rece..."
+}
