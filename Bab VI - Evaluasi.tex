@@ -127,6 +127,33 @@ dalam Tabel~\ref{tbl:aspek-evaluasi}.
     \end{tabular}
 \end{table}
 
+\subsection{Matriks Bukti Evaluasi}
+\label{subsec:matriks-bukti-evaluasi}
+
+Untuk memperjelas hubungan antara skenario evaluasi, artefak yang diperiksa,
+hasil yang diperoleh, dan implikasinya terhadap rancangan arsitektur, Tabel
+\ref{tbl:matriks-bukti-evaluasi} merangkum bukti utama yang digunakan dalam
+penelitian ini.
+
+\begin{table}[ht]
+    \centering
+    \small
+    \caption{Matriks Bukti Evaluasi Realisasi Arsitektur}
+    \label{tbl:matriks-bukti-evaluasi}
+    \begin{tabular}{p{0.20\textwidth} p{0.22\textwidth} p{0.22\textwidth} p{0.26\textwidth}}
+        \toprule
+        \textbf{Skenario} & \textbf{Artefak/Bukti} & \textbf{Hasil} & \textbf{Makna Arsitektural} \\
+        \midrule
+        Konektivitas \textit{edge} ke layanan API & Endpoint \texttt{/api/edge} pada layanan API, dokumentasi alur pengiriman hasil inspeksi, dan struktur layanan \textit{edge} & Hasil identifikasi dan pemindaian dapat dikirim dari komponen \textit{edge} ke layanan API & Membuktikan bahwa jalur data terstruktur inti direalisasikan sesuai pembagian lapisan \\
+        OCR membentuk entitas kontainer & Endpoint identifikasi kontainer, dokumentasi OCR pada komponen \textit{edge}, dan perilaku pembentukan data pada koleksi kontainer & Nomor kontainer yang dikenali membentuk atau memperbarui entitas kontainer & Menunjukkan bahwa \textit{Container} benar-benar menjadi jangkar data utama \\
+        Propagasi nomor kontainer ke alur lain & Mekanisme propagasi konteks kontainer pada pengelolaan aliran \textit{RTSP} dan skenario pengujian integrasi lintas pemindaian & Hasil pemindaian kerusakan, barang berisiko, dan kategori muatan dapat dikaitkan ke kontainer yang sama & Membuktikan konsistensi konteks inspeksi lintas modul tanpa entri manual berulang \\
+        Penyimpanan hasil inspeksi & Struktur koleksi \textit{containers} dan \textit{manifests}, serta penyimpanan artefak visual pada Cloudflare R2 & Hasil OCR, manifes, hasil pemindaian, dan bukti visual tersimpan secara terhubung & Menunjukkan bahwa arsitektur data yang dirancang benar-benar digunakan pada operasi inti \\
+        Siaran video langsung ke web & Layanan siaran video pada komponen \textit{edge}, koneksi \textit{WebSocket}, dan perilaku pemantauan pada aplikasi web & Aplikasi web menerima video beranotasi langsung dari komponen \textit{edge} & Membuktikan pemisahan jalur video langsung dari jalur data transaksional \\
+        Pembacaan hasil oleh aplikasi web & Endpoint REST pada layanan API dan tampilan inspeksi pada aplikasi web & Data hasil inspeksi dapat dibaca dan ditampilkan kembali kepada operator & Menunjukkan bahwa integrasi antarlapisan berakhir pada interaksi pengguna yang utuh \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 \section{Hasil Evaluasi}
 \label{sec:hasil-evaluasi}
 
@@ -185,9 +212,10 @@ Evaluasi terhadap struktur data menunjukkan bahwa model data yang direalisasikan
 telah mendukung kebutuhan integrasi dan ketertelusuran. Entitas \textit{Container}
 mampu menyimpan hasil OCR, ringkasan manifest, hasil pemindaian kerusakan,
 barang berisiko, klasifikasi muatan, dan bukti inspeksi dalam satu entitas
-terpadu. Sementara itu, entitas \textit{TrackingEvent} dan \textit{StreamStatus}
-menyediakan jejak aktivitas operasional yang dapat digunakan untuk pemantauan
-dan penelusuran.
+terpadu. Sementara itu, data manifes menyediakan konteks deklarasi muatan yang
+dapat dibandingkan dengan hasil deteksi aktual, sehingga keterkaitan antara
+identitas kontainer, isi muatan, dan hasil inspeksi dapat dijaga secara
+konsisten.
 
 Pemisahan penyimpanan antara MongoDB dan Cloudflare R2 juga menunjukkan bahwa
 implementasi mengikuti kebutuhan data yang berbeda. Data terstruktur disimpan

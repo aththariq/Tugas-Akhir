@@ -48,7 +48,7 @@ terhubung.
 Komponen \textit{edge} direalisasikan sebagai layanan berbasis Python dan
 \textit{FastAPI}. Komponen ini bertugas menarik aliran video dari kamera
 \textit{RTSP}, menjalankan model deteksi dan \textit{optical character
-recognition} (OCR), mengelola status aliran, serta mengirimkan hasil pengolahan
+recognition} (OCR), mengelola aliran video, serta mengirimkan hasil pengolahan
 ke komponen lain. Pada tahap implementasi, komponen \textit{edge} juga
 menyediakan layanan \textit{WebSocket} untuk menyiarkan \textit{frame} yang
 sudah dianotasi kepada aplikasi web.
@@ -116,9 +116,8 @@ dapat diimplementasikan.
 Jalur data terstruktur merupakan jalur utama untuk menyimpan hasil inspeksi dan
 menyediakan data operasional kepada pengguna. Pada implementasinya, komponen
 \textit{edge} mengirimkan hasil identifikasi kontainer, hasil pemindaian
-kerusakan, hasil pemindaian barang berisiko, hasil klasifikasi muatan, data
-pelacakan objek, dan peristiwa status aliran ke layanan API melalui antarmuka
-HTTP.
+kerusakan, hasil pemindaian barang berisiko, dan hasil klasifikasi muatan ke
+layanan API melalui antarmuka HTTP pada jalur operasi utama.
 
 Alur tersebut berjalan sebagai berikut:
 \begin{enumerate}
@@ -178,9 +177,10 @@ didefinisikan sebagai salah satu kapabilitas arsitektur inti.
 
 Fokus utama kontribusi pada penelitian ini berada pada bagaimana data inspeksi
 dimodelkan, disimpan, dan dipertukarkan secara konsisten. Implementasi sistem
-menunjukkan bahwa data inti direalisasikan ke dalam beberapa entitas utama,
-yaitu \textit{Container}, \textit{Manifest}, \textit{TrackingEvent},
-\textit{StreamStatus}, dan \textit{Vehicle}.
+menunjukkan bahwa operasi inspeksi utama direalisasikan dengan menempatkan
+\textit{Container} sebagai pusat agregasi hasil inspeksi, \textit{Manifest}
+sebagai konteks deklarasi muatan, dan \textit{User} sebagai konteks autentikasi
+serta akses pengguna.
 
 \textbf{Entitas \textit{Container}}
 
@@ -199,30 +199,17 @@ berat, volume, data kepabeanan, serta dokumen pendukung. Keberadaan entitas ini
 memungkinkan sistem membandingkan hasil deteksi muatan aktual dengan deklarasi
 muatan yang tercatat.
 
-\textbf{Entitas \textit{TrackingEvent}}
+\textbf{Konteks autentikasi dan akses pengguna}
 
-Entitas \textit{TrackingEvent} digunakan untuk mencatat data pelacakan per
-\textit{frame} dari komponen \textit{edge}. Data ini memuat identitas kamera,
-identitas perangkat, nomor \textit{frame}, stempel waktu, jenis objek, tingkat
-kepercayaan, posisi \textit{bounding box}, dan metadata tambahan. Entitas ini
-berfungsi sebagai jejak aktivitas operasional yang mendukung analisis lebih
-lanjut dan ketertelusuran proses.
+Selain dua entitas utama tersebut, sistem juga menggunakan data pengguna untuk
+mendukung autentikasi, otorisasi, dan peninjauan hasil inspeksi melalui aplikasi
+web. Namun, data pengguna tidak menjadi pusat agregasi operasi inspeksi, melainkan
+berfungsi sebagai konteks akses terhadap data kontainer dan manifes.
 
-\textbf{Entitas \textit{StreamStatus}}
-
-Entitas \textit{StreamStatus} merekam kondisi operasional setiap aliran video,
-termasuk status aktif, model yang digunakan, jumlah \textit{frame}, waktu
-\textit{frame} terakhir, serta informasi kesalahan. Entitas ini mendukung
-pemantauan sistem dan menjadi bagian penting dalam pengelolaan keandalan
-operasional.
-
-\textbf{Entitas \textit{Vehicle}}
-
-Entitas \textit{Vehicle} digunakan untuk menyimpan hasil pemindaian kategori
-kendaraan, termasuk jenis kendaraan yang terdeteksi, ringkasan hasil deteksi,
-dan artefak visual terkait. Walaupun bukan pusat utama sistem inspeksi
-kontainer, entitas ini menunjukkan bahwa arsitektur data yang dibangun bersifat
-ekstensibel untuk mendukung jenis objek inspeksi lain.
+Di luar jalur operasi utama, implementasi juga sempat memiliki kanal tambahan
+untuk data pelacakan dan status aliran. Akan tetapi, kanal tersebut tidak
+menjadi bagian inti dari operasi inspeksi kontainer yang dibahas pada penelitian
+ini, sehingga tidak diposisikan sebagai model data utama pada naskah ini.
 
 \subsection{Pemisahan Penyimpanan Terstruktur dan Artefak Visual}
 \label{subsec:pemisahan-penyimpanan}

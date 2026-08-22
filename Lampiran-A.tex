@@ -1,15 +1,17 @@
 \cleardoublepage
-\chapter{CONTOH ARTEFAK PERTUKARAN DATA}
+\chapter{CONTOH ARTEFAK KANAL DATA TAMBAHAN}
 
 Lampiran ini menyajikan contoh artefak pertukaran data yang relevan dengan
 implementasi arsitektur sistem inspeksi kargo digital. Artefak yang ditampilkan
 bukan dimaksudkan sebagai dokumentasi seluruh kode program, melainkan sebagai
-contoh representasi data terstruktur yang dikirim dari komponen \textit{edge}
-ke layanan API.
+contoh kanal data tambahan yang pernah digunakan untuk kebutuhan pelacakan
+objek. Kanal ini berbeda dari jalur operasi utama inspeksi kontainer, yang
+berjalan melalui antarmuka \texttt{/api/edge} untuk hasil OCR, pemindaian
+kerusakan, pemindaian barang berisiko, dan klasifikasi muatan.
 
-\section{Contoh Payload Hasil Pelacakan dari \textit{Edge} ke Layanan API}
+\section{Contoh Payload Hasil Pelacakan Tambahan dari \textit{Edge} ke Layanan API}
 
-\begin{lstlisting}[caption={Contoh payload data pelacakan dari komponen \textit{edge} ke layanan API}, label={lst:tracking-payload}]
+\begin{lstlisting}[caption={Contoh payload kanal pelacakan tambahan dari komponen \textit{edge} ke layanan API}, label={lst:tracking-payload}]
 {
   "camera_id": "gate-camera-1",
   "device_id": "edge-device-001",
@@ -38,9 +40,11 @@ ke layanan API.
 }
 \end{lstlisting}
 
-Listing~\ref{lst:tracking-payload} menunjukkan bahwa hasil pengamatan di
-lapangan tidak dikirim sebagai data video mentah ke layanan API, melainkan
-dalam bentuk data terstruktur yang memuat identitas kamera, identitas perangkat,
-nomor \textit{frame}, metadata model, serta kumpulan objek yang terlacak.
-Contoh ini mendukung pembahasan pada Bab V mengenai pemisahan jalur data
-terstruktur dan jalur video langsung.
+Listing~\ref{lst:tracking-payload} menunjukkan contoh kanal data tambahan yang
+pernah digunakan untuk mengirim informasi pelacakan objek dalam bentuk data
+terstruktur. Payload ini tidak mewakili jalur operasi utama inspeksi kontainer,
+melainkan kanal pendukung yang terpisah dari alur utama \texttt{/api/edge}.
+Lampiran ini dipertahankan untuk menunjukkan bahwa sistem pernah memiliki
+eksperimen kanal data tambahan, tetapi pembahasan inti penelitian tetap
+berfokus pada jalur inspeksi utama dan pemisahan antara data terstruktur dengan
+video langsung.
